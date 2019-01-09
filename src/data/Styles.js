@@ -38,7 +38,8 @@ module.exports = {
       White: "#ffffff",
       Black: "#000000",
       Flesh: "#F7D5BA",
-      Grey: "#e2e2e2"
+      Grey: "#e2e2e2",
+      ForestGrey: "#434343"
     },
   
     // Animations

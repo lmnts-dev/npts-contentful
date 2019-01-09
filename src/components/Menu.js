@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import AniLink from "gatsby-plugin-transition-link/AniLink";
+import * as lmnts from '../data/Styles'
 import styled from 'styled-components'
 
 const Header = styled.header`
@@ -50,19 +51,19 @@ const Menu = () => {
       <Nav>
         <ul>
           <li>
-            <Link to="/" activeStyle={activeLinkStyle}>
+            <AniLink paintDrip hex={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} to="/" activeStyle={activeLinkStyle}>
               Home
-            </Link>
+            </AniLink>
           </li>
           <li>
-            <Link to="/about/" activeStyle={activeLinkStyle}>
+            <AniLink direction={lmnts.Anim.Page.Direction} cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction} to="/about/" activeStyle={activeLinkStyle}>
               About
-            </Link>
+            </AniLink>
           </li>
           <li>
-            <Link to="/contact/" activeStyle={activeLinkStyle}>
+            <AniLink direction={lmnts.Anim.Page.Direction} cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} to="/contact/" activeStyle={activeLinkStyle}>
               Contact
-            </Link>
+            </AniLink>
           </li>
         </ul>
       </Nav>
