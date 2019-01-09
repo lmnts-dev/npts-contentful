@@ -2,10 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
+import * as lmnts from '../constants/Styles'
 
 const Post = styled.li`
   position: relative;
-  border: 1px solid ${props => props.theme.colors.secondary};
+  border: 1px solid ${lmnts.Clr.Secondary};
   border-radius: 2px;
   margin: 0 0 1em 0;
   width: 100%;
@@ -16,6 +17,7 @@ const Post = styled.li`
   }
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
     flex: ${props => (props.featured ? '0 0 100%' : '0 0 32%')};
+    ${ props => props.theme}
   }
   &:hover {
     background: ${props => props.theme.colors.tertiary};
