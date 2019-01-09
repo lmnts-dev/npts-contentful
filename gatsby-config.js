@@ -47,6 +47,12 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-transition-link',
+      options: {
+        layout: require.resolve(`./src/components/Layout.js`),
+      },
+    },
+    {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: config.siteUrl,

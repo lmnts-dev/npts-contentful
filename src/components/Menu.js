@@ -1,15 +1,16 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import AniLink from "gatsby-plugin-transition-link/AniLink";
+import * as lmnts from '../data/Styles'
 import styled from 'styled-components'
 import Logo from "!svg-react-loader!../images/svg-icons/logo.svg?name=logo";
 
-const NavLink = styled(Link) `
+const NavLink = styled(AniLink) `
   text-transform: uppercase;
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 2px;
 `
-const NavButton = styled(Link) `
+const NavButton = styled(AniLink) `
   text-transform: uppercase;
   background-color: #9F4300;
   font-size: 22px;
@@ -84,24 +85,24 @@ const Menu = () => {
       <Nav>
         <ul>
           <li>
-            <NavLink to="/" activeStyle={activeLinkStyle}>
+          <NavLink paintDrip hex={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} to="/" activeStyle={activeLinkStyle}>
               <Logo/>
-            </NavLink>
+              </NavLink>
           </li>
           <li>
-            <NavLink to="/services/" activeStyle={activeLinkStyle}>
+          <NavLink paintDrip hex={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} to="/" activeStyle={activeLinkStyle}>
               Services
-            </NavLink>
+              </NavLink>
           </li>
           <li>
-            <NavLink to="/about/" activeStyle={activeLinkStyle}>
+          <NavLink paintDrip hex={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} to="/" activeStyle={activeLinkStyle}>
               About
-            </NavLink>
+              </NavLink>
           </li>
           <li>
-            <NavLink to="/contact/" activeStyle={activeLinkStyle}>
+          <NavLink paintDrip hex={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} to="/" activeStyle={activeLinkStyle}>
               Contact
-            </NavLink>
+              </NavLink>
           </li>
           <li>
             <NavButton divider to="/contact/" activeStyle={activeLinkStyle}>
