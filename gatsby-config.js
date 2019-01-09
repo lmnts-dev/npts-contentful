@@ -32,10 +32,33 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Tinos`,
+            variants: [`400`, `700`]
+          },
+          {
+            family: `Montserrat`,
+            variants: [`400`, `500`, `600`, `700`]
+          },
+        ]
+      }
+    },
+    {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: config.siteUrl,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+          rule: {
+            include: /assets/
+          }
+      }
     },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',

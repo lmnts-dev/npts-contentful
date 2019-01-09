@@ -1,12 +1,12 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import Helmet from 'react-helmet'
-import favicon from '../images/favicon.ico'
+import favicon from '../assets/images/favicon.ico'
 import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
 import config from '../utils/siteConfig'
 import Menu from '../components/Menu'
-import Footer from '../compo nents/Footer'
+import Footer from '../components/Footer'
 
 const Template = ({ children }) => {
   return (

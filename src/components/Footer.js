@@ -1,80 +1,96 @@
 import React from 'react'
 import styled from 'styled-components'
+import StackedLogo from "!svg-react-loader!../images/svg-icons/logoStacked.svg?name=logoStacked";
+import { Link } from 'gatsby'
 
 const Wrapper = styled.footer`
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: flex-start;
+  flex-direction: column;
   margin: 0 auto;
-  max-width: ${props => props.theme.sizes.maxWidth};
+  display: block;
+  height: 100%;
 `
-
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+`
 const List = styled.ul`
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  border-top: 1px solid ${props => props.theme.colors.secondary};
-  padding: 1em 0 2em;
-  margin: 0 1.5em;
+  flex-direction: column;
+  font-size: 28px;
+`
+const Copywright = styled.div `
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
 `
 
 const Item = styled.li`
-  display: inline-block;
-  padding: 0.25em 0;
-  width: 100%;
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    width: auto;
-  }
+  font-weight: 700;
   a {
-    font-weight: 600;
     transition: all 0.2s;
-    color: ${props => props.theme.colors.base};
+    color: #7C7C7C;
+    text-decoration: none;
+    line-height: 1.5;
     &:hover {
-      color: ${props => props.theme.colors.highlight};
+      color: #7C7C7C;
     }
     &:visited {
-      color: ${props => props.theme.colors.base};
+      color: #7C7C7C;
     }
   }
 `
 
 const Footer = () => (
   <Wrapper>
-    <List>
-      <Item>
-        <a
-          href="https://www.contentful.com/"
-          rel="nofollow noopener noreferrer"
-          target="_blank"
-        >
-          <img
-            src="https://images.ctfassets.net/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg"
-            style={{ width: '100px' }}
-            alt="Powered by Contentful"
-          />
-        </a>
-      </Item>
-      <Item>
-        <a
-          href="https://github.com/ryanwiemer/gatsby-starter-gcn"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          gatsby-starter-gcn
-        </a>{' '}
-        by{' '}
-        <a
-          href="https://github.com/ryanwiemer"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          @ryanwiemer
-        </a>
-      </Item>
-    </List>
+    <Row>
+      <StackedLogo/>
+    </Row>
+    <Row>
+      <List>
+        <Item>
+          <Link to="/" >
+            Home
+          </Link>
+        </Item>
+        <Item>
+          <Link to="/services" >
+            Services
+          </Link>
+        </Item>
+        <Item>
+          <Link to="/about" >
+            About
+          </Link>
+        </Item>
+        <Item>
+          <Link to="/contact" >
+            Contact
+          </Link>
+        </Item>
+        <Item>
+          <Link to="/porfolio" >
+            Our Work
+          </Link>
+        </Item>
+      </List>
+      <List>
+        <Item>
+          <Link to="/chip-drop" >
+            Chip Drop
+          </Link>
+        </Item>
+        <Item>
+          <Link to="/careers" >
+            Careers
+          </Link>
+        </Item>
+      </List>
+    </Row>
+    <Row>
+      <Copywright>
+        © 2018 Noah's Park Tree Care
+      </Copywright>
+    </Row>
   </Wrapper>
 )
 

@@ -1,6 +1,39 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
+import Logo from "!svg-react-loader!../images/svg-icons/logo.svg?name=logo";
+
+const NavLink = styled(Link) `
+  text-transform: uppercase;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+`
+const NavButton = styled(Link) `
+  text-transform: uppercase;
+  background-color: #9F4300;
+  font-size: 22px;
+  letter-spacing: 1px;
+  font-family: 'Tinos', serif;
+  border-radius: 25px;
+  padding: 12.5px 25px;
+  position: relative;
+  ${props => props.divider ? 
+  `
+    margin-left: 25px;
+    &::before {
+      content: "";
+      height: 100%;
+      width: 1px;
+      top: 0;
+      left: -25px; 
+      position: absolute;
+      background-color: #FFFFFF;
+    }
+  `
+  : "margin-left: 0"}
+`
+
 
 const Header = styled.header`
   background: ${props => props.theme.colors.base};
@@ -16,6 +49,7 @@ const Nav = styled.nav`
   ul {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   li {
@@ -50,19 +84,29 @@ const Menu = () => {
       <Nav>
         <ul>
           <li>
-            <Link to="/" activeStyle={activeLinkStyle}>
-              Home
-            </Link>
+            <NavLink to="/" activeStyle={activeLinkStyle}>
+              <Logo/>
+            </NavLink>
           </li>
           <li>
-            <Link to="/about/" activeStyle={activeLinkStyle}>
+            <NavLink to="/services/" activeStyle={activeLinkStyle}>
+              Services
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/about/" activeStyle={activeLinkStyle}>
               About
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link to="/contact/" activeStyle={activeLinkStyle}>
+            <NavLink to="/contact/" activeStyle={activeLinkStyle}>
               Contact
-            </Link>
+            </NavLink>
+          </li>
+          <li>
+            <NavButton divider to="/contact/" activeStyle={activeLinkStyle}>
+              775.376.0917
+            </NavButton>
           </li>
         </ul>
       </Nav>
