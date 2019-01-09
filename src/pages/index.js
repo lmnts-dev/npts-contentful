@@ -3,11 +3,12 @@ import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
 import Layout from '../components/Layout'
 import Container from '../components/Container'
-import PageTitle from '../components/PageTitle'
 import SEO from '../components/SEO'
 import TextGroup from '../components/TextGroup'
 import ServiceRow from '../components/ServiceRow'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 const BgImage = styled.div`
   background-position: center center;
@@ -57,7 +58,7 @@ const Contact = ({ data }) => {
                     />
                     <BgImage padding src="https://images.unsplash.com/photo-1546828209-e1663f3be594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80" />
                 </ServiceRow>
-                <ServiceRow>
+                <ServiceRow direction="row-reverse">
                     <TextGroup
                         large
                         padding
@@ -72,6 +73,7 @@ const Contact = ({ data }) => {
                     <TextGroup
                         large
                         padding
+                        bgColor="#C9EAEB"
                         header="Trimming"
                         text="As a premier local tree service, we strive to offer the highest quality pruning or trimming possible. All our pruning is done to ISA standards and guidelines."
                         buttonText="Learn More"
@@ -94,6 +96,7 @@ const Contact = ({ data }) => {
                     <TextGroup
                         large
                         padding
+                        bgColor="#C9EAEB"
                         header="Plant Health Care (PHC)"
                         text="Our team will do everything possible to improve and maintain a tree’s health. We’ll do what is right for every tree."
                         buttonText="Learn More"

@@ -3,15 +3,18 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  div {
-      flex: 1;
+  flex-direction: ${props => props.direction || 'row'};
+  div:first-of-type {
+      flex: 4;
+  }
+  div:last-of-type {
+      flex: 5;
   }
 `
 
-const ServiceRow = ({ children}) => {
+const ServiceRow = ({ direction, children}) => {
     return (
-        <Wrapper>
+        <Wrapper direction={direction}>
             {children}
         </Wrapper>
     )
