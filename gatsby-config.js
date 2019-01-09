@@ -31,7 +31,6 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-transition-link`,
     {
       resolve: 'gatsby-plugin-transition-link',
       options: {

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 import { Link } from 'gatsby'
 
 const Wrapper = styled.div`
@@ -26,12 +27,12 @@ const Box = styled.div`
   }
 `
 
-const PreviousLink = styled(Link)`
+const PreviousLink = styled(AniLink)`
   margin-right: auto;
   order: 1;
 `
 
-const NextLink = styled(Link)`
+const NextLink = styled(AniLink)`
   margin-left: auto;
   order: 2;
 `
@@ -41,12 +42,12 @@ const PostLinks = props => {
     <Wrapper>
       <Box>
         {props.previous && (
-          <PreviousLink to={`/${props.previous.slug}/`}>
+          <PreviousLink direction="left" cover bg="#663399" duration={1} to={`/${props.previous.slug}/`}>
             &#8592; Prev Post
           </PreviousLink>
         )}
         {props.next && (
-          <NextLink to={`/${props.next.slug}/`}>Next Post &#8594;</NextLink>
+          <NextLink direction="right" cover bg="#663399" duration={1} to={`/${props.next.slug}/`}>Next Post &#8594;</NextLink>
         )}
       </Box>
     </Wrapper>
