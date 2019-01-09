@@ -32,21 +32,6 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Tinos`,
-            variants: [`400`, `700`]
-          },
-          {
-            family: `Montserrat`,
-            variants: [`400`, `500`, `600`, `700`]
-          },
-        ]
-      }
-    },
-    {
       resolve: 'gatsby-plugin-transition-link',
       options: {
         layout: require.resolve(`./src/components/Layout.js`),
@@ -57,14 +42,6 @@ module.exports = {
       options: {
         siteUrl: config.siteUrl,
       },
-    },
-    {
-      resolve: 'gatsby-plugin-react-svg',
-      options: {
-          rule: {
-            include: /assets/
-          }
-      }
     },
     'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
@@ -115,6 +92,14 @@ module.exports = {
         display: 'minimal-ui',
         icon: `static${config.siteLogo}`,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /assets/
+        }
+      }
     },
     'gatsby-plugin-offline',
     {

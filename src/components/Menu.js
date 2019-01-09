@@ -4,13 +4,13 @@ import * as lmnts from '../data/Styles'
 import styled from 'styled-components'
 import Logo from "!svg-react-loader!../images/svg-icons/logo.svg?name=logo";
 
-const NavLink = styled(AniLink) `
+const NavLink = styled(AniLink)`
   text-transform: uppercase;
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 2px;
 `
-const NavButton = styled(AniLink) `
+const NavButton = styled(AniLink)`
   text-transform: uppercase;
   background-color: #9F4300;
   font-size: 22px;
@@ -19,8 +19,8 @@ const NavButton = styled(AniLink) `
   border-radius: 25px;
   padding: 12.5px 25px;
   position: relative;
-  ${props => props.divider ? 
-  `
+  ${props => props.divider ?
+    `
     margin-left: 25px;
     &::before {
       content: "";
@@ -32,7 +32,7 @@ const NavButton = styled(AniLink) `
       background-color: #FFFFFF;
     }
   `
-  : "margin-left: 0"}
+    : "margin-left: 0"}
 `
 
 
@@ -46,13 +46,11 @@ const Nav = styled.nav`
   max-width: ${props => props.theme.sizes.maxWidth};
   margin: 0 auto;
   padding: 0 1.5em;
-
   ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-
   li {
     display: inline-block;
     margin-left: 1em;
@@ -62,7 +60,6 @@ const Nav = styled.nav`
       flex-basis: 100%;
     }
   }
-
   a {
     text-decoration: none;
     color: DarkGray;
@@ -85,22 +82,22 @@ const Menu = () => {
       <Nav>
         <ul>
           <li>
-          <NavLink paintDrip hex={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} to="/" activeStyle={activeLinkStyle}>
-              <Logo/>
-              </NavLink>
+            <NavLink paintDrip hex={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} to="/" activeStyle={activeLinkStyle}>
+              <Logo />
+            </NavLink>
           </li>
           <li>
-          <NavLink paintDrip hex={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} to="/" activeStyle={activeLinkStyle}>
+            <NavLink paintDrip hex={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} to="/" activeStyle={activeLinkStyle}>
               Services
               </NavLink>
           </li>
           <li>
-          <NavLink paintDrip hex={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} to="/" activeStyle={activeLinkStyle}>
+            <NavLink paintDrip hex={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} to="/about" activeStyle={activeLinkStyle}>
               About
               </NavLink>
           </li>
           <li>
-          <NavLink paintDrip hex={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} to="/" activeStyle={activeLinkStyle}>
+            <NavLink paintDrip hex={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} to="/contact" activeStyle={activeLinkStyle}>
               Contact
               </NavLink>
           </li>

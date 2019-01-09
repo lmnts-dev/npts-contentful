@@ -19,7 +19,7 @@ const List = styled.ul`
   flex-direction: column;
   font-size: 28px;
 `
-const Copywright = styled.div `
+const Copywright = styled.div`
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
 `
@@ -43,7 +43,7 @@ const Item = styled.li`
 const Footer = () => (
   <Wrapper>
     <Row>
-      <StackedLogo/>
+      <StackedLogo />
     </Row>
     <Row>
       <List>
@@ -93,5 +93,4 @@ const Footer = () => (
     </Row>
   </Wrapper>
 )
-
 export default Footer
