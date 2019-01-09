@@ -10,8 +10,8 @@
 module.exports = {
     // Typography
     Fnt: {
-      Header: "'San Francisco', 'Helvetica', 'Roboto', 'Arial', sans-serif",
-      Body: "'San Francisco', 'Helvetica', 'Roboto', 'Arial', sans-serif"
+      Header: "'Tinos', 'Georgia', serif",
+      Body: "'Montserrat', 'San Francisco', 'Helvetica', 'Roboto', 'Arial', sans-serif"
     },
   
     // Base Measurements

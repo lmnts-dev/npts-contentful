@@ -6,7 +6,7 @@ import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
 import config from '../utils/siteConfig'
 import Menu from '../components/Menu'
-import Footer from '../compo nents/Footer'
+import Footer from '../components/Footer'
 
 const Template = ({ children }) => {
   return (
@@ -16,6 +16,7 @@ const Template = ({ children }) => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href={favicon} />
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500|Tinos" rel="stylesheet" />
       </Helmet>
 
       <ThemeProvider theme={theme}>

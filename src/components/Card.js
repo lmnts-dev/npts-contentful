@@ -2,11 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
-import * as lmnts from '../constants/Styles'
 
 const Post = styled.li`
   position: relative;
-  border: 1px solid ${lmnts.Clr.Secondary};
   border-radius: 2px;
   margin: 0 0 1em 0;
   width: 100%;
