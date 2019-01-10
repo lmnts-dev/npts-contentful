@@ -6,7 +6,8 @@ const Wrapper = styled.div`
   flex-direction: ${props => props.direction || 'row'};
   position: relative;
   z-index: ${props => props.zIndex || 'auto'};
-
+  padding: ${props => (props.padding ? '200px' : '0')};
+  
   div:first-of-type {
     flex: ${props => {
       if (props.leftBias) return '4'
