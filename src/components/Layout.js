@@ -9,17 +9,13 @@ import Menu from '../components/Menu'
 import Footer from '../components/Footer'
 
 const Template = ({ children }) => {
-  return (
-    <div className="siteRoot">
+  return <div className="siteRoot">
       <Helmet>
         <title>{config.siteTitle}</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href={favicon} />
-        <link
-          href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500|Tinos"
-          rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500|Tinos" rel="stylesheet" />
       </Helmet>
 
       <ThemeProvider theme={theme}>
@@ -33,7 +29,7 @@ const Template = ({ children }) => {
       </ThemeProvider>
       <GlobalStyle />
     </div>
-  )
 }
 
 export default Template
+

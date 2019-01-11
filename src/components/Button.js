@@ -18,7 +18,7 @@ const Link = styled.a`
   border-radius: 46px;
   font-weight: 700;
   box-shadow: ${props =>
-    props.large ? '0' : '0 3px 36px rgba( 0, 0, 0, .16)'};
+    !(props.large) && !(props.dark) ? '0 3px 36px rgba( 0, 0, 0, .16)' : '0'};
 `
 
 const Button = props => (
