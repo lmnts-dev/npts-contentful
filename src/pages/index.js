@@ -2,6 +2,10 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
 import Layout from '../components/Layout'
+import { Button } from '../components/Button'
+import { LargeTextBlock, TextBlock } from '../components/TextBlocks'
+import { H1, H2, H3, P, PLarge, Text, HeaderText } from '../components/Headings'
+import { Border, HeaderLine } from '../components/Lines'
 import Container from '../components/Container'
 import SEO from '../components/SEO'
 import TextGroup from '../components/TextGroup'
@@ -10,10 +14,10 @@ import Column from '../components/Column'
 import Testimonial from '../components/Testimonial'
 import PullQuote from '../components/PullQuote'
 import styled from 'styled-components'
-import Text from '../components/Text'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
+/*
 const BgImage = styled.div`
   background-position: center center;
   background-size: cover;
@@ -28,7 +32,31 @@ const Paragraph = styled(Text)`
   text-align: ${props => (props.center ? 'center' : 'left')};
   font-weight: 400;
 `
+*/
 
+const Contact = ({ data }) => {
+    const postNode = {
+        title: `Contact - ${config.siteTitle}`,
+    }
+
+    return (
+        <Layout>
+            <Helmet>
+                <title>{`Contact - ${config.siteTitle}`}</title>
+            </Helmet>
+            <SEO postNode={postNode} pagePath="contact" customTitle />
+
+            <Container>
+                <LargeTextBlock header="header" text="lorem" bText="button" dest="/" bgColor="#FFFFF0" theme="dark" pushUp/>
+                <LargeTextBlock header="header" text="lorem" bText="button" dest="/" bgColor="#FFFF00" theme="dark" pushLeft/>
+            </Container>
+        </Layout>
+    )
+}
+
+export default Contact
+
+/*
 const Contact = ({ data }) => {
     const postNode = {
         title: `Contact - ${config.siteTitle}`,
@@ -156,4 +184,4 @@ const Contact = ({ data }) => {
 
 export default Contact
 
-
+*/

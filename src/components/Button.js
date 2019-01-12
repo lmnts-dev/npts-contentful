@@ -1,6 +1,74 @@
+
+
+
 import React from 'react'
 import styled from 'styled-components'
 
+/* these are the four buttons you can call ////////////////
+
+    STILL NEED TO FIGURE OUT CONTENT URL FOR BUTTON WITH ARROW 
+    
+    <Button to="/"> light pillow </Button>
+    <Button to="/" dark> dark pillow </Button>
+    <Button to="/" arrowButton> light arrow </Button>
+    <Button to="/" arrowButton dark> dark arrow </Button>
+    
+///////////////////////////////////////////////////////// */
+
+export const Button = styled.a`
+  display: inline-block;
+  letter-spacing: 1px;
+  font-size: 19px;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1;
+  font-weight: 700;
+  ${props => {
+    /* grey background circle button */
+    if (!props.arrowButton && props.dark) return ` 
+      padding: 23px 46px;
+      background-color: #F7F7F7;
+      color: #9f4300;
+      border-radius: 46px;
+    `
+    /* white background circle button */
+    if (!props.arrowButton && !props.dark) return `
+      padding: 23px 46px;
+      color: #9f4300;
+      border-radius: 46px;
+      background-color: #FFFFFF;
+      box-shadow: 0 3px 36px rgba( 0, 0, 0, .16);
+    `
+    /* white arrow button */
+    if (props.arrowButton && !props.dark) return `
+      color: #FFFFFF;
+      &::after {
+        content: url(./images/something.png) 
+      }
+    `
+    /* dark arrow button */
+    if (props.arrowButton && props.dark) return `
+      color: #293536;
+      &::after {
+        content: url(./images/something-2.png);
+      }
+    `
+  }}
+`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 const Link = styled.a`
   display: inline-block;
   letter-spacing: 1px;
@@ -44,3 +112,5 @@ const Button = props => (
     </div>
 )
 export default Button
+
+*/
