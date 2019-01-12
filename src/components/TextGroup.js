@@ -8,14 +8,15 @@ const Wrapper = styled.div`
   margin: 0 auto;
   display: block;
   height: 100%;
-  padding: ${props => (props.padding ? '200px' : '0')};
+  padding: ${props => props.padding || '0'};
   background-color: ${props => props.bgColor || 'transparent'};
 
   position: ${props => (props.pushLeft ? 'relative' : 'default')};
   left: ${props => (props.pushLeft ? '-5vw' : '0')};
   width: ${props => (props.pushLeft ? 'calc( 100% + 5vw)' : 'auto')};
 
-  box-shadow: ${props => (props.shadow ? '0px 0px 72px rgba(0, 0, 0, .28)' : '0')};
+  box-shadow: ${props =>
+    props.shadow ? '0px 0px 72px rgba(0, 0, 0, .28)' : '0'};
 `
 
 const Header = styled.h2`
