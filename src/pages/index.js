@@ -2,14 +2,17 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
 import Layout from '../components/Layout'
+import TwoColRow from '../components/TwoColRow'
 import { Button } from '../components/Button'
+import Row from '../components/Row'
+import Block from '../components/Block'
 import { LargeTextBlock, TextBlock } from '../components/TextBlocks'
 import { H1, H2, H3, P, PLarge, Text, HeaderText } from '../components/Headings'
 import { Border, HeaderLine } from '../components/Lines'
 import Container from '../components/Container'
 import SEO from '../components/SEO'
 import TextGroup from '../components/TextGroup'
-import Row from '../components/Row'
+import OldRow from '../components/OldRow'
 import Column from '../components/Column'
 import Testimonial from '../components/Testimonial'
 import PullQuote from '../components/PullQuote'
@@ -47,8 +50,47 @@ const Contact = ({ data }) => {
             <SEO postNode={postNode} pagePath="contact" customTitle />
 
             <Container>
-                <LargeTextBlock header="header" text="lorem" bText="button" dest="/" bgColor="#FFFFF0" theme="dark" pushUp/>
-                <LargeTextBlock header="header" text="lorem" bText="button" dest="/" bgColor="#FFFF00" theme="dark" pushLeft/>
+                <TwoColRow bias="right">
+                    <Block bgImage="https://images.unsplash.com/photo-1546828209-e1663f3be594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80" />
+                    <Column>
+                        <TextBlock header="header" text="text" bText="button" dest="/" theme="dark" bgColor="white"/>
+                        <TextBlock header="header" text="text" bText="button" dest="/" theme="light" bgColor="#394343" pushLeft/>
+                    </Column>
+                </TwoColRow>
+                <Block bgColor="#9DD5EA">
+                    <TwoColRow bias="left">
+                        <Column>
+                            <Text lHeight="1.3" size="34px" align="left"> Noah works with his son. He uses very new and modern equipment. It is probably a combination of all these factors that allows him to have bid the job at less than one-half the other bids.</Text>
+                            <Row>
+                                <HeaderText color="#FFFFFF" size="42px" weight="700">Ralph</HeaderText>
+                                <HeaderText color="#FFFFFF" size="42px">Reno</HeaderText>
+                            </Row>
+                        </Column>
+                        <Column>
+                            <HeaderText color="white" size="100px">"Modern"</HeaderText>
+                        </Column>
+                    </TwoColRow>
+                </Block>
+                <TwoColRow bias="left">
+                    <LargeTextBlock header="header" text="text" bText="button" dest="/" theme="light" bgColor="#272929"/>
+                    <Block bgImage="https://images.unsplash.com/photo-1546828209-e1663f3be594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80" />
+                </TwoColRow>
+                <TwoColRow bias="right">
+                    <Block bgImage="https://images.unsplash.com/photo-1546828209-e1663f3be594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80" />
+                    <LargeTextBlock header="header" text="text" bText="button" dest="/" theme="dark" bgColor="#FFFFFF"/>
+                </TwoColRow>
+                <TwoColRow bias="left">
+                    <LargeTextBlock header="header" text="text" bText="button" dest="/" theme="dark" bgColor="#C9EAEB"/>
+                    <Block bgImage="https://images.unsplash.com/photo-1546828209-e1663f3be594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80" />
+                </TwoColRow>
+                <TwoColRow bias="right">
+                    <Block bgImage="https://images.unsplash.com/photo-1546828209-e1663f3be594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80" />
+                    <LargeTextBlock header="header" text="text" bText="button" dest="/" theme="dark" bgColor="#FFFFFF"/>
+                </TwoColRow>
+                <TwoColRow bias="left">
+                    <LargeTextBlock header="header" text="text" bText="button" dest="/" theme="dark" bgColor="#C9EAEB"/>
+                    <Block bgImage="https://images.unsplash.com/photo-1546828209-e1663f3be594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80" />
+                </TwoColRow>
             </Container>
         </Layout>
     )
@@ -70,7 +112,7 @@ const Contact = ({ data }) => {
             <SEO postNode={postNode} pagePath="contact" customTitle />
 
             <Container>
-                <Row direction="row-reverse" rightBias>
+                <OldRow direction="row-reverse" rightBias>
                     <Column>
                         <TextGroup
                             padding="10vw 10vw"
@@ -92,8 +134,8 @@ const Contact = ({ data }) => {
                         />  
                     </Column>
                     <BgImage src="https://images.unsplash.com/photo-1546828209-e1663f3be594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80" />
-                </Row>
-                <Row bgColor="#9DD5EA" zIndex="2" padding="150px 10vw">
+                </OldRow>
+                <OldRow bgColor="#9DD5EA" zIndex="2" padding="150px 10vw">
                     <Testimonial
                         responsiveMargin
                         text="Noah works with his son. He uses very new and modern equipment. It is probably a combination of all these factors that allows him to have bid the job at less than one-half the other bids."
@@ -103,8 +145,8 @@ const Contact = ({ data }) => {
                     <PullQuote responsiveMargin>
                         "Modern"
                     </PullQuote>
-                </Row>
-                <Row rightBias>
+                </OldRow>
+                <OldRow rightBias>
                     <TextGroup
                         largeText
                         padding="10vw 10vw"
@@ -116,8 +158,8 @@ const Contact = ({ data }) => {
                         destination="/"
                     />
                     <BgImage padding="10vw 10vw" src="https://images.unsplash.com/photo-1546828209-e1663f3be594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80" />
-                </Row>
-                <Row direction="row-reverse" rightBias>
+                </OldRow>
+                <OldRow direction="row-reverse" rightBias>
                     <TextGroup
                         largeText
                         padding="10vw 10vw"
@@ -127,8 +169,8 @@ const Contact = ({ data }) => {
                         destination="/"
                     />
                     <BgImage padding="10vw 10vw" src="https://images.unsplash.com/photo-1546828209-e1663f3be594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80" />
-                </Row>
-                <Row rightBias>
+                </OldRow>
+                <OldRow rightBias>
                     <TextGroup
                         largeText
                         padding="10vw 10vw"
@@ -139,8 +181,8 @@ const Contact = ({ data }) => {
                         destination="/"
                     />
                     <BgImage padding="10vw 10vw" src="https://images.unsplash.com/photo-1546828209-e1663f3be594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80" />
-                </Row>
-                <Row rightBias direction="row-reverse">
+                </OldRow>
+                <OldRow rightBias direction="row-reverse">
                     <TextGroup
                         largeText
                         padding="10vw 10vw"
@@ -150,8 +192,8 @@ const Contact = ({ data }) => {
                         destination="/"
                     />
                     <BgImage padding="10vw 10vw" src="https://images.unsplash.com/photo-1546828209-e1663f3be594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80" />
-                </Row>
-                <Row rightBias>
+                </OldRow>
+                <OldRow rightBias>
                     <TextGroup
                         largeText
                         padding="10vw 10vw"
@@ -162,8 +204,8 @@ const Contact = ({ data }) => {
                         destination="/"
                     />
                     <BgImage padding="10vw 10vw" src="https://images.unsplash.com/photo-1546828209-e1663f3be594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80" />
-                </Row>
-                <Row bgColor="#9F4300" padding="150px 25vw">
+                </OldRow>
+                <OldRow bgColor="#9F4300" padding="150px 25vw">
                     <div>
                         <Text weight="700" center size="42px" color="#FFFFFF">
                             Our Philosophy
@@ -175,7 +217,7 @@ const Contact = ({ data }) => {
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus pharetra mi, in malesuada purus luctus placerat. Ut vulputate, enim sed feugiat consectetur, ex odio tempor tellus, sed laoreet mi tortor vitae mauris. Fusce vulputate ligula in massa mollis, ut finibus leo fermentum. 
                         </Paragraph>
                     </div>
-                </Row>
+                </OldRow>
 
             </Container>
         </Layout>

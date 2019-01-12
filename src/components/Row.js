@@ -3,31 +3,39 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: ${props => props.direction || 'row'};
-  position: relative;
-  z-index: ${props => props.zIndex || 'auto'};
-  padding: ${props => (props.padding || '0')};
-  
-  div:first-of-type {
-    flex: ${props => {
-      if (props.leftBias) return '4'
-      if (props.rightBias) return '5'
-      return '10'
-    }};
-  }
-  div:last-of-type {
-    flex: ${props => {
-      if (props.leftBias) return '5'
-      if (props.rightBias) return '4'
-      return '10'
-    }};
-  }
-  background-color: ${props => props.bgColor || 'transparent'};
+  flex-direction: row;
+  justify-content: ${props => props.justify || 'flex-start'};
+  align-items: ${props => props.align || 'flex-start'};
+  padding: ${props => props.padding || '0'};
+  ${props => {
+    /* absolute positioned block */
+    if (props.absolute == "bottomLeft") return `
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    `
+    if (props.absolute == "bottomRight") return `
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    `
+    if (props.absolute == "topLeft") return `
+        position: absolute;
+        top: 0
+        left: 0;
+    `
+    if (props.absolute == "topRight") return `
+        position: absolute;
+        top: 0;
+        right: 0;
+    `
+  }};
+
 `
 
-const Row = ({ padding, zIndex, rightBias, leftBias, bgColor, direction, children }) => {
+const Row = ({ justify, align, absolute, padding, children }) => {
     return (
-        <Wrapper padding={padding} zIndex={zIndex} rightBias={rightBias} leftBias={leftBias} bgColor={bgColor} direction={direction}>
+        <Wrapper justify={justify} align={align} absolute={absolute} padding={padding} >
             {children}
         </Wrapper>
     )

@@ -70,6 +70,7 @@ export const PLarge = styled(P)`
 `
 
 export const Text = styled.div`
+  width: 100% !important;
   color: ${props => props.color || '#000000'};
   padding: ${props => props.padding|| '0'};
   font-size: ${props => props.size || '36px'};

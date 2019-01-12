@@ -6,8 +6,6 @@ import { H1, H2, H3, P, PLarge, Text, HeaderText } from '../components/Headings'
 
 /* these are what you can call ////////////////
 
-    NEEED TO FINISH PUSH UP
-
     <TextBlock header="header" text="lorem" bText="button" dest="/" bgColor="#FFFFF0" theme="dark" pushUp/>
     <LargeTextBlock header="header" text="lorem" bText="button" dest="/" bgColor="#FFFF00" theme="dark" pushLeft/>
 
@@ -17,11 +15,15 @@ import { H1, H2, H3, P, PLarge, Text, HeaderText } from '../components/Headings'
 const Wrapper = styled.div`
     background-color: ${props => props.bgColor || '#000000'};
     padding: ${props => props.padding || '50px 10vw'};
+    width: 100% !important;
+    &:: after {
+        background-color: ${props => props.bgColor || '#000000'};
+    }
     ${props => {
         /* push block left */
         if (props.pushLeft) return ` 
           position: relative;
-          width: 110%;
+          width: 110% !important;
           left: -10%;
         `
       }}
@@ -29,7 +31,15 @@ const Wrapper = styled.div`
         /* push block up */
         if (props.pushUp) return ` 
           position: relative;
-          transform: translateY(-10%);
+          transform: translateY(-50px);
+          &::after {
+              content: "";
+              height: 50px;
+              width: 100%;
+              position: absolute;
+              bottom: -50px;
+              left: 0;
+          }
         `
       }}
 
@@ -45,7 +55,7 @@ export const TextBlock = props => {
                 <P color="#FFFFFF">
                     {props.text} 
                 </P>
-                <Button to={props.dest} dark>
+                <Button to={props.dest}>
                     {props.bText}
                 </Button>
             </Wrapper>
@@ -78,7 +88,7 @@ export const LargeTextBlock = props => {
                 <PLarge color="#FFFFFF">
                     {props.text} 
                 </PLarge>
-                <Button to={props.dest} dark>
+                <Button to={props.dest}>
                     {props.bText}
                 </Button>
             </Wrapper>
