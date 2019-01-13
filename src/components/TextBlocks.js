@@ -15,7 +15,6 @@ import { H1, H2, H3, P, PLarge, Text, HeaderText } from '../components/Headings'
 const Wrapper = styled.div`
     background-color: ${props => props.bgColor || '#000000'};
     padding: ${props => props.padding || '50px 10vw'};
-    width: 100% !important;
     &:: after {
         background-color: ${props => props.bgColor || '#000000'};
     }
@@ -23,7 +22,7 @@ const Wrapper = styled.div`
         /* push block left */
         if (props.pushLeft) return ` 
           position: relative;
-          width: 110% !important;
+          width: 110%;
           left: -10%;
         `
       }}

@@ -5,19 +5,19 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   div:first-of-type {
-    width: ${props => {
+    flex: ${props => {
         /* adjust widths of each column */
-        if (props.bias == "left") return "55%"
-        if (props.bias == "right") return "45%"
-        return "50%"
+        if (props.bias == "left") return "5"
+        if (props.bias == "right") return "4"
+        return "1"
     }};
   }
   div:last-of-type {
-    width: ${props => {
+    flex: ${props => {
         /* adjust widths of each column */
-        if (props.bias == "left") return "45%"
-        if (props.bias == "right") return "55%"
-        return "50%"
+        if (props.bias == "left") return "4"
+        if (props.bias == "right") return "5"
+        return "1"
     }};
   }
 `

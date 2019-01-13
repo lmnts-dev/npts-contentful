@@ -70,12 +70,11 @@ export const PLarge = styled(P)`
 `
 
 export const Text = styled.div`
-  width: 100% !important;
   color: ${props => props.color || '#000000'};
   padding: ${props => props.padding|| '0'};
   font-size: ${props => props.size || '36px'};
   line-height: ${props => props.lHeight || '1'};
-  text-align: ${props => props.align || 'center'};
+  text-align: ${props => props.align || 'left'};
   font-weight: ${props => props.weight || '400'};
   font-family: 'Montserrat', sans-serif;
 `
