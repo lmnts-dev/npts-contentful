@@ -20,6 +20,12 @@ STILL NEED TO DO SPECIFIC Text PADDING SIZES FOR RESPONSIVENESS
 
 export const H1 = styled.h1`
   font-size: 90px;
+  @media ( max-width: 1440px ){
+    font-size: 6.25vw;
+  }
+  @media ( max-width: 600px ){
+    font-size: 37.5px;
+  }
   line-height: 1.1;
   margin: 0;
   padding: 0;
@@ -32,6 +38,12 @@ export const H1 = styled.h1`
 export const H2 = styled.h2`
   display: inline-block;
   font-size: 56px;
+  @media ( max-width: 1440px ){
+    font-size: 3.89vw;
+  }
+  @media ( max-width: 600px ){
+    font-size:23.34px;
+  }
   line-height: 1.1;
   margin: 0;
   padding: 0;
@@ -44,6 +56,12 @@ export const H2 = styled.h2`
 export const H3 = styled.h3`
   display: inline-block;
   font-size: 80px;
+  @media ( max-width: 1440px ){
+    font-size: 5.56vw;
+  }
+  @media ( max-width: 600px ){
+    font-size: 33.36px;
+  }
   line-height: 1;
   margin: 0;
   padding: 0;
@@ -55,29 +73,86 @@ export const H3 = styled.h3`
 
 export const P = styled.p`
   font-size: 18px;
+  @media ( max-width: 1440px ){
+    font-size: 1.25vw;
+  }
+  @media ( max-width: 1120px ){
+    font-size: 14px;
+  }
   line-height: 2;
-  margin: 20px 0;
+  margin: ${props => props.margin || '20px 0'};
   padding: 0;
   font-family: 'Monserrat', sans-serif;
   font-weight: ${props => props.weight || '400'};
   text-align: ${props => props.align || 'left'};
   color: ${props => props.color || '#000000'};
+  text-transform: ${props => props.transform || ''};
 `;
 
 export const PLarge = styled(P)`
   font-size: 22px;
+  @media ( max-width: 1440px ){
+    font-size: 1.53vw;
+  }
+  @media ( max-width: 1047px ){
+    font-size: 16px;
+  }
   line-height: 1.8;
 `
 
 export const Text = styled.div`
   color: ${props => props.color || '#000000'};
   padding: ${props => props.padding|| '0'};
-  font-size: ${props => props.size || '36px'};
   line-height: ${props => props.lHeight || '1'};
   text-align: ${props => props.align || 'left'};
   font-weight: ${props => props.weight || '400'};
+  text-transform: ${props => props.transform || ''};
   font-family: 'Montserrat', sans-serif;
+  ${props => {
+    /* text adjustments for responsiveness */
+    if (props.size === "34") return ` 
+      font-size: 34px;
+      @media ( max-width: 1440px ){
+        font-size: 2.36vw;
+      }
+      @media ( max-width: 600px ){
+        font-size: 14.16px;
+      }
+    `
+    if (props.size === "18") return ` 
+      font-size: 18px;
+      @media ( max-width: 1440px ){
+        font-size: 1.25vw;
+      }
+      @media ( max-width: 1120px ){
+        font-size: 14px;
+      }
+    `
+    if (props.size === "12") return ` 
+      font-size: 12px;
+  `
+  }}
 `
 export const HeaderText = styled(Text)`
     font-family: 'Tinos', serif;
+    ${props => {
+      if (props.size === "42") return ` 
+      font-size: 42px;
+      @media ( max-width: 1440px ){
+        font-size: 2.92vw;
+      }
+      @media ( max-width: 1120px ){
+        font-size: 17.52px;
+      }
+    `
+    if (props.size === "100") return ` 
+      font-size: 100px;
+      @media ( max-width: 1440px ){
+        font-size: 6.94vw;
+      }
+      @media ( max-width: 1120px ){
+        font-size: 41.64px;
+      }
+    `
+  }}
 `

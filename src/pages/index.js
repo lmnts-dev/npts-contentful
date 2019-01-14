@@ -13,6 +13,14 @@ import Container from '../components/Container'
 import SEO from '../components/SEO'
 import Column from '../components/Column'
 import Branch from "!svg-react-loader!../images/svg-icons/branch.svg?name=branch";
+import Badge from "!svg-react-loader!../images/svg-icons/badge.svg?name=badge";
+import Design from "!svg-react-loader!../images/svg-icons/design.svg?name=design";
+import LeftArrow from "!svg-react-loader!../images/svg-icons/arrowLeft.svg?name=arrow";
+import RightArrow from "!svg-react-loader!../images/svg-icons/arrowRight.svg?name=arrow";
+import Locator from "!svg-react-loader!../images/svg-icons/locator.svg?name=locator";
+
+
+
 
 
 const Home = ({ data }) => {
@@ -28,6 +36,33 @@ const Home = ({ data }) => {
             <SEO postNode={postNode} pagePath="contact" customTitle />
 
             <Container>
+                <Block bgImage="https://images.unsplash.com/photo-1546828209-e1663f3be594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80" padding="0">
+                    <TwoColRow bias="left">
+                        <Block bgColor="rgba(0, 0, 0, .6)" absolute="left">
+                            <H1 color="#FFFFFF" >Keeping your trees healthy &amp; beautiful</H1>
+                            <Border color="white" width="80%" margin="40px 0"/>
+                            <P color="white" >Dedicated to handling all your tree care needs, our experienced and knowledgeable team of arborists are committed to ensure the longevity of all your trees and shrubs.</P>
+                            <Button to="/">Get a free quote</Button>
+                            <Row justify="space-between">
+                                <Badge />
+                                <Text size="12" lHeight="1.2" color="#FFFFFF">As an ISA Certified Arborist, all of our work is performed to ISA standards and we are fully insured to operate in the area.</Text>
+                            </Row>
+                        </Block>
+                        <Block absolute="right" bgColor="transparent">
+                            <Design />
+                            <Row justify="space-between">
+                                <Row absolute="bottomLeft">
+                                    <Locator />
+                                    <Text size="18" color="#FFFFFF" weight="300" transform="uppercase" >Reno, NV - Wingfield Park</Text>
+                                </Row>
+                                <Column absolute="bottomRight">
+                                    <RightArrow />
+                                    <LeftArrow />
+                                </Column>
+                            </Row>
+                        </Block>
+                    </TwoColRow>
+                </Block>
                 <TwoColRow bias="right">
                     <Block bgImage="https://images.unsplash.com/photo-1546828209-e1663f3be594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80" />
                     <Column>
@@ -38,14 +73,14 @@ const Home = ({ data }) => {
                 <Block bgColor="#9DD5EA">
                     <TwoColRow bias="left">
                         <Column>
-                            <Text lHeight="1.3" size="34px"> Noah works with his son. He uses very new and modern equipment. It is probably a combination of all these factors that allows him to have bid the job at less than one-half the other bids.</Text>
+                            <Text lHeight="1.3" size="34"> Noah works with his son. He uses very new and modern equipment. It is probably a combination of all these factors that allows him to have bid the job at less than one-half the other bids.</Text>
                             <Row>
-                                <HeaderText color="#FFFFFF" size="42px" weight="700">Ralph C.</HeaderText>
-                                <HeaderText color="#FFFFFF" size="42px">Reno, Nevada</HeaderText>
+                                <HeaderText color="#FFFFFF" size="42" weight="700">Ralph C.</HeaderText>
+                                <HeaderText color="#FFFFFF" size="42">Reno, Nevada</HeaderText>
                             </Row>
                         </Column>
                         <Column>
-                            <HeaderText color="white" size="100px">"Modern"</HeaderText>
+                            <HeaderText color="white" size="100">"Modern"</HeaderText>
                             <Branch/>
                         </Column>
                     </TwoColRow>
@@ -72,10 +107,10 @@ const Home = ({ data }) => {
                 </TwoColRow>
                 <Block bgColor="#9F4300">
                     <Column align="center">
-                        <HeaderText size="42px" weight="700" color="#FFFFFF" align="center">
+                        <HeaderText size="42" weight="700" color="#FFFFFF" align="center">
                             Our Philosophy
                         </HeaderText>
-                        <HeaderText size="102px" weight="700" color="#FFFFFF" align="center">
+                        <HeaderText size="100" weight="700" color="#FFFFFF" align="center">
                             Do what's right for the tree
                         </HeaderText>
                         <PLarge color="#FFFFFF" align="center">

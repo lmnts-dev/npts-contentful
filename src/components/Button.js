@@ -19,6 +19,12 @@ export const Button = styled.a`
   display: inline-block;
   letter-spacing: 1px;
   font-size: 19px;
+  @media ( max-width: 1440px ){
+    font-size: 1.25vw;
+  }
+  @media ( max-width: 1120px ){
+    font-size: 14px;
+  }
   font-family: 'Montserrat', sans-serif;
   line-height: 1;
   font-weight: 700;
@@ -26,6 +32,12 @@ export const Button = styled.a`
     /* grey background circle button */
     if (!props.arrowButton && props.dark) return ` 
       padding: 23px 46px;
+      @media ( max-width: 1440px ){
+        padding: 1.6vw 3.19vw;
+      }
+      @media ( max-width: 1120px ){
+        padding: 19.2px 38.28px;
+      }
       background-color: #F7F7F7;
       color: #9f4300;
       border-radius: 46px;
@@ -33,6 +45,12 @@ export const Button = styled.a`
     /* white background circle button */
     if (!props.arrowButton && !props.dark) return `
       padding: 23px 46px;
+      @media ( max-width: 1440px ){
+        padding: 1.6vw 3.19vw;
+      }
+      @media ( max-width: 1120px ){
+        padding: 19.2px 38.28px;
+      }
       color: #9f4300;
       border-radius: 46px;
       background-color: #FFFFFF;
