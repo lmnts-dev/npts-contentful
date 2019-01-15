@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   padding: ${props => props.padding || '50px 10vw'};
   background-color: ${props => props.bgColor || '#000000'};
   width: ${props => props.width || '100%' };

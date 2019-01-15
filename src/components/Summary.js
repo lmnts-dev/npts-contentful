@@ -1,28 +1,32 @@
 import React from 'react'
-import Helmet from 'react-helmet'
-import config from '../utils/siteConfig'
-import Layout from '../components/Layout'
-import HeroSlider from '../components/HeroSlider'
-import IntroBlocks from '../components/IntroBlocks'
-import Services from '../components/Services'
-import Testimonials from '../components/Testimonials'
-import TwoColRow from '../components/TwoColRow'
-import { Button } from '../components/Button'
-import Row from '../components/Row'
-import Block from '../components/Block'
-import { LargeTextBlock, TextBlock } from '../components/TextBlocks'
-import { H1, H2, H3, P, PLarge, Text, HeaderText } from '../components/Headings'
-import { Border, HeaderLine } from '../components/Lines'
-import Container from '../components/Container'
-import SEO from '../components/SEO'
+import { Wrapper } from '../components/Block'
+import styled from 'styled-components'
+import { PLarge, HeaderText } from '../components/Headings'
 import Column from '../components/Column'
-import Branch from "!svg-react-loader!../images/svg-icons/branch.svg?name=branch";
-import Badge from "!svg-react-loader!../images/svg-icons/badge.svg?name=badge";
-import Design from "!svg-react-loader!../images/svg-icons/design.svg?name=design";
-import LeftArrow from "!svg-react-loader!../images/svg-icons/arrowLeft.svg?name=arrow";
-import RightArrow from "!svg-react-loader!../images/svg-icons/arrowRight.svg?name=arrow";
-import Locator from "!svg-react-loader!../images/svg-icons/locator.svg?name=locator";
 
+const Block = styled(Wrapper)`
+    padding: 1250px 700px;
+    div {
+        div:nth-of-type(1) {
+            margin: 20px;
+        }
+    }
+    @media ( max-width: 1440px ){
+        padding: 100px 20vw;
+    }
+    @media ( max-width: 600px ){
+        padding: 10vw 10vw;
+        div {
+            div:nth-of-type(1) {
+                margin: 10px;
+            }
+        }
+    }
+    @media ( max-width: 450px ){
+        padding: 50px 25px;
+    }
+
+`
 
 const Summary = () => (                  
         <Block bgColor="#9F4300">
