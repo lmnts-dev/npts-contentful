@@ -48,7 +48,7 @@ export const H2 = styled.h2`
   margin: 0;
   padding: 0;
   font-family: 'Tinos', serif;
-  font-weight: ${props => props.weight || '400'};
+  font-weight: ${props => props.weight || '700'};
   text-align: ${props => props.align || 'left'};
   color: ${props => props.color || '#000000'};
 `;

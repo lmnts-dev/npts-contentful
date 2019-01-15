@@ -29,16 +29,17 @@ export const HeaderLine = styled.div`
         content: "";
         position: absolute;
         top: 50%;
-        right: -100%;
+        right: -120%;
         height: 1px;
         background-color: ${props => props.color || '#000000'};
-        width: ${props => props.width || '100%'};
+        width: ${props => props.width || '120%'};
         margin: ${props => props.margin || '0 -20px'};
+        display: ${props => props.direction ? 'block' : 'none'};
         ${props => {
             /* switch to left side of header */
-            if (props.where === "left") return ` 
+            if (props.direction === "left") return ` 
               right: auto;
-              left: -100%;
+              left: -120%;
             `
           }}
     }

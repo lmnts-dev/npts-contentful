@@ -4,6 +4,7 @@ import styled from 'styled-components'
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
+  position: relative;
   div:first-of-type {
     flex: ${props => {
         /* adjust widths of each column */

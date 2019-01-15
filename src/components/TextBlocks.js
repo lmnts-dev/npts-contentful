@@ -1,8 +1,10 @@
 
 import React from 'react'
 import styled from 'styled-components'
-import { Button } from '../components/Button'
-import { H1, H2, H3, P, PLarge, Text, HeaderText } from '../components/Headings'
+import Button from '../components/Button'
+import { H2, H3, P, PLarge } from '../components/Headings'
+import { HeaderLine } from '../components/Lines'
+
 
 /* these are what you can call ////////////////
 
@@ -13,6 +15,8 @@ import { H1, H2, H3, P, PLarge, Text, HeaderText } from '../components/Headings'
 
 
 const Wrapper = styled.div`
+    position: relative;
+    z-index: 2;
     background-color: ${props => props.bgColor || '#000000'};
     padding: ${props => props.padding || '50px 10vw'};
     &:: after {
@@ -48,9 +52,11 @@ export const TextBlock = props => {
     if (props.theme === "light"){
         return (
             <Wrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
-                <H2 color="#FFFFFF">
-                    {props.header}
-                </H2>
+                <HeaderLine direction={props.line} color="#FFFFFF" >
+                    <H2 color="#FFFFFF">
+                        {props.header}
+                    </H2>
+                </HeaderLine>
                 <P color="#FFFFFF">
                     {props.text} 
                 </P>
@@ -63,10 +69,12 @@ export const TextBlock = props => {
     else {
         return (
             <Wrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
-                <H2 color="#000000">
-                    {props.header}
-                </H2>
-                <P color="#000000">
+                <HeaderLine direction={props.line} color="#293536" >
+                    <H2 color="#293536">
+                        {props.header}
+                    </H2>
+                </HeaderLine>
+                <P color="#293536">
                     {props.text} 
                 </P>
                 <Button to={props.dest} dark>
@@ -81,13 +89,15 @@ export const LargeTextBlock = props => {
     if (props.theme === "light"){
         return (
             <Wrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
-                <H3 color="#FFFFFF">
-                    {props.header}
-                </H3>
+                <HeaderLine direction={props.line} color="#FFFFFF" >
+                    <H3 color="#FFFFFF">
+                        {props.header}
+                    </H3>
+                </HeaderLine>
                 <PLarge color="#FFFFFF">
                     {props.text} 
                 </PLarge>
-                <Button to={props.dest}>
+                <Button to={props.dest} arrowButton>
                     {props.bText}
                 </Button>
             </Wrapper>
@@ -96,13 +106,15 @@ export const LargeTextBlock = props => {
     else {
         return (
             <Wrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
-                <H3 color="#000000">
-                    {props.header}
-                </H3>
-                <PLarge color="#000000">
+                <HeaderLine direction={props.line} color="#293536" >
+                    <H3 color="#293536">
+                        {props.header}
+                    </H3>
+                </HeaderLine>
+                <PLarge color="#293536">
                     {props.text} 
                 </PLarge>
-                <Button to={props.dest} dark>
+                <Button to={props.dest} dark arrowButton>
                     {props.bText}
                 </Button>
             </Wrapper>
