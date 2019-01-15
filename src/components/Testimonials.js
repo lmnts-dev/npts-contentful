@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { RowWrapper } from '../components/TwoColRow'
-import { Wrapper } from '../components/Row'
+import { TwoColRowWrapper } from '../components/TwoColRow'
+import { RowWrapper } from '../components/Row'
 import Block from '../components/Block'
 import { Text, HeaderText } from '../components/Headings'
 import { ColumnWrapper } from '../components/Column'
@@ -35,7 +35,7 @@ const Column = styled(ColumnWrapper)`
     }
 `
 
-const TwoColRow = styled(RowWrapper)`
+const TwoColRow = styled(TwoColRowWrapper)`
     padding: 700px 1250px ;
     @media ( max-width: 1440px ){
         padding: 12vw 10vw;
@@ -49,7 +49,7 @@ const TwoColRow = styled(RowWrapper)`
     }
 `
 
-const Row = styled(Wrapper)`
+const Row = styled(RowWrapper)`
     margin-top 20px;
     width: 100%;
     span {
@@ -87,7 +87,7 @@ const Testimonials = () => (
                     </Row>
                 </Column>
                 <Block bgColor="transparent" padding="0">
-                    <Info color="white" size="100">"Modern"</Info>
+                    <Info color="white" size="125">"Modern"</Info>
                     <Icon/>
                 </Block>
             </TwoColRow>

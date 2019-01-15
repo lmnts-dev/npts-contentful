@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export const RowWrapper = styled.div`
+export const TwoColRowWrapper = styled.div`
   display: flex;
   flex-direction: row;
   @media ( max-width: 600px ){
@@ -34,9 +34,9 @@ export const RowWrapper = styled.div`
 
 const Block = ({ smallReverse, bias, children }) => {
     return (
-        <RowWrapper reverse={smallReverse} bias={bias} >
+        <TwoColRowWrapper reverse={smallReverse} bias={bias} >
             {children}
-        </RowWrapper>
+        </TwoColRowWrapper>
     )
 }
 export default Block

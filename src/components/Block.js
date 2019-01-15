@@ -62,7 +62,7 @@ export const Wrapper = styled.div`
   background-image: url(${props => props.bgImage || ''});
 `
 
-const Block = ({ bgImage, padding, bgColor, width, pushUp, absolute, children }) => {
+export const Block = ({ bgImage, padding, bgColor, width, pushUp, absolute, children }) => {
     return (
         <Wrapper bgImage={bgImage} padding={padding} bgColor={bgColor} width={width} pushUp={pushUp} absolute={absolute}>
             {children}

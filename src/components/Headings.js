@@ -19,12 +19,12 @@ STILL NEED TO DO SPECIFIC Text PADDING SIZES FOR RESPONSIVENESS
 ///////////////////////////////////////////////////////// */
 
 export const H1 = styled.h1`
-  font-size: 90px;
+  font-size: 83.5px;
   @media ( max-width: 1440px ){
-    font-size: 6.25vw;
+    font-size: 5.8vw;
   }
   @media ( max-width: 600px ){
-    font-size: 37.5px;
+    font-size: 34.8px;
   }
   line-height: 1.1;
   margin: 0;
@@ -152,6 +152,18 @@ export const HeaderText = styled(Text)`
       }
       @media ( max-width: 1120px ){
         font-size: 41.64px;
+      }
+    `
+    if (props.size === "125") return ` 
+      font-size: 125px;
+      @media ( max-width: 1440px ){
+        font-size: 8.68vw;
+      }
+      @media ( max-width: 1120px ){
+        font-size: 82.46px;
+      }
+      @media ( max-width: 600px ){
+        font-size: 60px;
       }
     `
   }}
