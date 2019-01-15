@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
+export const ColumnWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: ${props => props.justify || 'flex-start'};
@@ -33,11 +33,11 @@ const Wrapper = styled.div`
 
 `
 
-const Row = ({ justify, align, absolute, padding, children }) => {
+const Column = ({ justify, align, absolute, padding, children }) => {
     return (
-        <Wrapper justify={justify} align={align} absolute={absolute} padding={padding} >
+        <ColumnWrapper justify={justify} align={align} absolute={absolute} padding={padding} >
             {children}
-        </Wrapper>
+        </ColumnWrapper>
     )
 }
-export default Row
+export default Column
