@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   @media ( max-width: 600px ){
-      flex-direction: column;
+    flex-direction: ${props => props.reverse ? 'column' : 'column-reverse' };
   }
   position: relative;
   div:first-of-type {
@@ -32,9 +32,9 @@ const Wrapper = styled.div`
   }
 `
 
-const Block = ({ bias, children }) => {
+const Block = ({ smallReverse, bias, children }) => {
     return (
-        <Wrapper bias={bias} >
+        <Wrapper reverse={smallReverse} bias={bias} >
             {children}
         </Wrapper>
     )

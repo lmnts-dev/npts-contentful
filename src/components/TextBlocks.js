@@ -13,6 +13,21 @@ import { HeaderLine } from '../components/Lines'
 
 ///////////////////////////////////////////////////////// */
 
+const Line = styled(HeaderLine)`
+    @media ( max-width: 600px ){
+        &::after {
+            width: 300%;
+            right: -300%;
+            ${props => {
+                /* switch to left side of header */
+                if (props.direction === "left") return ` 
+                  right: auto;
+                  left: -300%;
+                `
+              }}
+        }
+    }
+`
 
 const Wrapper = styled.div`
     position: relative;
@@ -24,6 +39,9 @@ const Wrapper = styled.div`
     }
     @media ( max-width: 700px ){
         padding: 64px 80px;
+    }
+    @media ( max-width: 450px ){
+        padding: 64px 25px;
     }
     &:: after {
         background-color: ${props => props.bgColor || '#000000'};
@@ -65,11 +83,11 @@ export const TextBlock = props => {
     if (props.theme === "light"){
         return (
             <Wrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
-                <HeaderLine direction={props.line} color="#FFFFFF" >
+                <Line direction={props.line} color="#FFFFFF" >
                     <H2 color="#FFFFFF">
                         {props.header}
                     </H2>
-                </HeaderLine>
+                </Line>
                 <P color="#FFFFFF">
                     {props.text} 
                 </P>
@@ -82,11 +100,11 @@ export const TextBlock = props => {
     else {
         return (
             <Wrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
-                <HeaderLine direction={props.line} color="#293536" >
+                <Line direction={props.line} color="#293536" >
                     <H2 color="#293536">
                         {props.header}
                     </H2>
-                </HeaderLine>
+                </Line>
                 <P color="#293536">
                     {props.text} 
                 </P>
@@ -102,11 +120,11 @@ export const LargeTextBlock = props => {
     if (props.theme === "light"){
         return (
             <Wrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
-                <HeaderLine direction={props.line} color="#FFFFFF" >
+                <Line direction={props.line} color="#FFFFFF" >
                     <H3 color="#FFFFFF">
                         {props.header}
                     </H3>
-                </HeaderLine>
+                </Line>
                 <PLarge color="#FFFFFF">
                     {props.text} 
                 </PLarge>
@@ -119,11 +137,11 @@ export const LargeTextBlock = props => {
     else {
         return (
             <Wrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
-                <HeaderLine direction={props.line} color="#293536" >
+                <Line direction={props.line} color="#293536" >
                     <H3 color="#293536">
                         {props.header}
                     </H3>
-                </HeaderLine>
+                </Line>
                 <PLarge color="#293536">
                     {props.text} 
                 </PLarge>

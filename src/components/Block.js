@@ -53,6 +53,10 @@ const Wrapper = styled.div`
         background-position: center center;
         background-size: cover;
         background-repeat: no-repeat;
+        @media ( max-width: 600px ){
+            height: 50vh;
+            min-height: 300px;
+        }
     `
   }}
   background-image: url(${props => props.bgImage || ''});

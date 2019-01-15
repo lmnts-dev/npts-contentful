@@ -4,6 +4,7 @@ require('prismjs/themes/prism.css')
 
 const Body = styled.div`
   margin: 0 auto;
+  overflow-x: hidden;
   max-width: ${props => props.theme.sizes.maxWidthCentered};
 
   h1,
