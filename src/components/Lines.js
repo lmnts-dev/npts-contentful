@@ -44,3 +44,23 @@ export const HeaderLine = styled.div`
           }}
     }
 `;
+
+export const Divider = styled.div`
+    position: relative;
+    z-index: 3;
+    width: 100vw;
+    &::after {
+        content: "";
+        position: absolute;
+        height: 14vw;
+        max-height: 200px;
+        min-height: 80px;
+        width: 1px;
+        background-color: #FFFFFF;
+        left: 50%;
+        transform: translateY(-6vw);
+        @media ( max-width: 600px ){
+            transform: translateY(-60px);
+        }
+    }
+`

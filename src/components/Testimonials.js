@@ -41,7 +41,7 @@ const TwoColRow = styled(RowWrapper)`
         padding: 12vw 10vw;
     }
     @media ( max-width: 600px ){
-        padding: 7vw 5vw;
+        padding: 10vw 5vw;
         text-align: center;
     }
     @media ( max-width: 450px ){

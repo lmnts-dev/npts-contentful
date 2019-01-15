@@ -52,6 +52,10 @@ const Wrapper = styled.div`
           position: relative;
           width: 110%;
           left: -10%;
+          @media ( max-width: 600px ){
+            width: 100%;
+            left: auto;
+          }
         `
       }}
     ${props => {
