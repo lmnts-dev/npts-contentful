@@ -18,7 +18,13 @@ const Wrapper = styled.div`
     position: relative;
     z-index: 2;
     background-color: ${props => props.bgColor || '#000000'};
-    padding: ${props => props.padding || '50px 10vw'};
+    padding: 115px 144px;
+    @media ( max-width: 1440px ){
+        padding: 8vw 10vw;
+    }
+    @media ( max-width: 700px ){
+        padding: 64px 80px;
+    }
     &:: after {
         background-color: ${props => props.bgColor || '#000000'};
     }
@@ -42,6 +48,13 @@ const Wrapper = styled.div`
               position: absolute;
               bottom: -50px;
               left: 0;
+          }
+          @media ( max-width: 600px ){
+              transform: translateY(0);
+              &::after {
+                height: 0;
+                bottom: 0;
+              }
           }
         `
       }}
