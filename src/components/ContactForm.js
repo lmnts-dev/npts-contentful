@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import Button from '../components/Button'
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
@@ -10,7 +11,7 @@ import styled from 'styled-components'
 
 const Form = styled.form`
   max-width: ${props => props.theme.sizes.maxWidthCentered};
-  margin: 0 auto;
+  margin: 40px auto 0 auto;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -21,21 +22,20 @@ const Form = styled.form`
     font-size: inherit;
     border: none;
     outline: none;
-    background: ${props => props.theme.colors.tertiary};
-    color: ${props => props.theme.colors.base};
-    border-radius: 2px;
-    padding: 1em;
+    background: #363636;
+    color: #FFFFFF;
+    padding: 23.5px 28px;
     &::-webkit-input-placeholder {
-      color: gray;
+      color: rgba( 255, 255, 255, .3);
     }
     &::-moz-placeholder {
-      color: gray;
+      color: rgba( 255, 255, 255, .3);
     }
     &:-ms-input-placeholder {
-      color: gray;
+      color: rgba( 255, 255, 255, .3);
     }
     &:-moz-placeholder {
-      color: gray;
+      color: rgba( 255, 255, 255, .3);
     }
     &:required {
       box-shadow: none;
@@ -60,43 +60,52 @@ const Form = styled.form`
 `
 
 const Name = styled.input`
-  margin: 0 0 1em 0;
+  margin-bottom: 10px;
   width: 100%;
-  @media (min-width: ${props => props.theme.responsive.small}) {
-    width: 49%;
-  }
 `
 
 const Email = styled.input`
-  margin: 0 0 1em 0;
+  margin-bottom: 10px;
   width: 100%;
-  @media (min-width: ${props => props.theme.responsive.small}) {
-    width: 49%;
-  }
 `
 
 const Message = styled.textarea`
   width: 100%;
   margin: 0 0 1em 0;
   line-height: 1.6;
-  min-height: 250px;
+  min-height: 127px;
   resize: vertical;
 `
 
 const Submit = styled.input`
-  background: ${props => props.theme.colors.base} !important;
-  color: white !important;
+  display: inline-block;
+  letter-spacing: 1px;
+  font-size: 19px !important;
   cursor: pointer;
-  transition: 0.2s;
-  &:hover {
-    background: ${props => props.theme.colors.highlight} !important;
+  @media ( max-width: 1440px ){
+    font-size: 1.25vw !important;
   }
+  @media ( max-width: 1120px ){
+    font-size: 14px !important;
+  }
+  line-height: 1;
+  font-weight: 700;
+  padding: 23px 46px !important;
+  @media ( max-width: 1440px ){
+    padding: 1.6vw 3.19vw;
+  }
+  @media ( max-width: 1120px ){
+    padding: 19.2px 38.28px;
+  }
+  color: #9f4300 !important;
+  border-radius: 46px;
+  background-color: #FFFFFF !important;
+  box-shadow: 0 3px 36px rgba( 0, 0, 0, .16);
 `
 
 const Modal = styled.div`
   background: white;
   padding: 2em;
-  border-radius: 2px;
   position: fixed;
   min-width: 75%;
   top: 50%;
@@ -117,28 +126,6 @@ const Modal = styled.div`
   p {
     line-height: 1.6;
     margin: 0 0 2em 0;
-  }
-`
-
-const Button = styled.div`
-  background: ${props => props.theme.colors.base};
-  font-size: 1em;
-  display: inline-block;
-  margin: 0 auto;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  color: white;
-  padding: 1em;
-  border-radius: 2px;
-  text-decoration: none;
-  transition: 0.2s;
-  z-index: 99;
-  &:focus {
-    outline: none;
-  }
-  &:hover {
-    background: ${props => props.theme.colors.highlight};
   }
 `
 
@@ -213,7 +200,7 @@ class ContactForm extends React.Component {
         <Name
           name="name"
           type="text"
-          placeholder="Full Name"
+          placeholder="Name (required)"
           value={this.state.name}
           onChange={this.handleInputChange}
           required
@@ -221,7 +208,7 @@ class ContactForm extends React.Component {
         <Email
           name="email"
           type="email"
-          placeholder="Email"
+          placeholder="Email (required)"
           value={this.state.email}
           onChange={this.handleInputChange}
           required
@@ -229,7 +216,7 @@ class ContactForm extends React.Component {
         <Message
           name="message"
           type="text"
-          placeholder="Message"
+          placeholder="What's up?"
           value={this.state.message}
           onChange={this.handleInputChange}
           required
@@ -238,10 +225,10 @@ class ContactForm extends React.Component {
 
         <Modal visible={this.state.showModal}>
           <p>
-            Thank you for reaching out. I will get back to you as soon as
+            Thank you for reaching out. We will get back to you as soon as
             possible.
           </p>
-          <Button onClick={this.closeModal}>Okay</Button>
+          <Button dark onClick={this.closeModal}>Okay</Button>
         </Modal>
       </Form>
     )

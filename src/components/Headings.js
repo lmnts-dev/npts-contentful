@@ -128,6 +128,15 @@ export const Text = styled.div`
         font-size: 14px;
       }
     `
+    if (props.size === "16") return ` 
+      font-size: 16px;
+      @media ( max-width: 1440px ){
+        font-size: 1.11vw;
+      }
+      @media ( max-width: 1260px ){
+        font-size: 14px;
+      }
+    `
     if (props.size === "12") return ` 
       font-size: 12px;
   `
