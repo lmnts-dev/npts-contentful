@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import StackedLogo from "!svg-react-loader!../images/svg-icons/logoStacked.svg?name=logoStacked";
-import { Link } from 'gatsby'
-import Layout from '../components/Layout'
 import Contact from '../components/ContactForm'
 import Row from '../components/Row'
 import TwoColRow from '../components/TwoColRow'

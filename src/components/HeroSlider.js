@@ -93,7 +93,7 @@ const HeroSlider = () => (
                 <Row justify="space-between">
                     <LocatorRow absolute="bottomLeft" align="center">
                         <Locator />
-                        <Text color="#FFFFFF" weight="300" transform="uppercase" >Reno, NV - Wingfield Park</Text>
+                        <Text color="#FFFFFF" weight="300" transform="uppercase" >Reno, NV</Text>
                     </LocatorRow>
                     <SliderNav absolute="bottomRight">
                         <RightArrow />

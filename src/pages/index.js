@@ -19,7 +19,7 @@ const Home = ({ data }) => {
     }
 
     return (
-        <Layout>
+        <div>
             <Helmet>
                 <title>{`Contact - ${config.siteTitle}`}</title>
             </Helmet>
@@ -32,7 +32,7 @@ const Home = ({ data }) => {
                 <Services />
                 <Summary />
             </Container>
-        </Layout>
+        </div>
     )
 }
 

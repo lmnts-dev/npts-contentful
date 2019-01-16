@@ -22,9 +22,10 @@ const Template = ({ children }) => {
         <>
           <div className="siteContent">
             <Menu />
-            {children}
+              {children}
+            <Footer />
           </div>
-          <Footer />
+          
         </>
       </ThemeProvider>
       <GlobalStyle />
