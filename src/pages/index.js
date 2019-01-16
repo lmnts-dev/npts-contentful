@@ -8,7 +8,9 @@ import Services from '../components/Services'
 import Testimonials from '../components/Testimonials'
 import Summary from '../components/Summary'
 import Container from '../components/Container'
+import SimpleSlider from '../components/TestimonialSlider'
 import SEO from '../components/SEO'
+
 
 
 
@@ -28,7 +30,7 @@ const Home = ({ data }) => {
             <Container>
                 <HeroSlider />
                 <IntroBlocks />
-                <Testimonials />
+                <SimpleSlider />
                 <Services />
                 <Summary />
             </Container>

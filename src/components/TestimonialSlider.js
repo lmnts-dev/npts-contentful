@@ -1,4 +1,5 @@
-import React from 'react'
+import React from "react";
+import Slider from "react-slick";
 import styled from 'styled-components'
 import { TwoColRowWrapper } from '../components/TwoColRow'
 import { RowWrapper } from '../components/Row'
@@ -75,7 +76,20 @@ const Slash = styled.span`
     }
 `
 
-const Testimonials = () => (  
+export default class SimpleSlider extends React.Component {
+  render() {
+    var settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: false,
+      autoplay: true,
+      autoplaySpeed: 2000
+    };
+    return (
+      <Slider {...settings}>
         <Block bgColor="#9DD5EA" padding="0" >
             <TwoColRow bias="left">
                 <Column>
@@ -92,5 +106,23 @@ const Testimonials = () => (
                 </Block>
             </TwoColRow>
         </Block>
-    )
-export default Testimonials
+        <Block bgColor="#9DD5EA" padding="0" >
+            <TwoColRow bias="left">
+                <Column>
+                    <Quote lHeight="1.3" size="34"> Noah works with his son. He uses very new and modern equipment. It is probably a combination of all these factors that allows him to have bid the job at less than one-half the other bids.</Quote>
+                    <Row justify="flex-start" align="center" >
+                        <Info as="span" color="#FFFFFF" size="42" weight="700">Mary R.</Info>
+                        <Slash />
+                        <Info as="span" color="#FFFFFF" size="42">Tahoe, Nevada</Info>
+                    </Row>
+                </Column>
+                <Block bgColor="transparent" padding="0">
+                    <Info color="white" size="125">"Superb"</Info>
+                    <Icon/>
+                </Block>
+            </TwoColRow>
+        </Block>
+      </Slider>
+    );
+  }
+}

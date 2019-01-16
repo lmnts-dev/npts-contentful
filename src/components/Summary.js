@@ -3,6 +3,20 @@ import { Wrapper } from '../components/Block'
 import styled from 'styled-components'
 import { PLarge, HeaderText } from '../components/Headings'
 import Column from '../components/Column'
+import Leaf from "../images/leafSummary.png"
+
+const Leaves = styled.img `
+    position: absolute;
+    z-index: 4;
+    height: 16vw;
+    left: -5%;
+    bottom: -5%;
+    @media ( max-width: 600px ){
+        height: 100px;
+        bottom: 0;
+        left: -8%;
+    }
+`
 
 const Block = styled(Wrapper)`
     padding: 1250px 700px;
@@ -41,6 +55,7 @@ const Summary = () => (
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus pharetra mi, in malesuada purus luctus placerat. Ut vulputate, enim sed feugiat consectetur, ex odio tempor tellus, sed laoreet mi tortor vitae mauris. Fusce vulputate ligula in massa mollis, ut finibus leo fermentum. 
                 </PLarge>
             </Column>
+            <Leaves src={Leaf} alt="leaf"/>
         </Block>
     )
 export default Summary
