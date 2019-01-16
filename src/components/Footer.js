@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import StackedLogo from "!svg-react-loader!../images/svg-icons/logoStacked.svg?name=logoStacked";
+import Phone from "!svg-react-loader!../images/svg-icons/phone.svg?name=phone";
+import Email from "!svg-react-loader!../images/svg-icons/email.svg?name=email";
 import Contact from '../components/ContactForm'
 import Row from '../components/Row'
 import TwoColRow from '../components/TwoColRow'
@@ -89,9 +91,15 @@ const Footer = () => (
       </CopyWright>
     </Column>
     <Block pushUp bgColor="#272929">
-      <HeaderText> Let's Talk </HeaderText>
-      <HeaderText>  775.376.0917 </HeaderText>
-      <HeaderText> noahsparktreecare@gmail.com </HeaderText>
+      <HeaderText size="80" color="#FFFFFF"> Let's Talk </HeaderText>
+      <Row>
+        <Phone />
+        <Text color="#FFFFFF">775.376.0917</Text>
+      </Row>
+      <Row>
+        <Email />
+        <Text color="#FFFFFF">noahsparktreecare@gmail.com</Text>
+      </Row>
       <Contact/>
     </Block>
   </TwoColRow>

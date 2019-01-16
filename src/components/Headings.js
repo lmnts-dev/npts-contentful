@@ -166,5 +166,14 @@ export const HeaderText = styled(Text)`
         font-size: 60px;
       }
     `
+    if (props.size === "80") return `
+      font-size: 80px;
+      @media ( max-width: 1440px ){
+        font-size: 5.56vw;
+      }
+      @media ( max-width: 600px ){
+        font-size: 33.36px;
+      }
+    `
   }}
 `
