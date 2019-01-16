@@ -7,6 +7,41 @@ import Block from '../components/Block'
 import { Text, HeaderText } from '../components/Headings'
 import { ColumnWrapper } from '../components/Column'
 import Branch from "!svg-react-loader!../images/svg-icons/branch.svg?name=branch";
+import { createGlobalStyle } from 'styled-components'
+
+const Wrapper = styled.div`
+    position: relative;
+`
+
+const GlobalStyle = createGlobalStyle`
+    .dots {
+        position: absolute;
+        right: 25px;
+        top: 0;
+        bottom: 0;
+        z-index: 4;
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        li {
+            margin: 20px;
+
+            }
+            button {
+                background-color: transparent;
+                padding: 0;
+                &::after {
+                    content: "";
+                    line-height: 0;
+                    background-color: #1791AD;
+                    padding: 5px;
+                    border-radius: 5px;
+                    color: #1791AD;
+            }
+        }
+        
+    }
+`
 
 const Quote = styled(Text)`
     @media ( max-width: 600px ){
@@ -86,43 +121,47 @@ export default class SimpleSlider extends React.Component {
       slidesToScroll: 1,
       arrows: false,
       autoplay: true,
-      autoplaySpeed: 2000
+      autoplaySpeed: 2000,
+      dotsClass: 'dots'
     };
     return (
-      <Slider {...settings}>
-        <Block bgColor="#9DD5EA" padding="0" >
-            <TwoColRow bias="left">
-                <Column>
-                    <Quote lHeight="1.3" size="34"> Noah works with his son. He uses very new and modern equipment. It is probably a combination of all these factors that allows him to have bid the job at less than one-half the other bids.</Quote>
-                    <Row justify="flex-start" align="center" >
-                        <Info as="span" color="#FFFFFF" size="42" weight="700">Ralph C.</Info>
-                        <Slash />
-                        <Info as="span" color="#FFFFFF" size="42">Reno, Nevada</Info>
-                    </Row>
-                </Column>
-                <Block bgColor="transparent" padding="0">
-                    <Info color="white" size="125">"Modern"</Info>
-                    <Icon/>
+        <Wrapper>
+            <Slider {...settings}>
+                <Block bgColor="#9DD5EA" padding="0" >
+                    <TwoColRow bias="left">
+                        <Column>
+                            <Quote lHeight="1.3" size="34"> Noah works with his son. He uses very new and modern equipment. It is probably a combination of all these factors that allows him to have bid the job at less than one-half the other bids.</Quote>
+                            <Row justify="flex-start" align="center" >
+                                <Info as="span" color="#FFFFFF" size="42" weight="700">Ralph C.</Info>
+                                <Slash />
+                                <Info as="span" color="#FFFFFF" size="42">Reno, Nevada</Info>
+                            </Row>
+                        </Column>
+                        <Block bgColor="transparent" padding="0">
+                            <Info color="white" size="125">"Modern"</Info>
+                            <Icon/>
+                        </Block>
+                    </TwoColRow>
                 </Block>
-            </TwoColRow>
-        </Block>
-        <Block bgColor="#9DD5EA" padding="0" >
-            <TwoColRow bias="left">
-                <Column>
-                    <Quote lHeight="1.3" size="34"> Noah works with his son. He uses very new and modern equipment. It is probably a combination of all these factors that allows him to have bid the job at less than one-half the other bids.</Quote>
-                    <Row justify="flex-start" align="center" >
-                        <Info as="span" color="#FFFFFF" size="42" weight="700">Mary R.</Info>
-                        <Slash />
-                        <Info as="span" color="#FFFFFF" size="42">Tahoe, Nevada</Info>
-                    </Row>
-                </Column>
-                <Block bgColor="transparent" padding="0">
-                    <Info color="white" size="125">"Superb"</Info>
-                    <Icon/>
+                <Block bgColor="#9DD5EA" padding="0" >
+                    <TwoColRow bias="left">
+                        <Column>
+                            <Quote lHeight="1.3" size="34"> Noah works with his son. He uses very new and modern equipment. It is probably a combination of all these factors that allows him to have bid the job at less than one-half the other bids.</Quote>
+                            <Row justify="flex-start" align="center" >
+                                <Info as="span" color="#FFFFFF" size="42" weight="700">Mary R.</Info>
+                                <Slash />
+                                <Info as="span" color="#FFFFFF" size="42">Tahoe, Nevada</Info>
+                            </Row>
+                        </Column>
+                        <Block bgColor="transparent" padding="0">
+                            <Info color="white" size="125">"Superb"</Info>
+                            <Icon/>
+                        </Block>
+                    </TwoColRow>
                 </Block>
-            </TwoColRow>
-        </Block>
-      </Slider>
+            </Slider>
+        <GlobalStyle />
+    </Wrapper>
     );
   }
 }
