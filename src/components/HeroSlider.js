@@ -44,14 +44,30 @@ const Badge = styled(SVG)`
     width: 5vw;
     margin-right: 1.5vw;
     margin-top: 5vw;
+    @media ( max-width: 450px ){
+        width: 7vw;
+        margin-right: 10px;
+    }
 `
 
 const WordsBlock = styled(Wrapper)`
     padding: 150px 5vw 0 5vw;
+    @media ( max-width: 600px ){
+        padding: 100px 25px 0 25px; 
+    }
+`
+
+const NavBlock = styled(Wrapper)`
+    @media ( max-width: 600px ){
+        display: none;
+    }
 `
 
 const Disclaimer = styled(Text)`
     margin-top: 5vw;
+    @media ( max-width: 450px ){
+        font-size: 9px;
+    }
 `
 
 const SliderImage = styled(Wrapper)`
@@ -60,7 +76,7 @@ const SliderImage = styled(Wrapper)`
     right: 0;
     bottom: 0;
     top: 0;
-    height: 100%;
+    height: 100% !important;
     z-index: -1;
 `
 
@@ -89,7 +105,7 @@ const HeroSlider = () => (
                     <Disclaimer size="12" lHeight="1.8" color="#FFFFFF">As an ISA Certified Arborist, all of our work is performed to ISA standards and we are fully insured to operate in the area.</Disclaimer>
                 </Row>
             </WordsBlock>
-            <Block absolute="right" bgColor="transparent" padding="0">
+            <NavBlock absolute="right" bgColor="transparent" padding="0">
                 <Row justify="space-between">
                     <LocatorRow absolute="bottomLeft" align="center">
                         <Locator />
@@ -100,7 +116,7 @@ const HeroSlider = () => (
                         <LeftArrow />
                     </SliderNav>
                 </Row>
-            </Block>
+            </NavBlock>
         </TwoColRow>
         <SliderImage bgImage="https://images.unsplash.com/photo-1546828209-e1663f3be594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80" padding="0"></SliderImage>
     </Container>
