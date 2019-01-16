@@ -11,6 +11,7 @@ import SVG from "!svg-react-loader!../images/svg-icons/badge.svg?name=badge";
 import lArrow from "!svg-react-loader!../images/svg-icons/arrowLeft.svg?name=arrow";
 import rArrow from "!svg-react-loader!../images/svg-icons/arrowRight.svg?name=arrow";
 import Locator from "!svg-react-loader!../images/svg-icons/locator.svg?name=locator";
+import SlideOne from "../images/slider1.jpg"
 
 const SliderNav = styled(ColumnWrapper)`
     margin: 12px;
@@ -118,7 +119,7 @@ const HeroSlider = () => (
                 </Row>
             </NavBlock>
         </TwoColRow>
-        <SliderImage bgImage="https://images.unsplash.com/photo-1546828209-e1663f3be594?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2134&q=80" padding="0"></SliderImage>
+        <SliderImage bgImage={SlideOne} padding="0"></SliderImage>
     </Container>
 )
 
