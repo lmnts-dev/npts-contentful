@@ -47,7 +47,7 @@ const Badge = styled(SVG)`
 `
 
 const WordsBlock = styled(Wrapper)`
-    padding: 50px 5vw 0 5vw;
+    padding: 150px 5vw 0 5vw;
 `
 
 const Disclaimer = styled(Text)`
