@@ -4,11 +4,26 @@ import StackedLogo from "!svg-react-loader!../images/svg-icons/logoStacked.svg?n
 import phone from "!svg-react-loader!../images/svg-icons/phone.svg?name=phone";
 import email from "!svg-react-loader!../images/svg-icons/email.svg?name=email";
 import Contact from '../components/ContactForm'
-import Row from '../components/Row'
-import TwoColRow from '../components/TwoColRow'
+import { Row, RowWrapper } from '../components/Row'
+import { TwoColRowWrapper } from '../components/TwoColRow'
 import { ColumnWrapper } from '../components/Column'
 import { Wrapper } from '../components/Block'
 import { H1, H2, H3, P, PLarge, Text, HeaderText } from '../components/Headings'
+
+const FooterLinks = styled(RowWrapper)`
+    @media ( max-width: 750px ){
+      flex-direction: column;
+    }
+    div:last-of-type {
+      margin-top: 40px;
+    }
+`
+
+const TwoColRow = styled(TwoColRowWrapper)`
+  @media ( max-width: 750px ){
+    flex-direction: ${props => props.reverse ? 'column' : 'column-reverse' };
+  }
+`
 
 const Phone = styled(phone)`
   width: 16px;
@@ -50,8 +65,11 @@ const CopyWright = styled(Text)`
   @media (max-width: 1440px){
     left: 10vw;
   }
-  @media (max-width: 720px){
-    left: 72px;
+  @media (max-width: 750px){
+    left: 0;
+    right: 0;
+    bottom: 25px;
+    text-align: center;
   }  
 `
 
@@ -71,8 +89,9 @@ const Column = styled(ColumnWrapper)`
   @media (max-width: 1440px){
     padding: 5vw 0 5vw 10vw;
   }
-  @media (max-width: 720px){
-    padding: 36px 0 36px 72px;
+  @media (max-width: 750px){
+    padding: 75px 25px 100px 25px;
+    align-items: center;
   }  
 `
 
@@ -82,9 +101,16 @@ const Block = styled(Wrapper)`
   @media (max-width: 1440px){
     padding: 5vw 10vw 0 10vw;
   }
-  @media (max-width: 720px){
-    padding: 36px 72px 0 72px;
+  @media (max-width: 750px){
+    padding: 36px 72px 72px 72px;
   } 
+  @media (max-width: 400px){
+    padding: 36px 25px 72px 25px;
+  }
+`
+const Info = styled(Text)`
+  cursor: pointer;
+  text-decoration: none !important;
 `
 
 const Item = styled.a`
@@ -104,8 +130,9 @@ const Item = styled.a`
     @media (max-width: 1440px){
       margin-right: 5.56vw;
     }
-    @media (max-width: 720px){
-      margin-right: 40px;
+    @media (max-width: 750px){
+      margin: 0;
+      text-align: center;
     }
     line-height: 1.5;
     &:hover {
@@ -120,7 +147,7 @@ const Footer = () => (
   <TwoColRow as="footer">
     <Column justify="flex-start" >
       <Logo />
-      <Row>
+      <FooterLinks>
         <div>
           <Item href="/">Home</Item>
           <Item href="/">Services</Item>
@@ -132,7 +159,7 @@ const Footer = () => (
           <Item href="/">Chip Drop</Item>
           <Item href="/">Careers</Item>
         </div>
-      </Row>
+      </FooterLinks>
       <CopyWright color="#343434">
         © 2018 Noah's Park Tree Care
       </CopyWright>
@@ -141,11 +168,11 @@ const Footer = () => (
       <HeaderText lHeight="2" size="80" color="#FFFFFF"> Let's Talk </HeaderText>
       <Row align="center">
         <Phone />
-        <Text size="16" color="#FFFFFF">775.376.0917</Text>
+        <Info as="a" href="tel:7753760917" size="16" color="#FFFFFF">775.376.0917</Info>
       </Row>
       <Row align="center">
         <Email />
-        <Text size="16" color="#FFFFFF">noahsparktreecare@gmail.com</Text>
+        <Info as="a" href="mailto:noahsparktreecare@gmail.com" size="16" color="#FFFFFF">noahsparktreecare@gmail.com</Info>
       </Row>
       <Contact/>
     </Block>

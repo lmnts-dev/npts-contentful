@@ -37,6 +37,9 @@ export const Wrapper = styled.div`
     if (props.pushUp) return ` 
       position: relative;
       transform: translateY(-50px);
+      @media ( max-width: 750px ){
+        transform: translateY(0);
+      }
       &::after {
           content: "";
           height: 50px;
@@ -44,6 +47,10 @@ export const Wrapper = styled.div`
           position: absolute;
           bottom: -50px;
           left: 0;
+          @media ( max-width: 750px ){
+            bottom: 0;
+            height: 0;
+          }
       }
     `
   }}
