@@ -17,8 +17,18 @@ import slider from "react-slick";
 /* height is 100vh - body's top padding of 1.8vw */
 const TwoColRow = styled(TwoColRowWrapper)`
   height: calc(100vh - 36px);
+  min-height: 800px;
   @media (max-width: 2000px) {
     height: calc(100vh - 1.8vw);
+  }
+  @media (max-width: 1440px) {
+    min-height: 850px;
+  }
+  @media (max-width: 900px) {
+    min-height: 750px;
+  }
+  @media (max-width: 600px) {
+    min-height: 550px;
   }
   position: absolute;
   top: 0;
@@ -29,19 +39,37 @@ const TwoColRow = styled(TwoColRowWrapper)`
 /* height is 100vh - body's top padding of 1.8vw */
 const Slider = styled(slider)`
   height: calc(100vh - 36px);
+  min-height: 800px;
   @media (max-width: 2000px) {
     height: calc(100vh - 1.8vw);
+  }
+  @media (max-width: 1440px) {
+    min-height: 850px;
+  }
+  @media (max-width: 900px) {
+    min-height: 750px;
+  }
+  @media (max-width: 600px) {
+    min-height: 550px;
   }
   z-index: 1;
 `
 const SliderImage = styled(Wrapper)`
   height: calc(100vh - 36px);
+  min-height: 800px;
   @media (max-width: 2000px) {
     height: calc(100vh - 1.8vw);
+  }
+  @media (max-width: 1440px) {
+    min-height: 850px;
+  }
+  @media (max-width: 900px) {
+    min-height: 750px;
   }
   width: 100%;
   @media (max-width: 600px) {
     height: 100vh !important;
+    min-height: 550px;
   }
 `
 
