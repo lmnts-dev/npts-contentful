@@ -1,5 +1,5 @@
 import React from 'react'
-import TwoColRow from './TwoColRow'
+import { TwoColRowWrapper } from './TwoColRow'
 import styled from 'styled-components'
 import Button from './Button'
 import { Row, RowWrapper } from './Row'
@@ -14,18 +14,29 @@ import Locator from "!svg-react-loader!../images/svg-icons/locator.svg?name=loca
 import SlideOne from "../images/slider1.jpg"
 import slider from "react-slick";
 
-const Slider = styled.div`
+const TwoColRow = styled(TwoColRowWrapper)`
+    height: 100vh;
     position: absolute;
-    left: 0;
+    top:0;
+    left:0;
     right: 0;
-    bottom: 0;
-    top: 0;
-    height: 100% !important;
-    z-index: -1;
+    z-index: 2;
+`
+
+const Slider = styled(slider)`
+    height: 100vh;
+    z-index: 1;
 `
 const SliderImage = styled(Wrapper)`
-    height: 100%;
+    height: 100vh;
     width: 100%;
+    @media ( max-width: 600px ){
+        height: 100vh !important;
+    }
+`
+
+const DisclaimerCol = styled(ColumnWrapper)`
+    
 `
 
 const SliderNav = styled(ColumnWrapper)`
@@ -68,6 +79,9 @@ const Badge = styled(SVG)`
 
 const WordsBlock = styled(Wrapper)`
     padding: 150px 5vw 0 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     @media ( max-width: 600px ){
         padding: 100px 25px 0 25px; 
     }
@@ -98,18 +112,34 @@ const LocatorRow = styled(RowWrapper)`
     }
 `
 
-const HeroSlider = () => (  
+export default class HomeSlider extends React.Component {
+    render() {
+      var settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 5000
+      };
+      return (
     <Container>
         <TwoColRow bias="left">
             <WordsBlock bgColor="rgba(0, 0, 0, .6)" absolute="left">
-                <H1 color="#FFFFFF" >Keeping your trees healthy and beautiful</H1>
-                <HeroBorder color="white" width="90%" margin="40px 0"/>
-                <P color="white" >Dedicated to handling all your tree care needs, our experienced and knowledgeable team of arborists are committed to ensure the longevity of all your trees and shrubs.</P>
-                <Button to="/">Get a free quote</Button>
-                <Row justify="space-between" align="center">
-                    <Badge />
-                    <Disclaimer size="12" lHeight="1.8" color="#FFFFFF">As an ISA Certified Arborist, all of our work is performed to ISA standards and we are fully insured to operate in the area.</Disclaimer>
-                </Row>
+                <div>
+                    <H1 color="#FFFFFF" >Keeping your trees healthy and beautiful</H1>
+                    <HeroBorder color="white" width="90%" margin="40px 0"/>
+                    <P color="white" >Dedicated to handling all your tree care needs, our experienced and knowledgeable team of arborists are committed to ensure the longevity of all your trees and shrubs.</P>
+                    <Button to="/">Get a free quote</Button>
+                </div>
+                <DisclaimerCol align="flex-end">
+                    <Row justify="flex-end" align="center">
+                        <Badge />
+                        <Disclaimer size="12" lHeight="1.8" color="#FFFFFF">As an ISA Certified Arborist, all of our work is performed to ISA standards and we are fully insured to operate in the area.</Disclaimer>
+                    </Row>
+                </DisclaimerCol>
             </WordsBlock>
             <NavBlock absolute="right" bgColor="transparent" padding="0">
                 <Row justify="space-between">
@@ -118,16 +148,18 @@ const HeroSlider = () => (
                         <Text color="#FFFFFF" weight="300" transform="uppercase" >Reno, NV</Text>
                     </LocatorRow>
                     <SliderNav absolute="bottomRight">
-                        <RightArrow />
-                        <LeftArrow />
+                        <RightArrow onclick="slickNext()"/>
+                        <LeftArrow onclick="slickPrev()"/>
                     </SliderNav>
                 </Row>
             </NavBlock>
         </TwoColRow>
-        <Slider>
+        <Slider {...settings}>
+            <SliderImage bgImage={SlideOne} padding="0"></SliderImage>
+            <SliderImage bgImage={SlideOne} padding="0"></SliderImage>
             <SliderImage bgImage={SlideOne} padding="0"></SliderImage>
         </Slider>    
     </Container>
-)
-
-export default HeroSlider
+    );
+}
+}

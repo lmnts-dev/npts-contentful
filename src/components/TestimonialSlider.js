@@ -11,6 +11,7 @@ import { createGlobalStyle } from 'styled-components'
 
 const Wrapper = styled.div`
     position: relative;
+    background-color: #9DD5EA;
 `
 
 const GlobalStyle = createGlobalStyle`
