@@ -2,31 +2,31 @@ import React from 'react'
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  padding: ${props => props.padding || '50px 10vw'};
+  padding: ${props => props.padding || '50px 200px'};  
   background-color: ${props => props.bgColor || '#000000'};
-  width: ${props => props.width || '100%' };
+  width: ${props => props.width || '100%'};
   position: relative;
   &:: after {
     background-color: ${props => props.bgColor || '#000000'};
   }
   ${props => {
     /* absolute positioned block */
-    if (props.absolute == "bottomLeft") return `
+    if (props.absolute == 'bottomLeft') return `
         position: absolute;
         bottom: 0;
         left: 0;
     `
-    if (props.absolute == "bottomRight") return `
+    if (props.absolute == 'bottomRight') return `
         position: absolute;
         bottom: 0;
         right: 0;
     `
-    if (props.absolute == "topLeft") return `
+    if (props.absolute == 'topLeft') return `
         position: absolute;
         top: 0
         left: 0;
     `
-    if (props.absolute == "topRight") return `
+    if (props.absolute == 'topRight') return `
         position: absolute;
         top: 0;
         right: 0;

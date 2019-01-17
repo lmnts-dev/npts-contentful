@@ -47,16 +47,19 @@ export const Divider = styled.div`
     z-index: 3;
     width: 100vw;
     &::after {
-        content: "";
+        content: '';
         position: absolute;
         height: 14vw;
-        max-height: 200px;
+        max-height: 180px;
         min-height: 80px;
         width: 1px;
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         left: 50%;
-        transform: translateY(-6vw);
-        @media ( max-width: 600px ){
+        transform: translateY(-3vw);
+        @media (max-width: 1440px) {
+            transform: translateY(-6vw);
+        }
+        @media (max-width: 600px) {
             transform: translateY(-60px);
         }
     }

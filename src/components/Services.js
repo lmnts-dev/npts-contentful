@@ -1,6 +1,6 @@
 import React from 'react'
 import TwoColRow from '../components/TwoColRow'
-import Block from '../components/Block'
+import { Wrapper } from '../components/Block'
 import { LargeTextBlock } from '../components/TextBlocks'
 import leafPlanting from "../images/leafPlanting.png"
 import leafSurgery from "../images/leafSurgery.png"
@@ -11,6 +11,11 @@ import Removal from "../images/removal.jpg"
 import Surgery from "../images/surgury.jpg"
 import Trimming from "../images/trimming.jpg"
 
+const Block = styled(Wrapper)`
+  @media (max-width: 2000px) {
+    padding: ${props => props.padding || '50px 10vw'};
+  }
+`
 
 const Leaves = styled.img `
     position: absolute;

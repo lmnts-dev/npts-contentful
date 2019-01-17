@@ -34,6 +34,34 @@ const GlobalStyle = createGlobalStyle`
   body {
     line-height: 1;
     overflow-x: hidden;
+    max-width: 2000px;
+    margin: 0 auto;
+    padding: 36px 40px;
+    position: relative;
+    @media (max-width: 2000px){
+      padding: 1.8vw 2vw;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: transparent;
+      pointer-events: none;
+      z-index: 100;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+      border-top: 36px solid white;
+      border-bottom: 36px solid white;
+      border-left: 40px solid white;
+      border-right: 40px solid white;
+      @media (max-width: 2000px){
+        border-top: 1.8vw solid white;
+        border-bottom: 1.8vw solid white;
+        border-left: 2vw solid white;
+        border-right: 2vw solid white;
+      }
+    }
   }
   ol, ul {
     list-style: none;

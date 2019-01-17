@@ -87,7 +87,7 @@ const Column = styled(ColumnWrapper)`
 `
 
 const TwoColRow = styled(TwoColRowWrapper)`
-    padding: 700px 1250px ;
+    padding: 172.8px 144px ;
     @media ( max-width: 1440px ){
         padding: 12vw 10vw;
     }

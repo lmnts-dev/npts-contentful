@@ -14,25 +14,35 @@ import Locator from "!svg-react-loader!../images/svg-icons/locator.svg?name=loca
 import SlideOne from "../images/slider1.jpg"
 import slider from "react-slick";
 
+/* height is 100vh - body's top padding of 1.8vw */
 const TwoColRow = styled(TwoColRowWrapper)`
-    height: 100vh;
-    position: absolute;
-    top:0;
-    left:0;
-    right: 0;
-    z-index: 2;
+  height: calc(100vh - 36px);
+  @media (max-width: 2000px) {
+    height: calc(100vh - 1.8vw);
+  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
 `
-
+/* height is 100vh - body's top padding of 1.8vw */
 const Slider = styled(slider)`
-    height: 100vh;
-    z-index: 1;
+  height: calc(100vh - 36px);
+  @media (max-width: 2000px) {
+    height: calc(100vh - 1.8vw);
+  }
+  z-index: 1;
 `
 const SliderImage = styled(Wrapper)`
-    height: 100vh;
-    width: 100%;
-    @media ( max-width: 600px ){
-        height: 100vh !important;
-    }
+  height: calc(100vh - 36px);
+  @media (max-width: 2000px) {
+    height: calc(100vh - 1.8vw);
+  }
+  width: 100%;
+  @media (max-width: 600px) {
+    height: 100vh !important;
+  }
 `
 
 const DisclaimerCol = styled(ColumnWrapper)`
@@ -48,15 +58,18 @@ const LeftArrow = styled(lArrow)`
     height: 50px;
     padding: 15px;
     background-color: #FFFFFF;
+    cursor: pointer;
 `
 
 const RightArrow = styled(rArrow)`
-    width: 50px;
-    height: 50px;
-    padding: 15px;
-    background-color: #FFFFFF;
-    margin-bottom: 2px;
+  width: 50px;
+  height: 50px;
+  padding: 15px;
+  background-color: #ffffff;
+  margin-bottom: 2px;
+  cursor: pointer;
 `
+
 
 const HeroBorder = styled(Border)`
     margin: 28.8 0;
@@ -113,6 +126,17 @@ const LocatorRow = styled(RowWrapper)`
 `
 
 export default class HomeSlider extends React.Component {
+    constructor(props) {
+        super(props);
+        this.next = this.next.bind(this);
+        this.previous = this.previous.bind(this);
+    }
+    next() {
+        this.slider.slickNext();
+    }
+    previous() {
+        this.slider.slickPrev();
+    }
     render() {
       var settings = {
         dots: false,
@@ -134,8 +158,8 @@ export default class HomeSlider extends React.Component {
                     <P color="white" >Dedicated to handling all your tree care needs, our experienced and knowledgeable team of arborists are committed to ensure the longevity of all your trees and shrubs.</P>
                     <Button to="/">Get a free quote</Button>
                 </div>
-                <DisclaimerCol align="flex-end">
-                    <Row justify="flex-end" align="center">
+                <DisclaimerCol align="flex-start">
+                    <Row justify="flex-start" align="center">
                         <Badge />
                         <Disclaimer size="12" lHeight="1.8" color="#FFFFFF">As an ISA Certified Arborist, all of our work is performed to ISA standards and we are fully insured to operate in the area.</Disclaimer>
                     </Row>
@@ -148,13 +172,13 @@ export default class HomeSlider extends React.Component {
                         <Text color="#FFFFFF" weight="300" transform="uppercase" >Reno, NV</Text>
                     </LocatorRow>
                     <SliderNav absolute="bottomRight">
-                        <RightArrow onclick="slickNext()"/>
-                        <LeftArrow onclick="slickPrev()"/>
+                        <RightArrow onClick={this.previous}/>
+                        <LeftArrow onClick={this.next}/>
                     </SliderNav>
                 </Row>
             </NavBlock>
         </TwoColRow>
-        <Slider {...settings}>
+        <Slider ref={c => (this.slider = c)} {...settings}>
             <SliderImage bgImage={SlideOne} padding="0"></SliderImage>
             <SliderImage bgImage={SlideOne} padding="0"></SliderImage>
             <SliderImage bgImage={SlideOne} padding="0"></SliderImage>

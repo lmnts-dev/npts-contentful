@@ -5,41 +5,48 @@ import { PLarge, HeaderText } from '../components/Headings'
 import Column from '../components/Column'
 import Leaf from "../images/leafSummary.png"
 
-const Leaves = styled.img `
-    position: absolute;
-    z-index: 4;
+const Leaves = styled.img`
+  position: absolute;
+  z-index: 4;
+  height: 250px;
+  left: -30px;
+  bottom: -5%;
+  @media (max-width: 2000px) {
     height: 16vw;
     left: -5%;
     bottom: -5%;
-    @media ( max-width: 600px ){
-        height: 100px;
-        bottom: 0;
-        left: -8%;
-    }
+  }
+  @media (max-width: 600px) {
+    height: 100px;
+    bottom: 0;
+    left: -8%;
+  }
 `
 
 const Block = styled(Wrapper)`
-    padding: 1250px 700px;
+  padding: 100px 288px;
+  div {
+    div:nth-of-type(1) {
+      margin: 20px;
+    }
+  }
+  @media (max-width: 1440px) {
+    padding: 100px 20vw;
+  }
+  @media (max-width: 1000px) {
+    padding: 100px 10vw;
+  }
+  @media (max-width: 600px) {
+    padding: 10vw 10vw;
     div {
-        div:nth-of-type(1) {
-            margin: 20px;
-        }
+      div:nth-of-type(1) {
+        margin: 10px;
+      }
     }
-    @media ( max-width: 1440px ){
-        padding: 100px 20vw;
-    }
-    @media ( max-width: 600px ){
-        padding: 10vw 10vw;
-        div {
-            div:nth-of-type(1) {
-                margin: 10px;
-            }
-        }
-    }
-    @media ( max-width: 450px ){
-        padding: 50px 25px;
-    }
-
+  }
+  @media (max-width: 450px) {
+    padding: 50px 25px;
+  }
 `
 
 const Summary = () => (                  

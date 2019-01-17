@@ -15,7 +15,7 @@ const Leaves = styled.img `
     position: absolute;
     z-index: 3;
     height: 250px;
-    right: -10%;
+    right: -5%;
     bottom: -12%;
     @media ( max-width: 600px ){
         height: 150px;
