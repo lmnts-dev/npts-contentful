@@ -24,22 +24,36 @@ const GlobalStyle = createGlobalStyle`
         flex-direction: column;
         justify-content: center;
         li {
-            margin: 20px;
-
-            }
+            margin: 4px;
             button {
+                content: "";
                 background-color: transparent;
                 padding: 0;
+                border: none;
+                color: #9DD5EA;
+                font-size: 1px;
+                cursor: pointer;
+                &:focus {
+                    outline: none;
+                }
                 &::after {
                     content: "";
                     line-height: 0;
                     background-color: #1791AD;
-                    padding: 5px;
-                    border-radius: 5px;
+                    padding: 3.5px 4px;
+                    border-radius: 50%;
                     color: #1791AD;
+                }
+            }
+            &.slick-active {
+                button {
+                    &::after {
+                        background-color: #293536;
+                        color: #293536;
+                    }
+                }
             }
         }
-        
     }
 `
 
@@ -121,7 +135,7 @@ export default class SimpleSlider extends React.Component {
       slidesToScroll: 1,
       arrows: false,
       autoplay: true,
-      autoplaySpeed: 2000,
+      autoplaySpeed: 5000,
       dotsClass: 'dots'
     };
     return (
