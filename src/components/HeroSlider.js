@@ -12,6 +12,21 @@ import lArrow from "!svg-react-loader!../images/svg-icons/arrowLeft.svg?name=arr
 import rArrow from "!svg-react-loader!../images/svg-icons/arrowRight.svg?name=arrow";
 import Locator from "!svg-react-loader!../images/svg-icons/locator.svg?name=locator";
 import SlideOne from "../images/slider1.jpg"
+import slider from "react-slick";
+
+const Slider = styled.div`
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    height: 100% !important;
+    z-index: -1;
+`
+const SliderImage = styled(Wrapper)`
+    height: 100%;
+    width: 100%;
+`
 
 const SliderNav = styled(ColumnWrapper)`
     margin: 12px;
@@ -71,16 +86,6 @@ const Disclaimer = styled(Text)`
     }
 `
 
-const SliderImage = styled(Wrapper)`
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    top: 0;
-    height: 100% !important;
-    z-index: -1;
-`
-
 const Container = styled.div`
     position: relative;
 `
@@ -119,7 +124,9 @@ const HeroSlider = () => (
                 </Row>
             </NavBlock>
         </TwoColRow>
-        <SliderImage bgImage={SlideOne} padding="0"></SliderImage>
+        <Slider>
+            <SliderImage bgImage={SlideOne} padding="0"></SliderImage>
+        </Slider>    
     </Container>
 )
 
