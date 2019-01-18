@@ -1,11 +1,11 @@
 {
     "development": {
-      "host": "preview.contentful.com",
-      "spaceId": "7aaiqyb3pxv8",
-      "accessToken": "b547f6fcd883568693672231e9f96cc8cb2bd1412151e585aebc1d3fcac24309"
-    },
+        "host": "preview.contentful.com",
+        "spaceId": "7aaiqyb3pxv8",
+        "accessToken": "b547f6fcd883568693672231e9f96cc8cb2bd1412151e585aebc1d3fcac24309"
+  },
     "production": {
-      "spaceId": "7aaiqyb3pxv8",
-      "accessToken": "d9a1aa8b65d113a1b92e6c0a6654a72c9b99fa3b30b2777ace1c8ea86d985b2e"
-    }
+        "spaceId": "7aaiqyb3pxv8",
+        "accessToken": "d9a1aa8b65d113a1b92e6c0a6654a72c9b99fa3b30b2777ace1c8ea86d985b2e"
+  }
 }

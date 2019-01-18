@@ -5,4 +5,3 @@ public/
 yarn*
 *.log
 contentful-import-error-log*
-.env*

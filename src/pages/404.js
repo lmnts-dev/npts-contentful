@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
-import PageTitle from '../components/PageTitle'
 import Container from '../components/Container'
 import Layout from '../components/Layout'
 
@@ -22,7 +21,7 @@ const NotFoundPage = () => (
     </Helmet>
 
     <Container>
-      <PageTitle>Page Not Found</PageTitle>
+      <h1>Page Not Found</h1>
       <Text>
         Please return <Link to="/">home</Link> or use the menu to navigate to a
         different page.
