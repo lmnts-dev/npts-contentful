@@ -107,22 +107,22 @@ const activeLinkStyle = {
 const Menu = () => {
   return (
       <Nav>
-        <LogoLink paintDrip hex={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} to="/" activeStyle={activeLinkStyle}>
+        <LogoLink cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction} to="/" activeStyle={activeLinkStyle}>
           <Logo />
         </LogoLink>
         <ul>
           <li>
-            <NavLink paintDrip hex={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} to="/services" activeStyle={activeLinkStyle}>
+            <NavLink cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction} to="/services" activeStyle={activeLinkStyle}>
               Services
               </NavLink>
           </li>
           <li>
-            <NavLink paintDrip hex={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} to="/about" activeStyle={activeLinkStyle}>
+            <NavLink cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction} to="/about" activeStyle={activeLinkStyle}>
               About
               </NavLink>
           </li>
           <li>
-            <NavLink paintDrip hex={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} to="/contact" activeStyle={activeLinkStyle}>
+            <NavLink cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction} to="/contact" activeStyle={activeLinkStyle}>
               Let's Talk
               </NavLink>
           </li>
