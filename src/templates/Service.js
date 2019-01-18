@@ -15,6 +15,7 @@ import PageBody from '../components/PageBody'
 import { PLarge, HeaderText } from '../components/Headings'
 import { LargeTextBlock } from '../components/TextBlocks'
 import SEO from '../components/SEO'
+import FirewoodBlock from '../components/FirewoodBlock'
 
 
 
@@ -25,34 +26,6 @@ const Block = styled(Wrapper)`
   }
   @media (max-width: 500px) {
     padding: 10vw 10vw;
-  }
-`
-
-const Row = styled( RowWrapper )`
-  a {
-    margin: 0 10px;
-  }
-  @media(max-width: 700px){
-    flex-direction: column;
-    align-items: center;
-    a {
-      margin: 10px 0;
-    }
-  }
-`
-
-const Chip = styled.img`
-  position: absolute;
-  z-index: 4;
-  height: 250px;
-  right: -2%;
-  top: -5%;
-  @media (max-width: 2000px) {
-    height: 16vw;
-  }
-  @media (max-width: 600px) {
-    height: 100px;
-    top: -10%;
   }
 `
 
@@ -87,27 +60,7 @@ const ServiceTemplate = ({ data, pageContext }) => {
             Get a free quote
           </Button>
         </Block>
-        <Block bgColor="#9DD5EA">
-          <Column align="center">
-            <HeaderText size="100" color="#293536" weight="700" align="center">
-              Free Firewood &amp; Woodchips
-            </HeaderText>
-            <PLarge color="#293536" align="center">
-                Need a bunch of firewood or wood chips? We got you covered. We have stockpiles of several trees native to Northern Nevada, including cottonwood, maple, spruce, and pine trees.
-                  
-                Looking for wood chips for free mulch or a landscaping project? We are registered with Chip Drop! If you are looking for wood chips, please sign up at chipdrop.in or contact us and we’ll reach out to you as soon as possible to confirm a delivery time and place.       
-            </PLarge>
-            <Row>
-              <Button to="/">
-                Free firewood
-              </Button>
-              <Button to="/">
-                Free wood chips
-              </Button>
-              <Chip src={chip} alt="leaf"/>
-            </Row>
-          </Column>
-        </Block>
+        <FirewoodBlock />
         <Summary bText="About Us" dest="/about" />
         
       </Container>

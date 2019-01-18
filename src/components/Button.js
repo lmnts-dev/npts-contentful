@@ -65,7 +65,7 @@ const ButtonStyle = styled.a`
     `
     /* dark arrow button */
     if (props.arrowButton && props.dark) return `
-      color: #293536;
+      color: #9F4300;
     `
   }}
 `
