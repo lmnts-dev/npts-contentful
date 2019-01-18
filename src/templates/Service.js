@@ -16,11 +16,18 @@ import { LargeTextBlock } from '../components/TextBlocks'
 import SEO from '../components/SEO'
 
 const HeaderBlock = styled(Wrapper)`
-  padding: 150px 6vw 6vw 6vw;
+  padding: 150px 120px 120px 120px;
+  @media (max-width: 2000px){
+    padding: 150px 6vw 6vw 6vw;
+  }
+  
 `
 
 const Block = styled(Wrapper)`
-  padding: 8vw 15vw;
+  padding: 160px 300px;
+  @media (max-width: 2000px){
+    padding: 8vw 15vw;
+  }
 `
 
 const Row = styled( RowWrapper )`

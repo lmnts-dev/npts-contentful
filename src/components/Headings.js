@@ -160,7 +160,7 @@ export const HeaderText = styled(Text)`
         font-size: 6.94vw;
       }
       @media ( max-width: 1120px ){
-        font-size: 41.64px;
+        font-size: 77.8px;
       }
     `
     if (props.size === "125") return ` 
