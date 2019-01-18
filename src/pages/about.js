@@ -14,7 +14,15 @@ import { TextBlock, LargeTextBlock } from '../components/TextBlocks'
 import IntroImage from '../images/intro.jpg'
 import { H2, H3, P, PLarge, HeaderText } from '../components/Headings'
 import PHC from '../images/phc.jpg'
+import Leaf from "../images/leafTestimonial.png"
+import { RightLeaf } from '../components/Leaves'
 
+const Leaves = styled(RightLeaf)`
+    bottom: -10%;
+    @media ( max-width: 600px ){
+        bottom: -7%;
+    }
+`
 
 const MainBlock = styled(Wrapper)`
   padding: 115px 144px;
@@ -71,6 +79,7 @@ const Home = ({ data }) => {
                 cycling advocacy group here in Reno.
               </P>
             </MainBlock>
+            <Leaves src={Leaf}/>
           </TwoColRow>
           <TwoColRow smallReverse bias="left">
                 <LargeTextBlock header="Professional and experienced tree care" text="Serving the Northern Nevada, we specialize in safe, considerate tree and shrub pruning, removal, trimming, and planting. " bText="Our Services" dest="/" theme="dark" bgColor="#C9EAEB" />
