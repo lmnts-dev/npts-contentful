@@ -1,7 +1,7 @@
 import React from 'react'
-import TwoColRow from '../components/TwoColRow'
-import { Wrapper } from '../components/Block'
-import { LargeTextBlock } from '../components/TextBlocks'
+import TwoColRow from './TwoColRow'
+import { Wrapper } from './Block'
+import { LargeTextBlock } from './TextBlocks'
 import leafPlanting from "../images/leafPlanting.png"
 import leafSurgery from "../images/leafSurgery.png"
 import styled from 'styled-components'
@@ -10,7 +10,7 @@ import PHC from "../images/phc.jpg"
 import Removal from "../images/removal.jpg"
 import Surgery from "../images/surgury.jpg"
 import Trimming from "../images/trimming.jpg"
-import { MiddleLeaf, RightLeaf } from '../components/Leaves'
+import { MiddleLeaf, RightLeaf } from './Leaves'
 
 const Block = styled(Wrapper)`
   @media (max-width: 2000px) {

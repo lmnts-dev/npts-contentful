@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from '../components/Button'
-import { H2, H3, P, PLarge } from '../components/Headings'
-import { HeaderLine } from '../components/Lines'
+import { H3, PLarge } from '../components/Headings'
 import { ColumnWrapper } from '../components/Column'
 import Planting from '../images/planting.jpg'
-import { Wrapper } from '../components/block'
+import { Wrapper } from '../components/Block'
 
 const Header = styled(H3)`
     margin-bottom: 30px;

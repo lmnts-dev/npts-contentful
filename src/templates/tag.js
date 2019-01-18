@@ -7,7 +7,6 @@ import config from '../utils/siteConfig'
 import Layout from '../components/Layout'
 import Card from '../components/Card'
 import CardList from '../components/CardList'
-import PageTitle from '../components/PageTitle'
 import Pagination from '../components/Pagination'
 import Container from '../components/Container'
 
@@ -56,11 +55,11 @@ const TagTemplate = ({ data, pageContext }) => {
       )}
 
       <Container>
-        <PageTitle small>
+        <h1 small>
           {numberOfPosts} Posts Tagged: &ldquo;
           {title}
           &rdquo;
-        </PageTitle>
+        </h1>
 
         <CardList>
           {posts.slice(skip, limit * currentPage).map(post => (
