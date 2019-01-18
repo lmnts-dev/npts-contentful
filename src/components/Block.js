@@ -69,6 +69,16 @@ export const Wrapper = styled.div`
   background-image: url(${props => props.bgImage || ''});
 `
 
+export const HeaderBlock = styled(Wrapper)`
+  padding: 150px 120px 120px 120px;
+  @media (max-width: 2000px) {
+    padding: 150px 6vw 6vw 6vw;
+  }
+  @media (max-width: 500px) {
+    padding: 100px 3vw 10vw 3vw;
+  }
+`
+
 export const Block = ({ bgImage, padding, bgColor, width, pushUp, absolute, children }) => {
     return (
         <Wrapper bgImage={bgImage} padding={padding} bgColor={bgColor} width={width} pushUp={pushUp} absolute={absolute}>

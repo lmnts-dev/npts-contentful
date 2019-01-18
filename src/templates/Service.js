@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import Container from '../components/Container'
 import Button from '../components/Button'
 import Summary from '../components/Summary'
-import { Wrapper } from '../components/Block'
+import { Wrapper, HeaderBlock } from '../components/Block'
 import Column from '../components/Column'
 import { RowWrapper } from '../components/Row'
 import styled from 'styled-components'
@@ -16,15 +16,7 @@ import { PLarge, HeaderText } from '../components/Headings'
 import { LargeTextBlock } from '../components/TextBlocks'
 import SEO from '../components/SEO'
 
-const HeaderBlock = styled(Wrapper)`
-  padding: 150px 120px 120px 120px;
-  @media (max-width: 2000px) {
-    padding: 150px 6vw 6vw 6vw;
-  }
-  @media (max-width: 500px) {
-    padding: 100px 3vw 10vw 3vw;
-  }
-`
+
 
 const Block = styled(Wrapper)`
   padding: 160px 300px;

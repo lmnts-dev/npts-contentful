@@ -20,7 +20,7 @@ const Home = ({ data }) => {
     }
 
     return (
-        <div>
+        <>
             <Helmet>
                 <title>{`Contact - ${config.siteTitle}`}</title>
             </Helmet>
@@ -33,7 +33,7 @@ const Home = ({ data }) => {
                 <Services />
                 <Summary hideButton />
             </Container>
-        </div>
+        </>
     )
 }
 
