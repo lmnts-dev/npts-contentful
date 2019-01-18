@@ -13,32 +13,34 @@ const ServiceTemplate = ({ data, pageContext }) => {
   const {
     name,
     slug,
+    serviceContent,
   } = data.contentfulService
   const postNode = data.contentfulService
 
-  return (
-    <Layout>
+  return <Layout>
       <Helmet>
         <title>{`${name} - ${config.siteTitle}`}</title>
       </Helmet>
-      <SEO pagePath={slug} postNode={postNode} postSEO />
-
 
       <Container>
         {name}
+      {serviceContent.childContentfulRichText.html}
       </Container>
     </Layout>
-  )
 }
 
 export const query = graphql`
-  query($slug: String!) {
-    contentfulService(slug: { eq: $slug }) {
-      name
-      slug
-      description
-    }
-  }
-`
+         query($slug: String!) {
+           contentfulService(slug: { eq: $slug }) {
+             name
+             slug
+             serviceContent {
+               childContentfulRichText {
+                 html
+               }
+             }
+           }
+         }
+       `
 
 export default ServiceTemplate
