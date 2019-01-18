@@ -5,24 +5,7 @@ import { PLarge, HeaderText } from '../components/Headings'
 import Column from '../components/Column'
 import Button from '../components/Button'
 import Leaf from "../images/leafSummary.png"
-
-const Leaves = styled.img`
-  position: absolute;
-  z-index: 4;
-  height: 250px;
-  left: -30px;
-  bottom: -5%;
-  @media (max-width: 2000px) {
-    height: 16vw;
-    left: -5%;
-    bottom: -5%;
-  }
-  @media (max-width: 600px) {
-    height: 100px;
-    bottom: 0;
-    left: -8%;
-  }
-`
+import { LeftLeaf } from '../components/Leaves'
 
 const Block = styled(Wrapper)`
   padding: 100px 288px;
@@ -66,7 +49,7 @@ const Summary = props => (
                   {props.bText}
                 </Button>
             </Column>
-            <Leaves src={Leaf} alt="leaf"/>
+            <LeftLeaf src={Leaf} alt="leaf"/>
         </Block>
     )
 export default Summary
