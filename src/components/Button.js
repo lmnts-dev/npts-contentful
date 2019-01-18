@@ -18,7 +18,7 @@ import arrowWhite from "../images/arrowWhite.png"
 ///////////////////////////////////////////////////////// */
 
 const ButtonStyle = styled.a`
-  display: inline-block;
+  display: ${props => props.hide ? 'none' : 'inline-block'};
   letter-spacing: 1px;
   font-size: 19px;
   cursor: pointer;
@@ -81,10 +81,10 @@ const Arrow = styled.img`
   }
 `
 
-const Button = ({ arrowButton, dark, children }) => {
+const Button = ({ hide, arrowButton, dark, children }) => {
   if (!arrowButton){
     return (
-      <ButtonStyle arrowButton={arrowButton} dark={dark}>
+      <ButtonStyle hide={hide} arrowButton={arrowButton} dark={dark}>
         {children}
       </ButtonStyle>
     )
@@ -92,7 +92,7 @@ const Button = ({ arrowButton, dark, children }) => {
   else {
    if (dark) {
     return (
-      <ButtonStyle arrowButton={arrowButton} dark={dark}>
+      <ButtonStyle hide={hide} arrowButton={arrowButton} dark={dark}>
         {children}
         <Arrow src={arrowGrey} alt="Arrow" />
       </ButtonStyle>
@@ -100,7 +100,7 @@ const Button = ({ arrowButton, dark, children }) => {
    }
    else {
     return (
-      <ButtonStyle arrowButton={arrowButton} dark={dark}>
+      <ButtonStyle hide={hide} arrowButton={arrowButton} dark={dark}>
         {children}
         <Arrow src={arrowWhite} alt="Arrow" />
       </ButtonStyle>

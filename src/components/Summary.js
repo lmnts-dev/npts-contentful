@@ -3,6 +3,7 @@ import { Wrapper } from '../components/Block'
 import styled from 'styled-components'
 import { PLarge, HeaderText } from '../components/Headings'
 import Column from '../components/Column'
+import Button from '../components/Button'
 import Leaf from "../images/leafSummary.png"
 
 const Leaves = styled.img`
@@ -49,7 +50,7 @@ const Block = styled(Wrapper)`
   }
 `
 
-const Summary = () => (                  
+const Summary = props => (                  
         <Block bgColor="#9F4300">
             <Column align="center">
                 <HeaderText size="42" weight="700" color="#FFFFFF" align="center">
@@ -61,6 +62,9 @@ const Summary = () => (
                 <PLarge color="#FFFFFF" align="center">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus pharetra mi, in malesuada purus luctus placerat. Ut vulputate, enim sed feugiat consectetur, ex odio tempor tellus, sed laoreet mi tortor vitae mauris. Fusce vulputate ligula in massa mollis, ut finibus leo fermentum. 
                 </PLarge>
+                <Button hide={props.hideButton} dark to={props.dest}>
+                  {props.bText}
+                </Button>
             </Column>
             <Leaves src={Leaf} alt="leaf"/>
         </Block>

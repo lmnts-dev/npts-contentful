@@ -31,7 +31,7 @@ const Home = ({ data }) => {
                 <IntroBlocks />
                 <SimpleSlider />
                 <Services />
-                <Summary />
+                <Summary hideButton />
             </Container>
         </div>
     )
