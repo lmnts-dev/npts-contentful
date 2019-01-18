@@ -82,7 +82,7 @@ const Home = ({ data }) => {
             <Leaves src={Leaf}/>
           </TwoColRow>
           <TwoColRow smallReverse bias="left">
-                <LargeTextBlock header="Professional and experienced tree care" text="Serving the Northern Nevada, we specialize in safe, considerate tree and shrub pruning, removal, trimming, and planting. " bText="Our Services" dest="/" theme="dark" bgColor="#C9EAEB" />
+                <LargeTextBlock header="Professional and experienced tree care" text="Serving the Northern Nevada, we specialize in safe, considerate tree and shrub pruning, removal, trimming, and planting. " bText="Our Services" dest="/services" theme="dark" bgColor="#C9EAEB" />
             <Block padding="0" bgImage={PHC} />
           </TwoColRow>
           <Summary bText="Get a free quote" dest="/"/>

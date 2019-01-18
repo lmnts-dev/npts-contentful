@@ -21,25 +21,25 @@ const Block = styled(Wrapper)`
 const Services = () => (  
         <div>
             <TwoColRow smallReverse bias="left">
-                <LargeTextBlock line="right" header="Removal" text="We pride ourselves on our ability to extricate such very large and dangerous trees while doing no damage to the fine surroundings." bText="Learn more" dest="/" theme="light" bgColor="#272929"/>
+                <LargeTextBlock line="right" header="Removal" text="We pride ourselves on our ability to extricate such very large and dangerous trees while doing no damage to the fine surroundings." bText="Learn more" dest="/removal" theme="light" bgColor="#272929"/>
                 <Block bgImage={Removal} />
             </TwoColRow>
             <TwoColRow bias="right">
                 <Block bgImage={Planting} />
-                <LargeTextBlock line="left" header="Planting" text="One tree or a hundred trees, no job is too big or small. There are few things better than watching a properly planted tree grow and thrive for years and even decades." bText="Learn more" dest="/" theme="dark" bgColor="#FFFFFF" pushUp/>
+                <LargeTextBlock line="left" header="Planting" text="One tree or a hundred trees, no job is too big or small. There are few things better than watching a properly planted tree grow and thrive for years and even decades." bText="Learn more" dest="/planting" theme="dark" bgColor="#FFFFFF" pushUp/>
                 <MiddleLeaf src={leafPlanting} alt="leaf"/>
             </TwoColRow>
             <TwoColRow smallReverse bias="left">
-                <LargeTextBlock line="right" header="Trimming" text="As a premier local tree service, we strive to offer the highest quality pruning or trimming possible. All our pruning is done to ISA standards and guidelines." bText="Learn more" dest="/" theme="dark" bgColor="#C9EAEB"/>
+                <LargeTextBlock line="right" header="Trimming" text="As a premier local tree service, we strive to offer the highest quality pruning or trimming possible. All our pruning is done to ISA standards and guidelines." bText="Learn more" dest="/trimming" theme="dark" bgColor="#C9EAEB"/>
                 <Block bgImage={Trimming} />
             </TwoColRow>
             <TwoColRow bias="right">
                 <Block bgImage={Surgery} />
-                <LargeTextBlock header="Surgery" text="Supplemental structural support for trees and branches. We’re experts in the cabling and bracing procedures that are the current industry standards." bText="Learn more" dest="/" theme="dark" bgColor="#FFFFFF"/>
+                <LargeTextBlock header="Surgery" text="Supplemental structural support for trees and branches. We’re experts in the cabling and bracing procedures that are the current industry standards." bText="Learn more" dest="/surgery" theme="dark" bgColor="#FFFFFF"/>
                 <RightLeaf src={leafSurgery} alt="leaf"/>
             </TwoColRow>
             <TwoColRow smallReverse bias="left">
-                <LargeTextBlock line="right" header="Plant Health Care (PHC)" text="Our team will do everything possible to improve and maintain a tree’s health. We’ll do what is right for every tree." bText="Learn more" dest="/" theme="dark" bgColor="#C9EAEB"/>
+                <LargeTextBlock line="right" header="Plant Health Care (PHC)" text="Our team will do everything possible to improve and maintain a tree’s health. We’ll do what is right for every tree." bText="Learn more" dest="/plant-health-care-phc" theme="dark" bgColor="#C9EAEB"/>
                 <Block bgImage={PHC} />
             </TwoColRow>
         </div>

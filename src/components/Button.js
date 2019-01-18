@@ -22,6 +22,7 @@ const ButtonStyle = styled.a`
   letter-spacing: 1px;
   font-size: 19px;
   cursor: pointer;
+  text-decoration: none;
   @media ( max-width: 1440px ){
     font-size: 1.25vw;
   }
@@ -81,10 +82,10 @@ const Arrow = styled.img`
   }
 `
 
-const Button = ({ hide, arrowButton, dark, children }) => {
+const Button = ({ to, hide, arrowButton, dark, children }) => {
   if (!arrowButton){
     return (
-      <ButtonStyle hide={hide} arrowButton={arrowButton} dark={dark}>
+      <ButtonStyle href={to} hide={hide} arrowButton={arrowButton} dark={dark}>
         {children}
       </ButtonStyle>
     )
@@ -92,7 +93,7 @@ const Button = ({ hide, arrowButton, dark, children }) => {
   else {
    if (dark) {
     return (
-      <ButtonStyle hide={hide} arrowButton={arrowButton} dark={dark}>
+      <ButtonStyle href={to} hide={hide} arrowButton={arrowButton} dark={dark}>
         {children}
         <Arrow src={arrowGrey} alt="Arrow" />
       </ButtonStyle>
@@ -100,7 +101,7 @@ const Button = ({ hide, arrowButton, dark, children }) => {
    }
    else {
     return (
-      <ButtonStyle hide={hide} arrowButton={arrowButton} dark={dark}>
+      <ButtonStyle href={to} hide={hide} arrowButton={arrowButton} dark={dark}>
         {children}
         <Arrow src={arrowWhite} alt="Arrow" />
       </ButtonStyle>

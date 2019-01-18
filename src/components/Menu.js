@@ -44,7 +44,7 @@ const HamburgerLink = styled.div`
   }
 `
 
-const NavButton = styled(AniLink)`
+const NavButton = styled.a`
   text-transform: uppercase;
   background-color: #9F4300;
   font-size: 22px;
@@ -127,7 +127,7 @@ const Menu = () => {
               </NavLink>
           </li>
           <li>
-            <NavButton divider to="/contact/" activeStyle={activeLinkStyle}>
+            <NavButton divider href="tel:7753760917" activeStyle={activeLinkStyle}>
               775.376.0917
             </NavButton>
           </li>

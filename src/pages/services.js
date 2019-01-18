@@ -49,15 +49,15 @@ const Home = ({ data }) => {
             </HeaderBlock>
             <ServiceList bgColor="#FFFFFF">
                 <TwoColRow>
-                    <ServiceBlock header="Removal" text="We pride ourselves on our ability to extricate such very large and dangerous trees while doing no damage to the fine surroundings." bText="Learn More" dest="/" />
-                    <ServiceBlock header="Planting" text="One tree or a hundred trees, no job is too big or small. There are few things better than watching a properly planted tree grow and thrive …" bText="Learn More" dest="/" />
+                    <ServiceBlock header="Removal" text="We pride ourselves on our ability to extricate such very large and dangerous trees while doing no damage to the fine surroundings." bText="Learn More" dest="/removal" />
+                    <ServiceBlock header="Planting" text="One tree or a hundred trees, no job is too big or small. There are few things better than watching a properly planted tree grow and thrive …" bText="Learn More" dest="/planting" />
                 </TwoColRow>
                 <TwoColRow>
-                    <ServiceBlock header="Trimming" text="As a premier local tree service, we strive to offer the highest quality pruning or trimming possible. All our pruning is done to ISA…" bText="Learn More" dest="/" />
-                    <ServiceBlock header="Surgery" text="Supplemental structural support for trees and branches. We’re experts in the cabling and bracing procedures that are the current industry…" bText="Learn More" dest="/" />
+                    <ServiceBlock header="Trimming" text="As a premier local tree service, we strive to offer the highest quality pruning or trimming possible. All our pruning is done to ISA…" bText="Learn More" dest="/trimming" />
+                    <ServiceBlock header="Surgery" text="Supplemental structural support for trees and branches. We’re experts in the cabling and bracing procedures that are the current industry…" bText="Learn More" dest="/surgery" />
                 </TwoColRow>
                 <TwoColRow>
-                    <ServiceBlock header="Plant Health Care (PHC)" text="Our team will do everything possible to improve and maintain a tree’s health. We’ll do what is right for every tree." bText="Learn More" dest="/" />
+                    <ServiceBlock header="Plant Health Care (PHC)" text="Our team will do everything possible to improve and maintain a tree’s health. We’ll do what is right for every tree." bText="Learn More" dest="/plant-health-care-phc" />
                 </TwoColRow>
             </ServiceList>
             <FirewoodBlock />
