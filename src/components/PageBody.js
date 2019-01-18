@@ -5,7 +5,7 @@ require('prismjs/themes/prism.css')
 const Body = styled.div`
   margin: 0 auto;
   overflow-x: hidden;
-  max-width: ${props => props.theme.sizes.maxWidthCentered};
+  color:#293536;
 
   h1,
   h2,
@@ -27,8 +27,15 @@ const Body = styled.div`
   }
 
   p {
-    line-height: 1.6;
-    margin: 0 0 2em 0;
+    font-size: 22px;
+    margin-bottom: 20px;;
+    @media (max-width: 1440px) {
+      font-size: 1.53vw;
+    }
+    @media (max-width: 1047px) {
+      font-size: 16px;
+    }
+    line-height: 1.8;
   }
 
   a {

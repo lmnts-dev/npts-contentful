@@ -11,28 +11,41 @@ import Column from '../components/Column'
 import { RowWrapper } from '../components/Row'
 import styled from 'styled-components'
 import chip from "../images/chip.png"
+import PageBody from '../components/PageBody'
 import { PLarge, HeaderText } from '../components/Headings'
 import { LargeTextBlock } from '../components/TextBlocks'
 import SEO from '../components/SEO'
 
 const HeaderBlock = styled(Wrapper)`
   padding: 150px 120px 120px 120px;
-  @media (max-width: 2000px){
+  @media (max-width: 2000px) {
     padding: 150px 6vw 6vw 6vw;
   }
-  
+  @media (max-width: 500px) {
+    padding: 100px 3vw 10vw 3vw;
+  }
 `
 
 const Block = styled(Wrapper)`
   padding: 160px 300px;
-  @media (max-width: 2000px){
+  @media (max-width: 2000px) {
     padding: 8vw 15vw;
+  }
+  @media (max-width: 500px) {
+    padding: 10vw 10vw;
   }
 `
 
 const Row = styled( RowWrapper )`
   a {
     margin: 0 10px;
+  }
+  @media(max-width: 700px){
+    flex-direction: column;
+    align-items: center;
+    a {
+      margin: 10px 0;
+    }
   }
 `
 
@@ -47,19 +60,17 @@ const Chip = styled.img`
   }
   @media (max-width: 600px) {
     height: 100px;
+    top: -10%;
   }
 `
 
 const ServiceTemplate = ({ data, pageContext }) => {
   const {
     name,
-    slug,
-    serviceContent,
+    fullDescription,
   } = data.contentfulService
-  const postNode = data.contentfulService
-  const description = serviceContent.childContentfulRichText.html
 
-  return <Layout>
+  return <>
       <Helmet>
         <title>{`${name} - ${config.siteTitle}`}</title>
       </Helmet>
@@ -78,7 +89,7 @@ const ServiceTemplate = ({ data, pageContext }) => {
             {name}
           </HeaderText>
           <PLarge color="#293536">
-            {description}
+            <PageBody body={fullDescription}/>
           </PLarge>
           <Button to="/">
             Get a free quote
@@ -108,7 +119,7 @@ const ServiceTemplate = ({ data, pageContext }) => {
         <Summary bText="About Us" dest="/about" />
         
       </Container>
-    </Layout>
+    </>
 }
 
 export const query = graphql`
@@ -116,13 +127,57 @@ export const query = graphql`
            contentfulService(slug: { eq: $slug }) {
              name
              slug
-             serviceContent {
-               childContentfulRichText {
+             image {
+               title
+               fluid(maxWidth: 1800) {
+                 ...GatsbyContentfulFluid_withWebp_noBase64
+               }
+               ogimg: resize(width: 1800) {
+                 src
+                 width
+                 height
+               }
+             }
+             shortSummary {
+               childMarkdownRemark {
                  html
+                 excerpt(pruneLength: 320)
+               }
+             }
+             fullDescription {
+               childMarkdownRemark {
+                 html
+                 excerpt(pruneLength: 320)
                }
              }
            }
          }
        `
+/* not working yet
+export const woodChipquery = graphql`
+         query($slug: String!) {
+           contentfulFirewood(slug: { eq: $slug }) {
+             headerText
+             slug
+             paragraphText {
+               childMarkdownRemark {
+                 html
+                 excerpt(pruneLength: 320)
+               }
+             }
+           }
+         }
+*/
 
 export default ServiceTemplate
+
+
+/* FOR RICH TEXT 
+
+    serviceContent {
+      childContentfulRichText {
+        html
+      }
+    }
+
+*/
