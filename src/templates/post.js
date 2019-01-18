@@ -11,6 +11,9 @@ import PostLinks from '../components/PostLinks'
 import PostDate from '../components/PostDate'
 import SEO from '../components/SEO'
 
+
+console.log("post template");
+
 const PostTemplate = ({ data, pageContext }) => {
   const {
     title,

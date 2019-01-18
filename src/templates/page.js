@@ -8,6 +8,9 @@ import PageTitle from '../components/PageTitle'
 import PageBody from '../components/PageBody'
 import SEO from '../components/SEO'
 
+
+console.log("page template");
+
 const PageTemplate = ({ data }) => {
   const { title, slug, body } = data.contentfulPage
   const postNode = data.contentfulPage

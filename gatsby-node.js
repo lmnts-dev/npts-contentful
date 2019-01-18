@@ -138,5 +138,33 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([loadPosts, loadTags, loadPages])
+  const loadServices = new Promise((resolve, reject) => {
+    graphql(`
+      {
+        allContentfulService {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
+      }
+    `).then(result => {
+      const services = result.data.allContentfulService.edges
+      services.map(({ node }) => {
+        
+        console.log(`${node.slug}`);
+        createPage({
+          path: `${node.slug}/`,
+          component: path.resolve(`./src/templates/service.js`),
+          context: {
+            slug: node.slug,
+          },
+        })
+      })
+      resolve()
+    })
+  })
+
+  return Promise.all([loadPosts, loadTags, loadPages, loadServices])
 }

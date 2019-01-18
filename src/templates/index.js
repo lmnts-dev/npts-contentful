@@ -1,3 +1,4 @@
+/*
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
@@ -8,6 +9,8 @@ import Container from '../components/Container'
 import Pagination from '../components/Pagination'
 import SEO from '../components/SEO'
 import config from '../utils/siteConfig'
+
+console.log( "index template" );
 
 const Index = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges
@@ -76,3 +79,4 @@ export const query = graphql`
 `
 
 export default Index
+*/

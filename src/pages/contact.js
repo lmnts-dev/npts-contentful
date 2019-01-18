@@ -13,7 +13,7 @@ const Contact = ({ data }) => {
   }
 
   return (
-    <Layout>
+    <>
       <Helmet>
         <title>{`Contact - ${config.siteTitle}`}</title>
       </Helmet>
@@ -23,7 +23,7 @@ const Contact = ({ data }) => {
         <PageTitle>Contact</PageTitle>
         <ContactForm />
       </Container>
-    </Layout>
+    </>
   )
 }
 
