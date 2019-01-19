@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PageBody from '../components/PageBody'
 import Button from '../components/Button'
 import { H3, PLarge } from '../components/Headings'
 import { ColumnWrapper } from '../components/Column'
@@ -40,10 +41,8 @@ const ServiceBlock = props => (
             <Header weight="700">
                 {props.header}
             </Header>
-            <Image padding="0" bgImage={Planting} />
-            <PLarge>
-                {props.text}
-            </PLarge>
+            <Image padding="0" bgImage={props.src} />
+            <PageBody body = {props.text}/>
             <Button arrowButton dark to={props.dest}>
                 {props.bText}
             </Button>

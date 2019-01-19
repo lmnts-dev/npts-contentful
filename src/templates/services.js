@@ -1,3 +1,5 @@
+
+import { graphql } from 'gatsby'
 import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
@@ -27,18 +29,21 @@ const ServiceList = styled(Wrapper)`
   }
 `
 
-const Home = ({ data }) => {
+const Services = ({ data }) => {
+    const services = data.allContentfulService.edges
     const postNode = {
         title: `Home - ${config.siteTitle}`,
     }
-
-    return <>
+    /* Add TwoColRow to the servies blocks */
+    return (
+       <>
         <Helmet>
           <title>{`Contact - ${config.siteTitle}`}</title>
         </Helmet>
         <SEO postNode={postNode} pagePath="contact" customTitle />
 
         <Container>
+
             <HeaderBlock bgColor="#C9EAEB">
                 <HeaderText size="42" weight="700" color="#312B2B">
                 Do what's right for the tree
@@ -48,22 +53,56 @@ const Home = ({ data }) => {
                 </HeaderText>
             </HeaderBlock>
             <ServiceList bgColor="#FFFFFF">
-                <TwoColRow>
-                    <ServiceBlock header="Removal" text="We pride ourselves on our ability to extricate such very large and dangerous trees while doing no damage to the fine surroundings." bText="Learn More" dest="/removal" />
-                    <ServiceBlock header="Planting" text="One tree or a hundred trees, no job is too big or small. There are few things better than watching a properly planted tree grow and thrive …" bText="Learn More" dest="/planting" />
-                </TwoColRow>
-                <TwoColRow>
-                    <ServiceBlock header="Trimming" text="As a premier local tree service, we strive to offer the highest quality pruning or trimming possible. All our pruning is done to ISA…" bText="Learn More" dest="/trimming" />
-                    <ServiceBlock header="Surgery" text="Supplemental structural support for trees and branches. We’re experts in the cabling and bracing procedures that are the current industry…" bText="Learn More" dest="/surgery" />
-                </TwoColRow>
-                <TwoColRow>
-                    <ServiceBlock header="Plant Health Care (PHC)" text="Our team will do everything possible to improve and maintain a tree’s health. We’ll do what is right for every tree." bText="Learn More" dest="/plant-health-care-phc" />
-                </TwoColRow>
+                {services.map(({ node: service }) => (
+                  <>
+                    <ServiceBlock src={service.image.ogimg.src} header={service.name} text={service.shortSummary} bText="Learn More" dest="/{service.slug}" />
+                  </>
+                ))}
             </ServiceList>
             <FirewoodBlock />
             <Summary bText="Get a free quote" dest="/"/>
         </Container>
       </>
+    )
 }
 
-export default Home
+export const query = graphql`
+         query($skip: Int!, $limit: Int!) {
+           allContentfulService(
+            limit: $limit
+            skip: $skip
+            ) {
+              edges {
+                node {
+                name
+                slug
+                image {
+                  title
+                  fluid(maxWidth: 1800) {
+                    ...GatsbyContentfulFluid_withWebp_noBase64
+                  }
+                  ogimg: resize(width: 1800) {
+                    src
+                    width
+                    height
+                  }
+                }
+                shortSummary {
+                  childMarkdownRemark {
+                    html
+                    excerpt(pruneLength: 320)
+                  }
+                }
+                fullDescription {
+                  childMarkdownRemark {
+                    html
+                    excerpt(pruneLength: 320)
+                  }
+                }
+              }
+            }
+          }
+        }
+       `
+
+export default Services

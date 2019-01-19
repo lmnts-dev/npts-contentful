@@ -4,6 +4,9 @@ const path = require(`path`)
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
+  
+  ////// for test.js template, which used to be the original index ////////
+  /////////////////////////////////////////////////////////////////////////
   const loadPosts = new Promise((resolve, reject) => {
     graphql(`
       {
@@ -27,10 +30,10 @@ exports.createPages = ({ graphql, actions }) => {
         posts.slice(postsPerFirstPage).length / postsPerPage
       )
 
-      // Create main home page
+      // Create blog
       createPage({
-        path: `/`,
-        component: path.resolve(`./src/templates/index.js`),
+        path: `/blog/`,
+        component: path.resolve(`./src/templates/blog.js`),
         context: {
           limit: postsPerFirstPage,
           skip: 0,
@@ -43,7 +46,7 @@ exports.createPages = ({ graphql, actions }) => {
       Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
           path: `/${i + 2}/`,
-          component: path.resolve(`./src/templates/index.js`),
+          component: path.resolve(`./src/templates/blog.js`),
           context: {
             limit: postsPerPage,
             skip: i * postsPerPage + postsPerFirstPage,
@@ -70,7 +73,36 @@ exports.createPages = ({ graphql, actions }) => {
       resolve()
     })
   })
+  ///////////////////////end test.js template///////////////////////////////
+  /////////////////////////////////////////////////////////////////////////
 
+  const loadServicesPage = new Promise((resolve, reject) => {
+    graphql(`
+      {
+        allContentfulService {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
+      }
+    `).then(result => {
+
+      // Create Services Page
+      createPage({
+        path: `/services/`,
+        component: path.resolve(`./src/templates/services.js`),
+        context: {
+          limit: 20,
+          skip: 0,
+        },
+      })
+
+      resolve()
+    })
+  })
+  
   const loadTags = new Promise((resolve, reject) => {
     graphql(`
       {
@@ -166,5 +198,5 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([loadPosts, loadTags, loadPages, loadServices])
+  return Promise.all([loadPosts, loadTags, loadPages, loadServices, loadServicesPage])
 }
