@@ -143,6 +143,19 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
+  ////// Create Home Page ////////////////////////////
+  const loadHomePage = new Promise((resolve, reject) => {
+    createPage({
+      path: `/`,
+      component: path.resolve(`./src/templates/index.js`),
+      context: {
+        limit: 20,
+        skip: 0,
+      },
+    })
+    resolve()
+  })
+
   ////// Create About Page ////////////////////////////
   const loadAboutPage = new Promise((resolve, reject) => {
     createPage({
@@ -198,5 +211,5 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([loadPosts, loadTags, loadPages, loadServices, loadServicesPage, loadAboutPage])
+  return Promise.all([loadPosts, loadTags, loadPages, loadServices, loadServicesPage, loadAboutPage, loadHomePage])
 }
