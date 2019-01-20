@@ -38,10 +38,14 @@ const MainBlock = styled(Wrapper)`
 `
 
 
-const Home = ({ data }) => {
+const About = ({ data }) => {
+    console.log("here");
+    console.log(data);
     const postNode = {
         title: `Home - ${config.siteTitle}`,
     }
+    const identity = data.allContentfulIdentity.edges[0].node
+    const about = data.allContentfulAbout.edges[0].node
 
     return <>
         <Helmet>
@@ -61,33 +65,71 @@ const Home = ({ data }) => {
           <TwoColRow>
             <Block padding="0" bgImage={IntroImage} />
             <MainBlock bgColor="#FFFFFF">
-              <H2 color="#434343">Premier local tree service</H2>
-              <P color="#434343">
-                Noah’s Park Tree Care is owned and operated by Noah
-                Chubb-Silverman, a second-generation Reno native. He started
-                his career in Seattle working and learning tree care from
-                some of Seattle’s best arborists. It was then that he
-                learned the fundamental rules of Tree Care: be safe, and do
-                what is best for the tree. While attending college he
-                continued to work and study arboriculture during the summer
-                in both Seattle and Reno. After graduating from Western
-                Washington University in 2005 he moved back to Reno and
-                started Noah’s Park Tree Care. Since then he has worked hard
-                to make Noah’s Park one of Reno’s premier tree services,
-                capable of handling almost any job. He is also an avid
-                cyclist and the Co-Founder of the Reno Bike Project, a
-                cycling advocacy group here in Reno.
-              </P>
+              <H2 color="#434343">
+                {about.headerText}
+              </H2>
+              <P color="#434343" dangerouslySetInnerHTML={{ __html: about.paragraphText.childMarkdownRemark.html }} />
+
             </MainBlock>
             <Leaves src={Leaf}/>
           </TwoColRow>
           <TwoColRow smallReverse bias="left">
-                <LargeTextBlock header="Professional and experienced tree care" text="Serving the Northern Nevada, we specialize in safe, considerate tree and shrub pruning, removal, trimming, and planting. " bText="Our Services" dest="/services" theme="dark" bgColor="#C9EAEB" />
+                <LargeTextBlock header={about.blockHeaderText} inlineText={about.blockParagraphText.childMarkdownRemark.html} bText={about.blockButtonText} dest={ "/" + about.blockButtonDestination} theme="dark" bgColor="#C9EAEB" />
             <Block padding="0" bgImage={PHC} />
           </TwoColRow>
-          <Summary bText="Get a free quote" dest="/"/>
         </Container>
+        <Summary bgColor="#394343" header={identity.headerText} text={identity.paragraphText.childMarkdownRemark.html} bText={identity.buttonText} dest={"/" + identity.buttonDestination}/>
       </>
 }
 
-export default Home
+
+export const query = graphql`
+      query($skip: Int!, $limit: Int!) {
+        allContentfulAbout(
+          limit: $limit
+          skip: $skip
+        ) {
+          edges {
+            node {
+              headerText
+              paragraphText {
+                childMarkdownRemark {
+                  html
+                  excerpt(pruneLength: 320)
+                }
+              }
+              blockHeaderText
+              blockParagraphText {
+                childMarkdownRemark {
+                  html
+                  excerpt(pruneLength: 320)
+                }
+              }
+              blockButtonText
+              blockButtonDestination
+            }
+          }
+        }
+        allContentfulIdentity(
+            limit: $limit
+            skip: $skip
+          ) {
+            edges {
+              node {
+                headerText
+                buttonText
+                buttonDestination
+                paragraphText {
+                  childMarkdownRemark {
+                    html
+                    excerpt(pruneLength: 320)
+                  }
+                }
+              }
+            }
+          }
+        }
+       `
+
+
+export default About

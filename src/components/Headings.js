@@ -87,6 +87,12 @@ export const P = styled.p`
   text-align: ${props => props.align || 'left'};
   color: ${props => props.color || '#000000'};
   text-transform: ${props => props.transform || ''};
+  p {
+    margin-bottom: 1.3vw;
+    @media ( max-width: 1047px ){
+      margin-bottom: 12px;
+    }
+  }
 `;
 
 export const PLarge = styled(P)`

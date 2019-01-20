@@ -5,8 +5,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   
-  ////// for test.js template, which used to be the original index ////////
-  /////////////////////////////////////////////////////////////////////////
+  ////// crete blog page ////////////////////////////
   const loadPosts = new Promise((resolve, reject) => {
     graphql(`
       {
@@ -42,7 +41,7 @@ exports.createPages = ({ graphql, actions }) => {
         },
       })
 
-      // Create additional pagination on home page if needed
+      // Create additional pagination on blog page if needed
       Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
           path: `/${i + 2}/`,
@@ -56,7 +55,7 @@ exports.createPages = ({ graphql, actions }) => {
         })
       })
 
-      // Create each individual post
+      // Create each individual post page
       posts.forEach((edge, i) => {
         const prev = i === 0 ? null : posts[i - 1].node
         const next = i === posts.length - 1 ? null : posts[i + 1].node
@@ -73,36 +72,9 @@ exports.createPages = ({ graphql, actions }) => {
       resolve()
     })
   })
-  ///////////////////////end test.js template///////////////////////////////
-  /////////////////////////////////////////////////////////////////////////
-
-  const loadServicesPage = new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allContentfulService {
-          edges {
-            node {
-              slug
-            }
-          }
-        }
-      }
-    `).then(result => {
-
-      // Create Services Page
-      createPage({
-        path: `/services/`,
-        component: path.resolve(`./src/templates/services.js`),
-        context: {
-          limit: 20,
-          skip: 0,
-        },
-      })
-
-      resolve()
-    })
-  })
+  ///////////////////////end create blog page //////////////
   
+  ////////////// create tag pages /////////////////////
   const loadTags = new Promise((resolve, reject) => {
     graphql(`
       {
@@ -144,6 +116,7 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
+  //////////////// create generic page template pages //////////////
   const loadPages = new Promise((resolve, reject) => {
     graphql(`
       {
@@ -170,6 +143,33 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
+  ////// Create About Page ////////////////////////////
+  const loadAboutPage = new Promise((resolve, reject) => {
+    createPage({
+      path: `/about/`,
+      component: path.resolve(`./src/templates/about.js`),
+      context: {
+        limit: 20,
+        skip: 0,
+      },
+    })
+    resolve()
+  })
+
+  ////// Create Services Page ////////////////////////////
+  const loadServicesPage = new Promise((resolve, reject) => {
+    createPage({
+      path: `/services/`,
+      component: path.resolve(`./src/templates/services.js`),
+      context: {
+        limit: 20,
+        skip: 0,
+      },
+    })
+    resolve()
+  })
+
+  ////// create service pages ///////////////////////
   const loadServices = new Promise((resolve, reject) => {
     graphql(`
       {
@@ -198,5 +198,5 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([loadPosts, loadTags, loadPages, loadServices, loadServicesPage])
+  return Promise.all([loadPosts, loadTags, loadPages, loadServices, loadServicesPage, loadAboutPage])
 }

@@ -79,36 +79,4 @@ const FirewoodBlock = props => {
     )
   }
 
-export const query = graphql`
-    query($slug: String!) {
-      contentfulService(slug: { eq: $slug }) {
-        name
-        slug
-        image {
-          title
-          fluid(maxWidth: 1800) {
-            ...GatsbyContentfulFluid_withWebp_noBase64
-          }
-          ogimg: resize(width: 1800) {
-            src
-            width
-            height
-          }
-        }
-        shortSummary {
-          childMarkdownRemark {
-            html
-            excerpt(pruneLength: 320)
-          }
-        }
-        fullDescription {
-          childMarkdownRemark {
-            html
-            excerpt(pruneLength: 320)
-          }
-        }
-      }
-    }
-  `
-
 export default FirewoodBlock

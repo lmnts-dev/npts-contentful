@@ -129,7 +129,7 @@ export const LargeTextBlock = props => {
                         {props.header}
                     </H3>
                 </Line>
-                <PLarge color="#FFFFFF">
+                <PLarge color="#FFFFFF" dangerouslySetInnerHTML={{ __html: props.inlineText }}>
                     {props.text} 
                 </PLarge>
                 <Button to={props.dest} arrowButton>
@@ -146,7 +146,7 @@ export const LargeTextBlock = props => {
                         {props.header}
                     </H3>
                 </Line>
-                <PLarge color="#293536">
+                <PLarge color="#293536" dangerouslySetInnerHTML={{ __html: props.inlineText }}>
                     {props.text} 
                 </PLarge>
                 <Button to={props.dest} dark arrowButton>
