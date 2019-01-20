@@ -15,6 +15,8 @@ import SEO from '../components/SEO'
 console.log("post template");
 
 const PostTemplate = ({ data, pageContext }) => {
+  console.log("here2");
+  console.log( data );
   const {
     title,
     slug,

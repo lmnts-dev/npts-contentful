@@ -30,11 +30,15 @@ const ServiceList = styled(Wrapper)`
 `
 
 const Services = ({ data }) => {
+    console.log("here4");
+    console.log( data);
     const services = data.allContentfulService.edges
+    const firewood = data.allContentfulFirewood.edges[0].node
+    const identity = data.allContentfulIdentity.edges[0].node
     const postNode = {
         title: `Home - ${config.siteTitle}`,
     }
-    /* Add TwoColRow to the servies blocks */
+
     return (
        <>
         <Helmet>
@@ -53,14 +57,28 @@ const Services = ({ data }) => {
                 </HeaderText>
             </HeaderBlock>
             <ServiceList bgColor="#FFFFFF">
-                {services.map(({ node: service }) => (
-                  <>
-                    <ServiceBlock src={service.image.ogimg.src} header={service.name} text={service.shortSummary} bText="Learn More" dest="/{service.slug}" />
-                  </>
-                ))}
+                {services.map( ({ node: service }, index) => {
+                  if ( index % 2 == 0 && (index + 1) != services.length)
+                  return (
+                    <>
+                      <TwoColRow>
+                        <ServiceBlock src={service.image.ogimg.src} header={service.name} text={service.shortSummary} bText="Learn More" dest="/{service.slug}" />
+                        <ServiceBlock src={services[index + 1].node.image.ogimg.src} header={services[index + 1].node.name} text={services[index + 1].node.shortSummary} bText="Learn More" dest="/{services[index + 1].node.slug}" />
+                      </TwoColRow>
+                    </>
+                  )
+                  if ( index % 2 == 0 && (index + 1) == services.length )
+                  return (
+                    <>
+                    <TwoColRow>
+                      <ServiceBlock src={service.image.ogimg.src} header={service.name} text={service.shortSummary} bText="Learn More" dest="/{service.slug}" />
+                    </TwoColRow>
+                  </>     
+                  )
+                })}
             </ServiceList>
-            <FirewoodBlock />
-            <Summary bText="Get a free quote" dest="/"/>
+            <FirewoodBlock header={firewood.headerText} text={firewood.paragraphText.childMarkdownRemark.html} />
+            <Summary bgColor="#394343" header={identity.headerText} text={identity.paragraphText.childMarkdownRemark.html} bText={identity.buttonText} dest={"/" + identity.buttonDestination}/>
         </Container>
       </>
     )
@@ -94,6 +112,59 @@ export const query = graphql`
                   }
                 }
                 fullDescription {
+                  childMarkdownRemark {
+                    html
+                    excerpt(pruneLength: 320)
+                  }
+                }
+              }
+            }
+          }
+          allContentfulFirewood(
+            limit: $limit
+            skip: $skip
+            ) {
+              edges {
+                node {
+                  headerText
+                  paragraphText {
+                    childMarkdownRemark {
+                      html
+                      excerpt(pruneLength: 320)
+                    }
+                  }
+                }
+              }
+            }
+        allContentfulSummary(
+          limit: $limit
+          skip: $skip
+          ) {
+            edges {
+              node {
+                headerText
+                subHeaderText
+                buttonText
+                buttonDestination
+                paragraphText {
+                  childMarkdownRemark {
+                    html
+                    excerpt(pruneLength: 320)
+                  }
+                }
+              }
+            }
+          }
+        allContentfulIdentity(
+            limit: $limit
+            skip: $skip
+          ) {
+            edges {
+              node {
+                headerText
+                buttonText
+                buttonDestination
+                paragraphText {
                   childMarkdownRemark {
                     html
                     excerpt(pruneLength: 320)

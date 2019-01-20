@@ -98,6 +98,12 @@ export const PLarge = styled(P)`
     font-size: 16px;
   }
   line-height: 1.8;
+  p {
+    margin-bottom: 1.5vw;
+    @media ( max-width: 1047px ){
+      margin-bottom: 15.7px;
+    }
+  }
 `
 
 export const Text = styled.div`

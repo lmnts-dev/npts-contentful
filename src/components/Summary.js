@@ -34,17 +34,15 @@ const Block = styled(Wrapper)`
 `
 
 const Summary = props => (                  
-        <Block bgColor="#9F4300">
+        <Block bgColor={props.bgColor}>
             <Column align="center">
                 <HeaderText size="42" weight="700" color="#FFFFFF" align="center">
-                    Our Philosophy
+                    {props.subhead}
                 </HeaderText>
                 <HeaderText size="100" weight="700" color="#FFFFFF" align="center">
-                    Do what's right for the tree
+                    {props.header}
                 </HeaderText>
-                <PLarge color="#FFFFFF" align="center">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum maximus pharetra mi, in malesuada purus luctus placerat. Ut vulputate, enim sed feugiat consectetur, ex odio tempor tellus, sed laoreet mi tortor vitae mauris. Fusce vulputate ligula in massa mollis, ut finibus leo fermentum. 
-                </PLarge>
+                <PLarge color="#FFFFFF" align="center" dangerouslySetInnerHTML={{ __html: props.text }}/>
                 <Button hide={props.hideButton} dark to={props.dest}>
                   {props.bText}
                 </Button>

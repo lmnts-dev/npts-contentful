@@ -18,6 +18,7 @@ import Leaf from "../images/leafTestimonial.png"
 import { RightLeaf } from '../components/Leaves'
 import chip from '../images/chip.png'
 
+
 const Block = styled(Wrapper)`
   padding: 160px 300px;
   @media (max-width: 2000px) {
@@ -56,17 +57,14 @@ const Row = styled(RowWrapper)`
   }
 `
 
-const FirewoodBlock = () => (  
+const FirewoodBlock = props => {
+      return (  
         <Block bgColor="#9DD5EA">
           <Column align="center">
             <HeaderText size="100" color="#293536" weight="700" align="center">
-              Free Firewood &amp; Woodchips
+              {props.header}
             </HeaderText>
-            <PLarge color="#293536" align="center">
-                Need a bunch of firewood or wood chips? We got you covered. We have stockpiles of several trees native to Northern Nevada, including cottonwood, maple, spruce, and pine trees.
-                  
-                Looking for wood chips for free mulch or a landscaping project? We are registered with Chip Drop! If you are looking for wood chips, please sign up at chipdrop.in or contact us and we’ll reach out to you as soon as possible to confirm a delivery time and place.       
-            </PLarge>
+            <PLarge color="#293536" align="center" dangerouslySetInnerHTML={{ __html: props.text }} />
             <Row>
               <Button to="/">
                 Free firewood
@@ -79,4 +77,38 @@ const FirewoodBlock = () => (
           </Column>
         </Block>
     )
+  }
+
+export const query = graphql`
+    query($slug: String!) {
+      contentfulService(slug: { eq: $slug }) {
+        name
+        slug
+        image {
+          title
+          fluid(maxWidth: 1800) {
+            ...GatsbyContentfulFluid_withWebp_noBase64
+          }
+          ogimg: resize(width: 1800) {
+            src
+            width
+            height
+          }
+        }
+        shortSummary {
+          childMarkdownRemark {
+            html
+            excerpt(pruneLength: 320)
+          }
+        }
+        fullDescription {
+          childMarkdownRemark {
+            html
+            excerpt(pruneLength: 320)
+          }
+        }
+      }
+    }
+  `
+
 export default FirewoodBlock
