@@ -30,10 +30,14 @@ const Block = styled(Wrapper)`
 `
 
 const ServiceTemplate = ({ data, pageContext }) => {
+  console.log( "dog");
+  console.log( data );
   const {
     name,
     fullDescription,
   } = data.contentfulService
+  const firewood = data.allContentfulFirewood.edges[0].node
+  const summary = data.allContentfulSummary.edges[0].node
 
   return <>
       <Helmet>
@@ -53,15 +57,13 @@ const ServiceTemplate = ({ data, pageContext }) => {
           <HeaderText size="80" color="#293536" weight="700">
             {name}
           </HeaderText>
-          <PLarge color="#293536">
-            <PageBody body={fullDescription}/>
-          </PLarge>
-          <Button to="/">
+          <PLarge color="#293536" dangerouslySetInnerHTML={{ __html: fullDescription.childMarkdownRemark.html }} />
+          <Button to="/contact">
             Get a free quote
           </Button>
         </Block>
-        <FirewoodBlock />
-        <Summary bText="About Us" dest="/about" />
+        <FirewoodBlock header={firewood.headerText} text={firewood.paragraphText.childMarkdownRemark.html} />
+        <Summary bgColor="#9F4300" subhead={summary.subHeaderText} header={summary.headerText} text={summary.paragraphText.childMarkdownRemark.html} bText={summary.buttonText} dest={"/" + summary.buttonDestination}/>
         
       </Container>
     </>
@@ -96,23 +98,43 @@ export const query = graphql`
                }
              }
            }
+           allContentfulFirewood(
+            limit: 10
+            skip: 0
+            ) {
+              edges {
+                node {
+                  headerText
+                  paragraphText {
+                    childMarkdownRemark {
+                      html
+                      excerpt(pruneLength: 320)
+                    }
+                  }
+                }
+              }
+            }
+          allContentfulSummary(
+            limit: 10
+            skip: 0
+            ) {
+              edges {
+                node {
+                  headerText
+                  subHeaderText
+                  buttonText
+                  buttonDestination
+                  paragraphText {
+                    childMarkdownRemark {
+                      html
+                      excerpt(pruneLength: 320)
+                    }
+                  }
+                }
+              }
+            }  
          }
        `
-/* not working yet
-export const woodChipquery = graphql`
-         query($slug: String!) {
-           contentfulFirewood(slug: { eq: $slug }) {
-             headerText
-             slug
-             paragraphText {
-               childMarkdownRemark {
-                 html
-                 excerpt(pruneLength: 320)
-               }
-             }
-           }
-         }
-*/
 
 export default ServiceTemplate
 

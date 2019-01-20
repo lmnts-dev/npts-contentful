@@ -7,6 +7,10 @@ import { ColumnWrapper } from '../components/Column'
 import Planting from '../images/planting.jpg'
 import { Wrapper } from '../components/Block'
 
+const Text = styled(PLarge)`
+    margin-bottom: 0;
+`
+
 const Header = styled(H3)`
     margin-bottom: 30px;
     @media (max-width: 2000px) {
@@ -42,7 +46,7 @@ const ServiceBlock = props => (
                 {props.header}
             </Header>
             <Image padding="0" bgImage={props.src} />
-            <PageBody body = {props.text}/>
+            <Text color="#293536" dangerouslySetInnerHTML={{ __html: props.text.childMarkdownRemark.html }}/>
             <Button arrowButton dark to={props.dest}>
                 {props.bText}
             </Button>

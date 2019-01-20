@@ -62,8 +62,8 @@ const Services = ({ data }) => {
                   return (
                     <>
                       <TwoColRow>
-                        <ServiceBlock src={service.image.ogimg.src} header={service.name} text={service.shortSummary} bText="Learn More" dest="/{service.slug}" />
-                        <ServiceBlock src={services[index + 1].node.image.ogimg.src} header={services[index + 1].node.name} text={services[index + 1].node.shortSummary} bText="Learn More" dest="/{services[index + 1].node.slug}" />
+                        <ServiceBlock src={service.image.ogimg.src} header={service.name} text={service.shortSummary} bText="Learn More" dest={"/" + service.slug} />
+                        <ServiceBlock src={services[index + 1].node.image.ogimg.src} header={services[index + 1].node.name} text={services[index + 1].node.shortSummary} bText="Learn More" dest={"/" + services[index++].slug} />
                       </TwoColRow>
                     </>
                   )
@@ -71,7 +71,7 @@ const Services = ({ data }) => {
                   return (
                     <>
                     <TwoColRow>
-                      <ServiceBlock src={service.image.ogimg.src} header={service.name} text={service.shortSummary} bText="Learn More" dest="/{service.slug}" />
+                      <ServiceBlock src={service.image.ogimg.src} header={service.name} text={service.shortSummary} bText="Learn More" dest={"/" + service.slug} />
                     </TwoColRow>
                   </>     
                   )
@@ -136,25 +136,6 @@ export const query = graphql`
                 }
               }
             }
-        allContentfulSummary(
-          limit: $limit
-          skip: $skip
-          ) {
-            edges {
-              node {
-                headerText
-                subHeaderText
-                buttonText
-                buttonDestination
-                paragraphText {
-                  childMarkdownRemark {
-                    html
-                    excerpt(pruneLength: 320)
-                  }
-                }
-              }
-            }
-          }
         allContentfulIdentity(
             limit: $limit
             skip: $skip
