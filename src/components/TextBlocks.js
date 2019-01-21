@@ -92,7 +92,7 @@ export const TextBlock = props => {
                         {props.header}
                     </H2>
                 </Line>
-                <P color="#FFFFFF">
+                <P color="#FFFFFF" dangerouslySetInnerHTML={{ __html: props.inlineText }}>
                     {props.text} 
                 </P>
                 <Button to={props.dest}>
@@ -109,7 +109,7 @@ export const TextBlock = props => {
                         {props.header}
                     </H2>
                 </Line>
-                <P color="#293536">
+                <P color="#293536" dangerouslySetInnerHTML={{ __html: props.inlineText }}>
                     {props.text} 
                 </P>
                 <Button to={props.dest} dark>

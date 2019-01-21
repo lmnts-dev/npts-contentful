@@ -7,7 +7,7 @@ import IntroBlocks from '../components/IntroBlocks'
 import Services from '../components/ServicesSection'
 import Summary from '../components/Summary'
 import Container from '../components/Container'
-import SimpleSlider from '../components/TestimonialSlider'
+import TestimonialSlider from '../components/TestimonialSlider'
 import SEO from '../components/SEO'
 
 
@@ -17,6 +17,8 @@ const Home = ({ data }) => {
     }
     const summary = data.allContentfulSummary.edges[0].node
     const services = data.allContentfulService
+    const testimonials = data.allContentfulTestimonial
+    const introBlocks = data.allContentfulIntroduction
 
     return (
         <>
@@ -27,8 +29,8 @@ const Home = ({ data }) => {
 
             <Container>
                 <HeroSlider />
-                <IntroBlocks />
-                <SimpleSlider />
+                <IntroBlocks data={introBlocks}/>
+                <TestimonialSlider data={testimonials}/>
                 <Services data={services}/>
                 <Summary hideButton bgColor="#9F4300" subhead={summary.subHeaderText} header={summary.headerText} text={summary.paragraphText.childMarkdownRemark.html} bText={summary.buttonText} dest={"/" + summary.buttonDestination}/>
             </Container>
@@ -69,6 +71,63 @@ export const query = graphql`
                     excerpt(pruneLength: 320)
                   }
                 }
+              }
+            }
+          }
+          allContentfulTestimonial(
+            limit: $limit
+            skip: $skip
+            ) {
+              edges {
+                node {
+                firstName
+                lastInitial
+                city
+                state
+                customerReview {
+                  childMarkdownRemark {
+                    html
+                    excerpt(pruneLength: 320)
+                  }
+                }
+              }
+            }
+          }
+          allContentfulIntroduction(
+            limit: $limit
+            skip: $skip
+            ) {
+              edges {
+                node {
+                headerText1
+                headerText2
+                paragraphText1 {
+                  childMarkdownRemark {
+                    html
+                    excerpt(pruneLength: 320)
+                  }
+                }
+                paragraphText2 {
+                  childMarkdownRemark {
+                    html
+                    excerpt(pruneLength: 320)
+                  }
+                }
+                image {
+                  title
+                  fluid(maxWidth: 1800) {
+                    ...GatsbyContentfulFluid_withWebp_noBase64
+                  }
+                  ogimg: resize(width: 1800) {
+                    src
+                    width
+                    height
+                  }
+                }
+                buttonText1
+                buttonText2
+                buttonDestination1
+                buttonDestination2
               }
             }
           }
