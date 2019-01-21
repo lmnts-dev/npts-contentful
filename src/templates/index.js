@@ -38,6 +38,7 @@ const Home = ({ data }) => {
     )
 }
 
+// GATSBY BUILD ERROR BELOW
 export const query = graphql`
          query($skip: Int!, $limit: Int!) {
            allContentfulService(
