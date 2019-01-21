@@ -19,6 +19,7 @@ const Home = ({ data }) => {
     const services = data.allContentfulService
     const testimonials = data.allContentfulTestimonial
     const introBlocks = data.allContentfulIntroduction
+    const slider = data.allContentfulSlider.edges[0].node
 
     return (
         <>
@@ -28,7 +29,7 @@ const Home = ({ data }) => {
             <SEO postNode={postNode} pagePath="contact" customTitle />
 
             <Container>
-                <HeroSlider />
+                <HeroSlider data={slider}/>
                 <IntroBlocks data={introBlocks}/>
                 <TestimonialSlider data={testimonials}/>
                 <Services data={services}/>
@@ -128,6 +129,41 @@ export const query = graphql`
                 buttonText2
                 buttonDestination1
                 buttonDestination2
+              }
+            }
+          }
+          allContentfulSlider(
+            limit: $limit
+            skip: $skip
+            ) {
+              edges {
+                node {
+                header
+                paragraphText {
+                  childMarkdownRemark {
+                    html
+                    excerpt(pruneLength: 320)
+                  }
+                }
+                disclaimerText {
+                  childMarkdownRemark {
+                    html
+                    excerpt(pruneLength: 320)
+                  }
+                }
+                sliderImages {
+                  title
+                  fluid(maxWidth: 1800) {
+                    ...GatsbyContentfulFluid_withWebp_noBase64
+                  }
+                  ogimg: resize(width: 1800) {
+                    src
+                    width
+                    height
+                  }
+                }
+                buttonText
+                buttonDestination
               }
             }
           }

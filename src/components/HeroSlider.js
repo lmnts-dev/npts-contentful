@@ -176,6 +176,7 @@ export default class HomeSlider extends React.Component {
         autoplay: true,
         autoplaySpeed: 5000
       };
+
       return (
     <Container>
         <TwoColRow bias="left">
