@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import StackedLogo from "!svg-react-loader!../images/svg-icons/logoStacked.svg?name=logoStacked";
-import phone from "!svg-react-loader!../images/svg-icons/phone.svg?name=phone";
-import email from "!svg-react-loader!../images/svg-icons/email.svg?name=email";
 import Contact from '../components/ContactForm'
 import { Row, RowWrapper } from '../components/Row'
 import { TwoColRowWrapper } from '../components/TwoColRow'
@@ -23,37 +21,6 @@ const FooterLinks = styled(RowWrapper)`
 const TwoColRow = styled(TwoColRowWrapper)`
   @media ( max-width: 750px ){
     flex-direction: ${props => props.reverse ? 'column' : 'column-reverse' };
-  }
-`
-
-const Phone = styled(phone)`
-  width: 16px;
-  margin-right: 16px;
-  padding: 8px 0;
-  @media ( max-width: 1440px ){
-    width: 1.11vw;
-    margin-right: 1.11vw;
-    padding: .555vw 0;
-  }
-  @media ( max-width: 1260px ){
-    width: 14px;
-    margin-right: 14px;
-    padding: 7px 0;
-  }
-`
-const Email = styled(email)`
-  width: 16px;
-  margin-right: 16px;
-  padding: 8px 0;
-  @media ( max-width: 1440px ){
-    width: 1.11vw;
-    margin-right: 1.11vw;
-    padding: .555vw 0;
-  }
-  @media ( max-width: 1260px ){
-    width: 14px;
-    margin-right: 14px;
-    padding: 7px 0;
   }
 `
 
@@ -166,15 +133,6 @@ const Footer = () => (
       </CopyWright>
     </Column>
     <Block pushUp bgColor="#272929">
-      <HeaderText lHeight="2" size="80" color="#FFFFFF"> Let's Talk </HeaderText>
-      <Row align="center">
-        <Phone />
-        <Info as="a" href="tel:7753760917" size="16" color="#FFFFFF">775.376.0917</Info>
-      </Row>
-      <Row align="center">
-        <Email />
-        <Info as="a" href="mailto:noahsparktreecare@gmail.com" size="16" color="#FFFFFF">noahsparktreecare@gmail.com</Info>
-      </Row>
       <Contact/>
     </Block>
   </TwoColRow>

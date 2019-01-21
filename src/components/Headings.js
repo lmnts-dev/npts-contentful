@@ -1,12 +1,7 @@
-
-
-
 import React from 'react'
 import styled from 'styled-components'
 
 /* these are what you can call ////////////////
-
-STILL NEED TO DO SPECIFIC Text PADDING SIZES FOR RESPONSIVENESS
 
 <H1 weight="700" align="center" color="white"></H1>
 <H2 weight="700" align="center" color="white"></H2>

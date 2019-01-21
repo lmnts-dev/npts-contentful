@@ -7,6 +7,7 @@ import theme from '../styles/theme'
 import config from '../utils/siteConfig'
 import Menu from '../components/Menu'
 import Footer from '../components/Footer'
+import ContactOverlay from '../components/ContactOverlay'
 
 const Template = ({ children }) => {
   return <div className="siteRoot">
@@ -22,6 +23,7 @@ const Template = ({ children }) => {
       <ThemeProvider theme={theme}>
         <>
           <div className="siteContent">
+            <ContactOverlay />
             <Menu />
               {children}
             <Footer />

@@ -2,6 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Button from '../components/Button'
+import { H3, PLarge, HeaderText, Text } from '../components/Headings'
+import Row from '../components/Row'
+import phone from '!svg-react-loader!../images/svg-icons/phone.svg?name=phone'
+import email from '!svg-react-loader!../images/svg-icons/email.svg?name=email'
+
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
@@ -9,6 +14,10 @@ import Button from '../components/Button'
   https://www.netlify.com/docs/form-handling/
 */
 
+const TextBlock = styled.div`
+  margin-bottom: 20px;
+  }
+`
 const Form = styled.form`
   max-width: ${props => props.theme.sizes.maxWidthCentered};
   margin: 40px auto 0 auto;
@@ -20,22 +29,28 @@ const Form = styled.form`
   textarea {
     font-family: inherit;
     font-size: inherit;
+    @media (max-width: 600px) {
+      font-size: 12px;
+    }
     border: none;
     outline: none;
     background: #363636;
-    color: #FFFFFF;
+    color: #ffffff;
     padding: 23.5px 28px;
+    @media (max-width: 600px) {
+      padding: 18px 30px;
+    }
     &::-webkit-input-placeholder {
-      color: rgba( 255, 255, 255, .3);
+      color: rgba(255, 255, 255, 0.3);
     }
     &::-moz-placeholder {
-      color: rgba( 255, 255, 255, .3);
+      color: rgba(255, 255, 255, 0.3);
     }
     &:-ms-input-placeholder {
-      color: rgba( 255, 255, 255, .3);
+      color: rgba(255, 255, 255, 0.3);
     }
     &:-moz-placeholder {
-      color: rgba( 255, 255, 255, .3);
+      color: rgba(255, 255, 255, 0.3);
     }
     &:required {
       box-shadow: none;
@@ -57,6 +72,42 @@ const Form = styled.form`
     opacity: ${props => (props.overlay ? '.8' : '0')};
     visibility: ${props => (props.overlay ? 'visible' : 'hidden')};
   }
+`
+
+const Phone = styled(phone)`
+  width: 16px;
+  margin-right: 16px;
+  padding: 8px 0;
+  @media (max-width: 1440px) {
+    width: 1.11vw;
+    margin-right: 1.11vw;
+    padding: 0.555vw 0;
+  }
+  @media (max-width: 1260px) {
+    width: 14px;
+    margin-right: 14px;
+    padding: 7px 0;
+  }
+`
+const EmailIcon = styled(email)`
+  width: 16px;
+  margin-right: 16px;
+  padding: 8px 0;
+  @media (max-width: 1440px) {
+    width: 1.11vw;
+    margin-right: 1.11vw;
+    padding: 0.555vw 0;
+  }
+  @media (max-width: 1260px) {
+    width: 14px;
+    margin-right: 14px;
+    padding: 7px 0;
+  }
+`
+
+const Info = styled(Text)`
+  cursor: pointer;
+  text-decoration: none !important;
 `
 
 const Name = styled.input`
@@ -181,6 +232,8 @@ class ContactForm extends React.Component {
 
   render() {
     return (
+      <>
+
       <Form
         name="contact"
         onSubmit={this.handleSubmit}
@@ -189,6 +242,18 @@ class ContactForm extends React.Component {
         overlay={this.state.showModal}
         onClick={this.closeModal}
       >
+          <TextBlock>
+            <HeaderText lHeight="2" size="80" color="#FFFFFF"> Let's Talk </HeaderText>
+            <Row align="center">
+              <Phone />
+              <Info as="a" href="tel:7753760917" size="16" color="#FFFFFF">775.376.0917</Info>
+            </Row>
+            <Row align="center">
+              <EmailIcon />
+              <Info as="a" href="mailto:noahsparktreecare@gmail.com" size="16" color="#FFFFFF">noahsparktreecare@gmail.com</Info>
+            </Row>
+          </TextBlock>
+
         <input type="hidden" name="form-name" value="contact" />
         <p hidden>
           <label>
@@ -231,6 +296,7 @@ class ContactForm extends React.Component {
           <Button dark onClick={this.closeModal}>Okay</Button>
         </Modal>
       </Form>
+      </>
     )
   }
 }
