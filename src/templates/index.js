@@ -1,7 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
-import Layout from '../components/Layout'
 import HeroSlider from '../components/HeroSlider'
 import IntroBlocks from '../components/IntroBlocks'
 import Services from '../components/ServicesSection'
@@ -9,7 +8,7 @@ import Summary from '../components/Summary'
 import Container from '../components/Container'
 import TestimonialSlider from '../components/TestimonialSlider'
 import SEO from '../components/SEO'
-
+import { graphql } from 'gatsby'
 
 const Home = ({ data }) => {
     const postNode = {
@@ -39,6 +38,7 @@ const Home = ({ data }) => {
     )
 }
 
+// GATSBY BUILD ERROR BELOW
 export const query = graphql`
          query($skip: Int!, $limit: Int!) {
            allContentfulService(
