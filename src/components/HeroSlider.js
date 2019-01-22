@@ -164,14 +164,7 @@ export default class HomeSlider extends React.Component {
     }
     previous() {
         this.slider.slickPrev();
-    }
-
-
-
-
-
-
-    
+    } 
     render() {
       var settings = {
         dots: false,

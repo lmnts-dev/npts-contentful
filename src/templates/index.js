@@ -8,6 +8,7 @@ import Summary from '../components/Summary'
 import Container from '../components/Container'
 import TestimonialSlider from '../components/TestimonialSlider'
 import SEO from '../components/SEO'
+import Video from '../components/Video'
 import { graphql } from 'gatsby'
 
 const Home = ({ data }) => {
@@ -19,8 +20,6 @@ const Home = ({ data }) => {
     const testimonials = data.allContentfulTestimonial.edges
     const introBlocks = data.allContentfulIntroduction
     const slider = data.allContentfulSlider.edges[0].node
-    console.log("here");
-    console.log(testimonials);
 
     return (
         <>
@@ -33,6 +32,7 @@ const Home = ({ data }) => {
                 <HeroSlider data={slider}/>
                 <IntroBlocks data={introBlocks}/>
                 <TestimonialSlider data={testimonials}/>
+                <Video />
                 <Services data={services}/>
                 <Summary hideButton bgColor="#9F4300" subhead={summary.subHeaderText} header={summary.headerText} text={summary.paragraphText.childMarkdownRemark.html} bText={summary.buttonText} dest={"/" + summary.buttonDestination}/>
             </Container>
