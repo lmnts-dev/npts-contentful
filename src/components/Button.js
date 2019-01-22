@@ -1,11 +1,10 @@
-
-
-
 import React from 'react'
 import styled from 'styled-components'
 import arrowGrey from "../images/arrowGrey.png"
 import arrowWhite from "../images/arrowWhite.png"
 import ContactOverlay from './ContactOverlay'
+import AniLink from "gatsby-plugin-transition-link/AniLink";
+import * as lmnts from '../data/Styles'
 
 /* these are the four buttons you can call ////////////////
 
@@ -18,10 +17,11 @@ import ContactOverlay from './ContactOverlay'
     
 ///////////////////////////////////////////////////////// */
 
-export const ButtonStyle = styled.a`
+export const ButtonStyle = styled(AniLink)`
   display: ${props => props.hide ? 'none' : 'inline-block'};
   letter-spacing: 1px;
   font-size: 19px;
+  z-index: 200;
   cursor: pointer;
   text-decoration: none;
   @media ( max-width: 1440px ){
@@ -89,7 +89,7 @@ const Button = ({ to, hide, arrowButton, dark, children }) => {
   }
   else if (!arrowButton){
       return (
-        <ButtonStyle href={to} hide={hide} arrowButton={arrowButton} dark={dark}>
+        <ButtonStyle to={to} hide={hide} arrowButton={arrowButton} dark={dark} cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction}>
           {children}
         </ButtonStyle>
       )
@@ -97,7 +97,7 @@ const Button = ({ to, hide, arrowButton, dark, children }) => {
     else {
     if (dark) {
       return (
-        <ButtonStyle href={to} hide={hide} arrowButton={arrowButton} dark={dark}>
+        <ButtonStyle to={to} hide={hide} arrowButton={arrowButton} dark={dark} cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction}>
           {children}
           <Arrow src={arrowGrey} alt="Arrow" />
         </ButtonStyle>
@@ -105,7 +105,7 @@ const Button = ({ to, hide, arrowButton, dark, children }) => {
     }
     else {
       return (
-        <ButtonStyle href={to} hide={hide} arrowButton={arrowButton} dark={dark}>
+        <ButtonStyle to={to} hide={hide} arrowButton={arrowButton} dark={dark} cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction}>
           {children}
           <Arrow src={arrowWhite} alt="Arrow" />
         </ButtonStyle>

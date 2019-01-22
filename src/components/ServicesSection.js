@@ -24,25 +24,25 @@ const Services = props => {
     return (  
         <div>
             <TwoColRow smallReverse bias="left">
-                <LargeTextBlock line="right" header={firstService.name} inlineText={firstService.shortSummary.childMarkdownRemark.html} bText="Learn more" dest={ "/" + firstService.name} theme="light" bgColor="#272929"/>
+                <LargeTextBlock line="right" header={firstService.name} inlineText={firstService.shortSummary.childMarkdownRemark.html} bText="Learn more" dest={ "/" + firstService.name.replace(/[^a-z0-9]/gi, '_').toLowerCase()} theme="light" bgColor="#272929"/>
                 <Block bgImage={firstService.image.ogimg.src} />
             </TwoColRow>
             <TwoColRow bias="right">
                 <Block bgImage={secondService.image.ogimg.src} />
-                <LargeTextBlock line="left" header={secondService.name} inlineText={secondService.shortSummary.childMarkdownRemark.html} bText="Learn more" dest={ "/" + secondService.name} theme="dark" bgColor="#FFFFFF" pushUp/>
+                <LargeTextBlock line="left" header={secondService.name} inlineText={secondService.shortSummary.childMarkdownRemark.html} bText="Learn more" dest={ "/" + secondService.name.replace(/[^a-z0-9]/gi, '_').toLowerCase()} theme="dark" bgColor="#FFFFFF" pushUp/>
                 <MiddleLeaf src={leafPlanting} alt="leaf"/>
             </TwoColRow>
             <TwoColRow smallReverse bias="left">
-                <LargeTextBlock line="right" header={thirdService.name} inlineText={thirdService.shortSummary.childMarkdownRemark.html} bText="Learn more" dest={ "/" + thirdService.name} theme="dark" bgColor="#C9EAEB"/>
+                <LargeTextBlock line="right" header={thirdService.name} inlineText={thirdService.shortSummary.childMarkdownRemark.html} bText="Learn more" dest={ "/" + thirdService.name.replace(/[^a-z0-9]/gi, '_').toLowerCase()} theme="dark" bgColor="#C9EAEB"/>
                 <Block bgImage={thirdService.image.ogimg.src} />
             </TwoColRow>
             <TwoColRow bias="right">
                 <Block bgImage={fourthService.image.ogimg.src} />
-                <LargeTextBlock header={fourthService.name} inlineText={fourthService.shortSummary.childMarkdownRemark.html} bText="Learn more" dest={ "/" + fourthService.name} theme="dark" bgColor="#FFFFFF"/>
+                <LargeTextBlock header={fourthService.name} inlineText={fourthService.shortSummary.childMarkdownRemark.html} bText="Learn more" dest={ "/" + fourthService.name.replace(/[^a-z0-9]/gi, '_').toLowerCase()} theme="dark" bgColor="#FFFFFF"/>
                 <RightLeaf src={leafSurgery} alt="leaf"/>
             </TwoColRow>
             <TwoColRow smallReverse bias="left">
-                <LargeTextBlock line="right" header={fifthService.name} inlineText={fifthService.shortSummary.childMarkdownRemark.html} bText="Learn more" dest={ "/" + fifthService.name} theme="dark" bgColor="#C9EAEB"/>
+                <LargeTextBlock line="right" header={fifthService.name} inlineText={fifthService.shortSummary.childMarkdownRemark.html} bText="Learn more" dest={ "/" + fifthService.name.replace(/[^a-z0-9]/gi, '_').toLowerCase()} theme="dark" bgColor="#C9EAEB"/>
                 <Block bgImage={fifthService.image.ogimg.src} />
             </TwoColRow>
         </div>
