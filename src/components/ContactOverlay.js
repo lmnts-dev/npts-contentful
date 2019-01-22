@@ -27,7 +27,6 @@ const Block = styled(Wrapper)`
   z-index: 150;
   padding: 0 4vw;
   margin: 0 auto;
-  display: none;
   form {
     margin-top: 0;
   }
@@ -57,7 +56,7 @@ const Exit = styled.div`
 
 const ServiceBlock = props => (
   <Block bgColor="#272929">
-    <Exit onclick="closeContact()">
+    <Exit >
         <Image src={exit} />
     </Exit>
     <Center>

@@ -23,7 +23,6 @@ const Template = ({ children }) => {
       <ThemeProvider theme={theme}>
         <>
           <div className="siteContent">
-            <ContactOverlay />
             <Menu />
               {children}
             <Footer />

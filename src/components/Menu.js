@@ -1,9 +1,59 @@
-import React from 'react'
+import React, {Component} from 'react'
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import * as lmnts from '../data/Styles'
 import styled from 'styled-components'
 import Logo from "!svg-react-loader!../images/svg-icons/logo.svg?name=logo";
 import Hamburger from "!svg-react-loader!../images/svg-icons/navburger.svg?name=navburger";
+import exit from '../images/exit.png'
+import { Wrapper } from '../components/Block'
+import Contact from '../components/ContactForm'
+
+
+const Center = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+`
+
+const Block = styled(Wrapper)`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 150;
+  padding: 0 4vw;
+  margin: 0 auto;
+  form {
+    margin-top: 0;
+  }
+`
+
+const Image = styled.img`
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 60%;
+`
+
+const Exitt = styled.div`
+  position: absolute;
+  pointer-events: all;
+  cursor: pointer;
+  top: 2px;
+  right: 0;
+  height: 66px;
+  width: 66px;
+  margin: 4vw;
+  @media (max-width: 600px) {
+    height: 51px;
+    width: 51px;
+  }
+  background-color: #363636;
+`
 
 
 const NavLink = styled(AniLink)`
@@ -11,6 +61,14 @@ const NavLink = styled(AniLink)`
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 2px;
+`
+
+const TalkLink = styled.div`
+  text-transform: uppercase;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 2px;
+  cursor: pointer;
 `
 
 const LogoLink = styled(AniLink)`
@@ -23,6 +81,8 @@ const LogoLink = styled(AniLink)`
     }
   }
 `
+
+
 
 const HamburgerLink = styled.div`
   display: none;
@@ -89,7 +149,7 @@ const Nav = styled.nav`
     display: inline-block;
     margin-left: 30px;
   }
-  a {
+  a, div {
     text-decoration: none;
     color: #FFFFFF;
     font-weight: 600;
@@ -104,8 +164,38 @@ const activeLinkStyle = {
   color: '#9F4300',
 }
 
-const Menu = () => {
+class AboutModal extends Component {
+  // constructor to set state and bind "this"
+  constructor(props) {
+    super(props);
+    this.state = { showModal: false };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  // function to handle the click
+  handleClick() {
+    console.log("click");
+    this.setState(prevState => ({
+      showModal: !prevState.showModal
+    }));
+  }
+
+  // the render() method to put stuff into the DOM
+  render() {
+    // the modal you will toggle on and off
+    const modal = (
+      <Block bgColor="#272929" >
+        <Exitt onClick={this.handleClick}>
+          <Image src={exit} />
+        </Exitt>
+        <Center>
+          <Contact />
+        </Center>
+      </Block>
+    );
   return (
+    <>
+      {this.state.showModal ? modal : ''}
       <Nav>
         <LogoLink cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction} to="/" activeStyle={activeLinkStyle}>
           <Logo />
@@ -114,17 +204,17 @@ const Menu = () => {
           <li>
             <NavLink cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction} to="/services" activeStyle={activeLinkStyle}>
               Services
-              </NavLink>
+            </NavLink>
           </li>
           <li>
             <NavLink cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction} to="/about" activeStyle={activeLinkStyle}>
               About
-              </NavLink>
+            </NavLink>
           </li>
           <li>
-            <NavLink cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction} to="/contact" activeStyle={activeLinkStyle}>
+            <TalkLink onClick={this.handleClick} cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction} to="/contact" activeStyle={activeLinkStyle}>
               Let's Talk
-              </NavLink>
+            </TalkLink>
           </li>
           <li>
             <NavButton divider href="tel:7753760917" activeStyle={activeLinkStyle}>
@@ -132,11 +222,13 @@ const Menu = () => {
             </NavButton>
           </li>
         </ul>
-        <HamburgerLink onclick="showOverlay()" >
+        <HamburgerLink onclick="showOverlay()">
           <Hamburger />
         </HamburgerLink>
       </Nav>
-  )
+    </>
+    )
+  }
 }
 
-export default Menu
+export default AboutModal;
