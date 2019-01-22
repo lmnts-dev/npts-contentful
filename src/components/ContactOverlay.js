@@ -54,6 +54,7 @@ const Exit = styled.div`
 
 
 class AboutModal extends Component {
+    
     // constructor to set state and bind "this"
     constructor(props) {
         super(props);
