@@ -85,7 +85,7 @@ class AboutModal extends Component {
         );
         return <>
             {this.state.showModal ? modal : ''}
-            <ButtonStyle onClick={this.handleClick} >
+            <ButtonStyle as="div" onClick={this.handleClick} >
                 {this.props.text}
             </ButtonStyle>
           </>

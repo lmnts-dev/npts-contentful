@@ -11,7 +11,7 @@ import { RightToMidLeaf } from '../components/Leaves'
 
 const IntroBlocks = props => {
     const data = props.data.edges[0].node
-    console.log( data );
+    console.log(data.buttonDestination2 );
     return (
         <div>
             <TwoColRow bias="right">

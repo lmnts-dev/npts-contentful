@@ -82,7 +82,6 @@ const Wrapper = styled.div`
       }}
 
 `
-
 export const TextBlock = props => {
     if (props.theme === "light"){
         return (
@@ -93,7 +92,7 @@ export const TextBlock = props => {
             <P color="#FFFFFF" dangerouslySetInnerHTML={{ __html: props.inlineText }}>
               {props.text}
             </P>
-            <Button hide={props.hideButton}  to={props.dest}>
+            <Button hide={props.hideButton} to={props.dest}>
               {props.bText}
             </Button>
           </Wrapper>
