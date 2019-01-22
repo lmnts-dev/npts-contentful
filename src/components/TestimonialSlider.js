@@ -142,38 +142,34 @@ export default class SimpleSlider extends React.Component {
     return (
         <Wrapper>
             <Slider {...settings}>
-                <Block bgColor="#9DD5EA" padding="0" >
-                    <TwoColRow bias="left">
-                        <Column>
-                            <Quote lHeight="1.3" size="34"> Noah works with his son. He uses very new and modern equipment. It is probably a combination of all these factors that allows him to have bid the job at less than one-half the other bids.</Quote>
-                            <Row justify="flex-start" align="center" >
-                                <Info as="span" color="#FFFFFF" size="42" weight="700">Ralph C.</Info>
-                                <Slash />
-                                <Info as="span" color="#FFFFFF" size="42">Reno, Nevada</Info>
-                            </Row>
-                        </Column>
-                        <Block bgColor="transparent" padding="0">
-                            <Info color="white" size="125">"Modern"</Info>
-                            <Icon/>
-                        </Block>
-                    </TwoColRow>
-                </Block>
-                <Block bgColor="#9DD5EA" padding="0" >
-                    <TwoColRow bias="left">
-                        <Column>
-                            <Quote lHeight="1.3" size="34"> Noah works with his son. He uses very new and modern equipment. It is probably a combination of all these factors that allows him to have bid the job at less than one-half the other bids.</Quote>
-                            <Row justify="flex-start" align="center" >
-                                <Info as="span" color="#FFFFFF" size="42" weight="700">Mary R.</Info>
-                                <Slash />
-                                <Info as="span" color="#FFFFFF" size="42">Tahoe, Nevada</Info>
-                            </Row>
-                        </Column>
-                        <Block bgColor="transparent" padding="0">
-                            <Info color="white" size="125">"Superb"</Info>
-                            <Icon/>
-                        </Block>
-                    </TwoColRow>
-                </Block>
+                {this.props.data.map(
+                    ({ node: image }, index) => {
+                        return (
+                            <>
+                                <Block bgColor="#9DD5EA" padding="0" >
+                                    <TwoColRow bias="left">
+                                        <Column>
+                                            <Quote lHeight="1.3" size="34" dangerouslySetInnerHTML={{ __html: this.props.data[index].node.customerReview.childMarkdownRemark.html }} />
+                                            <Row justify="flex-start" align="center" >
+                                                <Info as="span" color="#FFFFFF" size="42" weight="700">{this.props.data[index].node.firstName} {this.props.data[index].node.lastInitial}.</Info>
+                                                <Slash />
+                                                <Info as="span" color="#FFFFFF" size="42">{this.props.data[index].node.city}, {this.props.data[index].node.state}</Info>
+                                            </Row>
+                                        </Column>
+                                        <Block bgColor="transparent" padding="0">
+                                            <Info color="white" size="125">
+                                                {
+                                                    this.props.data[index].node.customerReview.childMarkdownRemark.html.split("<strong>")[1].split("</strong>")[0]
+                                                }
+                                            </Info>
+                                            <Icon />
+                                        </Block>
+                                    </TwoColRow>
+                                </Block>
+                            </>
+                        )
+                    }
+                )}
             </Slider>
         <GlobalStyle />
     </Wrapper>

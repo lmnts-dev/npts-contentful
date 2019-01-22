@@ -16,15 +16,11 @@ const Home = ({ data }) => {
     }
     const summary = data.allContentfulSummary.edges[0].node
     const services = data.allContentfulService
-    const testimonials = data.allContentfulTestimonial
+    const testimonials = data.allContentfulTestimonial.edges
     const introBlocks = data.allContentfulIntroduction
     const slider = data.allContentfulSlider.edges[0].node
-    const images = slider.sliderImages
     console.log("here");
-    console.log(images);
-    for (var i = 0; i < images.length; i++){
-      console.log(images[i].ogimg.src);
-    }
+    console.log(testimonials);
 
     return (
         <>

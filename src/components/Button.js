@@ -85,7 +85,6 @@ const Arrow = styled.img`
 
 const Button = ({ to, hide, arrowButton, dark, children }) => {
   if (to === "/contact"){
-    console.log( "ANYTHING");
     return <ContactOverlay text={children} />
   }
   else if (!arrowButton){
