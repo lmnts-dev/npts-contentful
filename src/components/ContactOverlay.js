@@ -1,16 +1,12 @@
-import React from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components'
-import PageBody from '../components/PageBody'
-import Button from '../components/Button'
-import { H3, PLarge, HeaderText, Text } from '../components/Headings'
-import { ColumnWrapper } from '../components/Column'
 import exit from '../images/exit.png'
 import { Wrapper } from '../components/Block'
 import Contact from '../components/ContactForm'
-import { Row, RowWrapper } from '../components/Row'
+import { ButtonStyle } from '../components/Button'
 
 
-const Center= styled.div`
+const Center = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -24,7 +20,7 @@ const Block = styled(Wrapper)`
   bottom: 0;
   right: 0;
   left: 0;
-  z-index: 150;
+  z-index: 999;
   padding: 0 4vw;
   margin: 0 auto;
   form {
@@ -42,26 +38,57 @@ const Image = styled.img`
 
 const Exit = styled.div`
   position: absolute;
-  top: 0;
+  pointer-events: all;
+  cursor: pointer;
+  top: 2px;
   right: 0;
   height: 66px;
   width: 66px;
   margin: 4vw;
-  @media (max-width: 600px){
-      height: 51px;
-      width: 51px;
+  @media (max-width: 600px) {
+    height: 51px;
+    width: 51px;
   }
   background-color: #363636;
 `
 
-const ServiceBlock = props => (
-  <Block bgColor="#272929">
-    <Exit >
-        <Image src={exit} />
-    </Exit>
-    <Center>
-        <Contact />
-    </Center>
-  </Block>
-)
-export default ServiceBlock
+
+class AboutModal extends Component {
+    // constructor to set state and bind "this"
+    constructor(props) {
+        super(props);
+        this.state = { showModal: false };
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    // function to handle the click
+    handleClick() {
+        console.log("click");
+        this.setState(prevState => ({
+            showModal: !prevState.showModal
+        }));
+    }
+
+    // the render() method to put stuff into the DOM
+    render() {
+        // the modal you will toggle on and off
+        const modal = (
+            <Block bgColor="#272929" >
+                <Exit onClick={this.handleClick}>
+                    <Image src={exit} />
+                </Exit>
+                <Center>
+                    <Contact />
+                </Center>
+            </Block>
+        );
+        return <>
+            {this.state.showModal ? modal : ''}
+            <ButtonStyle onClick={this.handleClick} >
+                {this.props.text}
+            </ButtonStyle>
+          </>
+    }
+}
+
+export default AboutModal;

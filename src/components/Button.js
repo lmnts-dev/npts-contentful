@@ -5,6 +5,7 @@ import React from 'react'
 import styled from 'styled-components'
 import arrowGrey from "../images/arrowGrey.png"
 import arrowWhite from "../images/arrowWhite.png"
+import ContactOverlay from './ContactOverlay'
 
 /* these are the four buttons you can call ////////////////
 
@@ -17,7 +18,7 @@ import arrowWhite from "../images/arrowWhite.png"
     
 ///////////////////////////////////////////////////////// */
 
-const ButtonStyle = styled.a`
+export const ButtonStyle = styled.a`
   display: ${props => props.hide ? 'none' : 'inline-block'};
   letter-spacing: 1px;
   font-size: 19px;
@@ -83,30 +84,33 @@ const Arrow = styled.img`
 `
 
 const Button = ({ to, hide, arrowButton, dark, children }) => {
-  if (!arrowButton){
-    return (
-      <ButtonStyle href={to} hide={hide} arrowButton={arrowButton} dark={dark}>
-        {children}
-      </ButtonStyle>
-    )
+  if (to === "/contact"){
+    return <ContactOverlay text={children} />
   }
-  else {
-   if (dark) {
-    return (
-      <ButtonStyle href={to} hide={hide} arrowButton={arrowButton} dark={dark}>
-        {children}
-        <Arrow src={arrowGrey} alt="Arrow" />
-      </ButtonStyle>
-    )
-   }
-   else {
-    return (
-      <ButtonStyle href={to} hide={hide} arrowButton={arrowButton} dark={dark}>
-        {children}
-        <Arrow src={arrowWhite} alt="Arrow" />
-      </ButtonStyle>
-    )
-   } 
+  else if (!arrowButton){
+      return (
+        <ButtonStyle href={to} hide={hide} arrowButton={arrowButton} dark={dark}>
+          {children}
+        </ButtonStyle>
+      )
+    }
+    else {
+    if (dark) {
+      return (
+        <ButtonStyle href={to} hide={hide} arrowButton={arrowButton} dark={dark}>
+          {children}
+          <Arrow src={arrowGrey} alt="Arrow" />
+        </ButtonStyle>
+      )
+    }
+    else {
+      return (
+        <ButtonStyle href={to} hide={hide} arrowButton={arrowButton} dark={dark}>
+          {children}
+          <Arrow src={arrowWhite} alt="Arrow" />
+        </ButtonStyle>
+      )
+    } 
   }
 }
 export default Button

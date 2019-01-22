@@ -86,19 +86,17 @@ const Wrapper = styled.div`
 export const TextBlock = props => {
     if (props.theme === "light"){
         return (
-            <Wrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
-                <Line direction={props.line} color="#FFFFFF" >
-                    <H2 color="#FFFFFF">
-                        {props.header}
-                    </H2>
-                </Line>
-                <P color="#FFFFFF" dangerouslySetInnerHTML={{ __html: props.inlineText }}>
-                    {props.text} 
-                </P>
-                <Button to={props.dest}>
-                    {props.bText}
-                </Button>
-            </Wrapper>
+        <Wrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
+            <Line direction={props.line} color="#FFFFFF">
+              <H2 color="#FFFFFF">{props.header}</H2>
+            </Line>
+            <P color="#FFFFFF" dangerouslySetInnerHTML={{ __html: props.inlineText }}>
+              {props.text}
+            </P>
+            <Button hide={props.hideButton}  to={props.dest}>
+              {props.bText}
+            </Button>
+          </Wrapper>
         )
     }
     else {
@@ -112,7 +110,7 @@ export const TextBlock = props => {
                 <P color="#293536" dangerouslySetInnerHTML={{ __html: props.inlineText }}>
                     {props.text} 
                 </P>
-                <Button to={props.dest} dark>
+                <Button hide={props.hideButton} to={props.dest} dark>
                     {props.bText}
                 </Button>
             </Wrapper>
@@ -122,21 +120,17 @@ export const TextBlock = props => {
 
 export const LargeTextBlock = props => {
     if (props.theme === "light"){
-        return (
-            <Wrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
-                <Line direction={props.line} color="#FFFFFF" >
-                    <H3 color="#FFFFFF">
-                        {props.header}
-                    </H3>
-                </Line>
-                <PLarge color="#FFFFFF" dangerouslySetInnerHTML={{ __html: props.inlineText }}>
-                    {props.text} 
-                </PLarge>
-                <Button to={props.dest} arrowButton>
-                    {props.bText}
-                </Button>
-            </Wrapper>
-        )
+        return <Wrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
+            <Line direction={props.line} color="#FFFFFF">
+              <H3 color="#FFFFFF">{props.header}</H3>
+            </Line>
+            <PLarge color="#FFFFFF" dangerouslySetInnerHTML={{ __html: props.inlineText }}>
+              {props.text}
+            </PLarge>
+            <Button hide={props.hideButton}  to={props.dest} arrowButton>
+              {props.bText}
+            </Button>
+          </Wrapper>
     }
     else {
         return (
@@ -149,7 +143,7 @@ export const LargeTextBlock = props => {
                 <PLarge color="#293536" dangerouslySetInnerHTML={{ __html: props.inlineText }}>
                     {props.text} 
                 </PLarge>
-                <Button to={props.dest} dark arrowButton>
+                <Button hide={props.hideButton} to={props.dest} dark arrowButton>
                     {props.bText}
                 </Button>
             </Wrapper>
