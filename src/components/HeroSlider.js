@@ -165,6 +165,13 @@ export default class HomeSlider extends React.Component {
     previous() {
         this.slider.slickPrev();
     }
+
+
+
+
+
+
+    
     render() {
       var settings = {
         dots: false,
@@ -176,43 +183,58 @@ export default class HomeSlider extends React.Component {
         autoplay: true,
         autoplaySpeed: 5000
       };
-
-      return (
-    <Container>
-        <TwoColRow bias="left">
+    
+    var images = this.props.data.sliderImages;
+      console.log(images[0].ogimg.src);
+      return <Container>
+          <TwoColRow bias="left">
             <WordsBlock bgColor="rgba(0, 0, 0, .6)" absolute="left">
-                <div>
-                    <H1 color="#FFFFFF" >Keeping your trees healthy and beautiful</H1>
-                    <HeroBorder color="white" width="90%" margin="40px 0"/>
-                    <P color="white" >Dedicated to handling all your tree care needs, our experienced and knowledgeable team of arborists are committed to ensure the longevity of all your trees and shrubs.</P>
-                    <Button to="/">Get a free quote</Button>
-                </div>
-                <DisclaimerCol align="flex-start">
-                    <Row justify="flex-start" align="center">
-                        <Badge />
-                        <Disclaimer size="12" lHeight="1.8" color="#FFFFFF">As an ISA Certified Arborist, all of our work is performed to ISA standards and we are fully insured to operate in the area.</Disclaimer>
-                    </Row>
-                </DisclaimerCol>
+              <div>
+                <H1 color="#FFFFFF">{this.props.data.header}</H1>
+                <HeroBorder color="white" width="90%" margin="40px 0" />
+                <P color="white" dangerouslySetInnerHTML={{ __html: this.props.data.paragraphText.childMarkdownRemark.html }} />
+                <Button to={'/' + this.props.data.buttonDestination}>
+                  {this.props.data.buttonText}
+                </Button>
+              </div>
+              <DisclaimerCol align="flex-start">
+                <Row justify="flex-start" align="center">
+                  <Badge />
+                  <Disclaimer size="12" lHeight="1.8" color="#FFFFFF" dangerouslySetInnerHTML={{ __html: this.props.data.disclaimerText.childMarkdownRemark.html }} />
+                </Row>
+              </DisclaimerCol>
             </WordsBlock>
             <NavBlock absolute="right" bgColor="transparent" padding="0">
-                <Row justify="space-between">
-                    <LocatorRow absolute="bottomLeft" align="center">
-                        <Locator />
-                        <Text color="#FFFFFF" weight="300" transform="uppercase" >Reno, NV</Text>
-                    </LocatorRow>
-                    <SliderNav absolute="bottomRight">
-                        <RightArrow onClick={this.previous}/>
-                        <LeftArrow onClick={this.next}/>
-                    </SliderNav>
-                </Row>
+              <Row justify="space-between">
+                <LocatorRow absolute="bottomLeft" align="center">
+                  <Locator />
+                  <Text color="#FFFFFF" weight="300" transform="uppercase">
+                    Reno, NV
+                  </Text>
+                </LocatorRow>
+                <SliderNav absolute="bottomRight">
+                  <RightArrow onClick={this.previous} />
+                  <LeftArrow onClick={this.next} />
+                </SliderNav>
+              </Row>
             </NavBlock>
-        </TwoColRow>
-        <Slider ref={c => (this.slider = c)} {...settings}>
-            <SliderImage bgImage={SlideOne} padding="0"></SliderImage>
-            <SliderImage bgImage={SlideOne} padding="0"></SliderImage>
-            <SliderImage bgImage={SlideOne} padding="0"></SliderImage>
-        </Slider>    
-    </Container>
-    );
+          </TwoColRow>
+          <Slider ref={c => (this.slider = c)} {...settings}>
+            {this.props.data.sliderImages.map(
+              ({ node: image }, index) => {
+                return (
+                  <>
+                    <SliderImage
+                      bgImage={
+                        this.props.data.sliderImages[index].ogimg.src
+                      }
+                      padding="0"
+                    />
+                  </>
+                )
+              }
+            )}
+          </Slider>
+        </Container>
 }
 }

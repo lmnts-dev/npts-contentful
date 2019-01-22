@@ -19,6 +19,12 @@ const Home = ({ data }) => {
     const testimonials = data.allContentfulTestimonial
     const introBlocks = data.allContentfulIntroduction
     const slider = data.allContentfulSlider.edges[0].node
+    const images = slider.sliderImages
+    console.log("here");
+    console.log(images);
+    for (var i = 0; i < images.length; i++){
+      console.log(images[i].ogimg.src);
+    }
 
     return (
         <>
