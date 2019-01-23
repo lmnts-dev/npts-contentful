@@ -1,21 +1,10 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import config from '../utils/siteConfig'
-import Layout from '../components/Layout'
-import Summary from '../components/Summary'
-import Container from '../components/Container'
-import SimpleSlider from '../components/TestimonialSlider'
-import SEO from '../components/SEO'
-import { Wrapper, HeaderBlock} from '../components/Block'
+import { Wrapper } from '../components/Block'
 import { RowWrapper } from '../components/Row'
 import Column from '../components/Column'
 import Button from '../components/Button'
-import IntroImage from '../images/intro.jpg'
-import { H2, H3, P, PLarge, HeaderText } from '../components/Headings'
-import PHC from '../images/phc.jpg'
-import Leaf from "../images/leafTestimonial.png"
-import { RightLeaf } from '../components/Leaves'
+import { PLarge, HeaderText } from '../components/Headings'
 import chip from '../images/chip.png'
 
 

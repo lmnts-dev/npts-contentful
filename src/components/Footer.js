@@ -110,7 +110,7 @@ const Item = styled(AniLink)`
   }
 `
 
-const Footer = () => (
+const Footer = props => (
   <TwoColRow as="footer">
     <Column justify="flex-start" >
       <Logo />
@@ -133,7 +133,7 @@ const Footer = () => (
       </CopyWright>
     </Column>
     <Block pushUp bgColor="#272929">
-      <Contact/>
+      <Contact noExit={props.noExit} />
     </Block>
   </TwoColRow>
 )

@@ -7,9 +7,11 @@ import theme from '../styles/theme'
 import config from '../utils/siteConfig'
 import Menu from '../components/Menu'
 import Footer from '../components/Footer'
-import ContactOverlay from '../components/ContactOverlay'
 
 const Template = ({ children }) => {
+  const isLetsTalk = window.location.href.includes("contact");
+  console.log(window.location.href );
+  console.log(isLetsTalk )
   return <div className="siteRoot">
       <Helmet>
         <title>{config.siteTitle}</title>
@@ -25,7 +27,7 @@ const Template = ({ children }) => {
           <div className="siteContent">
             <Menu />
               {children}
-            <Footer />
+            {!isLetsTalk ? <Footer noExit/> : ""} 
           </div>
           
         </>

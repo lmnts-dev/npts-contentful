@@ -6,8 +6,11 @@ import { H3, PLarge, HeaderText, Text } from '../components/Headings'
 import Row from '../components/Row'
 import phone from '!svg-react-loader!../images/svg-icons/phone.svg?name=phone'
 import email from '!svg-react-loader!../images/svg-icons/email.svg?name=email'
+import exit from '../images/exit.png'
+import { createBrowserHistory } from 'history'
 
-
+/// LOOK HERE if you uncomment this///
+// const history = createBrowserHistory()
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
   Be sure to review the Netlify documentation for more information:
@@ -25,6 +28,7 @@ const Form = styled.form`
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: flex-start;
+  position: relative;
   input,
   textarea {
     font-family: inherit;
@@ -149,10 +153,36 @@ const Submit = styled.input`
     padding: 19.2px 38.28px;
   }
   color: #9f4300 !important;
+  
   border-radius: 46px;
   background-color: #FFFFFF !important;
   box-shadow: 0 3px 36px rgba( 0, 0, 0, .16);
 `
+
+const Exit = styled.div`
+  display: ${props => (props.noExit ? 'none' : 'block')};
+  position: absolute;
+  pointer-events: all;
+  cursor: pointer;
+  top: 2px;
+  right: 0;
+  height: 66px;
+  width: 66px;
+  @media (max-width: 600px) {
+    height: 51px;
+    width: 51px;
+  }
+  background-color: #363636;
+`
+
+const Image = styled.img`
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  height: 60%;
+`
+
 
 const Modal = styled.div`
   background: white;
@@ -230,6 +260,7 @@ class ContactForm extends React.Component {
     this.setState({ showModal: false })
   }
 
+
   render() {
     return (
       <>
@@ -243,6 +274,10 @@ class ContactForm extends React.Component {
         onClick={this.closeModal}
       >
           <TextBlock>
+            {/* LOOK HERE if you add onClick={history.goBack()} to the Exit tag below, it goes back automatically without a click*/}
+            <Exit noExit={this.props.noExit}>
+              <Image src={exit} />
+            </Exit>
             <HeaderText lHeight="2" size="80" color="#FFFFFF"> Let's Talk </HeaderText>
             <Row align="center">
               <Phone />
@@ -306,3 +341,5 @@ ContactForm.propTypes = {
 }
 
 export default ContactForm
+
+

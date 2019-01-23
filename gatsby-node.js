@@ -5,7 +5,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   
-  ////// crete blog page ////////////////////////////
+  /// /// crete blog page ////////////////////////////
   const loadPosts = new Promise((resolve, reject) => {
     graphql(`
       {
@@ -72,9 +72,9 @@ exports.createPages = ({ graphql, actions }) => {
       resolve()
     })
   })
-  ///////////////////////end create blog page //////////////
+  /// ////////////////////end create blog page //////////////
   
-  ////////////// create tag pages /////////////////////
+  /// /////////// create tag pages /////////////////////
   const loadTags = new Promise((resolve, reject) => {
     graphql(`
       {
@@ -116,7 +116,7 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  //////////////// create generic page template pages //////////////
+  /// ///////////// create generic page template pages //////////////
   const loadPages = new Promise((resolve, reject) => {
     graphql(`
       {
@@ -143,7 +143,7 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  ////// Create Home Page ////////////////////////////
+  /// /// Create Home Page ////////////////////////////
   const loadHomePage = new Promise((resolve, reject) => {
     createPage({
       path: `/`,
@@ -156,7 +156,7 @@ exports.createPages = ({ graphql, actions }) => {
     resolve()
   })
 
-  ////// Create About Page ////////////////////////////
+  /// /// Create About Page ////////////////////////////
   const loadAboutPage = new Promise((resolve, reject) => {
     createPage({
       path: `/about/`,
@@ -169,7 +169,7 @@ exports.createPages = ({ graphql, actions }) => {
     resolve()
   })
 
-  ////// Create Services Page ////////////////////////////
+  /// /// Create Services Page ////////////////////////////
   const loadServicesPage = new Promise((resolve, reject) => {
     createPage({
       path: `/services/`,
@@ -182,7 +182,7 @@ exports.createPages = ({ graphql, actions }) => {
     resolve()
   })
 
-  ////// create service pages ///////////////////////
+  /// /// create service pages ///////////////////////
   const loadServices = new Promise((resolve, reject) => {
     graphql(`
       {

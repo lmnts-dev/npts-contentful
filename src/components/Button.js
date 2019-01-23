@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import arrowGrey from "../images/arrowGrey.png"
 import arrowWhite from "../images/arrowWhite.png"
-import ContactOverlay from './ContactOverlay'
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 import * as lmnts from '../data/Styles'
 
@@ -84,10 +83,7 @@ const Arrow = styled.img`
 `
 
 const Button = ({ to, hide, arrowButton, dark, children }) => {
-  if (to === "/contact"){
-    return <ContactOverlay text={children} />
-  }
-  else if (!arrowButton){
+  if (!arrowButton){
       return (
         <ButtonStyle to={to} hide={hide} arrowButton={arrowButton} dark={dark} cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction}>
           {children}
