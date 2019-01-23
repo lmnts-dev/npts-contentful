@@ -15,6 +15,7 @@ import exit from '../images/exit.png'
 */
 
 
+// Styles
 const TextBlock = styled.div`
   margin-bottom: 20px;
   }
@@ -208,6 +209,12 @@ const Modal = styled.div`
   }
 `
 
+/*
+  ⚠️ This is an example of a contact form powered with Netlify form handling.
+  Be sure to review the Netlify documentation for more information:
+  https://www.netlify.com/docs/form-handling/
+*/
+
 const encode = data => {
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -259,6 +266,7 @@ class ContactForm extends React.Component {
   }
 
 
+  // Render our form
 
   render() {
     return (
