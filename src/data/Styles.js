@@ -48,7 +48,7 @@ module.exports = {
         Direction: "up",
         Type: "cover",
         Duration: 1,
-        Color: "#e2e2e2"
+        Color: "#C9EAE9"
       }
     }
   };

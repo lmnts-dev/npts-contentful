@@ -9,13 +9,13 @@ import email from '!svg-react-loader!../images/svg-icons/email.svg?name=email'
 import exit from '../images/exit.png'
 import { createBrowserHistory } from 'history'
 
-/// LOOK HERE if you uncomment this///
-// const history = createBrowserHistory()
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
   Be sure to review the Netlify documentation for more information:
   https://www.netlify.com/docs/form-handling/
 */
+
+const history = createBrowserHistory()
 
 const TextBlock = styled.div`
   margin-bottom: 20px;
@@ -261,6 +261,7 @@ class ContactForm extends React.Component {
   }
 
 
+
   render() {
     return (
       <>
@@ -274,8 +275,7 @@ class ContactForm extends React.Component {
         onClick={this.closeModal}
       >
           <TextBlock>
-            {/* LOOK HERE if you add onClick={history.goBack()} to the Exit tag below, it goes back automatically without a click*/}
-            <Exit noExit={this.props.noExit}>
+            <Exit onClick={() => { history.goBack() }} noExit={this.props.noExit}>
               <Image src={exit} />
             </Exit>
             <HeaderText lHeight="2" size="80" color="#FFFFFF"> Let's Talk </HeaderText>
