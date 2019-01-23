@@ -31,8 +31,8 @@ const Home = ({ data }) => {
             <Container>
                 <HeroSlider data={slider}/>
                 <IntroBlocks data={introBlocks}/>
-                <TestimonialSlider data={testimonials}/>
                 <Video />
+                <TestimonialSlider data={testimonials}/>
                 <Services data={services}/>
                 <Summary hideButton bgColor="#9F4300" subhead={summary.subHeaderText} header={summary.headerText} text={summary.paragraphText.childMarkdownRemark.html} bText={summary.buttonText} dest={"/" + summary.buttonDestination}/>
             </Container>

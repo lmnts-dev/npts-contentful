@@ -7,7 +7,6 @@ import Row from '../components/Row'
 import phone from '!svg-react-loader!../images/svg-icons/phone.svg?name=phone'
 import email from '!svg-react-loader!../images/svg-icons/email.svg?name=email'
 import exit from '../images/exit.png'
-import { createBrowserHistory } from 'history'
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
@@ -15,7 +14,6 @@ import { createBrowserHistory } from 'history'
   https://www.netlify.com/docs/form-handling/
 */
 
-const history = createBrowserHistory()
 
 const TextBlock = styled.div`
   margin-bottom: 20px;
@@ -275,7 +273,7 @@ class ContactForm extends React.Component {
         onClick={this.closeModal}
       >
           <TextBlock>
-            <Exit onClick={() => { history.goBack() }} noExit={this.props.noExit}>
+            <Exit onClick={() => { window.history.back() }} noExit={this.props.noExit}>
               <Image src={exit} />
             </Exit>
             <HeaderText lHeight="2" size="80" color="#FFFFFF"> Let's Talk </HeaderText>
