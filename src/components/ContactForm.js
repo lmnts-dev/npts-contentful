@@ -15,6 +15,7 @@ import { createBrowserHistory } from 'history'
   https://www.netlify.com/docs/form-handling/
 */
 
+// Create browser history, used further down on the <Exit> component.
 const history = createBrowserHistory()
 
 const TextBlock = styled.div`
