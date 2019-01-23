@@ -53,7 +53,7 @@ const Exit = styled.div`
 `
 
 
-class AboutModal extends Component {
+class ContactModal extends Component {
     
     // constructor to set state and bind "this"
     constructor(props) {
@@ -92,4 +92,4 @@ class AboutModal extends Component {
     }
 }
 
-export default AboutModal;
+export default ContactModal;

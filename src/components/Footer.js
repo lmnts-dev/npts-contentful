@@ -21,6 +21,9 @@ const FooterLinks = styled(RowWrapper)`
 const TwoColRow = styled(TwoColRowWrapper)`
   @media ( max-width: 750px ){
     flex-direction: ${props => props.reverse ? 'column' : 'column-reverse' };
+    div {
+      margin: 0 auto;
+    }
   }
 `
 
@@ -76,10 +79,6 @@ const Block = styled(Wrapper)`
     padding: 36px 25px 72px 25px;
   }
 `
-const Info = styled(Text)`
-  cursor: pointer;
-  text-decoration: none !important;
-`
 
 const Item = styled(AniLink)`
     font-size: 28px;
@@ -121,9 +120,10 @@ const Footer = () => (
           <Item to="/services">Services</Item>
           <Item to="/about">About</Item>
           <Item to="/">Contact</Item>
-          <Item to="/">Our Work</Item>
         </div>
         <div>
+          <Item to="/">Our Work</Item>
+          <Item to="/">Firewood</Item>
           <Item to="/">Chip Drop</Item>
           <Item to="/">Careers</Item>
         </div>

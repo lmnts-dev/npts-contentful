@@ -4,7 +4,7 @@ import * as lmnts from '../data/Styles'
 import styled from 'styled-components'
 import Logo from "!svg-react-loader!../images/svg-icons/logo.svg?name=logo";
 import Hamburger from "!svg-react-loader!../images/svg-icons/navburger.svg?name=navburger";
-
+import HamburgerMenu from '../components/MenuOverlay'
 
 
 const NavLink = styled(AniLink)`
@@ -144,9 +144,7 @@ const Menu = () => {
             </NavButton>
           </li>
         </ul>
-        <HamburgerLink onclick="showOverlay()" >
-          <Hamburger />
-        </HamburgerLink>
+        <HamburgerMenu/>
       </Nav>
     </>
   )
