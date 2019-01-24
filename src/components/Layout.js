@@ -7,12 +7,12 @@ import theme from '../styles/theme'
 import config from '../utils/siteConfig'
 import Menu from '../components/Menu'
 import Footer from '../components/Footer'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
 
-class Template extends React.Component {
+class Layout extends React.Component {
   render() {
     const { children } = this.props
+    const { location } = this.props.location
+
     return <div className="siteRoot">
         <Helmet>
           <title>{config.siteTitle}</title>
@@ -24,27 +24,20 @@ class Template extends React.Component {
         </Helmet>
 
         <ThemeProvider theme={theme}>
-          <>
-            <div className="siteContent">
-              <Menu />
-              {children}
-              <Router>
-                <Route>
-                  {!location.href.includes('/contact') ? (
-                    <Footer noExit />
-                  ) : (
-                    ''
-                  )}
-                </Route>
-              </Router>
-            </div>
-          </>
+          <div className="siteContent">
+            <Menu />
+            {children}
+            
+            {/* {!location.pathname.includes('/contact') ? (
+                  <Footer noExit />
+                ) : (
+                  ''
+            )} */}
+            
+          </div>
         </ThemeProvider>
         <GlobalStyle />
       </div>
   }}
 
-Template.propTypes = {
-  children: PropTypes.func
-}
-export default Template
+export default Layout

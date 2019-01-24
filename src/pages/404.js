@@ -13,8 +13,8 @@ const Text = styled.p`
   }
 `
 
-const NotFoundPage = () => (
-  <Layout>
+const NotFoundPage = ( location ) => (
+  <Layout location={ location }>
     <Helmet>
       <title>404 - Page Not Found</title>
       <meta name="description" content="Page not found" />

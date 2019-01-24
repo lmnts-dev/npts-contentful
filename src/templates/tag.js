@@ -13,7 +13,7 @@ import Container from '../components/Container'
 
 console.log("tag template");
 
-const TagTemplate = ({ data, pageContext }) => {
+const TagTemplate = ({ data, pageContext, location }) => {
   const posts = orderBy(
     data.contentfulTag.post,
     // eslint-disable-next-line
@@ -29,7 +29,7 @@ const TagTemplate = ({ data, pageContext }) => {
   const isFirstPage = currentPage === 1
 
   return (
-    <Layout>
+    <Layout location={ location }>
       {isFirstPage ? (
         <Helmet>
           <title>{`Tag: ${title} - ${config.siteTitle}`}</title>

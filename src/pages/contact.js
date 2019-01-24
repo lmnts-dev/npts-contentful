@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import config from '../utils/siteConfig'
 import SEO from '../components/SEO'
 import { Wrapper } from '../components/Block'
+import Layout from '../components/Layout'
 
 import Contact from '../components/ContactForm'
 
@@ -29,23 +30,25 @@ const Block = styled(Wrapper)`
   }
 `
 
+const LetsTalk = ( location ) => {
+  return (
+    <Layout location={ location }>
+      <Helmet>
+        <title>{`Contact - ${config.siteTitle}`}</title>
+      </Helmet>
+      <SEO
+        postNode="Let's Talk - Noah's Park Tree Care Service"
+        pagePath="contact"
+        customTitle
+      />
 
-
-const LetsTalk = () => {
-
-    return <>
-        <Helmet>
-          <title>{`Contact - ${config.siteTitle}`}</title>
-        </Helmet>
-        <SEO postNode="Let's Talk - Noah's Park Tree Care Service" pagePath="contact" customTitle />
-
-        <Block bgColor="#272929" >
-            <Center>
-                <Contact />
-            </Center>
-        </Block>      
-    </>
+      <Block bgColor="#272929">
+        <Center>
+          <Contact />
+        </Center>
+      </Block>
+    </Layout>
+  )
 }
-
 
 export default LetsTalk

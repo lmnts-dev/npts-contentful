@@ -14,7 +14,6 @@ import exit from '../images/exit.png'
   https://www.netlify.com/docs/form-handling/
 */
 
-
 // Styles
 const TextBlock = styled.div`
   margin-bottom: 20px;

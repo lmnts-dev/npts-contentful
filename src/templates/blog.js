@@ -9,14 +9,17 @@ import Container from '../components/Container'
 import Pagination from '../components/Pagination'
 import SEO from '../components/SEO'
 import config from '../utils/siteConfig'
+
+
 console.log( "index template" );
-const Index = ({ data, pageContext }) => {
+const Blog = ({ data, pageContext, location }) => {
   const posts = data.allContentfulPost.edges
   const featuredPost = posts[0].node
   const { currentPage } = pageContext
+
   const isFirstPage = currentPage === 1
   return (
-    <Layout>
+    <Layout location={ location }>
       <SEO />
       {!isFirstPage && (
         <Helmet>
@@ -73,4 +76,4 @@ export const query = graphql`
     }
   }
 `
-export default Index
+export default Blog

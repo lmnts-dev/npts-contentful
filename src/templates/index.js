@@ -6,12 +6,14 @@ import IntroBlocks from '../components/IntroBlocks'
 import Services from '../components/ServicesSection'
 import Summary from '../components/Summary'
 import Container from '../components/Container'
+import Layout from '../components/Layout'
 import TestimonialSlider from '../components/TestimonialSlider'
 import SEO from '../components/SEO'
 import Video from '../components/Video'
 import { graphql } from 'gatsby'
 
-const Home = ({ data }) => {
+
+const Index = ({ data, location }) => {
     const postNode = {
         title: `Home - ${config.siteTitle}`,
     }
@@ -22,12 +24,11 @@ const Home = ({ data }) => {
     const slider = data.allContentfulSlider.edges[0].node
 
     return (
-        <>
+        <Layout location={ location }>
             <Helmet>
                 <title>{`Contact - ${config.siteTitle}`}</title>
             </Helmet>
             <SEO postNode={postNode} pagePath="contact" customTitle />
-
             <Container>
                 <HeroSlider data={slider}/>
                 <IntroBlocks data={introBlocks}/>
@@ -36,7 +37,7 @@ const Home = ({ data }) => {
                 <Services data={services}/>
                 <Summary hideButton bgColor="#9F4300" subhead={summary.subHeaderText} header={summary.headerText} text={summary.paragraphText.childMarkdownRemark.html} bText={summary.buttonText} dest={"/" + summary.buttonDestination}/>
             </Container>
-        </>
+        </Layout>
     )
 }
 
@@ -209,4 +210,4 @@ export const query = graphql`
         }
        `
        
-export default Home
+export default Index

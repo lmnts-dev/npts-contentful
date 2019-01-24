@@ -11,10 +11,9 @@ import PostLinks from '../components/PostLinks'
 import PostDate from '../components/PostDate'
 import SEO from '../components/SEO'
 
-
 console.log("post template");
 
-const PostTemplate = ({ data, pageContext }) => {
+const PostTemplate = ({ data, pageContext, location }) => {
   console.log("here2");
   console.log( data );
   const {
@@ -31,7 +30,7 @@ const PostTemplate = ({ data, pageContext }) => {
   const next = pageContext.next
 
   return (
-    <Layout>
+    <Layout location={ location }>
       <Helmet>
         <title>{`${title} - ${config.siteTitle}`}</title>
       </Helmet>

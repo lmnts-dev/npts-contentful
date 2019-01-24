@@ -7,14 +7,8 @@ import Container from '../components/Container'
 import Button from '../components/Button'
 import Summary from '../components/Summary'
 import { Wrapper, HeaderBlock } from '../components/Block'
-import Column from '../components/Column'
-import { RowWrapper } from '../components/Row'
 import styled from 'styled-components'
-import chip from "../images/chip.png"
-import PageBody from '../components/PageBody'
 import { PLarge, HeaderText } from '../components/Headings'
-import { LargeTextBlock } from '../components/TextBlocks'
-import SEO from '../components/SEO'
 import FirewoodBlock from '../components/FirewoodBlock'
 
 
@@ -29,7 +23,7 @@ const Block = styled(Wrapper)`
   }
 `
 
-const ServiceTemplate = ({ data, pageContext }) => {
+const ServiceTemplate = ({ data, pageContext, location }) => {
   console.log( "dog");
   console.log( data );
   const {
@@ -39,7 +33,7 @@ const ServiceTemplate = ({ data, pageContext }) => {
   const firewood = data.allContentfulFirewood.edges[0].node
   const summary = data.allContentfulSummary.edges[0].node
 
-  return <>
+  return <Layout location={ location }>
       <Helmet>
         <title>{`${name} - ${config.siteTitle}`}</title>
       </Helmet>
@@ -66,7 +60,7 @@ const ServiceTemplate = ({ data, pageContext }) => {
         <Summary bgColor="#9F4300" subhead={summary.subHeaderText} header={summary.headerText} text={summary.paragraphText.childMarkdownRemark.html} bText={summary.buttonText} dest={"/" + summary.buttonDestination}/>
         
       </Container>
-    </>
+    </Layout>
 }
 
 export const query = graphql`

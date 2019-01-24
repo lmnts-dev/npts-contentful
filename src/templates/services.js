@@ -7,11 +7,12 @@ import config from '../utils/siteConfig'
 import Summary from '../components/Summary'
 import Container from '../components/Container'
 import SEO from '../components/SEO'
-import { Wrapper, HeaderBlock, Block } from '../components/Block'
+import { Wrapper, HeaderBlock } from '../components/Block'
 import { TwoColRowWrapper } from '../components/TwoColRow'
 import ServiceBlock from '../components/ServiceBlock'
-import { H2, H3, P, PLarge, HeaderText } from '../components/Headings'
+import { HeaderText } from '../components/Headings'
 import FirewoodBlock from '../components/FirewoodBlock'
+import Layout from '../components/Layout'
 
 const TwoColRow = styled(TwoColRowWrapper)`
     @media (max-width: 700px){
@@ -29,7 +30,7 @@ const ServiceList = styled(Wrapper)`
   }
 `
 
-const Services = ({ data }) => {
+const Services = ({ data, location }) => {
     console.log("here4");
     console.log( data);
     const services = data.allContentfulService.edges
@@ -40,9 +41,9 @@ const Services = ({ data }) => {
     }
 
     return (
-       <>
+       <Layout location={ location }>
         <Helmet>
-          <title>{`Contact - ${config.siteTitle}`}</title>
+          <title>{`Hello - ${config.siteTitle}`}</title>
         </Helmet>
         <SEO postNode={postNode} pagePath="contact" customTitle />
 
@@ -80,7 +81,7 @@ const Services = ({ data }) => {
             <FirewoodBlock header={firewood.headerText} text={firewood.paragraphText.childMarkdownRemark.html} />
             <Summary bgColor="#394343" header={identity.headerText} text={identity.paragraphText.childMarkdownRemark.html} bText={identity.buttonText} dest={"/" + identity.buttonDestination}/>
         </Container>
-      </>
+      </Layout>
     )
 }
 
