@@ -143,7 +143,7 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  /// /// Create Home Page ////////////////////////////
+  /// /// Create Home Paage ////////////////////////////
   const loadHomePage = new Promise((resolve, reject) => {
     createPage({
       path: `/`,
