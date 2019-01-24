@@ -10,12 +10,14 @@ import { H1, H2, H3, P, PLarge, Text, HeaderText } from '../components/Headings'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const FooterLinks = styled(RowWrapper)`
-    @media ( max-width: 750px ){
-      flex-direction: column;
-    }
-    div:last-of-type {
+  @media (max-width: 750px) {
+    flex-direction: column;
+  }
+  div:last-of-type {
+    @media (max-width: 750px) {
       margin-top: 40px;
     }
+  }
 `
 
 const TwoColRow = styled(TwoColRowWrapper)`
@@ -81,32 +83,32 @@ const Block = styled(Wrapper)`
 `
 
 const Item = styled(AniLink)`
-    font-size: 28px;
-    @media (max-width: 1440px){
-      font-size: 1.94vw;
-    }
-    @media (max-width: 720px){
-      font-size: 14px;
-    }
-    font-weight: 700;
-    display: block;
-    transition: all 0.2s;
-    color: #7C7C7C;
-    text-decoration: none;
-    margin-right: 80px;
-    @media (max-width: 1440px){
-      margin-right: 5.56vw;
-    }
-    @media (max-width: 750px){
-      margin: 0;
-      text-align: center;
-    }
-    line-height: 1.5;
-    &:hover {
-      color: #7C7C7C;
-    }
-    &:visited {
-      color: #7C7C7C;
+  font-size: 28px;
+  @media (max-width: 1440px) {
+    font-size: 1.94vw;
+  }
+  @media (max-width: 720px) {
+    font-size: 14px;
+  }
+  font-weight: 700;
+  display: block;
+  transition: all 0.2s;
+  color: #7c7c7c;
+  text-decoration: none;
+  margin-right: ${props => (props.last ? '0' : '80px')};
+  @media (max-width: 1440px) {
+    margin-right: ${props => (props.last ? '0' : '5.56vw')};
+  }
+  @media (max-width: 750px) {
+    margin: 0;
+    text-align: center;
+  }
+  line-height: 1.5;
+  &:hover {
+    color: #7c7c7c;
+  }
+  &:visited {
+    color: #7c7c7c;
   }
 `
 
@@ -122,10 +124,10 @@ const Footer = props => (
           <Item to="/">Contact</Item>
         </div>
         <div>
-          <Item to="/">Our Work</Item>
-          <Item to="/">Firewood</Item>
-          <Item to="/">Chip Drop</Item>
-          <Item to="/">Careers</Item>
+          <Item last to="/">Our Work</Item>
+          <Item last to="/">Firewood</Item>
+          <Item last to="/">Chip Drop</Item>
+          <Item last to="/">Careers</Item>
         </div>
       </FooterLinks>
       <CopyWright color="#343434">

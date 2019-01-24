@@ -63,7 +63,7 @@ const Services = ({ data }) => {
                     <>
                       <TwoColRow>
                         <ServiceBlock src={service.image.ogimg.src} header={service.name} text={service.shortSummary} bText="Learn More" dest={"/" + service.slug} />
-                        <ServiceBlock src={services[index + 1].node.image.ogimg.src} header={services[index + 1].node.name} text={services[index + 1].node.shortSummary} bText="Learn More" dest={"/" + services[index++].slug} />
+                        <ServiceBlock src={services[index + 1].node.image.ogimg.src} header={services[index + 1].node.name} text={services[index + 1].node.shortSummary} bText="Learn More" dest={"/" + services[index + 1].node.slug} />
                       </TwoColRow>
                     </>
                   )

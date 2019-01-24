@@ -14,14 +14,6 @@ const NavLink = styled(AniLink)`
   letter-spacing: 2px;
 `
 
-const TalkLink = styled.div`
-  text-transform: uppercase;
-  font-size: 16px;
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 2px;
-  cursor: pointer;
-`
-
 const LogoLink = styled(AniLink)`
   position: absolute;
   left: 15px;
@@ -33,27 +25,6 @@ const LogoLink = styled(AniLink)`
   }
 `
 
-
-
-const HamburgerLink = styled.div`
-  display: none;
-  position: absolute;
-  right: 15px;
-  top: 15px;
-  cursor: pointer;
-  rect {
-    fill: #FFFFFF;
-  }
-  @media (max-width: 1115px){
-    display: block;
-  }
-  @media (max-width: 600px){
-    top: 18px;
-    svg {
-      width: 23px;
-    }
-  }
-`
 
 const NavButton = styled.a`
   text-transform: uppercase;
@@ -134,9 +105,9 @@ const Menu = () => {
               </NavLink>
           </li>
           <li>
-            <TalkLink cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction} to="/contact" activeStyle={activeLinkStyle}>
+            <NavLink cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction} to="/contact" activeStyle={activeLinkStyle}>
               Let's Talk
-              </TalkLink>
+              </NavLink>
           </li>
           <li>
             <NavButton divider href="tel:7753760917" activeStyle={activeLinkStyle}>

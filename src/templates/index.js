@@ -116,7 +116,7 @@ export const query = graphql`
                     excerpt(pruneLength: 320)
                   }
                 }
-                image {
+                mainImage {
                   title
                   fluid(maxWidth: 1800) {
                     ...GatsbyContentfulFluid_withWebp_noBase64

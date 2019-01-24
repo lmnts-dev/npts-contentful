@@ -7,6 +7,8 @@ import { ButtonStyle } from '../components/Button'
 import Hamburger from '!svg-react-loader!../images/svg-icons/navburger.svg?name=navburger'
 import Column from '../components/Column'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import * as lmnts from '../data/Styles'
+
 
 const HamburgerLink = styled.div`
   display: none;
@@ -102,6 +104,10 @@ const SecondaryLinks = styled.div`
   }
 `
 
+const activeLinkStyle = {
+  color: '#9F4300',
+}
+
 class MenuModal extends Component {
     
     // constructor to set state and bind "this"
@@ -129,15 +135,15 @@ class MenuModal extends Component {
                 </Exit>
                 <Center>
                     <Column align="center" justify="center">
-                        <Item to="/">Home</Item>
-                        <Item to="/services">Services</Item>
-                        <Item to="/about">About</Item>
-                        <Item to="/contact">Contact</Item>
+                        <Item activeStyle={activeLinkStyle} to="/">Home</Item>
+                        <Item activeStyle={activeLinkStyle} to="/services">Services</Item>
+                        <Item activeStyle={activeLinkStyle} to="/about">About</Item>
+                        <Item activeStyle={activeLinkStyle} to="/contact">Contact</Item>
                         <SecondaryLinks>
-                            <Item to="/">Our Work</Item>
-                            <Item to="/">Firewood</Item>
-                            <Item to="/">Chip Drop</Item>
-                            <Item to="/">Careers</Item>
+                            <Item activeStyle={activeLinkStyle} to="/our-work">Our Work</Item>
+                            <Item activeStyle={activeLinkStyle} to="/firewood">Firewood</Item>
+                            <Item activeStyle={activeLinkStyle} to="/chip-drop">Chip Drop</Item>
+                            <Item activeStyle={activeLinkStyle} to="/careers">Careers</Item>
                         </SecondaryLinks>
                     </Column>
                 </Center>
