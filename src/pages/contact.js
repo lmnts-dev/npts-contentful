@@ -32,7 +32,7 @@ const Block = styled(Wrapper)`
 
 const LetsTalk = ( location ) => {
   return (
-    <Layout location={ location }>
+    <Layout noFooter>
       <Helmet>
         <title>{`Contact - ${config.siteTitle}`}</title>
       </Helmet>
