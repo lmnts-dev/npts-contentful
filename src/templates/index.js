@@ -12,202 +12,197 @@ import SEO from '../components/SEO'
 import Video from '../components/Video'
 import { graphql } from 'gatsby'
 
-
 const Index = ({ data, location }) => {
-    const postNode = {
-        title: `Home - ${config.siteTitle}`,
-    }
-    const summary = data.allContentfulSummary.edges[0].node
-    const services = data.allContentfulService
-    const testimonials = data.allContentfulTestimonial.edges
-    const introBlocks = data.allContentfulIntroduction
-    const slider = data.allContentfulSlider.edges[0].node
+  const postNode = {
+    title: `Home - ${config.siteTitle}`,
+  }
+  const summary = data.allContentfulSummary.edges[0].node
+  const services = data.allContentfulService
+  const testimonials = data.allContentfulTestimonial.edges
+  const introBlocks = data.allContentfulIntroduction
+  const slider = data.allContentfulSlider.edges[0].node
 
-    return (
-        <Layout location={ location }>
-            <Helmet>
-                <title>{`Contact - ${config.siteTitle}`}</title>
-            </Helmet>
-            <SEO postNode={postNode} pagePath="contact" customTitle />
-            <Container>
-                <HeroSlider data={slider}/>
-                <IntroBlocks data={introBlocks}/>
-                <Video />
-                <TestimonialSlider data={testimonials}/>
-                <Services data={services}/>
-                <Summary hideButton bgColor="#9F4300" subhead={summary.subHeaderText} header={summary.headerText} text={summary.paragraphText.childMarkdownRemark.html} bText={summary.buttonText} dest={"/" + summary.buttonDestination}/>
-            </Container>
-        </Layout>
-    )
+  return (
+    <Layout location={location}>
+      <Helmet>
+        <title>{`Contact - ${config.siteTitle}`}</title>
+      </Helmet>
+      <SEO postNode={postNode} pagePath="contact" customTitle />
+      <Container>
+        <HeroSlider data={slider} />
+        <IntroBlocks data={introBlocks} />
+        <Video />
+        <TestimonialSlider data={testimonials} />
+        <Services data={services} />
+        <Summary
+          hideButton
+          bgColor="#9F4300"
+          subhead={summary.subHeaderText}
+          header={summary.headerText}
+          text={summary.paragraphText.childMarkdownRemark.html}
+          bText={summary.buttonText}
+          dest={'/' + summary.buttonDestination}
+        />
+      </Container>
+    </Layout>
+  )
 }
 
 // GATSBY BUILD ERROR BELOW
 export const query = graphql`
-         query($skip: Int!, $limit: Int!) {
-           allContentfulService(
-            limit: $limit
-            skip: $skip
-            ) {
-              edges {
-                node {
-                name
-                slug
-                image {
-                  title
-                  fluid(maxWidth: 1800) {
-                    ...GatsbyContentfulFluid_withWebp_noBase64
-                  }
-                  ogimg: resize(width: 1800) {
-                    src
-                    width
-                    height
-                  }
-                }
-                shortSummary {
-                  childMarkdownRemark {
-                    html
-                    excerpt(pruneLength: 320)
-                  }
-                }
-                fullDescription {
-                  childMarkdownRemark {
-                    html
-                    excerpt(pruneLength: 320)
-                  }
-                }
-              }
+  query($skip: Int!, $limit: Int!) {
+    allContentfulService(limit: $limit, skip: $skip) {
+      edges {
+        node {
+          name
+          slug
+          image {
+            title
+            fluid(maxWidth: 1800) {
+              ...GatsbyContentfulFluid_withWebp_noBase64
+            }
+            ogimg: resize(width: 1800) {
+              src
+              width
+              height
             }
           }
-          allContentfulTestimonial(
-            limit: $limit
-            skip: $skip
-            ) {
-              edges {
-                node {
-                firstName
-                lastInitial
-                city
-                state
-                customerReview {
-                  childMarkdownRemark {
-                    html
-                    excerpt(pruneLength: 320)
-                  }
-                }
-              }
+          shortSummary {
+            childMarkdownRemark {
+              html
+              excerpt(pruneLength: 320)
             }
           }
-          allContentfulIntroduction(
-            limit: $limit
-            skip: $skip
-            ) {
-              edges {
-                node {
-                headerText1
-                headerText2
-                paragraphText1 {
-                  childMarkdownRemark {
-                    html
-                    excerpt(pruneLength: 320)
-                  }
-                }
-                paragraphText2 {
-                  childMarkdownRemark {
-                    html
-                    excerpt(pruneLength: 320)
-                  }
-                }
-                mainImage {
-                  title
-                  fluid(maxWidth: 1800) {
-                    ...GatsbyContentfulFluid_withWebp_noBase64
-                  }
-                  ogimg: resize(width: 1800) {
-                    src
-                    width
-                    height
-                  }
-                }
-                buttonText1
-                buttonText2
-                buttonDestination1
-                buttonDestination2
-              }
+          fullDescription {
+            childMarkdownRemark {
+              html
+              excerpt(pruneLength: 320)
             }
           }
-          allContentfulSlider(
-            limit: $limit
-            skip: $skip
-            ) {
-              edges {
-                node {
-                header
-                paragraphText {
-                  childMarkdownRemark {
-                    html
-                    excerpt(pruneLength: 320)
-                  }
-                }
-                disclaimerText {
-                  childMarkdownRemark {
-                    html
-                    excerpt(pruneLength: 320)
-                  }
-                }
-                sliderImages {
-                  title
-                  fluid(maxWidth: 1800) {
-                    ...GatsbyContentfulFluid_withWebp_noBase64
-                  }
-                  ogimg: resize(width: 1800) {
-                    src
-                    width
-                    height
-                  }
-                }
-                buttonText
-                buttonDestination
-              }
-            }
-          }
-        allContentfulIdentity(
-            limit: $limit
-            skip: $skip
-          ) {
-            edges {
-              node {
-                headerText
-                buttonText
-                buttonDestination
-                paragraphText {
-                  childMarkdownRemark {
-                    html
-                    excerpt(pruneLength: 320)
-                  }
-                }
-              }
-            }
-          }
-          allContentfulSummary(
-            limit: 10
-            skip: 0
-            ) {
-              edges {
-                node {
-                  headerText
-                  subHeaderText
-                  buttonText
-                  buttonDestination
-                  paragraphText {
-                    childMarkdownRemark {
-                      html
-                      excerpt(pruneLength: 320)
-                    }
-                  }
-                }
-              }
-            }    
         }
-       `
-       
+      }
+    }
+    allContentfulTestimonial(limit: $limit, skip: $skip) {
+      edges {
+        node {
+          firstName
+          lastInitial
+          city
+          state
+          customerReview {
+            childMarkdownRemark {
+              html
+              excerpt(pruneLength: 320)
+            }
+          }
+        }
+      }
+    }
+    allContentfulIntroduction(limit: $limit, skip: $skip) {
+      edges {
+        node {
+          headerText1
+          headerText2
+          paragraphText1 {
+            childMarkdownRemark {
+              html
+              excerpt(pruneLength: 320)
+            }
+          }
+          paragraphText2 {
+            childMarkdownRemark {
+              html
+              excerpt(pruneLength: 320)
+            }
+          }
+          mainImage {
+            title
+            fluid(maxWidth: 1800) {
+              ...GatsbyContentfulFluid_withWebp_noBase64
+            }
+            ogimg: resize(width: 1800) {
+              src
+              width
+              height
+            }
+          }
+          buttonText1
+          buttonText2
+          buttonDestination1
+          buttonDestination2
+        }
+      }
+    }
+    allContentfulSlider(limit: $limit, skip: $skip) {
+      edges {
+        node {
+          header
+          paragraphText {
+            childMarkdownRemark {
+              html
+              excerpt(pruneLength: 320)
+            }
+          }
+          disclaimerText {
+            childMarkdownRemark {
+              html
+              excerpt(pruneLength: 320)
+            }
+          }
+          sliderImages {
+            title
+            fluid(maxWidth: 1800) {
+              ...GatsbyContentfulFluid_withWebp_noBase64
+            }
+            ogimg: resize(width: 1800) {
+              src
+              width
+              height
+            }
+          }
+          buttonText
+          buttonDestination
+        }
+      }
+    }
+    allContentfulIdentity(limit: $limit, skip: $skip) {
+      edges {
+        node {
+          headerText
+          buttonText
+          buttonDestination
+          paragraphText {
+            childMarkdownRemark {
+              html
+              excerpt(pruneLength: 320)
+            }
+          }
+        }
+      }
+    }
+    allContentfulSummary(limit: 10, skip: 0) {
+      edges {
+        node {
+          headerText
+          subHeaderText
+          buttonText
+          buttonDestination
+          paragraphText {
+            childMarkdownRemark {
+              html
+              excerpt(pruneLength: 320)
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
 export default Index
+
+// export default props => (
+//   <Layout location={props.location}>
+//     <Index />
+//   </Layout>
+// )
