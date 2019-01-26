@@ -5,6 +5,8 @@ import styled from 'styled-components'
 import Logo from '!svg-react-loader!../images/svg-icons/logo.svg?name=logo'
 import Hamburger from '!svg-react-loader!../images/svg-icons/navburger.svg?name=navburger'
 import HamburgerMenu from '../components/MenuOverlay'
+import { fadeIn } from '../data/KeyFrames'
+
 
 const NavLink = styled(AniLink)`
   text-transform: uppercase;
@@ -52,12 +54,14 @@ const NavButton = styled.a`
 `
 
 const Nav = styled.nav`
+  animation: ${fadeIn} .25s ease-in-out 0s;
+  animation-iteration-count: 1;
   padding: 20px 20px 60px 20px;
-  position: absolute;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
-
+  margin-bottom: -102px;
   z-index: 100;
   width: 100%;
   background-image: linear-gradient(-180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.00) 99%);
