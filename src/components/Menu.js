@@ -9,6 +9,7 @@ import { fadeIn } from '../data/KeyFrames'
 
 
 const NavLink = styled(AniLink)`
+  animation: ${fadeIn} ${props => props.animDuration} ease-in-out 0s;
   text-transform: uppercase;
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
@@ -16,6 +17,7 @@ const NavLink = styled(AniLink)`
 `
 
 const LogoLink = styled(AniLink)`
+  animation: ${fadeIn} ${props => props.animDuration} ease-in-out 0s;
   position: absolute;
   left: 15px;
   top: 15px;
@@ -54,7 +56,7 @@ const NavButton = styled.a`
 `
 
 const Nav = styled.nav`
-  animation: ${fadeIn} .25s ease-in-out 0s;
+  animation: ${fadeIn} .5s ease-in-out 0s;
   animation-iteration-count: 1;
   padding: 20px 20px 60px 20px;
   position: sticky;
@@ -89,8 +91,10 @@ const Nav = styled.nav`
 `
 
 const activeLinkStyle = {
-  color: '#9F4300',
 }
+
+const fadeInDuration = .5
+const fadeInIncrement = .2
 
 const Menu = () => {
   return (
@@ -102,6 +106,7 @@ const Menu = () => {
         direction={lmnts.Anim.Page.Direction}
         to="/"
         activeStyle={activeLinkStyle}
+        animDuration={ fadeInDuration + (fadeInIncrement*1) + 's' }
       >
         <Logo />
       </LogoLink>
@@ -114,6 +119,7 @@ const Menu = () => {
             direction={lmnts.Anim.Page.Direction}
             to="/services"
             activeStyle={activeLinkStyle}
+            animDuration={ fadeInDuration + (fadeInIncrement*2) + 's' }
           >
             Services
           </NavLink>
@@ -126,6 +132,7 @@ const Menu = () => {
             direction={lmnts.Anim.Page.Direction}
             to="/about"
             activeStyle={activeLinkStyle}
+            animDuration={ fadeInDuration + (fadeInIncrement*3) + 's' }
           >
             About
           </NavLink>
@@ -138,6 +145,7 @@ const Menu = () => {
             direction={lmnts.Anim.Page.Direction}
             to="/contact"
             activeStyle={activeLinkStyle}
+            animDuration={ fadeInDuration + (fadeInIncrement*4) + 's' }
           >
             Let's Talk
           </NavLink>
@@ -147,6 +155,7 @@ const Menu = () => {
             divider
             href="tel:7753760917"
             activeStyle={activeLinkStyle}
+            animDuration={ fadeInDuration + (fadeInIncrement*5) + 's' }
           >
             775.376.0917
           </NavButton>

@@ -131,7 +131,7 @@ const Footer = props => (
         </div>
       </FooterLinks>
       <CopyWright color="#343434">
-        © 2018 Noah's Park Tree Care
+        © { (new Date()).getFullYear() } Noah's Park Tree Care
       </CopyWright>
     </Column>
     <Block pushUp bgColor="#272929">
