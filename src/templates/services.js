@@ -48,7 +48,7 @@ const Services = ({ data, location }) => {
       <SEO postNode={postNode} pagePath="contact" customTitle />
 
       <Container>
-        <Fade>
+        <Fade duration={2000}>
           <HeaderBlock bgColor="#C9EAEB">
             <HeaderText size="42" weight="700" color="#312B2B">
               Do what's right for the tree
@@ -59,7 +59,7 @@ const Services = ({ data, location }) => {
           </HeaderBlock>
         </Fade>
 
-        <Fade>
+        <Fade duration={2000}>
           <ServiceList bgColor="#FFFFFF">
             {services.map(({ node: service }, index) => {
               if (index % 2 == 0 && index + 1 != services.length)
@@ -97,14 +97,14 @@ const Services = ({ data, location }) => {
           </ServiceList>
         </Fade>
 
-        <Fade>
+        <Fade duration={2000}>
           <FirewoodBlock
             header={firewood.headerText}
             text={firewood.paragraphText.childMarkdownRemark.html}
           />
         </Fade>
 
-        <Fade>
+        <Fade duration={2000}>
           <Summary
             bgColor="#394343"
             header={identity.headerText}

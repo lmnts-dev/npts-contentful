@@ -36,7 +36,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
       </Helmet>
 
       <Container>
-        <Fade>
+        <Fade duration={2000}>
           <HeaderBlock bgColor="#9F4300">
             <HeaderText size="42" weight="700" color="#FFFFFF">
               Tree care services
@@ -46,7 +46,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
             </HeaderText>
           </HeaderBlock>
         </Fade>
-        <Fade>
+        <Fade duration={2000}>
           <Block bgColor="#FFFFFF">
             <HeaderText size="80" color="#293536" weight="700">
               {name}
@@ -61,13 +61,13 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
           </Block>
         </Fade>
 
-        <Fade>
+        <Fade duration={2000}>
           <FirewoodBlock
             header={firewood.headerText}
             text={firewood.paragraphText.childMarkdownRemark.html}
           />
         </Fade>
-        <Fade>
+        <Fade duration={2000}>
           <Summary
             bgColor="#9F4300"
             subhead={summary.subHeaderText}

@@ -31,17 +31,17 @@ const Index = ({ data, location }) => {
       <SEO postNode={postNode} pagePath="contact" customTitle />
       <Container>
         <HeroSlider data={slider} />
-        <Fade>
+        <Fade duration={2000}>
           <IntroBlocks data={introBlocks} />
         </Fade>
-        <Fade>
+        <Fade duration={2000}>
           <Video />
         </Fade>
-        <Fade>
+        <Fade duration={2000}>
           <TestimonialSlider data={testimonials} />
         </Fade>
         <Services data={services} />
-        <Fade>
+        <Fade duration={2000}>
           <Summary
             hideButton
             bgColor="#9F4300"

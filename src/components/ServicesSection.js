@@ -24,7 +24,7 @@ const Services = props => {
 
   return (
     <div>
-      <Fade>
+      <Fade duration={2000}>
         <TwoColRow smallReverse bias="left">
           <LargeTextBlock
             line="right"
@@ -40,7 +40,7 @@ const Services = props => {
           <Block bgImage={firstService.image.ogimg.src} />
         </TwoColRow>
       </Fade>
-      <Fade>
+      <Fade duration={2000}>
         <TwoColRow bias="right">
           <Block bgImage={secondService.image.ogimg.src} />
           <LargeTextBlock
@@ -58,7 +58,7 @@ const Services = props => {
           <MiddleLeaf src={leafPlanting} alt="leaf" />
         </TwoColRow>
       </Fade>
-      <Fade>
+      <Fade duration={2000}>
         <TwoColRow smallReverse bias="left">
           <LargeTextBlock
             line="right"
@@ -74,7 +74,7 @@ const Services = props => {
           <Block bgImage={thirdService.image.ogimg.src} />
         </TwoColRow>
       </Fade>
-      <Fade>
+      <Fade duration={2000}>
         <TwoColRow bias="right">
           <Block bgImage={fourthService.image.ogimg.src} />
           <LargeTextBlock
@@ -90,7 +90,7 @@ const Services = props => {
           <RightLeaf src={leafSurgery} alt="leaf" />
         </TwoColRow>
       </Fade>
-      <Fade>
+      <Fade duration={2000}>
         <TwoColRow smallReverse bias="left">
           <LargeTextBlock
             line="right"

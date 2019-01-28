@@ -267,7 +267,7 @@ class ContactForm extends React.Component {
 
   render() {
     return (
-      <Fade cascade>
+      <Fade cascade duration={2000}>
         <Form
           name="contact"
           onSubmit={this.handleSubmit}

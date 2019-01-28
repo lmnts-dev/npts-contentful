@@ -54,7 +54,7 @@ const About = ({ data, location }) => {
       <SEO postNode={postNode} pagePath="contact" customTitle />
 
       <Container>
-        <Fade>
+        <Fade duration={2000}>
           <HeaderBlock bgColor="#293536">
             <HeaderText size="42" weight="700" color="#FFFFFF">
               Local, knowledgeable tree and shrub care
@@ -64,7 +64,7 @@ const About = ({ data, location }) => {
             </HeaderText>
           </HeaderBlock>
         </Fade>
-        <Fade>
+        <Fade duration={2000}>
           <TwoColRow>
             <Block padding="0" bgImage={IntroImage} />
             <MainBlock bgColor="#FFFFFF">
@@ -79,7 +79,7 @@ const About = ({ data, location }) => {
             <Leaves src={Leaf} />
           </TwoColRow>
         </Fade>
-        <Fade>
+        <Fade duration={2000}>
           <TwoColRow smallReverse bias="left">
             <LargeTextBlock
               header={about.blockHeaderText}
@@ -93,7 +93,7 @@ const About = ({ data, location }) => {
           </TwoColRow>
         </Fade>
       </Container>
-      <Fade>
+      <Fade duration={2000}>
         <Summary
           bgColor="#394343"
           header={identity.headerText}

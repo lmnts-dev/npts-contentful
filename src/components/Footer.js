@@ -116,18 +116,18 @@ const Item = styled(AniLink)`
 const Footer = props => (
   <TwoColRow as="footer">
     <Column justify="flex-start">
-      <Fade>
+      <Fade duration={2000}>
         <Logo />
       </Fade>
       <FooterLinks>
-        <Fade cascade>
+        <Fade cascade duration={2000}>
           <div>
             <Item to="/">Home</Item>
             <Item to="/services">Services</Item>
             <Item to="/about">About</Item>
           </div>
         </Fade>
-        <Fade cascade>
+        <Fade cascade duration={2000}>
           <div>
             <Item last to="/">
               Our Work
@@ -148,7 +148,7 @@ const Footer = props => (
         © {new Date().getFullYear()} Noah's Park Tree Care
       </CopyWright>
     </Column>
-    <Fade>
+    <Fade duration={2000}>
       <Block pushUp bgColor="#272929">
         <Contact noExit={props.noExit} />
       </Block>
