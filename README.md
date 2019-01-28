@@ -1,8 +1,7 @@
-# gatsby-starter-gcn
+# Noah's Park Tree Care Website
+By [Laxalt & McIver](https://www.laxaltandmciver.co/)
 
-A starter template to build amazing static websites with Gatsby, Contentful and Netlify. Inspired by [gatsby-contentful-starter](https://github.com/contentful-userland/gatsby-contentful-starter).
-
-For Gatsby `v1` please use the [v1 branch](https://github.com/ryanwiemer/gatsby-starter-gcn/tree/v1)
+Keeping your trees healthy and beautiful. Based off of by [gatsby-contentful-starter](https://github.com/contentful-userland/gatsby-contentful-starter).
 
 ## Features
 
@@ -22,25 +21,31 @@ For Gatsby `v1` please use the [v1 branch](https://github.com/ryanwiemer/gatsby-
 - [Gatsby Standard module](https://www.npmjs.com/package/eslint-config-gatsby-standard) for linting Javascript with StandardJS
 - Stylelint support for Styled Components to lint the CSS in JS
 
-## Demo
-
-https://gcn.netlify.com/
-
-![](screenshots/demo.jpg)
-
 ## Getting Started
 
 ### Install
 
+## Install
 ```
-git clone https://github.com/ryanwiemer/gatsby-starter-gcn.git
 npm i
 ```
 
-Or via the [Gatsby CLI](https://www.npmjs.com/package/gatsby-cli)
-
+## Local Development
 ```
-gatsby new gatsby-starter-gcn https://github.com/ryanwiemer/gatsby-starter-gcn.git
+gatsby develop
+```
+
+## Local Build Test
+```
+gatsby build
+```
+
+## Deploy to Production
+We are using [Netlify](https://www.netlify.com/) to watch and build the `master` branch.
+```
+git add .
+git commit -m "Sample Commit"
+git push origin master --set-upstream
 ```
 
 ### Setup Contentful
@@ -55,29 +60,29 @@ gatsby new gatsby-starter-gcn https://github.com/ryanwiemer/gatsby-starter-gcn.g
 
 ### Website Data
 
-Edit [`/src/utils/siteConfig.js`](https://github.com/ryanwiemer/gatsby-starter-gcn/blob/master/src/utils/siteConfig.js)
+Edit the Site config to adjust any Global Variables.
 
 ```js
 module.exports = {
-  siteTitle: 'GCN',
-  siteTitleAlt: 'GCN Gatsby Starter',
-  publisher: 'Publisher named GCN',
+  siteTitle: "Noah's Park Tree Care",
+  siteTitleAlt: "Noah's Park Tree Care", // This allows an alternative site title for SEO schema.
+  publisher: "Noah's Park", // Organization name used for SEO schema
   siteDescription:
-    'A starter template to build amazing static websites with Gatsby, Contentful and Netlify',
-  siteUrl: 'https://gcn.netlify.com',
-  postsPerHomePage: 7,
-  postsPerPage: 6,
-  author: 'GCN User',
-  authorUrl: 'https://gcn.netlify.com/about/',
-  userTwitter: '@twitter',
-  shortTitle: 'GCN App',
-  shareImage: '/logos/share.jpg',
-  shareImageWidth: 900,
-  shareImageHeight: 600,
-  siteLogo: '/logos/logo-512.png',
-  backgroundColor: '#e9e9e9',
-  themeColor: '#121212',
-  copyright: 'Copyright © 2018 GCN User',
+    'Keeping your trees healthy and beautiful',
+  siteUrl: 'https://fervent-clarke-5ad7c7.netlify.com', // Site domain. Do not include a trailing slash! If you wish to use a path prefix you can read more about that here: https://www.gatsbyjs.org/docs/path-prefix/
+  postsPerHomePage: 7, // Number of posts shown on the 1st page of of the index.js template (home page)
+  postsPerPage: 6, // Number of posts shown on paginated pages
+  author: 'Laxalt & McIver', // Author for RSS author segment and SEO schema
+  authorUrl: 'https://www.laxaltandmciver.co/', // URL used for author and publisher schema, can be a social profile or other personal site
+  userTwitter: '@twitter', // Change for Twitter Cards
+  shortTitle: 'GCN App', // Used for App manifest e.g. Mobile Home Screen
+  shareImage: '/logos/share.jpg', // Open Graph Default Share Image. 1200x1200 is recommended
+  shareImageWidth: 900, // Change to the width of your default share image
+  shareImageHeight: 600, // Change to the height of your default share image
+  siteLogo: '/logos/logo-512.png', // Logo used for SEO, RSS, and App manifest
+  backgroundColor: '#e9e9e9', // Used for Offline Manifest
+  themeColor: '#121212', // Used for Offline Manifest
+  copyright: "Copyright © 2019 Noah's Park Tree Care", // Copyright string for the RSS feed
 }
 ```
 
@@ -174,4 +179,5 @@ GOOGLE_ANALYTICS
 - The SEO component assumes you have entered at least one meta description in Contentful for a post and one for a page. If you do not the website will fail to build. See the Content and SEO section above.
 - **DO NOT** store your Contentful access tokens or space ids anywhere in GitHub. Treat them like passwords.
 - **Yarn Users:** remove the `yarn*` line from the `.gitignore` file to avoid discrepancies in the Netlify deploy.
+
 #npts-contenful

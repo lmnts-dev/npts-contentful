@@ -19,3 +19,4 @@ module.exports = {
   themeColor: '#121212', // Used for Offline Manifest
   copyright: "Copyright © 2019 Noah's Park Tree Care", // Copyright string for the RSS feed
 }
+
