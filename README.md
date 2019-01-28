@@ -1,5 +1,6 @@
 # Noah's Park Tree Care Website
 By [Laxalt & McIver](https://www.laxaltandmciver.co/)
+[Deployed with Netlify](https://app.netlify.com/sites/fervent-clarke-5ad7c7/overview)
 
 Keeping your trees healthy and beautiful. Based off of by [gatsby-contentful-starter](https://github.com/contentful-userland/gatsby-contentful-starter).
 
@@ -133,7 +134,7 @@ const theme = {
 
 ### Netlify Deployment From Git (Recommended)
 
-1.  [New Netlify website from Git](https://app.netlify.com/start)
+1.  [Go to the NPTC Deploy Dashboard.](https://app.netlify.com/sites/fervent-clarke-5ad7c7/overview)
 
 2.  Connect with GitHub and select your repo
 
