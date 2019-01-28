@@ -6,6 +6,7 @@ import { H3, PLarge } from '../components/Headings'
 import { ColumnWrapper } from '../components/Column'
 import Planting from '../images/planting.jpg'
 import { Wrapper } from '../components/Block'
+import Fade from 'react-reveal/Fade';
 
 const Text = styled(PLarge)`
     margin-bottom: 0;
@@ -41,15 +42,19 @@ const Column = styled(ColumnWrapper)`
 
 
 const ServiceBlock = props => (  
-        <Column>
-            <Header weight="700">
-                {props.header}
-            </Header>
-            <Image padding="0" bgImage={props.src} />
-            <Text color="#293536" dangerouslySetInnerHTML={{ __html: props.text.childMarkdownRemark.html }}/>
-            <Button arrowButton dark to={props.dest}>
-                {props.bText}
-            </Button>
-        </Column>
+        <Fade big cascade when={true}>
+            <Column>
+                <Fade big cascade when={true}>
+                    <Header weight="700">
+                        {props.header}
+                    </Header>
+                </Fade>
+                <Image padding="0" bgImage={props.src} />
+                <Text color="#293536" dangerouslySetInnerHTML={{ __html: props.text.childMarkdownRemark.html }}/>
+                <Button arrowButton dark to={props.dest}>
+                    {props.bText}
+                </Button>
+            </Column>
+        </Fade>
     )
 export default ServiceBlock

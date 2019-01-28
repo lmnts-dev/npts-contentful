@@ -197,9 +197,7 @@ class Menu extends React.Component {
               duration={lmnts.Anim.Page.Duration}
               to="/contact"
               activeStyle={this.activeLinkStyle}
-              animDuration={
-                this.fadeInDuration + this.fadeInIncrement * 4 + 's'
-              }
+              animDuration={0}
             >
               Let's Talk
             </NavLink>

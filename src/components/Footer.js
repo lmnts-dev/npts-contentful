@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import StackedLogo from "!svg-react-loader!../images/svg-icons/logoStacked.svg?name=logoStacked";
+import StackedLogo from '!svg-react-loader!../images/svg-icons/logoStacked.svg?name=logoStacked'
 import Contact from '../components/ContactForm'
 import { Row, RowWrapper } from '../components/Row'
 import { TwoColRowWrapper } from '../components/TwoColRow'
@@ -21,8 +21,8 @@ const FooterLinks = styled(RowWrapper)`
 `
 
 const TwoColRow = styled(TwoColRowWrapper)`
-  @media ( max-width: 750px ){
-    flex-direction: ${props => props.reverse ? 'column' : 'column-reverse' };
+  @media (max-width: 750px) {
+    flex-direction: ${props => (props.reverse ? 'column' : 'column-reverse')};
     div {
       margin: 0 auto;
     }
@@ -35,49 +35,49 @@ const CopyWright = styled(Text)`
   left: 144px;
   margin-top: 40px;
   font-size: 12px;
-  @media (max-width: 1440px){
+  @media (max-width: 1440px) {
     left: 10vw;
   }
-  @media (max-width: 750px){
+  @media (max-width: 750px) {
     left: 0;
     right: 0;
     bottom: 25px;
     text-align: center;
-  }  
+  }
 `
 
 const Logo = styled(StackedLogo)`
   margin-bottom: 20px;
 
-    width: 290px;
-    @media (max-width: 1440px){
-      width: 20.14vw;
-    }
-    @media (max-width: 720px){
-      width: 145px;
-    }
+  width: 290px;
+  @media (max-width: 1440px) {
+    width: 20.14vw;
+  }
+  @media (max-width: 720px) {
+    width: 145px;
+  }
 `
 const Column = styled(ColumnWrapper)`
   padding: 100px 0 100px 144px;
-  @media (max-width: 1440px){
+  @media (max-width: 1440px) {
     padding: 5vw 0 5vw 10vw;
   }
-  @media (max-width: 750px){
+  @media (max-width: 750px) {
     padding: 75px 25px 100px 25px;
     align-items: center;
-  }  
+  }
 `
 
 const Block = styled(Wrapper)`
   z-index: 3;
   padding: 100px 144px 0 144px;
-  @media (max-width: 1440px){
+  @media (max-width: 1440px) {
     padding: 5vw 10vw 0 10vw;
   }
-  @media (max-width: 750px){
+  @media (max-width: 750px) {
     padding: 36px 72px 72px 72px;
-  } 
-  @media (max-width: 400px){
+  }
+  @media (max-width: 400px) {
     padding: 36px 25px 72px 25px;
   }
 `
@@ -114,24 +114,31 @@ const Item = styled(AniLink)`
 
 const Footer = props => (
   <TwoColRow as="footer">
-    <Column justify="flex-start" >
+    <Column justify="flex-start">
       <Logo />
       <FooterLinks>
         <div>
           <Item to="/">Home</Item>
           <Item to="/services">Services</Item>
           <Item to="/about">About</Item>
-          <Item to="/">Contact</Item>
         </div>
         <div>
-          <Item last to="/">Our Work</Item>
-          <Item last to="/">Firewood</Item>
-          <Item last to="/">Chip Drop</Item>
-          <Item last to="/">Careers</Item>
+          <Item last to="/">
+            Our Work
+          </Item>
+          <Item last to="/">
+            Firewood
+          </Item>
+          <Item last to="/">
+            Chip Drop
+          </Item>
+          <Item last to="/">
+            Careers
+          </Item>
         </div>
       </FooterLinks>
       <CopyWright color="#343434">
-        © { (new Date()).getFullYear() } Noah's Park Tree Care
+        © {new Date().getFullYear()} Noah's Park Tree Care
       </CopyWright>
     </Column>
     <Block pushUp bgColor="#272929">

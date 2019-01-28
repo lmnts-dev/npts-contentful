@@ -36,10 +36,10 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     max-width: 2000px;
     margin: 0 auto;
-    padding: 36px 40px;
+    padding: 36px;
     position: relative;
     @media (max-width: 2000px){
-      padding: 1.8vw 2vw;
+      padding: 1.8vw;
     }
     &::after {
       content: "";
@@ -77,6 +77,9 @@ const GlobalStyle = createGlobalStyle`
   table {
     border-collapse: collapse;
     border-spacing: 0;
+  }
+  html {
+    scroll-behavior: smooth;
   }
   body {
     font-family: ${lmnts.Fnt.Body};

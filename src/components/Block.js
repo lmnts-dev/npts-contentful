@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { fadeIn } from '../data/KeyFrames'
+import Fade from 'react-reveal/Fade';
 
 export const Wrapper = styled.div`
   animation: ${fadeIn} .5s ease-in-out 0s;
@@ -8,7 +9,7 @@ export const Wrapper = styled.div`
   background-color: ${props => props.bgColor || '#000000'};
   width: ${props => props.width || '100%'};
   position: relative;
-  &:: after {
+  &:after {
     background-color: ${props => props.bgColor || '#000000'};
   }
   ${props => {
@@ -83,9 +84,11 @@ export const HeaderBlock = styled(Wrapper)`
 
 export const Block = ({ bgImage, padding, bgColor, width, pushUp, absolute, children }) => {
     return (
-        <Wrapper bgImage={bgImage} padding={padding} bgColor={bgColor} width={width} pushUp={pushUp} absolute={absolute}>
-            {children}
-        </Wrapper>
+        <Fade big>
+          <Wrapper bgImage={bgImage} padding={padding} bgColor={bgColor} width={width} pushUp={pushUp} absolute={absolute}>
+              {children}
+          </Wrapper>
+        </Fade>
     )
 }
 export default Block
