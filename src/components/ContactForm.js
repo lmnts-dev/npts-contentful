@@ -17,7 +17,6 @@ import exit from '../images/exit.png'
 // Styles
 const TextBlock = styled.div`
   margin-bottom: 20px;
-  }
 `
 const Form = styled.form`
   max-width: ${props => props.theme.sizes.maxWidthCentered};
