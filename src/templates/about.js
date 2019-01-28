@@ -15,6 +15,7 @@ import PHC from '../images/phc.jpg'
 import Leaf from '../images/leafTestimonial.png'
 import { RightLeaf } from '../components/Leaves'
 import Layout from '../components/Layout'
+import Fade from 'react-reveal/Fade'
 
 const Leaves = styled(RightLeaf)`
   bottom: -10%;
@@ -46,53 +47,61 @@ const About = ({ data, location }) => {
   const about = data.allContentfulAbout.edges[0].node
 
   return (
-    <Layout location={ location }>
+    <Layout location={location}>
       <Helmet>
         <title>{`Contact - ${config.siteTitle}`}</title>
       </Helmet>
       <SEO postNode={postNode} pagePath="contact" customTitle />
 
       <Container>
-        <HeaderBlock bgColor="#293536">
-          <HeaderText size="42" weight="700" color="#FFFFFF">
-            Local, knowledgeable tree and shrub care
-          </HeaderText>
-          <HeaderText size="100" weight="700" color="#FFFFFF">
-            About Us
-          </HeaderText>
-        </HeaderBlock>
-        <TwoColRow>
-          <Block padding="0" bgImage={IntroImage} />
-          <MainBlock bgColor="#FFFFFF">
-            <H2 color="#434343">{about.headerText}</H2>
-            <P
-              color="#434343"
-              dangerouslySetInnerHTML={{
-                __html: about.paragraphText.childMarkdownRemark.html,
-              }}
+        <Fade>
+          <HeaderBlock bgColor="#293536">
+            <HeaderText size="42" weight="700" color="#FFFFFF">
+              Local, knowledgeable tree and shrub care
+            </HeaderText>
+            <HeaderText size="100" weight="700" color="#FFFFFF">
+              About Us
+            </HeaderText>
+          </HeaderBlock>
+        </Fade>
+        <Fade>
+          <TwoColRow>
+            <Block padding="0" bgImage={IntroImage} />
+            <MainBlock bgColor="#FFFFFF">
+              <H2 color="#434343">{about.headerText}</H2>
+              <P
+                color="#434343"
+                dangerouslySetInnerHTML={{
+                  __html: about.paragraphText.childMarkdownRemark.html,
+                }}
+              />
+            </MainBlock>
+            <Leaves src={Leaf} />
+          </TwoColRow>
+        </Fade>
+        <Fade>
+          <TwoColRow smallReverse bias="left">
+            <LargeTextBlock
+              header={about.blockHeaderText}
+              inlineText={about.blockParagraphText.childMarkdownRemark.html}
+              bText={about.blockButtonText}
+              dest={'/' + about.blockButtonDestination}
+              theme="dark"
+              bgColor="#C9EAEB"
             />
-          </MainBlock>
-          <Leaves src={Leaf} />
-        </TwoColRow>
-        <TwoColRow smallReverse bias="left">
-          <LargeTextBlock
-            header={about.blockHeaderText}
-            inlineText={about.blockParagraphText.childMarkdownRemark.html}
-            bText={about.blockButtonText}
-            dest={'/' + about.blockButtonDestination}
-            theme="dark"
-            bgColor="#C9EAEB"
-          />
-          <Block padding="0" bgImage={PHC} />
-        </TwoColRow>
+            <Block padding="0" bgImage={PHC} />
+          </TwoColRow>
+        </Fade>
       </Container>
-      <Summary
-        bgColor="#394343"
-        header={identity.headerText}
-        text={identity.paragraphText.childMarkdownRemark.html}
-        bText={identity.buttonText}
-        dest={'/' + identity.buttonDestination}
-      />
+      <Fade>
+        <Summary
+          bgColor="#394343"
+          header={identity.headerText}
+          text={identity.paragraphText.childMarkdownRemark.html}
+          bText={identity.buttonText}
+          dest={'/' + identity.buttonDestination}
+        />
+      </Fade>
     </Layout>
   )
 }

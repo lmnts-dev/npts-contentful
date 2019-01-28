@@ -7,6 +7,7 @@ import Row from '../components/Row'
 import phone from '!svg-react-loader!../images/svg-icons/phone.svg?name=phone'
 import email from '!svg-react-loader!../images/svg-icons/email.svg?name=email'
 import exit from '../images/exit.png'
+import Fade from 'react-reveal/Fade'
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
@@ -134,26 +135,26 @@ const Submit = styled.input`
   letter-spacing: 1px;
   font-size: 19px !important;
   cursor: pointer;
-  @media ( max-width: 1440px ){
+  @media (max-width: 1440px) {
     font-size: 1.25vw !important;
   }
-  @media ( max-width: 1120px ){
+  @media (max-width: 1120px) {
     font-size: 14px !important;
   }
   line-height: 1;
   font-weight: 700;
   padding: 23px 46px !important;
-  @media ( max-width: 1440px ){
+  @media (max-width: 1440px) {
     padding: 1.6vw 3.19vw;
   }
-  @media ( max-width: 1120px ){
+  @media (max-width: 1120px) {
     padding: 19.2px 38.28px;
   }
   color: #9f4300 !important;
-  
+
   border-radius: 46px;
-  background-color: #FFFFFF !important;
-  box-shadow: 0 3px 36px rgba( 0, 0, 0, .16);
+  background-color: #ffffff !important;
+  box-shadow: 0 3px 36px rgba(0, 0, 0, 0.16);
 `
 
 const Exit = styled.div`
@@ -179,7 +180,6 @@ const Image = styled.img`
   width: 60%;
   height: 60%;
 `
-
 
 const Modal = styled.div`
   background: white;
@@ -263,79 +263,96 @@ class ContactForm extends React.Component {
     this.setState({ showModal: false })
   }
 
-
   // Render our form
 
   render() {
     return (
-      <>
-
-      <Form
-        name="contact"
-        onSubmit={this.handleSubmit}
-        data-netlify="true"
-        data-netlify-honeypot="bot"
-        overlay={this.state.showModal}
-        onClick={this.closeModal}
-      >
+      <Fade cascade>
+        <Form
+          name="contact"
+          onSubmit={this.handleSubmit}
+          data-netlify="true"
+          data-netlify-honeypot="bot"
+          overlay={this.state.showModal}
+          onClick={this.closeModal}
+        >
           <TextBlock>
-            <Exit onClick={() => { window.history.back() }} noExit={this.props.noExit}>
+            <Exit
+              onClick={() => {
+                window.history.back()
+              }}
+              noExit={this.props.noExit}
+            >
               <Image src={exit} />
             </Exit>
-            <HeaderText lHeight="2" size="80" color="#FFFFFF"> Let's Talk </HeaderText>
+            <HeaderText lHeight="2" size="80" color="#FFFFFF">
+              {' '}
+              Let's Talk{' '}
+            </HeaderText>
             <Row align="center">
               <Phone />
-              <Info as="a" href="tel:7753760917" size="16" color="#FFFFFF">775.376.0917</Info>
+              <Info as="a" href="tel:7753760917" size="16" color="#FFFFFF">
+                775.376.0917
+              </Info>
             </Row>
             <Row align="center">
               <EmailIcon />
-              <Info as="a" href="mailto:noahsparktreecare@gmail.com" size="16" color="#FFFFFF">noahsparktreecare@gmail.com</Info>
+              <Info
+                as="a"
+                href="mailto:noahsparktreecare@gmail.com"
+                size="16"
+                color="#FFFFFF"
+              >
+                noahsparktreecare@gmail.com
+              </Info>
             </Row>
           </TextBlock>
 
-        <input type="hidden" name="form-name" value="contact" />
-        <p hidden>
-          <label>
-            Don’t fill this out:{' '}
-            <input name="bot" onChange={this.handleInputChange} />
-          </label>
-        </p>
-
-        <Name
-          name="name"
-          type="text"
-          placeholder="Name (required)"
-          value={this.state.name}
-          onChange={this.handleInputChange}
-          required
-        />
-        <Email
-          name="email"
-          type="email"
-          placeholder="Email (required)"
-          value={this.state.email}
-          onChange={this.handleInputChange}
-          required
-        />
-        <Message
-          name="message"
-          type="text"
-          placeholder="What's up?"
-          value={this.state.message}
-          onChange={this.handleInputChange}
-          required
-        />
-        <Submit name="submit" type="submit" value="Send" />
-
-        <Modal visible={this.state.showModal}>
-          <p>
-            Thank you for reaching out. We will get back to you as soon as
-            possible.
+          <input type="hidden" name="form-name" value="contact" />
+          <p hidden>
+            <label>
+              Don’t fill this out:{' '}
+              <input name="bot" onChange={this.handleInputChange} />
+            </label>
           </p>
-          <Button dark onClick={this.closeModal}>Okay</Button>
-        </Modal>
-      </Form>
-      </>
+
+          <Name
+            name="name"
+            type="text"
+            placeholder="Name (required)"
+            value={this.state.name}
+            onChange={this.handleInputChange}
+            required
+          />
+          <Email
+            name="email"
+            type="email"
+            placeholder="Email (required)"
+            value={this.state.email}
+            onChange={this.handleInputChange}
+            required
+          />
+          <Message
+            name="message"
+            type="text"
+            placeholder="What's up?"
+            value={this.state.message}
+            onChange={this.handleInputChange}
+            required
+          />
+          <Submit name="submit" type="submit" value="Send" />
+
+          <Modal visible={this.state.showModal}>
+            <p>
+              Thank you for reaching out. We will get back to you as soon as
+              possible.
+            </p>
+            <Button dark onClick={this.closeModal}>
+              Okay
+            </Button>
+          </Modal>
+        </Form>
+      </Fade>
     )
   }
 }
@@ -345,5 +362,3 @@ ContactForm.propTypes = {
 }
 
 export default ContactForm
-
-

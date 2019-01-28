@@ -11,6 +11,7 @@ import TestimonialSlider from '../components/TestimonialSlider'
 import SEO from '../components/SEO'
 import Video from '../components/Video'
 import { graphql } from 'gatsby'
+import Fade from 'react-reveal/Fade'
 
 const Index = ({ data, location }) => {
   const postNode = {
@@ -30,19 +31,27 @@ const Index = ({ data, location }) => {
       <SEO postNode={postNode} pagePath="contact" customTitle />
       <Container>
         <HeroSlider data={slider} />
-        <IntroBlocks data={introBlocks} />
-        <Video />
-        <TestimonialSlider data={testimonials} />
+        <Fade>
+          <IntroBlocks data={introBlocks} />
+        </Fade>
+        <Fade>
+          <Video />
+        </Fade>
+        <Fade>
+          <TestimonialSlider data={testimonials} />
+        </Fade>
         <Services data={services} />
-        <Summary
-          hideButton
-          bgColor="#9F4300"
-          subhead={summary.subHeaderText}
-          header={summary.headerText}
-          text={summary.paragraphText.childMarkdownRemark.html}
-          bText={summary.buttonText}
-          dest={'/' + summary.buttonDestination}
-        />
+        <Fade>
+          <Summary
+            hideButton
+            bgColor="#9F4300"
+            subhead={summary.subHeaderText}
+            header={summary.headerText}
+            text={summary.paragraphText.childMarkdownRemark.html}
+            bText={summary.buttonText}
+            dest={'/' + summary.buttonDestination}
+          />
+        </Fade>
       </Container>
     </Layout>
   )

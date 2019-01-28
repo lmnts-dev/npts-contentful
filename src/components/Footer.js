@@ -8,6 +8,7 @@ import { ColumnWrapper } from '../components/Column'
 import { Wrapper } from '../components/Block'
 import { H1, H2, H3, P, PLarge, Text, HeaderText } from '../components/Headings'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import Fade from 'react-reveal/Fade'
 
 const FooterLinks = styled(RowWrapper)`
   @media (max-width: 750px) {
@@ -115,35 +116,43 @@ const Item = styled(AniLink)`
 const Footer = props => (
   <TwoColRow as="footer">
     <Column justify="flex-start">
-      <Logo />
+      <Fade>
+        <Logo />
+      </Fade>
       <FooterLinks>
-        <div>
-          <Item to="/">Home</Item>
-          <Item to="/services">Services</Item>
-          <Item to="/about">About</Item>
-        </div>
-        <div>
-          <Item last to="/">
-            Our Work
-          </Item>
-          <Item last to="/">
-            Firewood
-          </Item>
-          <Item last to="/">
-            Chip Drop
-          </Item>
-          <Item last to="/">
-            Careers
-          </Item>
-        </div>
+        <Fade cascade>
+          <div>
+            <Item to="/">Home</Item>
+            <Item to="/services">Services</Item>
+            <Item to="/about">About</Item>
+          </div>
+        </Fade>
+        <Fade cascade>
+          <div>
+            <Item last to="/">
+              Our Work
+            </Item>
+            <Item last to="/">
+              Firewood
+            </Item>
+            <Item last to="/">
+              Chip Drop
+            </Item>
+            <Item last to="/">
+              Careers
+            </Item>
+          </div>
+        </Fade>
       </FooterLinks>
       <CopyWright color="#343434">
         © {new Date().getFullYear()} Noah's Park Tree Care
       </CopyWright>
     </Column>
-    <Block pushUp bgColor="#272929">
-      <Contact noExit={props.noExit} />
-    </Block>
+    <Fade>
+      <Block pushUp bgColor="#272929">
+        <Contact noExit={props.noExit} />
+      </Block>
+    </Fade>
   </TwoColRow>
 )
 export default Footer
