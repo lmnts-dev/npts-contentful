@@ -25,6 +25,7 @@ const Services = props => {
   return (
     <div>
       <Fade duration={2000}>
+        
         <TwoColRow smallReverse bias="left">
           <LargeTextBlock
             line="right"
