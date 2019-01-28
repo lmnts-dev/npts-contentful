@@ -1,8 +1,10 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import { fadeIn } from '../data/KeyFrames'
 
 const Wrapper = styled.section`
+  animation: ${fadeIn} .5s ease-in-out 0s;
   position: relative;
   min-height: 300px;
 `

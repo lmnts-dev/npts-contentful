@@ -7,7 +7,6 @@ import Hamburger from '!svg-react-loader!../images/svg-icons/navburger.svg?name=
 import HamburgerMenu from '../components/MenuOverlay'
 import { fadeIn } from '../data/KeyFrames'
 
-
 const NavLink = styled(AniLink)`
   animation: ${fadeIn} ${props => props.animDuration} ease-in-out 0s;
   text-transform: uppercase;
@@ -139,10 +138,8 @@ const Menu = () => {
         </li>
         <li>
           <NavLink
-            cover
-            bg={lmnts.Anim.Page.Color}
+            fade
             duration={lmnts.Anim.Page.Duration}
-            direction={lmnts.Anim.Page.Direction}
             to="/contact"
             activeStyle={activeLinkStyle}
             animDuration={ fadeInDuration + (fadeInIncrement*4) + 's' }

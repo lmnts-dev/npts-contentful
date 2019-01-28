@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import { fadeIn } from '../data/KeyFrames'
 
 export const Wrapper = styled.div`
+  animation: ${fadeIn} .5s ease-in-out 0s;
   padding: ${props => props.padding || '50px 200px'};  
   background-color: ${props => props.bgColor || '#000000'};
   width: ${props => props.width || '100%'};
