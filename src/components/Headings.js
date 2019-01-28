@@ -14,7 +14,7 @@ import styled from 'styled-components'
 ///////////////////////////////////////////////////////// */
 
 export const H1 = styled.h1`
-  font-size: 83.5px;
+  font-size: 72px;
   @media ( max-width: 1440px ){
     font-size: 5.8vw;
   }
