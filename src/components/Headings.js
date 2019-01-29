@@ -77,7 +77,7 @@ export const P = styled.p`
   line-height: 2;
   margin: ${props => props.margin || '20px 0'};
   padding: 0;
-  font-family: 'Monserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: ${props => props.weight || '400'};
   text-align: ${props => props.align || 'left'};
   color: ${props => props.color || '#000000'};
