@@ -78,9 +78,6 @@ const GlobalStyle = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
-  html {
-    scroll-behavior: smooth;
-  }
   body {
     font-family: ${lmnts.Fnt.Body};
     min-height: 100vh;
