@@ -285,7 +285,7 @@ class ContactForm extends React.Component {
             >
               <Image src={exit} />
             </Exit>
-            <HeaderText lHeight="2" size="80" color="#FFFFFF">
+            <HeaderText lHeight="2" size="72" color="#FFFFFF">
               {' '}
               Let's Talk{' '}
             </HeaderText>

@@ -36,10 +36,10 @@ const Block = styled(Wrapper)`
 const Summary = props => (                  
         <Block bgColor={props.bgColor}>
             <Column align="center">
-                <HeaderText size="42" weight="700" color="#FFFFFF" align="center">
+                <HeaderText size="38" weight="700" color="#FFFFFF" align="center">
                     {props.subhead}
                 </HeaderText>
-                <HeaderText size="100" weight="700" color="#FFFFFF" align="center">
+                <HeaderText size="80" weight="700" color="#FFFFFF" align="center">
                     {props.header}
                 </HeaderText>
                 <PLarge color="#FFFFFF" align="center" dangerouslySetInnerHTML={{ __html: props.text }}/>

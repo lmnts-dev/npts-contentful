@@ -50,7 +50,7 @@ const Services = ({ data, location }) => {
       <Container>
         <Fade duration={2000}>
           <HeaderBlock bgColor="#C9EAEB">
-            <HeaderText size="42" weight="700" color="#312B2B">
+            <HeaderText size="38" weight="700" color="#312B2B">
               Do what's right for the tree
             </HeaderText>
             <HeaderText size="100" weight="700" color="#312B2B">

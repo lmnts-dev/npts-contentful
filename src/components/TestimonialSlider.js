@@ -149,15 +149,15 @@ export default class SimpleSlider extends React.Component {
                                 <Block bgColor="#9DD5EA" padding="0" >
                                     <TwoColRow bias="left">
                                         <Column>
-                                            <Quote lHeight="1.3" size="34" dangerouslySetInnerHTML={{ __html: this.props.data[index].node.customerReview.childMarkdownRemark.html }} />
+                                            <Quote lHeight="1.3" size="30" dangerouslySetInnerHTML={{ __html: this.props.data[index].node.customerReview.childMarkdownRemark.html }} />
                                             <Row justify="flex-start" align="center" >
-                                                <Info as="span" color="#FFFFFF" size="42" weight="700">{this.props.data[index].node.firstName} {this.props.data[index].node.lastInitial}.</Info>
+                                                <Info as="span" color="#FFFFFF" size="38" weight="700">{this.props.data[index].node.firstName} {this.props.data[index].node.lastInitial}.</Info>
                                                 <Slash />
-                                                <Info as="span" color="#FFFFFF" size="42">{this.props.data[index].node.city}, {this.props.data[index].node.state}</Info>
+                                                <Info as="span" color="#FFFFFF" size="38">{this.props.data[index].node.city}, {this.props.data[index].node.state}</Info>
                                             </Row>
                                         </Column>
                                         <Block bgColor="transparent" padding="0">
-                                            <Info color="white" size="125">
+                                            <Info color="white" size="100">
                                                 {
                                                     this.props.data[index].node.customerReview.childMarkdownRemark.html.split("<strong>")[1].split("</strong>")[0]
                                                 }

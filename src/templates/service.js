@@ -38,7 +38,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
       <Container>
         <Fade duration={2000}>
           <HeaderBlock bgColor="#9F4300">
-            <HeaderText size="42" weight="700" color="#FFFFFF">
+            <HeaderText size="38" weight="700" color="#FFFFFF">
               Tree care services
             </HeaderText>
             <HeaderText size="100" weight="700" color="#FFFFFF">
@@ -48,7 +48,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
         </Fade>
         <Fade duration={2000}>
           <Block bgColor="#FFFFFF">
-            <HeaderText size="80" color="#293536" weight="700">
+            <HeaderText size="72" color="#293536" weight="700">
               {name}
             </HeaderText>
             <PLarge

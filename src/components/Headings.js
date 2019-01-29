@@ -14,12 +14,12 @@ import styled from 'styled-components'
 ///////////////////////////////////////////////////////// */
 
 export const H1 = styled.h1`
-  font-size: 72px;
+  font-size: 65px;
   @media ( max-width: 1440px ){
-    font-size: 5.8vw;
+    font-size: 4.51vw;
   }
   @media ( max-width: 600px ){
-    font-size: 34.8px;
+    font-size: 27.1px;
   }
   line-height: 1.1;
   margin: 0;
@@ -32,12 +32,12 @@ export const H1 = styled.h1`
 
 export const H2 = styled.h2`
   display: inline-block;
-  font-size: 56px;
+  font-size: 50.4px;
   @media ( max-width: 1440px ){
-    font-size: 3.89vw;
+    font-size: 3.5vw;
   }
   @media ( max-width: 600px ){
-    font-size:23.34px;
+    font-size: 21.1px;
   }
   line-height: 1.1;
   margin: 0;
@@ -50,12 +50,12 @@ export const H2 = styled.h2`
 
 export const H3 = styled.h3`
   display: inline-block;
-  font-size: 80px;
+  font-size: 72px;
   @media ( max-width: 1440px ){
-    font-size: 5.56vw;
+    font-size: 5vw;
   }
   @media ( max-width: 600px ){
-    font-size: 33.36px;
+    font-size: 30px;
   }
   line-height: 1;
   margin: 0;
@@ -67,11 +67,11 @@ export const H3 = styled.h3`
 `;
 
 export const P = styled.p`
-  font-size: 18px;
+  font-size: 16px;
   @media ( max-width: 1440px ){
-    font-size: 1.25vw;
+    font-size: 1.11vw;
   }
-  @media ( max-width: 1120px ){
+  @media ( max-width: 1260px ){
     font-size: 14px;
   }
   line-height: 2;
@@ -91,12 +91,12 @@ export const P = styled.p`
 `;
 
 export const PLarge = styled(P)`
-  font-size: 22px;
+  font-size: 20px;
   @media ( max-width: 1440px ){
-    font-size: 1.53vw;
+    font-size: 1.38vw;
   }
-  @media ( max-width: 1047px ){
-    font-size: 16px;
+  @media ( max-width: 1085px ){
+    font-size: 15px;
   }
   line-height: 1.8;
   p {
@@ -126,6 +126,15 @@ export const Text = styled.div`
         font-size: 14.16px;
       }
     `
+    if (props.size === "30") return ` 
+      font-size: 30px;
+      @media ( max-width: 1440px ){
+        font-size: 2.08vw;
+      }
+      @media ( max-width: 770px ){
+        font-size: 16px;
+      }
+    `
     if (props.size === "18") return ` 
       font-size: 18px;
       @media ( max-width: 1440px ){
@@ -152,6 +161,15 @@ export const Text = styled.div`
 export const HeaderText = styled(Text)`
     font-family: 'Tinos', serif;
     ${props => {
+      if (props.size === "38") return ` 
+        font-size: 38px;
+        @media ( max-width: 1440px ){
+          font-size: 2.64vw;
+        }
+        @media ( max-width: 600px ){
+          font-size: 15.85px;
+        }
+      `
       if (props.size === "42") return ` 
       font-size: 42px;
       @media ( max-width: 1440px ){
@@ -180,6 +198,15 @@ export const HeaderText = styled(Text)`
       }
       @media ( max-width: 600px ){
         font-size: 60px;
+      }
+    `
+    if (props.size === "72") return `
+      font - size: 72px;
+      @media(max - width: 1440px) {
+        font - size: 5vw;
+      }
+      @media(max - width: 600px) {
+        font - size: 30px;
       }
     `
     if (props.size === "80") return `
