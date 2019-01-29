@@ -23,8 +23,6 @@ const Block = styled(Wrapper)`
 `
 
 const ServiceTemplate = ({ data, pageContext, location }) => {
-  console.log('dog')
-  console.log(data)
   const { name, fullDescription } = data.contentfulService
   const firewood = data.allContentfulFirewood.edges[0].node
   const summary = data.allContentfulSummary.edges[0].node

@@ -11,11 +11,8 @@ import PostLinks from '../components/PostLinks'
 import PostDate from '../components/PostDate'
 import SEO from '../components/SEO'
 
-console.log("post template");
 
 const PostTemplate = ({ data, pageContext, location }) => {
-  console.log("here2");
-  console.log( data );
   const {
     title,
     slug,

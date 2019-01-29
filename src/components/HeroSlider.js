@@ -181,7 +181,6 @@ export default class HomeSlider extends React.Component {
     }
 
     var images = this.props.data.sliderImages
-    console.log(images[0].ogimg.src)
     return (
       <Container>
         <TwoColRow bias="left">

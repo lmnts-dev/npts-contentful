@@ -31,8 +31,6 @@ const ServiceList = styled(Wrapper)`
 `
 
 const Services = ({ data, location }) => {
-  console.log('here4')
-  console.log(data)
   const services = data.allContentfulService.edges
   const firewood = data.allContentfulFirewood.edges[0].node
   const identity = data.allContentfulIdentity.edges[0].node
@@ -62,10 +60,11 @@ const Services = ({ data, location }) => {
         <Fade duration={2000}>
           <ServiceList bgColor="#FFFFFF">
             {services.map(({ node: service }, index) => {
-              if (index % 2 == 0 && index + 1 != services.length)
+              if (index % 2 === 0 && index + 1 !== services.length)
                 return (
                   <TwoColRow>
                     <ServiceBlock
+                      key={service.name + "DoubleRowFirstImage" }
                       src={service.image.ogimg.src}
                       header={service.name}
                       text={service.shortSummary}
@@ -73,6 +72,7 @@ const Services = ({ data, location }) => {
                       dest={'/' + service.slug}
                     />
                     <ServiceBlock
+                      key={service.name + "DoubleRowSecondImage" }
                       src={services[index + 1].node.image.ogimg.src}
                       header={services[index + 1].node.name}
                       text={services[index + 1].node.shortSummary}
@@ -81,10 +81,11 @@ const Services = ({ data, location }) => {
                     />
                   </TwoColRow>
                 )
-              if (index % 2 == 0 && index + 1 == services.length)
+              if (index % 2 === 0 && index + 1 === services.length)
                 return (
                   <TwoColRow>
                     <ServiceBlock
+                      key={service.name + "SingleRow"}
                       src={service.image.ogimg.src}
                       header={service.name}
                       text={service.shortSummary}

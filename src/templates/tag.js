@@ -11,8 +11,6 @@ import Pagination from '../components/Pagination'
 import Container from '../components/Container'
 
 
-console.log("tag template");
-
 const TagTemplate = ({ data, pageContext, location }) => {
   const posts = orderBy(
     data.contentfulTag.post,

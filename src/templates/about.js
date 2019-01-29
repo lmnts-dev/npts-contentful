@@ -38,8 +38,6 @@ const MainBlock = styled(Wrapper)`
 `
 
 const About = ({ data, location }) => {
-  console.log('here')
-  console.log(data)
   const postNode = {
     title: `Home - ${config.siteTitle}`,
   }

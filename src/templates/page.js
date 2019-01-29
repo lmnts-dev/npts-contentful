@@ -7,7 +7,6 @@ import PageBody from '../components/PageBody'
 import SEO from '../components/SEO'
 import Layout from '../components/Layout'
 
-console.log("page template");
 
 const PageTemplate = ({ data, location }) => {
   const { title, slug, body } = data.contentfulPage

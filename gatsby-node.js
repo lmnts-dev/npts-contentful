@@ -198,7 +198,6 @@ exports.createPages = ({ graphql, actions }) => {
       const services = result.data.allContentfulService.edges
       services.map(({ node }) => {
         
-        console.log(`${node.slug}`);
         createPage({
           path: `${node.slug}/`,
           component: path.resolve(`./src/templates/service.js`),

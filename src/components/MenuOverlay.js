@@ -119,7 +119,6 @@ class MenuModal extends Component {
 
     // function to handle the click
     handleClick() {
-        console.log("click");
         this.setState(prevState => ({
             showModal: !prevState.showModal
         }));

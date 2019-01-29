@@ -11,7 +11,6 @@ import SEO from '../components/SEO'
 import config from '../utils/siteConfig'
 
 
-console.log( "index template" );
 const Blog = ({ data, pageContext, location }) => {
   const posts = data.allContentfulPost.edges
   const featuredPost = posts[0].node
