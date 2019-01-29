@@ -45,7 +45,7 @@ const ServiceBlock = props => (
         <Fade big cascade when={true}>
             <Column>
                 <Fade big cascade when={true}>
-                    <Header weight="700">
+                    <Header as="h2" weight="700">
                         {props.header}
                     </Header>
                 </Fade>

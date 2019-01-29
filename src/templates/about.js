@@ -56,10 +56,10 @@ const About = ({ data, location }) => {
       <Container>
         <Fade duration={2000}>
           <HeaderBlock bgColor="#293536">
-            <HeaderText size="38" weight="700" color="#FFFFFF">
+            <HeaderText as="h3" size="38" weight="700" color="#FFFFFF">
               Local, knowledgeable tree and shrub care
             </HeaderText>
-            <HeaderText size="100" weight="700" color="#FFFFFF">
+            <HeaderText as="h1" size="100" weight="700" color="#FFFFFF">
               About Us
             </HeaderText>
           </HeaderBlock>

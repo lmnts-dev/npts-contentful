@@ -201,7 +201,7 @@ export const HeaderText = styled(Text)`
       }
     `
     if (props.size === "72") return `
-      font - size: 72px;
+      font-size: 72px;
       @media(max - width: 1440px) {
         font - size: 5vw;
       }
