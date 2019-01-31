@@ -138,7 +138,7 @@ const Footer = props => (
             <Item last to="/">
               Chip Drop
             </Item>
-            <Item last to="/">
+            <Item last to="/careers">
               Careers
             </Item>
           </div>
