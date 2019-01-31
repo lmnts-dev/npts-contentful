@@ -21,7 +21,7 @@ class Layout extends React.Component {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href={favicon} />
           <link
-            href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,700|Tinos"
+            href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,700|Tinos:400,700"
             rel="stylesheet"
           />
           <link

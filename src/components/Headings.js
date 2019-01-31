@@ -50,6 +50,7 @@ export const H2 = styled.h2`
 
 export const H3 = styled.h3`
   display: inline-block;
+  letter-spacing: .03em;
   font-size: 72px;
   @media ( max-width: 1440px ){
     font-size: 5vw;
@@ -160,6 +161,7 @@ export const Text = styled.div`
 `
 export const HeaderText = styled(Text)`
     font-family: 'Tinos', serif;
+    letter-spacing: .03em;
     ${props => {
       if (props.size === "38") return ` 
         font-size: 38px;

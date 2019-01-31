@@ -6,10 +6,20 @@ import SEO from '../components/SEO'
 import Layout from '../components/Layout'
 import { H3, P, HeaderText } from '../components/Headings'
 import Fade from 'react-reveal/Fade'
-import { Wrapper, HeaderBlock, Block } from '../components/Block'
+import { Wrapper, HeaderBlock } from '../components/Block'
 import { TwoColRowWrapper } from '../components/TwoColRow'
 import  Column  from '../components/Column'
 import Button from '../components/Button'
+
+const Block = styled(Wrapper)`
+  padding: 100px 200px;
+  @media (max-width: 1100px){
+    padding: 5vw 10vw;
+  }
+  @media (max-width: 700px){
+    padding: 50px 25px;
+  }
+`
 
 const Row = styled(TwoColRowWrapper)`
     div, h3 {
@@ -18,6 +28,9 @@ const Row = styled(TwoColRowWrapper)`
     h3 {
         margin-right: 5vw;
     }
+    @media ( max-width: 600px ){
+      flex-direction: column;
+    }
 `
 
 const Positions = styled.div`
@@ -25,6 +38,21 @@ const Positions = styled.div`
     div {
       background-color: #e1f2f8 !important;
     }
+  }
+  .react-reveal {
+    &:last-of-type {
+      padding-bottom: 100px;
+      @media (max-width: 600px) {
+        padding-bottom: 25px;
+      }
+    }
+  }
+`
+
+const Title = styled(H3)`
+  @media (max-width: 600px) {
+    text-align: left;
+    margin-bottom: 20px;
   }
 `
 
@@ -54,11 +82,12 @@ const Careers = ( {data} ) => {
       <Positions>
         {positions.map(({ node: position }, index) => {
             return (
+                    <Fade duration={2000}>
                         <Block className="position" bgColor="#FFFFFF" key={index}>
                             <Row>
-                                <H3 align="right" color="#434343">{ position.positionTitle }</H3>
+                                <Title align="right" weight="700" color="#434343">{ position.positionTitle }</Title>
                                 <Column>
-                                    <P weight="700" color="#434343">Overview</P>
+                                    <P weight="700" margin="0" color="#434343">Overview</P>
                                     <P
                                         color="#434343"
                                         dangerouslySetInnerHTML={{
@@ -67,7 +96,7 @@ const Careers = ( {data} ) => {
                                     />
                                     {position.requirements !== null &&
                                             <div>
-                                                <P weight="700" color="#434343">Requirements</P>
+                                                <P weight="700" margin="0" color="#434343">Requirements</P>
                                                 <P
                                                     color="#434343"
                                                     dangerouslySetInnerHTML={{
@@ -80,6 +109,7 @@ const Careers = ( {data} ) => {
                                 </Column>
                             </Row>
                         </Block>
+                      </Fade>
                     ) 
                 }
             )
