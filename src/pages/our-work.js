@@ -33,16 +33,17 @@ const Positions = styled.div`
 const Woodchips = ( {data } ) => {
     const summary = data.allContentfulSummary.edges[0].node
     const testimonials = data.allContentfulTestimonial.edges
+    const postNode = {
+      title: `Our Work - ${config.siteTitle}`,
+    }
+
   return (
     <Layout noFooter>
       <Helmet>
-        <title>{`Contact - ${config.siteTitle}`}</title>
+        <title>{`Our Work - ${config.siteTitle}`}</title>
       </Helmet>
-      <SEO
-        postNode="Let's Talk - Noah's Park Tree Care Service"
-        pagePath="contact"
-        customTitle
-      />
+      <SEO postNode={postNode} pagePath="contact" customTitle />
+
 
       <Fade duration={2000}>
         <HeaderBlock bgColor="#9F4300">

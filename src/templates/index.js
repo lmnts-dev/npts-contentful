@@ -15,7 +15,7 @@ import Fade from 'react-reveal/Fade'
 
 const Index = ({ data, location }) => {
   const postNode = {
-    title: `Home - ${config.siteTitle}`,
+    title: `${config.siteTitle}`,
   }
   const summary = data.allContentfulSummary.edges[0].node
   const services = data.allContentfulService
@@ -26,7 +26,7 @@ const Index = ({ data, location }) => {
   return (
     <Layout location={location}>
       <Helmet>
-        <title>{`Contact - ${config.siteTitle}`}</title>
+        <title>{ `${config.siteTitle}`}</title>
       </Helmet>
       <SEO postNode={postNode} pagePath="contact" customTitle />
       <Container>

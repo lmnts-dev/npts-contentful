@@ -39,7 +39,7 @@ const MainBlock = styled(Wrapper)`
 
 const About = ({ data, location }) => {
   const postNode = {
-    title: `Home - ${config.siteTitle}`,
+    title: `About - ${config.siteTitle}`,
   }
   const identity = data.allContentfulIdentity.edges[0].node
   const about = data.allContentfulAbout.edges[0].node
@@ -48,7 +48,7 @@ const About = ({ data, location }) => {
   return (
     <Layout location={location}>
       <Helmet>
-        <title>{`Contact - ${config.siteTitle}`}</title>
+        <title>{`About - ${config.siteTitle}`}</title>
       </Helmet>
       <SEO postNode={postNode} pagePath="contact" customTitle />
 

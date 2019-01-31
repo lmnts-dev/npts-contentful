@@ -29,16 +29,16 @@ const Positions = styled.div`
 `
 
 const Firewood = ( ) => {
+  const postNode = {
+    title: `Free Firewood - ${config.siteTitle}`,
+  }
   return (
     <Layout noFooter>
       <Helmet>
-        <title>{`Contact - ${config.siteTitle}`}</title>
+        <title>{`Free Firewood - ${config.siteTitle}`}</title>
       </Helmet>
-      <SEO
-        postNode="Let's Talk - Noah's Park Tree Care Service"
-        pagePath="contact"
-        customTitle
-      />
+      <SEO postNode={postNode} pagePath="contact" customTitle />
+
 
       <Fade duration={2000}>
         <HeaderBlock bgColor="#65321F">

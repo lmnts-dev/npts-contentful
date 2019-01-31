@@ -31,16 +31,16 @@ const Block = styled(Wrapper)`
 `
 
 const LetsTalk = ( location ) => {
+  const postNode = {
+    title: `Contact - ${config.siteTitle}`,
+  }
+
   return (
     <Layout noFooter>
       <Helmet>
         <title>{`Contact - ${config.siteTitle}`}</title>
       </Helmet>
-      <SEO
-        postNode="Let's Talk - Noah's Park Tree Care Service"
-        pagePath="contact"
-        customTitle
-      />
+      <SEO postNode={postNode} pagePath="contact" customTitle />
 
       <Block bgColor="#272929">
         <Center>

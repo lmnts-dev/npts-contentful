@@ -35,13 +35,13 @@ const Services = ({ data, location }) => {
   const firewood = data.allContentfulFirewood.edges[0].node
   const identity = data.allContentfulIdentity.edges[0].node
   const postNode = {
-    title: `Home - ${config.siteTitle}`,
+    title: `Services - ${config.siteTitle}`,
   }
 
   return (
     <Layout location={location}>
       <Helmet>
-        <title>{`Hello - ${config.siteTitle}`}</title>
+        <title>{`Services - ${config.siteTitle}`}</title>
       </Helmet>
       <SEO postNode={postNode} pagePath="contact" customTitle />
 

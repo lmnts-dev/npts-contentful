@@ -30,17 +30,16 @@ const Positions = styled.div`
 
 const Careers = ( {data} ) => {
     const positions = data.allContentfulPosition.edges
-    console.log( positions);
+    const postNode = {
+      title: `Careers - ${config.siteTitle}`,
+    }
   return (
     <Layout noFooter>
-      <Helmet>
-        <title>{`Contact - ${config.siteTitle}`}</title>
-      </Helmet>
-      <SEO
-        postNode="Let's Talk - Noah's Park Tree Care Service"
-        pagePath="contact"
-        customTitle
-      />
+    <Helmet>
+      <title>{`Careers - ${config.siteTitle}`}</title>
+    </Helmet>
+    <SEO postNode={postNode} pagePath="contact" customTitle />
+
 
       <Fade duration={2000}>
         <HeaderBlock bgColor="#9DD5EA">
