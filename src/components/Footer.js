@@ -129,13 +129,13 @@ const Footer = props => (
         </Fade>
         <Fade cascade duration={2000}>
           <div>
-            <Item last to="/">
+            <Item last to="/our-work">
               Our Work
             </Item>
-            <Item last to="/">
+            <Item last to="/firewood">
               Firewood
             </Item>
-            <Item last to="/">
+            <Item last to="/woodchips">
               Chip Drop
             </Item>
             <Item last to="/careers">

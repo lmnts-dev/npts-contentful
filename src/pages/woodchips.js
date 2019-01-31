@@ -28,7 +28,7 @@ const Positions = styled.div`
   }
 `
 
-const Apply = ( ) => {
+const Woodchips = ( ) => {
   return (
     <Layout noFooter>
       <Helmet>
@@ -41,12 +41,12 @@ const Apply = ( ) => {
       />
 
       <Fade duration={2000}>
-        <HeaderBlock bgColor="#25503B">
-          <HeaderText as="h3" size="38" weight="700" color="#FFFFFF">
-            Work with us
+        <HeaderBlock bgColor="#F2D9B5">
+          <HeaderText as="h3" size="38" weight="700" color="#293536">
+            Contact us
           </HeaderText>
-          <HeaderText as="h1" size="100" weight="700" color="#FFFFFF">
-            Apply
+          <HeaderText as="h1" size="100" weight="700" color="#293536">
+            Apply for free wood chips
           </HeaderText>
         </HeaderBlock>
       </Fade>
@@ -54,4 +54,4 @@ const Apply = ( ) => {
   )
 }
 
-export default Apply
+export default Woodchips

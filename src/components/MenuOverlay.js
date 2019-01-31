@@ -141,7 +141,7 @@ class MenuModal extends Component {
                         <SecondaryLinks>
                             <Item activeStyle={activeLinkStyle} to="/our-work">Our Work</Item>
                             <Item activeStyle={activeLinkStyle} to="/firewood">Firewood</Item>
-                            <Item activeStyle={activeLinkStyle} to="/chip-drop">Chip Drop</Item>
+                            <Item activeStyle={activeLinkStyle} to="/woodchips">Chip Drop</Item>
                             <Item activeStyle={activeLinkStyle} to="/careers">Careers</Item>
                         </SecondaryLinks>
                     </Column>

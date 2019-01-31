@@ -28,7 +28,7 @@ const Positions = styled.div`
   }
 `
 
-const Apply = ( ) => {
+const Firewood = ( ) => {
   return (
     <Layout noFooter>
       <Helmet>
@@ -41,12 +41,12 @@ const Apply = ( ) => {
       />
 
       <Fade duration={2000}>
-        <HeaderBlock bgColor="#25503B">
+        <HeaderBlock bgColor="#65321F">
           <HeaderText as="h3" size="38" weight="700" color="#FFFFFF">
-            Work with us
+            Contact us
           </HeaderText>
           <HeaderText as="h1" size="100" weight="700" color="#FFFFFF">
-            Apply
+            Apply for free firewood
           </HeaderText>
         </HeaderBlock>
       </Fade>
@@ -54,4 +54,4 @@ const Apply = ( ) => {
   )
 }
 
-export default Apply
+export default Firewood
