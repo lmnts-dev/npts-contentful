@@ -12,14 +12,32 @@ import { Wrapper, HeaderBlock, Block } from '../components/Block'
 import { TwoColRow, TwoColRowWrapper } from '../components/TwoColRow'
 import { RowWrapper, Row } from '../components/Row'
 import  Column  from '../components/Column'
-import Button from '../components/Button'
 import leafService from '../images/leaf1.png'
 import leafEstimates from '../images/leaf4.png'
 import leafCare from '../images/leaf5.png'
 import { TextBlock } from '../components/TextBlocks'
+import { RightToMidLeaf, LeftTopLeaf } from '../components/Leaves'
+import pine from '../images/leaf3.png'
+import pine2 from '../images/leaf6.png'
+
+const FeaturedBlock = styled(Wrapper)`
+  padding: 50px 200px 200px 200px;
+`
 
 const Image = styled.img`
  height: 15vw;
+`
+
+const FeaturedRow = styled(RowWrapper)`
+  flex-wrap: wrap;
+  img {
+    width: 32%;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
 `
 
 const WorkRow = styled(RowWrapper)`
@@ -64,22 +82,26 @@ const Woodchips = ( {data } ) => {
             {work.headerText}
           </HeaderText>
           <HeaderRow>
-            <P color="#FFFFFF">Professional &amp; Trustworthy</P>
-            <P color="#FFFFFF">ISA Certified &amp; Fully Insured</P>
-            <P color="#FFFFFF">Owner-Operated</P>
+            {work.qualifications.map(({ node: qualification }, index) => {
+              return (
+                    <P color="#FFFFFF">{work.qualifications[index]}</P>
+                  )
+                }
+              )
+            }
           </HeaderRow>
         </HeaderBlock>
       </Fade>
       <Fade duration={2000}>
-        <TwoColRow bias="right">
-          <Block bgColor="transparent" padding="0" bgImage={leafService}/>
-          <TextBlock bgColor="#FFFFFF" hideButton theme="dark" header={work.secondaryHeader1} inlineText="With a team of ISA Certified Arborists, Noah’s Park Tree Care is proud to be the premier tree care service in the Truckee Meadows area. We work closely with homeowners and business owners to ensure that their trees and shrubs are safe, beautiful, and healthy."/>
+        <TwoColRow bias="left">
+          <Block bgColor="transparent" padding="0" bgImage={work.image1.ogimg.src}/>
+          <TextBlock bgColor="#FFFFFF" hideButton theme="dark" header={work.secondaryHeader1} inlineText={work.paragraphText1.childMarkdownRemark.html}/>
         </TwoColRow>
       </Fade>
       <Fade duration={2000}>
         <TwoColRow bias="right">
-          <TextBlock pushUp bgColor="#FFFFFF" bText={work.buttonText} dest={'/' + work.buttonDestination.replace(/[^a-z0-9]/gi, '-').toLowerCase()} theme="dark" header={work.secondaryHeader2} inlineText="We’ll work and guide you through the consultation and tree care process, and answer all your questions along the way. We offer free estimates on-site, ensuring you get the the best care for your trees in a timely and efficient manner." />
-          <Block bgColor="transparent" padding="0" bgImage={leafService} />
+          <TextBlock pushUp bgColor="#FFFFFF" bText={work.buttonText} dest={'/' + work.buttonDestination.replace(/[^a-z0-9]/gi, '-').toLowerCase()} theme="dark" header={work.secondaryHeader2} inlineText={work.paragraphText2.childMarkdownRemark.html} />
+          <Block bgColor="transparent" padding="0" bgImage={work.image2.ogimg.src} />
         </TwoColRow>
       </Fade>
       <Fade duration={2000}>
@@ -88,28 +110,36 @@ const Woodchips = ( {data } ) => {
             <Column className="work">
               <Image src={leafService}/>
               <HeaderText as="h6" size="30" weight="700" color="#434343">{work.highlightTitle1}</HeaderText>
-              <P color="#293536">We work year-round and specialize in safe, considerate tree and shrub pruning, removal, and planting.</P>
+              <P color="#293536" dangerouslySetInnerHTML={{ __html: work.highlightParagraph1.childMarkdownRemark.html }}/>
             </Column>
             <Column>
               <Image src={leafCare} />
               <HeaderText as="h6"size="30" weight="700" color="#434343">{work.highlightTitle2}</HeaderText>
-              <P color="#293536">We’ll get detailed proposals to you quickly and on-site. Our in-depth consultations ensure your trees will be treated with respect and safety by our team.</P>
-            </Column>
+              <P color="#293536" dangerouslySetInnerHTML={{ __html: work.highlightParagraph2.childMarkdownRemark.html }} />            </Column>
             <Column>
               <Image src={leafEstimates} />
               <HeaderText as="h6" size="30" weight="700" color="#434343">{work.highlightTitle3}</HeaderText>
-              <P color="#293536">We provide dependable, premier tree services, capable of handling any job of any size.</P>
-            </Column>
+              <P color="#293536" dangerouslySetInnerHTML={{ __html: work.highlightParagraph3.childMarkdownRemark.html }} />            </Column>
           </WorkRow>
         </Block>
       </Fade>
       <Fade duration={2000}>
         <TestimonialSlider data={testimonials} />
       </Fade>
-      <Block bgColor="#394343">
-        <HeaderText as="h2" size="100" weight="700" color="#FFFFFF">Featured Projects</HeaderText>
-
-      </Block>
+      <FeaturedBlock bgColor="#394343">
+        <HeaderText padding="5vw 0 5vw 0" align="center" as="h2" size="72" weight="700" color="#FFFFFF">Featured Projects</HeaderText>
+        <FeaturedRow>
+          {work.workImages.map(({ node: image }, index) => {
+                return (
+                  <img src={work.workImages[index].ogimg.src}/>
+                )
+              }
+            )
+          }
+        </FeaturedRow>
+        <RightToMidLeaf src={pine} />
+        <LeftTopLeaf src={pine2} />
+      </FeaturedBlock>
       <Fade duration={2000}>
           <Summary
             bgColor="#9F4300"
@@ -125,55 +155,119 @@ const Woodchips = ( {data } ) => {
 }
 
 export const query = graphql`
-  query {
-    allContentfulSummary {
-      edges {
-        node {
-          headerText
-          subHeaderText
-          buttonText
-          buttonDestination
-          paragraphText {
-            childMarkdownRemark {
-              html
-              excerpt(pruneLength: 320)
-            }
-          }
-        }
-      }
-    }
-    allContentfulTestimonial {
-      edges {
-        node {
-          firstName
-          lastInitial
-          city
-          state
-          customerReview {
-            childMarkdownRemark {
-              html
-              excerpt(pruneLength: 320)
-            }
-          }
-        }
-      }
-    }
-    allContentfulWork {
-      edges {
-        node {
-          headerText
-          subHeaderText
-          secondaryHeader1
-          secondaryHeader2
-          buttonText
-          buttonDestination
-          highlightTitle1
-          highlightTitle2
-          highlightTitle3
-        }
-      }
-    }
-  }
-`
+         query {
+           allContentfulSummary {
+             edges {
+               node {
+                 headerText
+                 subHeaderText
+                 buttonText
+                 buttonDestination
+                 paragraphText {
+                   childMarkdownRemark {
+                     html
+                     excerpt(pruneLength: 320)
+                   }
+                 }
+               }
+             }
+           }
+           allContentfulTestimonial {
+             edges {
+               node {
+                 firstName
+                 lastInitial
+                 city
+                 state
+                 customerReview {
+                   childMarkdownRemark {
+                     html
+                     excerpt(pruneLength: 320)
+                   }
+                 }
+               }
+             }
+           }
+           allContentfulWork {
+             edges {
+               node {
+                 headerText
+                 subHeaderText
+                 secondaryHeader1
+                 secondaryHeader2
+                 buttonText
+                 buttonDestination
+                 highlightTitle1
+                 highlightTitle2
+                 highlightTitle3
+                 image1 {
+                   title
+                   fluid(maxWidth: 1800) {
+                     ...GatsbyContentfulFluid_withWebp_noBase64
+                   }
+                   ogimg: resize(width: 1800) {
+                     src
+                     width
+                     height
+                   }
+                 }
+                 image2 {
+                   title
+                   fluid(maxWidth: 1800) {
+                     ...GatsbyContentfulFluid_withWebp_noBase64
+                   }
+                   ogimg: resize(width: 1800) {
+                     src
+                     width
+                     height
+                   }
+                 }
+                 paragraphText1 {
+                   childMarkdownRemark {
+                     html
+                     excerpt(pruneLength: 320)
+                   }
+                 }
+                 paragraphText2 {
+                   childMarkdownRemark {
+                     html
+                     excerpt(pruneLength: 320)
+                   }
+                 }
+                 highlightParagraph1 {
+                   childMarkdownRemark {
+                     html
+                     excerpt(pruneLength: 320)
+                   }
+                 }
+                 highlightParagraph2 {
+                   childMarkdownRemark {
+                     html
+                     excerpt(pruneLength: 320)
+                   }
+                 }
+                 highlightParagraph3 {
+                   childMarkdownRemark {
+                     html
+                     excerpt(pruneLength: 320)
+                   }
+                 }
+                 workImages {
+                   title
+                   fluid(maxWidth: 1800) {
+                     ...GatsbyContentfulFluid_withWebp_noBase64
+                   }
+                   ogimg: resize(width: 1800) {
+                     src
+                     width
+                     height
+                   }
+                 }
+                 qualifications
+               }
+             }
+           }
+         }
+       `
 
 export default Woodchips

@@ -52,3 +52,19 @@ export const LeftLeaf = styled(Leaves)`
         left: -8%;
     }
 `
+
+export const LeftTopLeaf = styled(Leaves)`
+    width: 250px;
+    left: -30px;
+    top: -5%;
+    @media (max-width: 2000px) {
+        width: 20vw;
+        left: -5%;
+        bottom: -5%;
+    }
+    @media (max-width: 600px) {
+        width: 150px;
+        bottom: 0;
+        left: -8%;
+    }
+`
