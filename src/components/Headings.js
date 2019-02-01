@@ -51,6 +51,7 @@ export const H2 = styled.h2`
 
 export const H3 = styled.h3`
   display: inline-block;
+  letter-spacing: .03em;
   font-size: 72px;
   @media ( max-width: 1440px ){
     font-size: 5vw;
@@ -160,7 +161,12 @@ export const Text = styled.div`
   }}
 `
 export const HeaderText = styled(Text)`
+<<<<<<< HEAD
     font-family: ${lmnts.Fnt.Header};
+=======
+    font-family: 'Tinos', serif;
+    letter-spacing: .03em;
+>>>>>>> ddf5e626b3745cb1d2d0acb6c3aa16027e25e86a
     ${props => {
       if (props.size === "38") return ` 
         font-size: 38px;
@@ -203,11 +209,11 @@ export const HeaderText = styled(Text)`
     `
     if (props.size === "72") return `
       font-size: 72px;
-      @media(max - width: 1440px) {
-        font - size: 5vw;
+      @media(max-width: 1440px) {
+        font-size: 5vw;
       }
-      @media(max - width: 600px) {
-        font - size: 30px;
+      @media(max-width: 600px) {
+        font-size: 30px;
       }
     `
     if (props.size === "80") return `

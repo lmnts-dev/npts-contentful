@@ -21,6 +21,7 @@ export const ButtonStyle = styled(AniLink)`
   letter-spacing: 1px;
   font-size: 19px;
   z-index: 200;
+  text-align: center;
   cursor: pointer;
   text-decoration: none;
   @media ( max-width: 1440px ){

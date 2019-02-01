@@ -84,11 +84,11 @@ export const HeaderBlock = styled(Wrapper)`
 
 export const Block = ({ bgImage, padding, bgColor, width, pushUp, absolute, children }) => {
     return (
-        <Fade big>
+
           <Wrapper bgImage={bgImage} padding={padding} bgColor={bgColor} width={width} pushUp={pushUp} absolute={absolute}>
               {children}
           </Wrapper>
-        </Fade>
+
     )
 }
 export default Block

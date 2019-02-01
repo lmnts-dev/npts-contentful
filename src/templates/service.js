@@ -39,7 +39,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
             <HeaderText as="h3" size="38" weight="700" color="#FFFFFF">
               Tree care services
             </HeaderText>
-            <HeaderText as="h1" size="100" weight="700" color="#FFFFFF">
+            <HeaderText as="h1" padding="1vw 0 0 0" size="100" weight="700" color="#FFFFFF">
               {name}
             </HeaderText>
           </HeaderBlock>

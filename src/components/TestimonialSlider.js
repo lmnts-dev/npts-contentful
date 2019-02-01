@@ -145,8 +145,7 @@ export default class SimpleSlider extends React.Component {
                 {this.props.data.map(
                     ({ node: image }, index) => {
                         return (
-                            <>
-                                <Block bgColor="#9DD5EA" padding="0" >
+                                <Block key={index + ""} bgColor="#9DD5EA" padding="0" >
                                     <TwoColRow bias="left">
                                         <Column>
                                             <Quote lHeight="1.3" size="30" dangerouslySetInnerHTML={{ __html: this.props.data[index].node.customerReview.childMarkdownRemark.html }} />
@@ -166,7 +165,6 @@ export default class SimpleSlider extends React.Component {
                                         </Block>
                                     </TwoColRow>
                                 </Block>
-                            </>
                         )
                     }
                 )}

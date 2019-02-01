@@ -39,7 +39,7 @@ const MainBlock = styled(Wrapper)`
 
 const About = ({ data, location }) => {
   const postNode = {
-    title: `Home - ${config.siteTitle}`,
+    title: `About - ${config.siteTitle}`,
   }
   const identity = data.allContentfulIdentity.edges[0].node
   const about = data.allContentfulAbout.edges[0].node
@@ -47,7 +47,7 @@ const About = ({ data, location }) => {
   return (
     <Layout location={location}>
       <Helmet>
-        <title>{`Contact - ${config.siteTitle}`}</title>
+        <title>{`About - ${config.siteTitle}`}</title>
       </Helmet>
       <SEO postNode={postNode} pagePath="contact" customTitle />
 
@@ -57,7 +57,7 @@ const About = ({ data, location }) => {
             <HeaderText as="h3" size="38" weight="700" color="#FFFFFF">
               Local, knowledgeable tree and shrub care
             </HeaderText>
-            <HeaderText as="h1" size="100" weight="700" color="#FFFFFF">
+            <HeaderText as="h1" padding="1vw 0 0 0" size="100" weight="700" color="#FFFFFF">
               About Us
             </HeaderText>
           </HeaderBlock>

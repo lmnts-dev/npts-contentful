@@ -35,13 +35,13 @@ const Services = ({ data, location }) => {
   const firewood = data.allContentfulFirewood.edges[0].node
   const identity = data.allContentfulIdentity.edges[0].node
   const postNode = {
-    title: `Home - ${config.siteTitle}`,
+    title: `Services - ${config.siteTitle}`,
   }
 
   return (
     <Layout location={location}>
       <Helmet>
-        <title>{`Hello - ${config.siteTitle}`}</title>
+        <title>{`Services - ${config.siteTitle}`}</title>
       </Helmet>
       <SEO postNode={postNode} pagePath="contact" customTitle />
 
@@ -51,7 +51,7 @@ const Services = ({ data, location }) => {
             <HeaderText as="h3" size="38" weight="700" color="#312B2B">
               Do what's right for the tree
             </HeaderText>
-            <HeaderText as="h1" size="100" weight="700" color="#312B2B">
+            <HeaderText as="h1" padding="1vw 0 0 0" size="100" weight="700" color="#312B2B">
               Tree Care Services
             </HeaderText>
           </HeaderBlock>
@@ -62,9 +62,12 @@ const Services = ({ data, location }) => {
             {services.map(({ node: service }, index) => {
               if (index % 2 === 0 && index + 1 !== services.length)
                 return (
-                  <TwoColRow>
+                  <TwoColRow key={index + ""}>
                     <ServiceBlock
+<<<<<<< HEAD
                       key={service.name}
+=======
+>>>>>>> ddf5e626b3745cb1d2d0acb6c3aa16027e25e86a
                       src={service.image.ogimg.src}
                       header={service.name}
                       text={service.shortSummary}
@@ -72,7 +75,10 @@ const Services = ({ data, location }) => {
                       dest={'/' + service.slug}
                     />
                     <ServiceBlock
+<<<<<<< HEAD
                       key={service.name}
+=======
+>>>>>>> ddf5e626b3745cb1d2d0acb6c3aa16027e25e86a
                       src={services[index + 1].node.image.ogimg.src}
                       header={services[index + 1].node.name}
                       text={services[index + 1].node.shortSummary}
@@ -83,9 +89,8 @@ const Services = ({ data, location }) => {
                 )
               if (index % 2 === 0 && index + 1 === services.length)
                 return (
-                  <TwoColRow>
+                  <TwoColRow key={index + ""}>
                     <ServiceBlock
-                      key={service.name + "SingleRow"}
                       src={service.image.ogimg.src}
                       header={service.name}
                       text={service.shortSummary}

@@ -108,6 +108,16 @@ const Nav = styled.nav`
 `
 
 class Menu extends React.Component {
+  _isMounted = false
+
+  constructor(props) {
+    super(props);
+
+    // Default scroll state.
+    this.state = {
+      isTop: true,
+    };
+  }
   // Optional link style for when you are on a specific page.
   activeLinkStyle = {}
 
@@ -126,19 +136,21 @@ class Menu extends React.Component {
   navTopHeight = '100px'
   navScrollHeight = '60px'
 
-  // Default scroll state.
-  state = {
-    isTop: true,
-  }
-
   // Only run the function after the page is rendered - so SSR won't have a heart attack. The function below checks if the window.scrollY is less than the scrollDistance specified above. For each result, it changes it's state.
   componentDidMount() {
+    this._isMounted = true
     document.addEventListener('scroll', () => {
       const isTop = window.scrollY < this.scrollDistance
       if (isTop !== this.state.isTop) {
-        this.setState({ isTop })
+        if (this._isMounted) {
+          this.setState({ isTop })
+        }
       }
     })
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   // Let it run.

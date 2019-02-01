@@ -126,7 +126,7 @@ export const LargeTextBlock = props => {
             <PLarge color="#FFFFFF" dangerouslySetInnerHTML={{ __html: props.inlineText }}>
               {props.text}
             </PLarge>
-            <Button hide={props.hideButton}  to={props.dest} arrowButton>
+            <Button hide={props.hideButton} to={props.dest} arrowButton>
               {props.bText}
             </Button>
           </Wrapper>
