@@ -32,11 +32,11 @@ export const TwoColRowWrapper = styled.div`
   }
 `
 
-const Block = ({ smallReverse, bias, children }) => {
+export const TwoColRow = ({ smallReverse, bias, children }) => {
     return (
         <TwoColRowWrapper reverse={smallReverse} bias={bias} >
             {children}
         </TwoColRowWrapper>
     )
 }
-export default Block
+export default TwoColRow
