@@ -2,13 +2,9 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import exit from '../images/exit.png'
 import { Wrapper } from '../components/Block'
-import Contact from '../components/ContactForm'
-import { ButtonStyle } from '../components/Button'
 import Hamburger from '!svg-react-loader!../images/svg-icons/navburger.svg?name=navburger'
 import Column from '../components/Column'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
-import * as lmnts from '../data/Styles'
-
 
 const HamburgerLink = styled.div`
   display: none;
