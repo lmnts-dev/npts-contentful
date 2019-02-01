@@ -64,10 +64,6 @@ const Services = ({ data, location }) => {
                 return (
                   <TwoColRow key={index + ""}>
                     <ServiceBlock
-<<<<<<< HEAD
-                      key={service.name}
-=======
->>>>>>> ddf5e626b3745cb1d2d0acb6c3aa16027e25e86a
                       src={service.image.ogimg.src}
                       header={service.name}
                       text={service.shortSummary}
@@ -75,10 +71,6 @@ const Services = ({ data, location }) => {
                       dest={'/' + service.slug}
                     />
                     <ServiceBlock
-<<<<<<< HEAD
-                      key={service.name}
-=======
->>>>>>> ddf5e626b3745cb1d2d0acb6c3aa16027e25e86a
                       src={services[index + 1].node.image.ogimg.src}
                       header={services[index + 1].node.name}
                       text={services[index + 1].node.shortSummary}

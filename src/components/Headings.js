@@ -161,12 +161,7 @@ export const Text = styled.div`
   }}
 `
 export const HeaderText = styled(Text)`
-<<<<<<< HEAD
     font-family: ${lmnts.Fnt.Header};
-=======
-    font-family: 'Tinos', serif;
-    letter-spacing: .03em;
->>>>>>> ddf5e626b3745cb1d2d0acb6c3aa16027e25e86a
     ${props => {
       if (props.size === "38") return ` 
         font-size: 38px;
