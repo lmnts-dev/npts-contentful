@@ -16,8 +16,6 @@ const Block = styled(Wrapper)`
 
 const IntroBlocks = props => {
     const data = props.data.edges[0].node
-    console.log( "HERE");
-    console.log(data);
     return (
         <div>
             <Fade duration={2000}>

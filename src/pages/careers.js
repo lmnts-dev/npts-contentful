@@ -82,7 +82,7 @@ const Careers = ( {data} ) => {
       <Positions>
         {positions.map(({ node: position }, index) => {
             return (
-                    <Fade duration={2000}>
+                    <Fade key={index + ""} duration={2000}>
                         <Block className="position" bgColor="#FFFFFF" key={index}>
                             <Row>
                                 <Title align="right" weight="700" color="#434343">{ position.positionTitle }</Title>

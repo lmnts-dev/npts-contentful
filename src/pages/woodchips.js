@@ -11,23 +11,6 @@ import { TwoColRowWrapper } from '../components/TwoColRow'
 import  Column  from '../components/Column'
 import Button from '../components/Button'
 
-const Row = styled(TwoColRowWrapper)`
-    div, h3 {
-        flex: 1 !important;
-    }
-    h3 {
-        margin-right: 5vw;
-    }
-`
-
-const Positions = styled.div`
-  .react-reveal:nth-child(even) {
-    div {
-      background-color: #e1f2f8 !important;
-    }
-  }
-`
-
 const Woodchips = ( ) => {
   const postNode = {
     title: `Chip Drop - ${config.siteTitle}`,

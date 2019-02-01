@@ -121,11 +121,10 @@ const HeaderRow = styled(RowWrapper)`
   }
 `
 
-const Woodchips = ( {data } ) => {
+const Work = ( {data } ) => {
     const summary = data.allContentfulSummary.edges[0].node
     const testimonials = data.allContentfulTestimonial.edges
     const work = data.allContentfulWork.edges[0].node
-    console.log(work);
     const postNode = {
       title: `Our Work - ${config.siteTitle}`,
     }
@@ -146,7 +145,7 @@ const Woodchips = ( {data } ) => {
           </HeaderText>
           <HeaderRow>
             {work.qualifications.map(({ node: qualification }, index) => {
-              return <P color="#FFFFFF">{work.qualifications[index]}</P>
+              return <P key={index + ""} color="#FFFFFF">{work.qualifications[index]}</P>
             })}
           </HeaderRow>
         </HeaderBlock>
@@ -154,7 +153,7 @@ const Woodchips = ( {data } ) => {
       <Fade duration={2000}>
         <TwoColRow bias="left">
           <Block bgColor="transparent" padding="0" bgImage={work.image1.ogimg.src} />
-          <TextBlock bgColor="#FFFFFF" hideButton theme="dark" header={work.secondaryHeader1} inlineText={work.paragraphText1.childMarkdownRemark.html} />
+          <TextBlock bgColor="#FFFFFF" hideButton dest="/" theme="dark" header={work.secondaryHeader1} inlineText={work.paragraphText1.childMarkdownRemark.html} />
         </TwoColRow>
       </Fade>
       <Fade duration={2000}>
@@ -201,7 +200,7 @@ const Woodchips = ( {data } ) => {
         </HeaderText>
         <FeaturedRow>
           {work.workImages.map(({ node: image }, index) => {
-            return <img src={work.workImages[index].ogimg.src} />
+            return <img key={index + ""} src={work.workImages[index].ogimg.src} />
           })}
         </FeaturedRow>
         <RightLeaf src={pine} />
@@ -329,4 +328,4 @@ export const query = graphql`
          }
        `
 
-export default Woodchips
+export default Work

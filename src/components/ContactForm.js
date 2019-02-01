@@ -222,12 +222,7 @@ const encode = data => {
 class ContactForm extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      name: '',
-      email: '',
-      message: '',
-      showModal: false,
-    }
+    this.state = false
   }
 
   handleInputChange = event => {
@@ -347,7 +342,7 @@ class ContactForm extends React.Component {
               Thank you for reaching out. We will get back to you as soon as
               possible.
             </p>
-            <Button dark onClick={this.closeModal}>
+            <Button dark to="#" onClick={this.closeModal}>
               Okay
             </Button>
           </Modal>

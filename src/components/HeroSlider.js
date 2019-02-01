@@ -232,12 +232,11 @@ export default class HomeSlider extends React.Component {
         <Slider ref={c => (this.slider = c)} {...settings}>
           {this.props.data.sliderImages.map(({ node: image }, index) => {
             return (
-              <>
                 <SliderImage
+                  key={index + ""}
                   bgImage={this.props.data.sliderImages[index].ogimg.src}
                   padding="0"
                 />
-              </>
             )
           })}
         </Slider>

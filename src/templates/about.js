@@ -43,7 +43,6 @@ const About = ({ data, location }) => {
   }
   const identity = data.allContentfulIdentity.edges[0].node
   const about = data.allContentfulAbout.edges[0].node
-  console.log(data);
 
   return (
     <Layout location={location}>

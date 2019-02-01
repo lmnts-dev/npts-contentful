@@ -62,9 +62,8 @@ const Services = ({ data, location }) => {
             {services.map(({ node: service }, index) => {
               if (index % 2 === 0 && index + 1 !== services.length)
                 return (
-                  <TwoColRow>
+                  <TwoColRow key={index + ""}>
                     <ServiceBlock
-                      key={service.name + "DoubleRowFirstImage" }
                       src={service.image.ogimg.src}
                       header={service.name}
                       text={service.shortSummary}
@@ -72,7 +71,6 @@ const Services = ({ data, location }) => {
                       dest={'/' + service.slug}
                     />
                     <ServiceBlock
-                      key={service.name + "DoubleRowSecondImage" }
                       src={services[index + 1].node.image.ogimg.src}
                       header={services[index + 1].node.name}
                       text={services[index + 1].node.shortSummary}
@@ -83,9 +81,8 @@ const Services = ({ data, location }) => {
                 )
               if (index % 2 === 0 && index + 1 === services.length)
                 return (
-                  <TwoColRow>
+                  <TwoColRow key={index + ""}>
                     <ServiceBlock
-                      key={service.name + "SingleRow"}
                       src={service.image.ogimg.src}
                       header={service.name}
                       text={service.shortSummary}
