@@ -25,12 +25,15 @@ const Container = styled.div`
 
 const TwoColRow = styled(TwoColRowWrapper)`
   height: calc(100vh - 36px);
+  max-height: 800px;
   min-height: 800px;
   @media (max-width: 2000px) {
     height: calc(100vh - 1.8vw);
+    max-height: 800px;
   }
   @media (max-width: 1440px) {
     min-height: 850px;
+    max-height: 900px;
   }
   @media (max-width: 900px) {
     min-height: 750px;
@@ -47,12 +50,15 @@ const TwoColRow = styled(TwoColRowWrapper)`
 /* height is 100vh - body's top padding of 1.8vw */
 const Slider = styled(slider)`
   height: calc(100vh - 36px);
+  max-height: 800px;
   min-height: 800px;
   @media (max-width: 2000px) {
     height: calc(100vh - 1.8vw);
+    max-height: 800px;
   }
   @media (max-width: 1440px) {
     min-height: 850px;
+    max-height: 900px;
   }
   @media (max-width: 900px) {
     min-height: 750px;
@@ -64,12 +70,15 @@ const Slider = styled(slider)`
 `
 const SliderImage = styled(Wrapper)`
   height: calc(100vh - 36px);
+  max-height: 800px;
   min-height: 800px;
   @media (max-width: 2000px) {
     height: calc(100vh - 1.8vw);
+    max-height: 800px;
   }
   @media (max-width: 1440px) {
     min-height: 850px;
+    max-height: 900px;
   }
   @media (max-width: 900px) {
     min-height: 750px;

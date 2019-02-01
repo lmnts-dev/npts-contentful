@@ -205,11 +205,15 @@ class Menu extends React.Component {
           </li>
           <li>
             <NavLink
-              fade
+              cover
+              bg={lmnts.Anim.Page.Color}
               duration={lmnts.Anim.Page.Duration}
+              direction={lmnts.Anim.Page.Direction}
               to="/contact"
               activeStyle={this.activeLinkStyle}
-              animDuration={0}
+              animDuration={
+                this.fadeInDuration + this.fadeInIncrement * 3 + 's'
+              }
             >
               Let's Talk
             </NavLink>

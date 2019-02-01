@@ -38,8 +38,8 @@ class Layout extends React.Component {
             
             {children}
 
-            {!children.showFooter ? (
-                  <Footer noExit />
+            {!children.noFooter ? (
+                  <Footer />
                 ) : (
                   ''
             )}

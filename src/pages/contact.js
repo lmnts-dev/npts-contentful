@@ -17,13 +17,11 @@ const Center = styled.div`
 `
 
 const Block = styled(Wrapper)`
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  z-index: 999;
-  padding: 0 4vw;
+  padding: 10vh 4vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0 auto;
   form {
     margin-top: 0;

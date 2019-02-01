@@ -6,7 +6,6 @@ import { H3, PLarge, HeaderText, Text } from '../components/Headings'
 import Row from '../components/Row'
 import phone from '!svg-react-loader!../images/svg-icons/phone.svg?name=phone'
 import email from '!svg-react-loader!../images/svg-icons/email.svg?name=email'
-import exit from '../images/exit.png'
 import Fade from 'react-reveal/Fade'
 
 /*
@@ -157,30 +156,6 @@ const Submit = styled.input`
   box-shadow: 0 3px 36px rgba(0, 0, 0, 0.16);
 `
 
-const Exit = styled.div`
-  display: ${props => (props.noExit ? 'none' : 'block')};
-  position: absolute;
-  pointer-events: all;
-  cursor: pointer;
-  top: 2px;
-  right: 0;
-  height: 66px;
-  width: 66px;
-  @media (max-width: 600px) {
-    height: 51px;
-    width: 51px;
-  }
-  background-color: #363636;
-`
-
-const Image = styled.img`
-  position: absolute;
-  left: 20%;
-  top: 20%;
-  width: 60%;
-  height: 60%;
-`
-
 const Modal = styled.div`
   background: white;
   padding: 2em;
@@ -272,14 +247,6 @@ class ContactForm extends React.Component {
           onClick={this.closeModal}
         >
           <TextBlock>
-            <Exit
-              onClick={() => {
-                window.history.back()
-              }}
-              noExit={this.props.noExit}
-            >
-              <Image src={exit} />
-            </Exit>
             <HeaderText as="h3" lHeight="2" size="72" color="#FFFFFF">
               {' '}
               Let's Talk{' '}
