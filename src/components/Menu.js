@@ -1,5 +1,5 @@
 import React from 'react'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
+import { Link } from "gatsby"
 import * as lmnts from '../data/Styles'
 import styled, { css } from 'styled-components'
 import Logo from '!svg-react-loader!../images/svg-icons/logo.svg?name=logo'
@@ -7,7 +7,7 @@ import Hamburger from '!svg-react-loader!../images/svg-icons/navburger.svg?name=
 import HamburgerMenu from '../components/MenuOverlay'
 import { fadeIn } from '../data/KeyFrames'
 
-const NavLink = styled(AniLink)`
+const NavLink = styled(Link)`
   animation: ${fadeIn} ${props => props.animDuration} ease-in-out 0s;
   text-transform: uppercase;
   font-size: 16px;
@@ -15,7 +15,7 @@ const NavLink = styled(AniLink)`
   letter-spacing: 2px;
 `
 
-const LogoLink = styled(AniLink)`
+const LogoLink = styled(Link)`
   animation: ${fadeIn} ${props => props.animDuration} ease-in-out 0s;
   position: absolute;
   left: 15px;
