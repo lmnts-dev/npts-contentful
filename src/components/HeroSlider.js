@@ -13,6 +13,7 @@ import rArrow from '!svg-react-loader!../images/svg-icons/arrowRight.svg?name=ar
 import Locator from '!svg-react-loader!../images/svg-icons/locator.svg?name=locator'
 import SlideOne from '../images/slider1.jpg'
 import slider from 'react-slick'
+import Helmet from 'react-helmet'
 import { fadeIn } from '../data/KeyFrames'
 
 /* height is 100vh - body's top padding of 1.8vw */
@@ -25,12 +26,15 @@ const Container = styled.div`
 
 const TwoColRow = styled(TwoColRowWrapper)`
   height: calc(100vh - 36px);
+  max-height: 800px;
   min-height: 800px;
   @media (max-width: 2000px) {
     height: calc(100vh - 1.8vw);
+    max-height: 800px;
   }
   @media (max-width: 1440px) {
     min-height: 850px;
+    max-height: 900px;
   }
   @media (max-width: 900px) {
     min-height: 750px;
@@ -47,12 +51,15 @@ const TwoColRow = styled(TwoColRowWrapper)`
 /* height is 100vh - body's top padding of 1.8vw */
 const Slider = styled(slider)`
   height: calc(100vh - 36px);
+  max-height: 800px;
   min-height: 800px;
   @media (max-width: 2000px) {
     height: calc(100vh - 1.8vw);
+    max-height: 800px;
   }
   @media (max-width: 1440px) {
     min-height: 850px;
+    max-height: 900px;
   }
   @media (max-width: 900px) {
     min-height: 750px;
@@ -64,12 +71,15 @@ const Slider = styled(slider)`
 `
 const SliderImage = styled(Wrapper)`
   height: calc(100vh - 36px);
+  max-height: 800px;
   min-height: 800px;
   @media (max-width: 2000px) {
     height: calc(100vh - 1.8vw);
+    max-height: 800px;
   }
   @media (max-width: 1440px) {
     min-height: 850px;
+    max-height: 900px;
   }
   @media (max-width: 900px) {
     min-height: 750px;
@@ -105,7 +115,7 @@ const RightArrow = styled(rArrow)`
 `
 
 const HeroBorder = styled(Border)`
-  margin: 28.8 0;
+  margin: 28.8px 0;
   @media (max-width: 1440px) {
     margin: 2vw 0;
   }
@@ -154,6 +164,11 @@ const LocatorRow = styled(RowWrapper)`
   }
 `
 
+const WordsInner = styled.div`
+  max-width: 650px;
+`
+
+
 export default class HomeSlider extends React.Component {
   constructor(props) {
     super(props)
@@ -183,9 +198,17 @@ export default class HomeSlider extends React.Component {
     var images = this.props.data.sliderImages
     return (
       <Container>
+        <Helmet>
+          <link
+            rel="stylesheet"
+            type="text/css"
+            charset="UTF-8"
+            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+          />
+        </Helmet>
         <TwoColRow bias="left">
           <WordsBlock bgColor="rgba(0, 0, 0, .6)" absolute="left">
-            <div>
+            <WordsInner>
               <H1 color="#FFFFFF">{this.props.data.header}</H1>
               <HeroBorder color="white" width="90%" margin="40px 0" />
               <P
@@ -198,7 +221,7 @@ export default class HomeSlider extends React.Component {
               <Button to={'/' + this.props.data.buttonDestination}>
                 {this.props.data.buttonText}
               </Button>
-            </div>
+            </WordsInner>
             <DisclaimerCol align="flex-start">
               <Row justify="flex-start" align="center">
                 <Badge />

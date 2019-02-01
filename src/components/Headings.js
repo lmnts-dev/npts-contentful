@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import * as lmnts from '../data/Styles'
 
 /* these are what you can call ////////////////
 
@@ -24,7 +25,7 @@ export const H1 = styled.h1`
   line-height: 1.1;
   margin: 0;
   padding: 0;
-  font-family: 'Tinos', serif;
+  font-family: ${lmnts.Fnt.Header};
   font-weight: ${props => props.weight || '400'};
   text-align: ${props => props.align || 'left'};
   color: ${props => props.color || '#000000'};
@@ -42,7 +43,7 @@ export const H2 = styled.h2`
   line-height: 1.1;
   margin: 0;
   padding: 0;
-  font-family: 'Tinos', serif;
+  font-family: ${lmnts.Fnt.Header};
   font-weight: ${props => props.weight || '700'};
   text-align: ${props => props.align || 'left'};
   color: ${props => props.color || '#000000'};
@@ -61,7 +62,7 @@ export const H3 = styled.h3`
   line-height: 1;
   margin: 0;
   padding: 0;
-  font-family: 'Tinos', serif;
+  font-family: ${lmnts.Fnt.Header};
   font-weight: ${props => props.weight || '700'};
   text-align: ${props => props.align || 'left'};
   color: ${props => props.color || '#000000'};
@@ -78,7 +79,7 @@ export const P = styled.p`
   line-height: 2;
   margin: ${props => props.margin || '20px 0'};
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: ${lmnts.Fnt.Body};
   font-weight: ${props => props.weight || '400'};
   text-align: ${props => props.align || 'left'};
   color: ${props => props.color || '#000000'};
@@ -115,7 +116,7 @@ export const Text = styled.div`
   text-align: ${props => props.align || 'left'};
   font-weight: ${props => props.weight || '400'};
   text-transform: ${props => props.transform || ''};
-  font-family: 'Montserrat', sans-serif;
+  font-family: ${lmnts.Fnt.Body};
   ${props => {
     /* text adjustments for responsiveness */
     if (props.size === "34") return ` 
@@ -160,8 +161,7 @@ export const Text = styled.div`
   }}
 `
 export const HeaderText = styled(Text)`
-    font-family: 'Tinos', serif;
-    letter-spacing: .03em;
+    font-family: ${lmnts.Fnt.Header};
     ${props => {
       if (props.size === "38") return ` 
         font-size: 38px;

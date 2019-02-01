@@ -2,13 +2,10 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import exit from '../images/exit.png'
 import { Wrapper } from '../components/Block'
-import Contact from '../components/ContactForm'
-import { ButtonStyle } from '../components/Button'
 import Hamburger from '!svg-react-loader!../images/svg-icons/navburger.svg?name=navburger'
 import Column from '../components/Column'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import * as lmnts from '../data/Styles'
-
+import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const HamburgerLink = styled.div`
   display: none;
@@ -52,11 +49,11 @@ const Item = styled(AniLink)`
 `
 
 const Center = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 `
 
 const Block = styled(Wrapper)`
@@ -109,52 +106,53 @@ const activeLinkStyle = {
 }
 
 class MenuModal extends Component {
-    
-    // constructor to set state and bind "this"
-    constructor(props) {
-        super(props);
-        this.state = { showModal: false };
-        this.handleClick = this.handleClick.bind(this);
-    }
+  // constructor to set state and bind "this"
+  constructor(props) {
+    super(props)
+    this.state = { showModal: false }
+    this.handleClick = this.handleClick.bind(this)
+  }
 
-    // function to handle the click
-    handleClick() {
-        this.setState(prevState => ({
-            showModal: !prevState.showModal
-        }));
-    }
+  // function to handle the click
+  handleClick() {
+    this.setState(prevState => ({
+      showModal: !prevState.showModal,
+    }))
+  }
 
-    // the render() method to put stuff into the DOM
-    render() {
-        // the modal you will toggle on and off
-        const modal = (
-            <Block bgColor="#272929" onClick={this.handleClick}>
-                <Exit>
-                    <Image src={exit} />
-                </Exit>
-                <Center>
-                    <Column align="center" justify="center">
-                        <Item activeStyle={activeLinkStyle} to="/">Home</Item>
-                        <Item activeStyle={activeLinkStyle} to="/services">Services</Item>
-                        <Item activeStyle={activeLinkStyle} to="/about">About</Item>
-                        <Item activeStyle={activeLinkStyle} to="/contact">Contact</Item>
-                        <SecondaryLinks>
-                            <Item activeStyle={activeLinkStyle} to="/our-work">Our Work</Item>
-                            <Item activeStyle={activeLinkStyle} to="/firewood">Firewood</Item>
-                            <Item activeStyle={activeLinkStyle} to="/woodchips">Chip Drop</Item>
-                            <Item activeStyle={activeLinkStyle} to="/careers">Careers</Item>
-                        </SecondaryLinks>
-                    </Column>
-                </Center>
-            </Block>
-        );
-        return <>
-            {this.state.showModal ? modal : ''}
-            <HamburgerLink onClick={this.handleClick} >
-                <Hamburger />
-            </HamburgerLink>
-          </>
-    }
+  // the render() method to put stuff into the DOM
+  render() {
+    // the modal you will toggle on and off
+    const modal = (
+      <Block bgColor="#272929" onClick={this.handleClick}>
+        <Exit>
+          <Image src={exit} />
+        </Exit>
+        <Center>
+          <Column align="center" justify="center">
+            <Item to="/">Home</Item>
+            <Item to="/services">Services</Item>
+            <Item to="/about">About</Item>
+            <Item to="/contact">Contact</Item>
+            <SecondaryLinks>
+              <Item to="/our-work">Our Work</Item>
+              <Item to="/firewood">Firewood</Item>
+              <Item to="/woodchips">Chip Drop</Item>
+              <Item to="/careers">Careers</Item>
+            </SecondaryLinks>
+          </Column>
+        </Center>
+      </Block>
+    )
+    return (
+      <>
+        {this.state.showModal ? modal : ''}
+        <HamburgerLink onClick={this.handleClick}>
+          <Hamburger />
+        </HamburgerLink>
+      </>
+    )
+  }
 }
 
-export default MenuModal;
+export default MenuModal
