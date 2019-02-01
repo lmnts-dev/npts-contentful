@@ -204,11 +204,11 @@ export const HeaderText = styled(Text)`
     `
     if (props.size === "72") return `
       font-size: 72px;
-      @media(max - width: 1440px) {
-        font - size: 5vw;
+      @media(max-width: 1440px) {
+        font-size: 5vw;
       }
-      @media(max - width: 600px) {
-        font - size: 30px;
+      @media(max-width: 600px) {
+        font-size: 30px;
       }
     `
     if (props.size === "80") return `

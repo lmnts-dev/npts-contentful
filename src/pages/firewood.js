@@ -45,7 +45,7 @@ const Firewood = ( ) => {
           <HeaderText as="h3" size="38" weight="700" color="#FFFFFF">
             Contact us
           </HeaderText>
-          <HeaderText as="h1" size="100" weight="700" color="#FFFFFF">
+          <HeaderText as="h1" padding="1vw 0 0 0" size="100" weight="700" color="#FFFFFF">
             Apply for free firewood
           </HeaderText>
         </HeaderBlock>

@@ -51,7 +51,7 @@ const Services = ({ data, location }) => {
             <HeaderText as="h3" size="38" weight="700" color="#312B2B">
               Do what's right for the tree
             </HeaderText>
-            <HeaderText as="h1" size="100" weight="700" color="#312B2B">
+            <HeaderText as="h1" padding="1vw 0 0 0" size="100" weight="700" color="#312B2B">
               Tree Care Services
             </HeaderText>
           </HeaderBlock>

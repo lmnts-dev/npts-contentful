@@ -44,7 +44,7 @@ const Apply = ( ) => {
           <HeaderText as="h3" size="38" weight="700" color="#FFFFFF">
             Work with us
           </HeaderText>
-          <HeaderText as="h1" size="100" weight="700" color="#FFFFFF">
+          <HeaderText as="h1" padding="1vw 0 0 0" size="100" weight="700" color="#FFFFFF">
             Apply
           </HeaderText>
         </HeaderBlock>

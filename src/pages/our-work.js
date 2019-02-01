@@ -20,12 +20,47 @@ import { RightToMidLeaf, LeftTopLeaf } from '../components/Leaves'
 import pine from '../images/leaf3.png'
 import pine2 from '../images/leaf6.png'
 
+const LeftLeaf = styled(LeftTopLeaf)`
+  left: -60px;
+  @media (max-width: 600px){
+    bottom: auto;
+    top: -10%;
+    left: -25%;
+  }
+`
+
+const RightLeaf = styled(RightToMidLeaf)`
+  right: -2%;
+  bottom: -5%;
+  @media (max-width: 1100px) {
+    right: -5%;
+  }
+  @media (max-width: 800px) {
+    right: -4%;
+    height: 22vw;
+  }
+  @media (max-width: 600px) {
+    height: 150px;
+    left: auto;
+    right: -10%;
+  }
+`
+
 const FeaturedBlock = styled(Wrapper)`
   padding: 50px 200px 200px 200px;
+  @media (max-width: 1200px) {
+    padding: 50px 10vw 10vw 10vw;
+  }
 `
 
 const Image = styled.img`
- height: 15vw;
+ height: 12vw;
+ @media( max-width: 1700px){
+   height: 15vw;
+ }
+ @media (max-width: 800px) {
+  height: 20vw;
+ }
 `
 
 const FeaturedRow = styled(RowWrapper)`
@@ -37,10 +72,14 @@ const FeaturedRow = styled(RowWrapper)`
     &:last-of-type {
       margin-right: 0;
     }
+    @media (max-width: 800px) {
+      width: 48.5%;
+    }
   }
 `
 
 const WorkRow = styled(RowWrapper)`
+  padding: 100px 200px;
   div {
     flex: 1;
     margin-right: 9%;
@@ -48,11 +87,37 @@ const WorkRow = styled(RowWrapper)`
       margin-right: 0;
     }
   }
+  @media (max-width: 1200px) {
+    padding: 10vw 10vw 6vw 10vw;
+  }
+  @media (max-width: 800px) {
+    flex-direction: column;
+    div {
+      margin-right: 0;
+      margin-top: 5vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      &:first-of-type {
+        margin-top: 0;
+      }
+      p {
+        text-align: center;
+      }
+    }
+  }
 `
 
 const HeaderRow = styled(RowWrapper)`
   p {
     margin: 50px 5% 0 0;
+  }
+  @media( max-width: 750px){
+    flex-direction: column;
+    margin-top: 50px;
+    p {
+      margin: 0;
+    }
   }
 `
 
@@ -65,61 +130,65 @@ const Woodchips = ( {data } ) => {
       title: `Our Work - ${config.siteTitle}`,
     }
 
-  return (
-    <Layout noFooter>
+  return <Layout noFooter>
       <Helmet>
         <title>{`Our Work - ${config.siteTitle}`}</title>
       </Helmet>
       <SEO postNode={postNode} pagePath="contact" customTitle />
-
 
       <Fade duration={2000}>
         <HeaderBlock bgColor="#9F4300">
           <HeaderText as="h3" size="38" color="#FFFFFF">
             {work.subHeaderText}
           </HeaderText>
-          <HeaderText as="h1" size="100" weight="700" color="#FFFFFF">
+          <HeaderText as="h1" padding="1vw 0 0 0" size="100" weight="700" color="#FFFFFF">
             {work.headerText}
           </HeaderText>
           <HeaderRow>
             {work.qualifications.map(({ node: qualification }, index) => {
-              return (
-                    <P color="#FFFFFF">{work.qualifications[index]}</P>
-                  )
-                }
-              )
-            }
+              return <P color="#FFFFFF">{work.qualifications[index]}</P>
+            })}
           </HeaderRow>
         </HeaderBlock>
       </Fade>
       <Fade duration={2000}>
         <TwoColRow bias="left">
-          <Block bgColor="transparent" padding="0" bgImage={work.image1.ogimg.src}/>
-          <TextBlock bgColor="#FFFFFF" hideButton theme="dark" header={work.secondaryHeader1} inlineText={work.paragraphText1.childMarkdownRemark.html}/>
+          <Block bgColor="transparent" padding="0" bgImage={work.image1.ogimg.src} />
+          <TextBlock bgColor="#FFFFFF" hideButton theme="dark" header={work.secondaryHeader1} inlineText={work.paragraphText1.childMarkdownRemark.html} />
         </TwoColRow>
       </Fade>
       <Fade duration={2000}>
-        <TwoColRow bias="right">
-          <TextBlock pushUp bgColor="#FFFFFF" bText={work.buttonText} dest={'/' + work.buttonDestination.replace(/[^a-z0-9]/gi, '-').toLowerCase()} theme="dark" header={work.secondaryHeader2} inlineText={work.paragraphText2.childMarkdownRemark.html} />
+        <TwoColRow bias="right" smallReverse>
+          <TextBlock pushUp bgColor="#FFFFFF" bText={work.buttonText} dest={'/' + work.buttonDestination
+                .replace(/[^a-z0-9]/gi, '-')
+                .toLowerCase()} theme="dark" header={work.secondaryHeader2} inlineText={work.paragraphText2.childMarkdownRemark.html} />
           <Block bgColor="transparent" padding="0" bgImage={work.image2.ogimg.src} />
         </TwoColRow>
       </Fade>
       <Fade duration={2000}>
-        <Block bgColor="#C9EAEB">
+        <Block bgColor="#C9EAEB" padding="0">
           <WorkRow>
             <Column className="work">
-              <Image src={leafService}/>
-              <HeaderText as="h6" size="30" weight="700" color="#434343">{work.highlightTitle1}</HeaderText>
-              <P color="#293536" dangerouslySetInnerHTML={{ __html: work.highlightParagraph1.childMarkdownRemark.html }}/>
+              <Image src={leafService} />
+              <HeaderText as="h6" size="30" weight="700" color="#434343">
+                {work.highlightTitle1}
+              </HeaderText>
+              <P color="#293536" dangerouslySetInnerHTML={{ __html: work.highlightParagraph1.childMarkdownRemark.html }} />
             </Column>
             <Column>
               <Image src={leafCare} />
-              <HeaderText as="h6"size="30" weight="700" color="#434343">{work.highlightTitle2}</HeaderText>
-              <P color="#293536" dangerouslySetInnerHTML={{ __html: work.highlightParagraph2.childMarkdownRemark.html }} />            </Column>
+              <HeaderText as="h6" size="30" weight="700" color="#434343">
+                {work.highlightTitle2}
+              </HeaderText>
+              <P color="#293536" dangerouslySetInnerHTML={{ __html: work.highlightParagraph2.childMarkdownRemark.html }} />{' '}
+            </Column>
             <Column>
               <Image src={leafEstimates} />
-              <HeaderText as="h6" size="30" weight="700" color="#434343">{work.highlightTitle3}</HeaderText>
-              <P color="#293536" dangerouslySetInnerHTML={{ __html: work.highlightParagraph3.childMarkdownRemark.html }} />            </Column>
+              <HeaderText as="h6" size="30" weight="700" color="#434343">
+                {work.highlightTitle3}
+              </HeaderText>
+              <P color="#293536" dangerouslySetInnerHTML={{ __html: work.highlightParagraph3.childMarkdownRemark.html }} />{' '}
+            </Column>
           </WorkRow>
         </Block>
       </Fade>
@@ -127,31 +196,21 @@ const Woodchips = ( {data } ) => {
         <TestimonialSlider data={testimonials} />
       </Fade>
       <FeaturedBlock bgColor="#394343">
-        <HeaderText padding="5vw 0 5vw 0" align="center" as="h2" size="72" weight="700" color="#FFFFFF">Featured Projects</HeaderText>
+        <HeaderText padding="5vw 0 5vw 0" align="center" as="h2" size="72" weight="700" color="#FFFFFF">
+          Featured Projects
+        </HeaderText>
         <FeaturedRow>
           {work.workImages.map(({ node: image }, index) => {
-                return (
-                  <img src={work.workImages[index].ogimg.src}/>
-                )
-              }
-            )
-          }
+            return <img src={work.workImages[index].ogimg.src} />
+          })}
         </FeaturedRow>
-        <RightToMidLeaf src={pine} />
-        <LeftTopLeaf src={pine2} />
+        <RightLeaf src={pine} />
+        <LeftLeaf src={pine2} />
       </FeaturedBlock>
       <Fade duration={2000}>
-          <Summary
-            bgColor="#9F4300"
-            subhead={summary.subHeaderText}
-            header={summary.headerText}
-            text={summary.paragraphText.childMarkdownRemark.html}
-            bText={summary.buttonText}
-            dest={'/' + summary.buttonDestination}
-          />
-        </Fade>
+        <Summary bgColor="#9F4300" subhead={summary.subHeaderText} header={summary.headerText} text={summary.paragraphText.childMarkdownRemark.html} bText={summary.buttonText} dest={'/' + summary.buttonDestination} />
+      </Fade>
     </Layout>
-  )
 }
 
 export const query = graphql`

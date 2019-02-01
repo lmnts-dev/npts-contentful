@@ -74,7 +74,7 @@ const Careers = ( {data} ) => {
           <HeaderText as="h3" size="38" weight="700" color="#293536">
             Join our crew
           </HeaderText>
-          <HeaderText as="h1" size="100" weight="700" color="#293536">
+          <HeaderText as="h1" padding="1vw 0 0 0" size="100" weight="700" color="#293536">
             Current Openings
           </HeaderText>
         </HeaderBlock>
