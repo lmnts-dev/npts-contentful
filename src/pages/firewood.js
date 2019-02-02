@@ -10,6 +10,7 @@ import { Wrapper, HeaderBlock, Block } from '../components/Block'
 import { TwoColRowWrapper } from '../components/TwoColRow'
 import  Column  from '../components/Column'
 import Button from '../components/Button'
+import ApplyForm from '../components/ApplyForm'
 
 const Row = styled(TwoColRowWrapper)`
     div, h3 {
@@ -20,13 +21,6 @@ const Row = styled(TwoColRowWrapper)`
     }
 `
 
-const Positions = styled.div`
-  .react-reveal:nth-child(even) {
-    div {
-      background-color: #e1f2f8 !important;
-    }
-  }
-`
 
 const Firewood = ( ) => {
   const postNode = {
@@ -49,6 +43,9 @@ const Firewood = ( ) => {
             Apply for free firewood
           </HeaderText>
         </HeaderBlock>
+      </Fade>
+      <Fade duration={2000}>
+        <ApplyForm />
       </Fade>
     </Layout>
   )

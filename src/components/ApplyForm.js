@@ -7,6 +7,7 @@ import Row from '../components/Row'
 import phone from '!svg-react-loader!../images/svg-icons/phone.svg?name=phone'
 import email from '!svg-react-loader!../images/svg-icons/email.svg?name=email'
 import Fade from 'react-reveal/Fade'
+import Block from '../components/Block'
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
@@ -18,9 +19,13 @@ import Fade from 'react-reveal/Fade'
 const TextBlock = styled.div`
   margin-bottom: 20px;
 `
+
+const Inner = styled.div`
+    margin: 0 auto;
+    max-width: 800px;
+`
+
 const Form = styled.form`
-  max-width: ${props => props.theme.sizes.maxWidthCentered};
-  margin: 40px auto 0 auto;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -35,7 +40,8 @@ const Form = styled.form`
     }
     border: none;
     outline: none;
-    background: #363636;
+    background: #212829;
+    letter-spacing: .05em;
     color: #ffffff;
     padding: 23.5px 28px;
     @media (max-width: 600px) {
@@ -75,48 +81,21 @@ const Form = styled.form`
   }
 `
 
-const Phone = styled(phone)`
-  width: 16px;
-  margin-right: 16px;
-  padding: 8px 0;
-  @media (max-width: 1440px) {
-    width: 1.11vw;
-    margin-right: 1.11vw;
-    padding: 0.555vw 0;
-  }
-  @media (max-width: 1260px) {
-    width: 14px;
-    margin-right: 14px;
-    padding: 7px 0;
-  }
-`
-const EmailIcon = styled(email)`
-  width: 16px;
-  margin-right: 16px;
-  padding: 8px 0;
-  @media (max-width: 1440px) {
-    width: 1.11vw;
-    margin-right: 1.11vw;
-    padding: 0.555vw 0;
-  }
-  @media (max-width: 1260px) {
-    width: 14px;
-    margin-right: 14px;
-    padding: 7px 0;
-  }
-`
-
-const Info = styled(Text)`
-  cursor: pointer;
-  text-decoration: none !important;
-`
-
 const Name = styled.input`
   margin-bottom: 10px;
   width: 100%;
 `
 
-const Email = styled.input`
+const Location = styled.input`
+  margin-bottom: 10px;
+  width: 100%;
+`
+
+const PhoneNumber = styled.input`
+  margin-bottom: 10px;
+  width: 100%;
+`
+const Notes = styled.input`
   margin-bottom: 10px;
   width: 100%;
 `
@@ -155,13 +134,11 @@ const Submit = styled.input`
   background-color: #ffffff !important;
   box-shadow: 0 3px 36px rgba(0, 0, 0, 0.16);
 `
-
-const Image = styled.img`
-  position: absolute;
-  left: 20%;
-  top: 20%;
-  width: 60%;
-  height: 60%;
+const Label = styled.label`
+  color: #FFFFFF;
+  margin-top: 10px;
+  line-height: 2;
+  letter-spacing: .05em;
 `
 
 const Modal = styled.div`
@@ -207,8 +184,11 @@ class ContactForm extends React.Component {
     super(props)
     this.state = {
       name: '',
+      number: '',
       email: '',
       message: '',
+      notes: '',
+      location: '',
       showModal: false,
     }
   }
@@ -251,82 +231,88 @@ class ContactForm extends React.Component {
   render() {
     return (
       <Fade cascade duration={2000}>
-        <Form
-          name="contact"
-          onSubmit={this.handleSubmit}
-          data-netlify="true"
-          data-netlify-honeypot="bot"
-          overlay={this.state.showModal}
-          onClick={this.closeModal}
-        >
-          <TextBlock>
-            <HeaderText as="h3" lHeight="2" size="72" color="#FFFFFF">
-              {' '}
-              Let's Talk{' '}
-            </HeaderText>
-            <Row align="center">
-              <Phone />
-              <Info as="a" href="tel:7753760917" size="16" color="#FFFFFF">
-                775.376.0917
-              </Info>
-            </Row>
-            <Row align="center">
-              <EmailIcon />
-              <Info
-                as="a"
-                href="mailto:noahsparktreecare@gmail.com"
-                size="16"
-                color="#FFFFFF"
-              >
-                noahsparktreecare@gmail.com
-              </Info>
-            </Row>
-          </TextBlock>
+            <Form
+            name="contact"
+            onSubmit={this.handleSubmit}
+            data-netlify="true"
+            data-netlify-honeypot="bot"
+            overlay={this.state.showModal}
+            onClick={this.closeModal}
+            >
 
-          <input type="hidden" name="form-name" value="contact" />
-          <p hidden>
-            <label>
-              Don’t fill this out:{' '}
-              <input name="bot" onChange={this.handleInputChange} />
-            </label>
-          </p>
-
-          <Name
-            name="name"
-            type="text"
-            placeholder="Name (required)"
-            value={this.state.name}
-            onChange={this.handleInputChange}
-            required
-          />
-          <Email
-            name="email"
-            type="email"
-            placeholder="Email (required)"
-            value={this.state.email}
-            onChange={this.handleInputChange}
-            required
-          />
-          <Message
-            name="message"
-            type="text"
-            placeholder="What's up?"
-            value={this.state.message}
-            onChange={this.handleInputChange}
-            required
-          />
-          <Submit name="submit" type="submit" value="Send" />
-
-          <Modal visible={this.state.showModal}>
-            <p>
-              Thank you for reaching out. We will get back to you as soon as
-              possible.
+            <input type="hidden" name="form-name" value="contact" />
+            <p hidden>
+                <label>
+                Don’t fill this out:{' '}
+                <input name="bot" onChange={this.handleInputChange} />
+                </label>
             </p>
-            <Button dark to="#" onClick={this.closeModal}>
-              Okay
-            </Button>
-          </Modal>
-        </Form>
+
+            <Block bgColor="#293536">
+              <Inner>
+                <Label for="name">Name</Label>
+                <Name
+                    name="name"
+                    type="text"
+                    placeholder="Name (required)"
+                    value={this.state.name}
+                    onChange={this.handleInputChange}
+                    required
+                />
+                <Label for="location">Drop-off location</Label>
+                <Location
+                    name="location"
+                    type="text"
+                    placeholder="Drop off address (required)"
+                    value={this.state.location}
+                    onChange={this.handleInputChange}
+                    required
+                />
+                <Label for="number">Phone Number</Label>
+                <PhoneNumber
+                    name="number"
+                    type="tel"
+                    placeholder="Phone number (required)"
+                    value={this.state.number}
+                    onChange={this.handleInputChange}
+                    required
+                />
+                <Label for="message">
+                    Please leave a detailed description of where you would like the firewood dropped.
+                    <i>Ex: “Left side of driveway, near the rose bush”</i>
+                </Label>
+                <Message
+                    name="message"
+                    type="text"
+                    placeholder="Description (required)"
+                    value={this.state.message}
+                    onChange={this.handleInputChange}
+                    required
+                />
+                <Label for="notes">Additional notes</Label>
+                <Notes
+                    name="notes"
+                    type="text"
+                    placeholder="Notes"
+                    value={this.state.notes}
+                    onChange={this.handleInputChange}
+                    required
+                />
+                <Submit name="submit" type="submit" value="Apply for free firewood" />
+
+                <Modal visible={this.state.showModal}>
+                    <p>
+                    Thank you for reaching out. We will get back to you as soon as
+                    possible.
+                    </p>
+                    <Button dark to="#" onClick={this.closeModal}>
+                    Okay
+                    </Button>
+                </Modal>
+              </Inner>
+            </Block>
+            </Form>
+        
       </Fade>
     )
   }

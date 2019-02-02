@@ -68,14 +68,14 @@ const Services = ({ data, location }) => {
                       header={service.name}
                       text={service.shortSummary}
                       bText="Learn More"
-                      dest={'/' + service.slug}
+                      dest={'/services/' + service.slug}
                     />
                     <ServiceBlock
                       src={services[index + 1].node.image.ogimg.src}
                       header={services[index + 1].node.name}
                       text={services[index + 1].node.shortSummary}
                       bText="Learn More"
-                      dest={'/' + services[index + 1].node.slug}
+                      dest={'/services/' + services[index + 1].node.slug}
                     />
                   </TwoColRow>
                 )
@@ -87,7 +87,7 @@ const Services = ({ data, location }) => {
                       header={service.name}
                       text={service.shortSummary}
                       bText="Learn More"
-                      dest={'/' + service.slug}
+                      dest={'/services/' + service.slug}
                     />
                   </TwoColRow>
                 )

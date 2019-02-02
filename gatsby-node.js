@@ -199,7 +199,7 @@ exports.createPages = ({ graphql, actions }) => {
       services.map(({ node }) => {
         
         createPage({
-          path: `${node.slug}/`,
+          path: `services/${node.slug}/`,
           component: path.resolve(`./src/templates/service.js`),
           context: {
             slug: node.slug,

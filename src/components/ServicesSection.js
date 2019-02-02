@@ -33,7 +33,7 @@ const Services = props => {
             inlineText={firstService.shortSummary.childMarkdownRemark.html}
             bText="Learn more"
             dest={
-              '/' + firstService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
+              '/services/' + firstService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
             }
             theme="light"
             bgColor="#272929"
@@ -50,7 +50,7 @@ const Services = props => {
             inlineText={secondService.shortSummary.childMarkdownRemark.html}
             bText="Learn more"
             dest={
-              '/' + secondService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
+              '/services/' + secondService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
             }
             theme="dark"
             bgColor="#FFFFFF"
@@ -67,7 +67,7 @@ const Services = props => {
             inlineText={thirdService.shortSummary.childMarkdownRemark.html}
             bText="Learn more"
             dest={
-              '/' + thirdService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
+              '/services/' + thirdService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
             }
             theme="dark"
             bgColor="#C9EAEB"
@@ -83,7 +83,7 @@ const Services = props => {
             inlineText={fourthService.shortSummary.childMarkdownRemark.html}
             bText="Learn more"
             dest={
-              '/' + fourthService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
+              '/services/' + fourthService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
             }
             theme="dark"
             bgColor="#FFFFFF"
@@ -99,7 +99,7 @@ const Services = props => {
             inlineText={fifthService.shortSummary.childMarkdownRemark.html}
             bText="Learn more"
             dest={
-              '/' +
+              '/services/' +
               fifthService.name
                 .replace(')', '')
                 .replace('(', '')
