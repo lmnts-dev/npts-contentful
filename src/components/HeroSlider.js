@@ -18,6 +18,20 @@ import { fadeIn } from '../data/KeyFrames'
 
 /* height is 100vh - body's top padding of 1.8vw */
 
+const H1Text = styled(H1)`
+  @media (max-width: 1000px) {
+    font-size: 40px;
+  }
+  @media (max-width: 600px) {
+    font-size: 36px;
+    max-width: 350px;
+  }
+  @media (max-width: 400px) {
+    font-size: 36px;
+    max-width: 100%;
+  }
+`
+
 const Container = styled.div`
   animation: ${fadeIn} 1s ease-in-out 0s;
   animation-iteration-count: 1;
@@ -91,7 +105,9 @@ const SliderImage = styled(Wrapper)`
   }
 `
 
-const DisclaimerCol = styled(ColumnWrapper)``
+const DisclaimerCol = styled(ColumnWrapper)`
+
+`
 
 const SliderNav = styled(ColumnWrapper)`
   margin: 12px;
@@ -151,6 +167,13 @@ const NavBlock = styled(Wrapper)`
 
 const Disclaimer = styled(Text)`
   margin-top: 5vw;
+  max-width: 475px;
+  @media (max-width: 1440px) {
+    max-width: 36vw;
+  }
+  @media (max-width: 600px) {
+    max-width: 100%;
+  }
   @media (max-width: 450px) {
     font-size: 9px;
   }
@@ -165,7 +188,13 @@ const LocatorRow = styled(RowWrapper)`
 `
 
 const WordsInner = styled.div`
-  max-width: 650px;
+  max-width: 550px;
+  @media( max-width: 1440px){
+    max-width: 39vw;
+  }
+  @media( max-width: 600px ){
+    max-width: 100%;
+  }
 `
 
 
@@ -209,10 +238,14 @@ export default class HomeSlider extends React.Component {
         <TwoColRow bias="left">
           <WordsBlock bgColor="rgba(0, 0, 0, .6)" absolute="left">
             <WordsInner>
-              <H1 color="#FFFFFF">{this.props.data.header}</H1>
+              <H1Text color="#FFFFFF">{this.props.data.header}</H1Text>
               <HeroBorder color="white" width="90%" margin="40px 0" />
-              <P
+              <Text
+                size="38"
+                lHeight="2"
                 color="white"
+                padding="0 0 2vw 0"
+                as="p"
                 dangerouslySetInnerHTML={{
                   __html: this.props.data.paragraphText.childMarkdownRemark
                     .html,

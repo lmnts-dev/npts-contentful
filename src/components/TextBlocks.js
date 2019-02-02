@@ -34,6 +34,15 @@ const Wrapper = styled.div`
     z-index: 2;
     background-color: ${props => props.bgColor || '#000000'};
     padding: 115px 144px;
+    h2, p {
+        max-width: 580px;
+        @media (max-width: 1440px){
+            max-width: 41vw;
+        }
+        @media (max-width: 600px){
+            max-width: 100%;
+        }
+    }
     @media ( max-width: 1440px ){
         padding: 8vw 10vw;
     }
