@@ -108,6 +108,11 @@ const Radio = styled.input`
   margin-right: 40px;
 `
 
+const Email = styled.input`
+  margin-bottom: 20px;
+  width: 100%;
+`
+
 const RadioLabel = styled(P)`
   display: inline-block;
   margin-bottom: 20px;
@@ -119,7 +124,24 @@ const PhoneNumber = styled.input`
   margin-bottom: 20px;
   width: 100%;
 `
+
+const Resume = styled.input`
+  margin-bottom: 20px;
+  width: 100%;
+  padding: 0 !important;
+  color: rgba( 255, 255, 255, .3) !important;
+  background-color: transparent !important;
+  input {
+      padding: transparent;
+  }
+`
+
 const Notes = styled.input`
+  margin-bottom: 40px;
+  width: 100%;
+`
+
+const Reference = styled.input`
   margin-bottom: 40px;
   width: 100%;
 `
@@ -210,10 +232,8 @@ class ContactForm extends React.Component {
       name: '',
       number: '',
       email: '',
-      message: '',
-      notes: '',
-      location: '',
-      radio: '',
+      position: '',
+      reference: '',
       showModal: false,
     }
   }
@@ -272,72 +292,14 @@ class ContactForm extends React.Component {
                 <input name="bot" onChange={this.handleInputChange} />
                 </label>
             </p>
-            <Block bgColor="#272929">
-              <Disclaimer weight="700" color="#FFFFFF">Terms of Firewood Drop</Disclaimer>
-              <ol>
-                <li>
-                  <Disclaimer color="#FFFFFF">
-                    1. IF YOU WANT TO CANCEL, YOU MUST CONFIRM IT WITH NOAHS PARK TREE CARE BEFORE DELIVERY.
-                  </Disclaimer>
-                </li>
-                <li>
-                  <Disclaimer color="#FFFFFF">
-                    2. If you opt out, You won’t get any notice prior to delivery. 
-                  </Disclaimer>
-                </li>
-                <li>
-                  <Disclaimer color="#FFFFFF">
-                    3. Logs will be very large, you’ll need splitting tools and a chainsaw
-                  </Disclaimer>
-                </li>
-                <li>
-                  <Disclaimer color="#FFFFFF">
-                    4. Log drop quantities range from a couple logs to a 15 yard truck full. 
-                  </Disclaimer>
-                </li>
-                <li>
-                  <Disclaimer color="#FFFFFF">
-                    5. We can’t move or remove logs once delivered. 
-                  </Disclaimer>
-                </li>
-                <li>
-                  <Disclaimer color="#FFFFFF">
-                    6. We reserve the right to dump at our convenience, which in some cases may be weeks or months. Feel free to call and remind us, but we dump based on proximity to dump sites, so whatever is closest and takes us least amount of time will usually be get the logs. 
-                  </Disclaimer>
-                </li>
-              </ol>
-              <Border color="#9F4300" width="100%" margin="40px 0" />
-              <Disclaimer color="#FFFFFF">Please indicate you have read and agree to the Terms of Firewood Drop.</Disclaimer>
-              <RadioLabel color="#FFFFFF">I Agree</RadioLabel>
-              <Radio 
-                  type="radio" 
-                  name="disclaimer" 
-                  value="I agree"
-              />
-              <RadioLabel color="#FFFFFF">Cancel</RadioLabel>
-              <Radio 
-                  type="radio" 
-                  name="disclaimer" 
-                  value="Cancel"
-              />
-            </Block>
             <FormBlock bgColor="#293536">
               <Inner>
-                <Label for="name">Name</Label>
+                <Label for="name">Full Name</Label>
                 <Name
                     name="name"
                     type="text"
                     placeholder="Name (required)"
                     value={this.state.name}
-                    onChange={this.handleInputChange}
-                    required
-                />
-                <Label for="location">Drop-off location</Label>
-                <Location
-                    name="location"
-                    type="text"
-                    placeholder="Drop off address (required)"
-                    value={this.state.location}
                     onChange={this.handleInputChange}
                     required
                 />
@@ -350,41 +312,39 @@ class ContactForm extends React.Component {
                     onChange={this.handleInputChange}
                     required
                 />
-                <Label for="message">
-                    Please leave a detailed description of where you would like the firewood dropped.
-                    <i>Ex: “Left side of driveway, near the rose bush”</i>
-                </Label>
-                <Message
-                    name="message"
-                    type="text"
-                    placeholder="Description (required)"
-                    value={this.state.message}
+                <Label for="number">Email</Label>
+                <Email
+                    name="email"
+                    type="email"
+                    placeholder="Email (required)"
+                    value={this.state.email}
                     onChange={this.handleInputChange}
                     required
                 />
-                <Label for="call">Call before delivery?</Label><br />
-                <RadioLabel color="#FFFFFF">Yes</RadioLabel>
-                <Radio 
-                  type="radio" 
-                  name="call" 
-                  value="yes"
-                />
-                <RadioLabel color="#FFFFFF">No</RadioLabel>
-                <Radio 
-                  type="radio" 
-                  name="call" 
-                  value="no"
-                /><br />
-                <Label for="notes">Additional notes</Label>
+                <Label for="position">What position are you applying for?</Label>
                 <Notes
-                    name="notes"
+                    name="position"
                     type="text"
-                    placeholder="Notes"
-                    value={this.state.notes}
+                    value={this.state.position}
                     onChange={this.handleInputChange}
                     required
                 />
-                <Submit name="submit" type="submit" value="Apply for free firewood" />
+                <Label for="reference">Upload your resume (required):</Label>
+                <Resume
+                    name="resume"
+                    type="file"
+                    onChange={this.handleInputChange}
+                    required
+                />
+                <Label for="reference">Where did you hear about this job?</Label> 
+                <Notes
+                    name="reference"
+                    type="text"
+                    value={this.state.reference}
+                    onChange={this.handleInputChange}
+                    required
+                />
+                <Submit name="submit" type="submit" value="Submit Application" />
 
                 <Modal visible={this.state.showModal}>
                     <p>

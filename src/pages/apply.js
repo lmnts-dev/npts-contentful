@@ -10,6 +10,7 @@ import { Wrapper, HeaderBlock, Block } from '../components/Block'
 import { TwoColRowWrapper } from '../components/TwoColRow'
 import  Column  from '../components/Column'
 import Button from '../components/Button'
+import CareersForm from '../components/CareersForm'
 
 const Row = styled(TwoColRowWrapper)`
     div, h3 {
@@ -48,6 +49,9 @@ const Apply = ( ) => {
             Apply
           </HeaderText>
         </HeaderBlock>
+      </Fade>
+      <Fade duration={2000}>
+        <CareersForm />
       </Fade>
     </Layout>
   )

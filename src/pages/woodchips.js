@@ -10,6 +10,7 @@ import { Wrapper, HeaderBlock, Block } from '../components/Block'
 import { TwoColRowWrapper } from '../components/TwoColRow'
 import  Column  from '../components/Column'
 import Button from '../components/Button'
+import ApplyForm from '../components/ApplyForm'
 
 const Woodchips = ( ) => {
   const postNode = {
@@ -31,6 +32,9 @@ const Woodchips = ( ) => {
             Apply for free wood chips
           </HeaderText>
         </HeaderBlock>
+      </Fade>
+      <Fade duration={2000}>
+        <ApplyForm />
       </Fade>
     </Layout>
   )

@@ -83,7 +83,7 @@ const Arrow = styled.img`
   }
 `
 
-const Button = ({ to, hide, arrowButton, dark, children }) => {
+export const Button = ({ to, hide, arrowButton, dark, children }) => {
   if (!arrowButton){
       return (
         <ButtonStyle to={to} hide={hide} arrowButton={arrowButton} dark={dark} cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction}>
