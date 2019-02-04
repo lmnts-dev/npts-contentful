@@ -34,7 +34,7 @@ const Apply = ( ) => {
     title: `Apply - ${config.siteTitle}`,
   }
   return (
-    <Layout noFooter>
+    <Layout>
       <Helmet>
         <title>{`Apply - ${config.siteTitle}`}</title>
       </Helmet>

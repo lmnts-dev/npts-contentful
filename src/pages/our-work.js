@@ -129,7 +129,7 @@ const Work = ( {data } ) => {
       title: `Our Work - ${config.siteTitle}`,
     }
 
-  return <Layout noFooter>
+  return <Layout>
       <Helmet>
         <title>{`Our Work - ${config.siteTitle}`}</title>
       </Helmet>

@@ -62,7 +62,7 @@ const Careers = ( {data} ) => {
       title: `Careers - ${config.siteTitle}`,
     }
   return (
-    <Layout noFooter>
+    <Layout>
     <Helmet>
       <title>{`Careers - ${config.siteTitle}`}</title>
     </Helmet>

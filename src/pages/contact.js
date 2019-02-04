@@ -34,7 +34,7 @@ const LetsTalk = ( location ) => {
   }
 
   return (
-    <Layout noFooter>
+    <Layout altFooter>
       <Helmet>
         <title>{`Contact - ${config.siteTitle}`}</title>
       </Helmet>

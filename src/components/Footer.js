@@ -9,6 +9,7 @@ import { Wrapper } from '../components/Block'
 import { H1, H2, H3, P, PLarge, Text, HeaderText } from '../components/Headings'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Fade from 'react-reveal/Fade'
+import { LargeTextBlock } from './TextBlocks'
 
 const FooterLinks = styled(RowWrapper)`
   @media (max-width: 750px) {
@@ -24,7 +25,7 @@ const FooterLinks = styled(RowWrapper)`
 const TwoColRow = styled(TwoColRowWrapper)`
   @media (max-width: 750px) {
     flex-direction: ${props => (props.reverse ? 'column' : 'column-reverse')};
-    div {
+    div:first-of-type {
       margin: 0 auto;
     }
   }
@@ -149,9 +150,21 @@ const Footer = props => (
       </CopyWright>
     </Column>
     <Fade duration={2000}>
-      <Block pushUp bgColor="#272929">
-        <Contact noExit={props.noExit} />
-      </Block>
+      {props.alt ? (
+          <LargeTextBlock
+            header="Our Work"
+            inlineText=" Learn more about our values, review some testimonials and look through our portfolio."
+            bText="Learn more"
+            dest="/our-work"
+            theme="light"
+            bgColor="#9F4300"
+            pushUp
+          />
+      ) : (
+        <Block pushUp bgColor="#272929">
+          <Contact noExit={props.noExit} />
+        </Block>
+      )}
     </Fade>
   </TwoColRow>
 )

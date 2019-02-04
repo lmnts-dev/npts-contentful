@@ -29,7 +29,7 @@ const Line = styled(HeaderLine)`
     }
 `
 
-const Wrapper = styled.div`
+export const TextWrapper = styled.div`
     position: relative;
     z-index: 2;
     background-color: ${props => props.bgColor || '#000000'};
@@ -94,7 +94,7 @@ const Wrapper = styled.div`
 export const TextBlock = props => {
     if (props.theme === "light"){
         return (
-        <Wrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
+        <TextWrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
             <Line direction={props.line} color="#FFFFFF">
               <H2 color="#FFFFFF">{props.header}</H2>
             </Line>
@@ -104,31 +104,27 @@ export const TextBlock = props => {
             <Button hide={props.hideButton} to={props.dest}>
               {props.bText}
             </Button>
-          </Wrapper>
+            </TextWrapper>
         )
     }
     else {
-        return (
-            <Wrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
-                <Line direction={props.line} color="#293536" >
-                    <H2 color="#293536">
-                        {props.header}
-                    </H2>
-                </Line>
-                <P color="#293536" dangerouslySetInnerHTML={{ __html: props.inlineText }}>
-                    {props.text} 
-                </P>
-                <Button hide={props.hideButton} to={props.dest} dark>
-                    {props.bText}
-                </Button>
-            </Wrapper>
-        )
+        return <TextWrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
+            <Line direction={props.line} color="#293536">
+              <H2 color="#293536">{props.header}</H2>
+            </Line>
+            <P color="#293536" dangerouslySetInnerHTML={{ __html: props.inlineText }}>
+              {props.text}
+            </P>
+            <Button hide={props.hideButton} to={props.dest} dark>
+              {props.bText}
+            </Button>
+          </TextWrapper>
     }
 }
 
 export const LargeTextBlock = props => {
     if (props.theme === "light"){
-        return <Wrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
+        return <TextWrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
             <Line direction={props.line} color="#FFFFFF">
               <H3 color="#FFFFFF">{props.header}</H3>
             </Line>
@@ -138,24 +134,20 @@ export const LargeTextBlock = props => {
             <Button hide={props.hideButton} to={props.dest} arrowButton>
               {props.bText}
             </Button>
-          </Wrapper>
+        </TextWrapper>
     }
     else {
-        return (
-            <Wrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
-                <Line direction={props.line} color="#293536" >
-                    <H3 color="#293536">
-                        {props.header}
-                    </H3>
-                </Line>
-                <PLarge color="#293536" dangerouslySetInnerHTML={{ __html: props.inlineText }}>
-                    {props.text} 
-                </PLarge>
-                <Button hide={props.hideButton} to={props.dest} dark arrowButton>
-                    {props.bText}
-                </Button>
-            </Wrapper>
-        )
+        return <TextWrapper bgColor={props.bgColor} pushUp={props.pushUp} pushLeft={props.pushLeft} padding={props.padding}>
+            <Line direction={props.line} color="#293536">
+              <H3 color="#293536">{props.header}</H3>
+            </Line>
+            <PLarge color="#293536" dangerouslySetInnerHTML={{ __html: props.inlineText }}>
+              {props.text}
+            </PLarge>
+            <Button hide={props.hideButton} to={props.dest} dark arrowButton>
+              {props.bText}
+            </Button>
+          </TextWrapper>
     }
 
 }

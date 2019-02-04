@@ -27,7 +27,7 @@ const Firewood = ( ) => {
     title: `Free Firewood - ${config.siteTitle}`,
   }
   return (
-    <Layout noFooter>
+    <Layout>
       <Helmet>
         <title>{`Free Firewood - ${config.siteTitle}`}</title>
       </Helmet>

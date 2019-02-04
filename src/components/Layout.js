@@ -32,10 +32,10 @@ class Layout extends React.Component {
             
             {children}
 
-            {!children.noFooter ? (
-                  <Footer />
+            {this.props.altFooter? (
+              <Footer alt />
                 ) : (
-                  ''
+              <Footer />
             )}
           </div>
         </ThemeProvider>
