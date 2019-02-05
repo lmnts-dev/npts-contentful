@@ -5,9 +5,6 @@ import { TextBlock } from '../components/TextBlocks'
 import { Divider } from '../components/Lines'
 import Column from '../components/Column'
 import styled from 'styled-components'
-import leaf from "../images/leafTestimonial.png"
-import IntroImage from "../images/intro.jpg"
-import { RightToMidLeaf } from '../components/Leaves'
 import Fade from 'react-reveal/Fade'
 
 const Block = styled(Wrapper)`
@@ -26,10 +23,8 @@ const IntroBlocks = props => {
                         <TextBlock line="left" header={data.headerText1} inlineText={data.paragraphText1.childMarkdownRemark.html} bText={data.buttonText1} dest={"/" + data.buttonDestination1} theme="dark" bgColor="white"/>
                         <TextBlock header={data.headerText2} inlineText={data.paragraphText2.childMarkdownRemark.html} bText={data.buttonText2} dest={"/" + data.buttonDestination2} theme="light" bgColor="#394343" pushLeft/>
                     </Column>
-                <RightToMidLeaf src={leaf}/>
                 </TwoColRow>
             </Fade>
-            <Divider />
         </div>
     )
 }

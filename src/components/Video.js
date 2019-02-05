@@ -3,8 +3,29 @@ import ReactPlayer from 'react-player'
 import { RowWrapper } from '../components/Row'
 import styled from 'styled-components'
 import { H2, P } from '../components/Headings'
+import leaf from '../images/leafTestimonial.png'
+import { RightToMidLeaf } from '../components/Leaves'
+import { Divider } from '../components/Lines'
  
+
+const RightLeaf = styled(RightToMidLeaf)`
+  bottom: auto;
+  top: -37%;
+  @media (max-width: 1000px) {
+    top: -20%;
+    right: -12%;
+  }
+  @media (max-width: 600px) {
+    height: 200px;
+    top: -20%;
+    bottom: auto;
+    right: -10%;
+    left: auto;
+  }
+`
+
 const Row = styled(RowWrapper)`
+  position: relative;
   div:first-of-type {
     height: 675px !important;
     width: 1200px !important;
@@ -65,20 +86,26 @@ const Block = styled.div`
 
 export default class App extends Component {
   render () {
-      return <Row>
-          <ReactPlayer url="https://www.dropbox.com/s/c2dswh5v23q7g24/NPTC_proof2.mp4?dl=0" loop height="33.75vw" width="60vw" controls />
-          <Block bgColor="#9F4300">
-            <Holder>
-              <H2 color="#FFFFFF">
-                The reel deal, see our process in action
-              </H2>
-              <P color="#FFFFFF">
-                Watch a pine tree taller than 100ft get removed quickly and
-                safely. Plus, you’ll get a couple slow-mo chain saw shots in
-                there too.
-              </P>
-          </Holder>
-          </Block>
-        </Row>
+      return (
+      <div>
+          <Divider />
+            <Row>
+                <ReactPlayer url="https://www.dropbox.com/s/c2dswh5v23q7g24/NPTC_proof2.mp4?dl=0" loop height="33.75vw" width="60vw" controls />
+                <Block bgColor="#9F4300">
+                  <Holder>
+                    <H2 color="#FFFFFF">
+                      The reel deal, see our process in action
+                    </H2>
+                    <P color="#FFFFFF">
+                      Watch a pine tree taller than 100ft get removed quickly and
+                      safely. Plus, you’ll get a couple slow-mo chain saw shots in
+                      there too.
+                    </P>
+                </Holder>
+                </Block>
+                <RightLeaf src={leaf}/>
+              </Row>
+        </div>
+      )
   }
 }
