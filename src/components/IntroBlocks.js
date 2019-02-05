@@ -25,6 +25,7 @@ const IntroBlocks = props => {
                     </Column>
                 </TwoColRow>
             </Fade>
+
         </div>
     )
 }

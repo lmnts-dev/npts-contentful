@@ -124,9 +124,9 @@ class MenuModal extends Component {
   render() {
     // the modal you will toggle on and off
     const modal = (
-      <Block bgColor="#272929" onClick={this.handleClick}>
+      <Block bgColor="#272929" >
         <Exit>
-          <Image src={exit} />
+          <Image src={exit} onClick={this.handleClick}/>
         </Exit>
         <Center>
           <Column align="center" justify="center">
