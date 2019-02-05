@@ -27,24 +27,29 @@ const TwoColRow = styled(TwoColRowWrapper)`
     flex-direction: ${props => (props.reverse ? 'column' : 'column-reverse')};
     div:first-of-type {
       margin: 0 auto;
+      div {
+        margin: 0 auto 40px auto;
+      }
     }
   }
 `
 
 const CopyWright = styled(Text)`
-  position: absolute;
-  bottom: 50px;
-  left: 144px;
+  position: relative;
   margin-top: 40px;
   font-size: 12px;
+  flex: 1;
   @media (max-width: 1440px) {
-    left: 10vw;
   }
   @media (max-width: 750px) {
-    left: 0;
-    right: 0;
-    bottom: 25px;
     text-align: center;
+  }
+`
+
+const MainInfo = styled.div`
+  flex-grow: 20 !important;
+  @media (max-width: 750px) {
+    margin-bottom: 0 !important;
   }
 `
 
@@ -60,12 +65,16 @@ const Logo = styled(StackedLogo)`
   }
 `
 const Column = styled(ColumnWrapper)`
-  padding: 100px 0 100px 144px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 100px 0 0 144px;
   @media (max-width: 1440px) {
-    padding: 5vw 0 5vw 10vw;
+    padding: 5vw 0 0 10vw;
   }
   @media (max-width: 750px) {
-    padding: 75px 25px 100px 25px;
+    padding: 75px 25px 0 25px;
     align-items: center;
   }
 `
@@ -116,50 +125,48 @@ const Item = styled(AniLink)`
 
 const Footer = props => (
   <TwoColRow as="footer">
-    <Column justify="flex-start">
-      <Fade duration={2000}>
-        <Logo />
-      </Fade>
-      <FooterLinks>
-        <Fade cascade duration={2000}>
-          <div>
-            <Item to="/">Home</Item>
-            <Item to="/services">Services</Item>
-            <Item to="/about">About</Item>
-          </div>
-        </Fade>
-        <Fade cascade duration={2000}>
-          <div>
-            <Item last to="/our-work">
-              Our Work
-            </Item>
-            <Item last to="/firewood">
-              Firewood
-            </Item>
-            <Item last to="/woodchips">
-              Chip Drop
-            </Item>
-            <Item last to="/careers">
-              Careers
-            </Item>
-          </div>
-        </Fade>
-      </FooterLinks>
-      <CopyWright color="#343434">
-        © {new Date().getFullYear()} Noah's Park Tree Care
-      </CopyWright>
-    </Column>
+    <Fade cascade duration={2000}>
+      <Column justify="flex-start">
+        <MainInfo>
+          <Logo />
+          <FooterLinks>
+            <div>
+              <Item to="/">Home</Item>
+              <Item to="/services">Services</Item>
+              <Item to="/about">About</Item>
+            </div>
+            <div>
+              <Item last to="/our-work">
+                Our Work
+              </Item>
+              <Item last to="/firewood">
+                Firewood
+              </Item>
+              <Item last to="/woodchips">
+                Chip Drop
+              </Item>
+              <Item last to="/careers">
+                Careers
+              </Item>
+            </div>
+          </FooterLinks>
+        </MainInfo>
+        <CopyWright color="#343434">
+          © {new Date().getFullYear()} Noah's Park Tree Care
+        </CopyWright>
+      </Column>
+    </Fade>
     <Fade duration={2000}>
       {props.alt ? (
-          <LargeTextBlock
-            header="Our Work"
-            inlineText=" Learn more about our values, review some testimonials and look through our portfolio."
-            bText="Learn more"
-            dest="/our-work"
-            theme="light"
-            bgColor="#9F4300"
-            pushUp
-          />
+        <LargeTextBlock
+          header="Our Work"
+          inlineText=" Learn more about our values, review some testimonials and look through our portfolio."
+          bText="Learn more"
+          dest="/our-work"
+          theme="light"
+          bgColor="#9F4300"
+          pushUp
+        />
       ) : (
         <Block pushUp bgColor="#272929">
           <Contact noExit={props.noExit} />
