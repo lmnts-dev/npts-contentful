@@ -23,7 +23,7 @@ const Row = styled(TwoColRowWrapper)`
 
 
 const Firewood = ({ data }) => {
-  const disclaimer = data.allContentfulDisclaimers.edges[0].node.firewoodDropDisclaimer.childMarkdownRemark.html 
+  const disclaimer = data.allContentfulFirewood.edges[0].node.firewoodDropDisclaimer.childMarkdownRemark.html 
   const postNode = {
     title: `Free Firewood - ${config.siteTitle}`,
   }
@@ -54,16 +54,10 @@ const Firewood = ({ data }) => {
 
 export const query = graphql`
   query {
-    allContentfulDisclaimers {
+    allContentfulFirewood {
       edges {
         node {
           firewoodDropDisclaimer {
-            childMarkdownRemark {
-              html
-              excerpt(pruneLength: 320)
-            }
-          }
-          woodchipDropDisclaimer {
             childMarkdownRemark {
               html
               excerpt(pruneLength: 320)

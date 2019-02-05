@@ -44,6 +44,7 @@ const Success = ({ data } ) => {
       </Fade>
       <Fade duration={2000}>
         <Summary
+          noLeaf
           bgColor="#394343"
           header={identity.headerText}
           text={identity.paragraphText.childMarkdownRemark.html}

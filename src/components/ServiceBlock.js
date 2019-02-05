@@ -54,17 +54,17 @@ const ServiceBlock = props => (
         <Fade big cascade when={true}>
             <Column>
                 <Fade big cascade when={true}>
-                    <a href={props.dest} cover>
+                    <a href={props.dest}>
                         <Header as="h2" weight="700">
                             {props.header}
                         </Header>
                     </a>
                 </Fade>
-                <Link href={props.dest} cover>
+                <Link href={props.dest}>
                     <Image padding="0" bgImage={props.src}/>
                 </Link>
                 <Text color="#293536" dangerouslySetInnerHTML={{ __html: props.text.childMarkdownRemark.html }}/>
-                <Button arrowButton dark href={props.dest}>
+                <Button arrowButton dark to={props.dest}>
                     {props.bText}
                 </Button>
             </Column>

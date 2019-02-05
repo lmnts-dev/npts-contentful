@@ -164,7 +164,6 @@ class Menu extends React.Component {
         <LogoLink
           to="/"
           activeStyle={this.activeLinkStyle}
-          animDuration={this.fadeInDuration + this.fadeInIncrement * 1 + 's'}
         >
           <Logo />
         </LogoLink>
@@ -173,9 +172,6 @@ class Menu extends React.Component {
             <NavLink
               to="/services"
               activeStyle={this.activeLinkStyle}
-              animDuration={
-                this.fadeInDuration + this.fadeInIncrement * 2 + 's'
-              }
             >
               Services
             </NavLink>
@@ -184,9 +180,6 @@ class Menu extends React.Component {
             <NavLink
               to="/about"
               activeStyle={this.activeLinkStyle}
-              animDuration={
-                this.fadeInDuration + this.fadeInIncrement * 3 + 's'
-              }
             >
               About
             </NavLink>
@@ -195,9 +188,6 @@ class Menu extends React.Component {
             <NavLink
               to="/contact"
               activeStyle={this.activeLinkStyle}
-              animDuration={
-                this.fadeInDuration + this.fadeInIncrement * 3 + 's'
-              }
             >
               Let's Talk
             </NavLink>
@@ -207,9 +197,6 @@ class Menu extends React.Component {
               divider
               href="tel:7753760917"
               activeStyle={this.activeLinkStyle}
-              animDuration={
-                this.fadeInDuration + this.fadeInIncrement * 5 + 's'
-              }
             >
               775.376.0917
             </NavButton>
