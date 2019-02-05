@@ -7,6 +7,8 @@ import { ColumnWrapper } from '../components/Column'
 import Planting from '../images/planting.jpg'
 import { Wrapper } from '../components/Block'
 import Fade from 'react-reveal/Fade';
+import AniLink from "gatsby-plugin-transition-link/AniLink";
+import * as lmnts from '../data/Styles'
 
 const Text = styled(PLarge)`
     margin-bottom: 0;
@@ -29,6 +31,14 @@ const Image = styled(Wrapper)`
     }
     min-height: 300px;
 `
+const Link = styled(AniLink)`
+  height: 500px;
+  width: 100%;
+  @media (max-width: 2000px) {
+    height: 25vw;
+  }
+  min-height: 300px;
+`
 
 const Column = styled(ColumnWrapper)`
   margin: 160px 10px 0px 10px;
@@ -45,11 +55,15 @@ const ServiceBlock = props => (
         <Fade big cascade when={true}>
             <Column>
                 <Fade big cascade when={true}>
-                    <Header as="h2" weight="700">
-                        {props.header}
-                    </Header>
+                    <AniLink to={props.dest} cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction}>
+                        <Header as="h2" weight="700">
+                            {props.header}
+                        </Header>
+                    </AniLink>
                 </Fade>
-                <Image padding="0" bgImage={props.src} />
+                <Link to={props.dest} cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction}>
+                    <Image padding="0" bgImage={props.src}/>
+                </Link>
                 <Text color="#293536" dangerouslySetInnerHTML={{ __html: props.text.childMarkdownRemark.html }}/>
                 <Button arrowButton dark to={props.dest}>
                     {props.bText}

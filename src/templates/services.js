@@ -62,22 +62,22 @@ const Services = ({ data, location }) => {
             {services.map(({ node: service }, index) => {
               if (index % 2 === 0 && index + 1 !== services.length)
                 return (
-                  <TwoColRow key={index + ""}>
-                    <ServiceBlock
-                      src={service.image.ogimg.src}
-                      header={service.name}
-                      text={service.shortSummary}
-                      bText="Learn More"
-                      dest={'/services/' + service.slug}
-                    />
-                    <ServiceBlock
-                      src={services[index + 1].node.image.ogimg.src}
-                      header={services[index + 1].node.name}
-                      text={services[index + 1].node.shortSummary}
-                      bText="Learn More"
-                      dest={'/services/' + services[index + 1].node.slug}
-                    />
-                  </TwoColRow>
+                    <TwoColRow key={index + ""}>
+                      <ServiceBlock
+                        src={service.image.ogimg.src}
+                        header={service.name}
+                        text={service.shortSummary}
+                        bText="Learn More"
+                        dest={'/services/' + service.slug}
+                      />
+                      <ServiceBlock
+                        src={services[index + 1].node.image.ogimg.src}
+                        header={services[index + 1].node.name}
+                        text={services[index + 1].node.shortSummary}
+                        bText="Learn More"
+                        dest={'/services/' + services[index + 1].node.slug}
+                      />
+                    </TwoColRow>
                 )
               if (index % 2 === 0 && index + 1 === services.length)
                 return (
