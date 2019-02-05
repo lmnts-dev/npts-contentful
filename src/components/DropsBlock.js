@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Wrapper } from '../components/Block'
-import { RowWrapper } from '../components/Row'
-import Column from '../components/Column'
-import Button from '../components/Button'
-import { PLarge, HeaderText } from '../components/Headings'
+import { Wrapper } from './Block'
+import { RowWrapper } from './Row'
+import Column from './Column'
+import Button from './Button'
+import { PLarge, HeaderText } from './Headings'
 import chip from '../images/chip.png'
 
 
@@ -46,7 +46,7 @@ const Row = styled(RowWrapper)`
   }
 `
 
-const FirewoodBlock = props => {
+const DropsBlock = props => {
       return (  
         <Block bgColor="#9DD5EA">
           <Column align="center">
@@ -68,4 +68,4 @@ const FirewoodBlock = props => {
     )
   }
 
-export default FirewoodBlock
+export default DropsBlock

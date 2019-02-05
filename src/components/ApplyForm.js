@@ -318,7 +318,7 @@ class ContactForm extends React.Component {
             </p>
           <FormBlock bgColor="#293536">
             <Inner>
-              <Label for="name">Name</Label>
+              <Label htmlFor="name">Name</Label>
               <Name
                 name="name"
                 type="text"
@@ -327,7 +327,7 @@ class ContactForm extends React.Component {
                 onChange={this.handleInputChange}
                 required
               />
-              <Label for="location">Drop-off location</Label>
+              <Label htmlFor="location">Drop-off location</Label>
               <Location
                 name="location"
                 type="text"
@@ -336,7 +336,7 @@ class ContactForm extends React.Component {
                 onChange={this.handleInputChange}
                 required
               />
-              <Label for="number">Phone Number</Label>
+              <Label htmlFor="number">Phone Number</Label>
               <PhoneNumber
                 name="number"
                 type="tel"
@@ -345,7 +345,7 @@ class ContactForm extends React.Component {
                 onChange={this.handleInputChange}
                 required
               />
-              <Label for="message">
+              <Label htmlFor="message">
                 Please leave a detailed description of where you would like the {this.props.type.toLowerCase()} dropped.
                     <i>Ex: “Left side of driveway, near the rose bush”</i>
               </Label>
@@ -357,7 +357,7 @@ class ContactForm extends React.Component {
                 onChange={this.handleInputChange}
                 required
               />
-              <Label for="call">Call before delivery?</Label><br />
+              <Label htmlFor="call">Call before delivery?</Label><br />
               <RadioLabel color="#FFFFFF">Yes</RadioLabel>
               <Radio
                 type="radio"
@@ -370,7 +370,7 @@ class ContactForm extends React.Component {
                 name="call"
                 value="no"
               /><br />
-              <Label for="notes">Additional notes</Label>
+              <Label htmlFor="notes">Additional notes</Label>
               <Notes
                 name="notes"
                 type="text"
@@ -388,15 +388,15 @@ class ContactForm extends React.Component {
                   <Border color="#9F4300" width="100%" margin="40px 0" />
                   <Disclaimer color="#FFFFFF">Please indicate you have read and agree to the Terms of the {this.props.type} Drop.</Disclaimer>
                   
-                  <RadioLabel as="label" color="#FFFFFF">I Agree
+                  <RadioLabel as="label" htmlFor="disclaimer" color="#FFFFFF">I Agree
                     <Radio 
                         type="radio" 
                         name="disclaimer" 
                         value="I agree"
                     />
                   <RadioStyle />
-              </RadioLabel>
-                  <RadioLabel color="#FFFFFF">Cancel
+                  </RadioLabel>
+                  <RadioLabel as="label" htmlFor="disclaimer" color="#FFFFFF">Cancel
                     <Radio 
                         type="radio" 
                         name="disclaimer" 

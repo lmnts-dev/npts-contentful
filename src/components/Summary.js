@@ -8,7 +8,8 @@ import Leaf from "../images/leafSummary.png"
 import { LeftLeaf } from '../components/Leaves'
 
 const SummaryLeaf = styled(LeftLeaf)`
-  @media (max-width: 750px){
+  display: ${props => (props.noLeaf ? 'none' : 'block')};
+  @media (max-width: 750px) {
     bottom: 0;
   }
 `
@@ -53,7 +54,7 @@ const Summary = props => (
                   {props.bText}
                 </Button>
             </Column>
-            <SummaryLeaf src={Leaf} alt="leaf"/>
+            <SummaryLeaf noLeaf={props.noLeaf} src={Leaf} alt="leaf"/>
         </Block>
     )
 export default Summary

@@ -2,13 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import StackedLogo from '!svg-react-loader!../images/svg-icons/logoStacked.svg?name=logoStacked'
 import Contact from '../components/ContactForm'
-import { Row, RowWrapper } from '../components/Row'
+import { RowWrapper } from '../components/Row'
 import { TwoColRowWrapper } from '../components/TwoColRow'
 import { ColumnWrapper } from '../components/Column'
 import { Wrapper } from '../components/Block'
-import { H1, H2, H3, P, PLarge, Text, HeaderText } from '../components/Headings'
+import { Text } from '../components/Headings'
 import Fade from 'react-reveal/Fade'
 import { LargeTextBlock } from './TextBlocks'
+import { Link } from 'gatsby'
 
 const FooterLinks = styled(RowWrapper)`
   @media (max-width: 750px) {
@@ -92,7 +93,7 @@ const Block = styled(Wrapper)`
   }
 `
 
-const Item = styled.a`
+const Item = styled(Link)`
   font-size: 28px;
   @media (max-width: 1440px) {
     font-size: 1.94vw;
@@ -130,21 +131,21 @@ const Footer = props => (
           <Logo />
           <FooterLinks>
             <div>
-              <Item href="/">Home</Item>
-              <Item href="/services">Services</Item>
-              <Item href="/about">About</Item>
+              <Item to="/">Home</Item>
+              <Item to="/services">Services</Item>
+              <Item to="/about">About</Item>
             </div>
             <div>
-              <Item last href="/our-work">
+              <Item last to="/our-work">
                 Our Work
               </Item>
-              <Item last href="/firewood">
+              <Item last to="/firewood">
                 Firewood
               </Item>
-              <Item last href="/woodchips">
+              <Item last to="/woodchips">
                 Chip Drop
               </Item>
-              <Item last href="/careers">
+              <Item last to="/careers">
                 Careers
               </Item>
             </div>

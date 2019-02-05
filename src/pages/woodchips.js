@@ -43,16 +43,10 @@ const Woodchips = ({data} ) => {
 
 export const query = graphql`
   query {
-    allContentfulDisclaimers {
+    allContentfulWoodchips {
       edges {
         node {
-          firewoodDropDisclaimer {
-            childMarkdownRemark {
-              html
-              excerpt(pruneLength: 320)
-            }
-          }
-          woodchipDropDisclaimer {
+          woodchipsDropDisclaimer {
             childMarkdownRemark {
               html
               excerpt(pruneLength: 320)

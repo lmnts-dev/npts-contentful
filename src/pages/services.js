@@ -10,7 +10,7 @@ import { Wrapper, HeaderBlock } from '../components/Block'
 import { TwoColRowWrapper } from '../components/TwoColRow'
 import ServiceBlock from '../components/ServiceBlock'
 import { HeaderText } from '../components/Headings'
-import FirewoodBlock from '../components/FirewoodBlock'
+import DropsBlock from '../components/DropsBlock'
 import Layout from '../components/Layout'
 import Fade from 'react-reveal/Fade'
 
@@ -32,7 +32,7 @@ const ServiceList = styled(Wrapper)`
 
 const Services = ({ data, location }) => {
   const services = data.allContentfulService.edges.reverse()
-  const firewood = data.allContentfulFirewood.edges[0].node
+  const drops = data.allContentfulDrops.edges[0].node
   const identity = data.allContentfulIdentity.edges[0].node
   const postNode = {
     title: `Services - ${config.siteTitle}`,
@@ -96,9 +96,9 @@ const Services = ({ data, location }) => {
         </Fade>
 
         <Fade duration={2000}>
-          <FirewoodBlock
-            header={firewood.headerText}
-            text={firewood.paragraphText.childMarkdownRemark.html}
+          <DropsBlock
+            header={drops.headerText}
+            text={drops.paragraphText.childMarkdownRemark.html}
           />
         </Fade>
 
@@ -149,7 +149,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulFirewood {
+    allContentfulDrops {
       edges {
         node {
           headerText

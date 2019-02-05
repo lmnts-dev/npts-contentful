@@ -9,7 +9,7 @@ import Summary from '../components/Summary'
 import { Wrapper, HeaderBlock } from '../components/Block'
 import styled from 'styled-components'
 import { PLarge, HeaderText } from '../components/Headings'
-import FirewoodBlock from '../components/FirewoodBlock'
+import DropsBlock from '../components/DropsBlock'
 import Fade from 'react-reveal/Fade'
 
 const Block = styled(Wrapper)`
@@ -24,10 +24,9 @@ const Block = styled(Wrapper)`
 
 const ServiceTemplate = ({ data, pageContext, location }) => {
   const { name, fullDescription } = data.contentfulService
-  const firewood = data.allContentfulFirewood.edges[0].node
+  const drops = data.allContentfulDrops.edges[0].node
   const summary = data.allContentfulSummary.edges[0].node
   const color = pageContext.index;
-  console.log( color);
 
   return (
     <Layout location={location}>
@@ -65,9 +64,9 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
         </Fade>
 
         <Fade duration={2000}>
-          <FirewoodBlock
-            header={firewood.headerText}
-            text={firewood.paragraphText.childMarkdownRemark.html}
+          <DropsBlock
+            header={drops.headerText}
+            text={drops.paragraphText.childMarkdownRemark.html}
           />
         </Fade>
         <Fade duration={2000}>
@@ -114,7 +113,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulFirewood(limit: 10, skip: 0) {
+    allContentfulDrops(limit: 10, skip: 0) {
       edges {
         node {
           headerText
