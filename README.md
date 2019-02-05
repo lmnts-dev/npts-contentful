@@ -33,12 +33,12 @@ npm i
 
 ## Local Development
 ```
-gatsby develop
+npm run develop
 ```
 
 ## Local Build Test
 ```
-gatsby build
+npm run build
 ```
 
 ## Deploy to Production
