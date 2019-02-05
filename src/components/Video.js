@@ -37,8 +37,8 @@ const Row = styled(RowWrapper)`
   @media (max-width: 1000px){
     flex-direction: column-reverse;
     div:first-of-type {
-      width: 96vw !important;
-      height: 54vw !important;
+      width: 96.4vw !important;
+      height: 54.225vw !important;
     }
   }
 `
@@ -52,9 +52,9 @@ const Block = styled.div`
 
   padding: 0 120px;
   height: 675px;
-  width: 720px;
+  width: 728px;
   @media (max-width: 2000px) {
-    width: 36vw;
+    width: 36.4vw;
 
     height: 33.75vw;
     padding: 0 6vw;
