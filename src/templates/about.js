@@ -15,10 +15,10 @@ import { RightLeaf } from '../components/Leaves'
 import Layout from '../components/Layout'
 import Fade from 'react-reveal/Fade'
 
-const Leaves = styled(RightLeaf)`
-  bottom: -10%;
+const AboutLeaf = styled(RightLeaf)`
+  top: -20%;
   @media (max-width: 600px) {
-    bottom: -7%;
+    top: -7%;
   }
 `
 
@@ -72,7 +72,6 @@ const About = ({ data, location }) => {
                 }}
               />
             </MainBlock>
-            <Leaves src={Leaf} />
           </TwoColRow>
         </Fade>
         <Fade duration={2000}>
@@ -86,6 +85,7 @@ const About = ({ data, location }) => {
               bgColor="#C9EAEB"
             />
             <Block padding="0" bgImage={about.image2.ogimg.src} />
+            <AboutLeaf src={Leaf} />
           </TwoColRow>
         </Fade>
       </Container>

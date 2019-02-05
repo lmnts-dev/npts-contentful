@@ -7,6 +7,12 @@ import Button from '../components/Button'
 import Leaf from "../images/leafSummary.png"
 import { LeftLeaf } from '../components/Leaves'
 
+const SummaryLeaf = styled(LeftLeaf)`
+  @media (max-width: 740px){
+    bottom: 0;
+  }
+`
+
 const Block = styled(Wrapper)`
   padding: 100px 288px;
   div {
@@ -47,7 +53,7 @@ const Summary = props => (
                   {props.bText}
                 </Button>
             </Column>
-            <LeftLeaf src={Leaf} alt="leaf"/>
+            <SummaryLeaf src={Leaf} alt="leaf"/>
         </Block>
     )
 export default Summary

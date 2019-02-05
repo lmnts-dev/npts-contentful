@@ -31,7 +31,7 @@ const LeftLeaf = styled(LeftTopLeaf)`
 
 const RightLeaf = styled(RightToMidLeaf)`
   right: -2%;
-  bottom: -5%;
+  bottom: 0;
   @media (max-width: 1100px) {
     right: -5%;
   }
@@ -40,6 +40,7 @@ const RightLeaf = styled(RightToMidLeaf)`
     height: 22vw;
   }
   @media (max-width: 600px) {
+    bottom: 0;
     height: 150px;
     left: auto;
     right: -10%;
@@ -194,18 +195,20 @@ const Work = ( {data } ) => {
       <Fade duration={2000}>
         <TestimonialSlider data={testimonials} />
       </Fade>
-      <FeaturedBlock bgColor="#394343">
-        <HeaderText padding="5vw 0 5vw 0" align="center" as="h2" size="72" weight="700" color="#FFFFFF">
-          Featured Projects
-        </HeaderText>
-        <FeaturedRow>
-          {work.workImages.map(({ node: image }, index) => {
-            return <img key={index + ""} src={work.workImages[index].ogimg.src} />
-          })}
-        </FeaturedRow>
-        <RightLeaf src={pine} />
-        <LeftLeaf src={pine2} />
-      </FeaturedBlock>
+      <Fade duration={2000}>  
+        <FeaturedBlock bgColor="#394343">
+          <HeaderText padding="5vw 0 5vw 0" align="center" as="h2" size="72" weight="700" color="#FFFFFF">
+            Featured Projects
+          </HeaderText>
+          <FeaturedRow>
+            {work.workImages.map(({ node: image }, index) => {
+              return <img key={index + ""} src={work.workImages[index].ogimg.src} />
+            })}
+          </FeaturedRow>
+          <RightLeaf src={pine} />
+          <LeftLeaf src={pine2} />
+        </FeaturedBlock>
+      </Fade>
       <Fade duration={2000}>
         <Summary bgColor="#9F4300" subhead={summary.subHeaderText} header={summary.headerText} text={summary.paragraphText.childMarkdownRemark.html} bText={summary.buttonText} dest={'/' + summary.buttonDestination} />
       </Fade>

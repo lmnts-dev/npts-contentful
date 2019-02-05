@@ -8,6 +8,26 @@ import styled from 'styled-components'
 import { MiddleLeaf, RightLeaf } from './Leaves'
 import Fade from 'react-reveal/Fade'
 
+const TrimmingLeaf = styled(MiddleLeaf)`
+  bottom: auto; 
+  top: -35%;
+  @media (max-width: 600px){
+    bottom: auto;
+    top: -5%;
+    left: -2%;
+  }
+`
+
+const SurgeryLeaf = styled(RightLeaf)`
+  bottom: auto;
+  top: -20%;
+  @media (max-width: 600px){
+    bottom: auto;
+    top: -5%;
+    right: -2%;
+  }
+`
+
 const Block = styled(Wrapper)`
   @media (max-width: 2000px) {
     padding: ${props => props.padding || '50px 10vw'};
@@ -56,7 +76,6 @@ const Services = props => {
             bgColor="#FFFFFF"
             pushUp
           />
-          <MiddleLeaf src={leafPlanting} alt="leaf" />
         </TwoColRow>
       </Fade>
       <Fade duration={2000}>
@@ -73,6 +92,7 @@ const Services = props => {
             bgColor="#C9EAEB"
           />
           <Block bgImage={thirdService.image.ogimg.src} />
+          <TrimmingLeaf src={leafPlanting} alt="leaf" />
         </TwoColRow>
       </Fade>
       <Fade duration={2000}>
@@ -88,7 +108,6 @@ const Services = props => {
             theme="dark"
             bgColor="#FFFFFF"
           />
-          <RightLeaf src={leafSurgery} alt="leaf" />
         </TwoColRow>
       </Fade>
       <Fade duration={2000}>
@@ -110,6 +129,7 @@ const Services = props => {
             bgColor="#C9EAEB"
           />
           <Block bgImage={fifthService.image.ogimg.src} />
+          <SurgeryLeaf src={leafSurgery} alt="leaf" />
         </TwoColRow>
       </Fade>
     </div>
