@@ -18,6 +18,18 @@ import { Border } from '../components/Lines'
 
 // Styles
 
+const List = styled(P)`
+  letter-spacing: 0.04em;
+  ol {
+    list-style-type: decimal;
+  }
+  p {
+    strong {
+      font-weight: 700;
+    }
+  }
+`
+
 const Disclaimer = styled(P)`
   line-height: 1.6;
 `
@@ -272,7 +284,12 @@ class ContactForm extends React.Component {
                 <input name="bot" onChange={this.handleInputChange} />
                 </label>
             </p>
+          
             <Block bgColor="#272929">
+            <List color="#FFFFFF" dangerouslySetInnerHTML={{
+              __html: this.props.disclaimer }}
+                />
+              {/*
               <Disclaimer weight="700" color="#FFFFFF">Terms of Firewood Drop</Disclaimer>
               <ol>
                 <li>
@@ -306,8 +323,9 @@ class ContactForm extends React.Component {
                   </Disclaimer>
                 </li>
               </ol>
+              */}
               <Border color="#9F4300" width="100%" margin="40px 0" />
-              <Disclaimer color="#FFFFFF">Please indicate you have read and agree to the Terms of Firewood Drop.</Disclaimer>
+              <Disclaimer color="#FFFFFF">Please indicate you have read and agree to the Terms of the {this.props.type} Drop.</Disclaimer>
               <RadioLabel color="#FFFFFF">I Agree</RadioLabel>
               <Radio 
                   type="radio" 
@@ -351,7 +369,7 @@ class ContactForm extends React.Component {
                     required
                 />
                 <Label for="message">
-                    Please leave a detailed description of where you would like the firewood dropped.
+                    Please leave a detailed description of where you would like the {this.props.type.toLowerCase()} dropped.
                     <i>Ex: “Left side of driveway, near the rose bush”</i>
                 </Label>
                 <Message
@@ -384,7 +402,7 @@ class ContactForm extends React.Component {
                     onChange={this.handleInputChange}
                     required
                 />
-                <Submit name="submit" type="submit" value="Apply for free firewood" />
+              <Submit name="submit" type="submit" value={"Apply for free " + this.props.type.toLowerCase()} />
 
                 <Modal visible={this.state.showModal}>
                     <p>
@@ -407,5 +425,6 @@ class ContactForm extends React.Component {
 ContactForm.propTypes = {
   data: PropTypes.object,
 }
+
 
 export default ContactForm

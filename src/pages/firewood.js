@@ -22,7 +22,8 @@ const Row = styled(TwoColRowWrapper)`
 `
 
 
-const Firewood = ( ) => {
+const Firewood = ({ data }) => {
+  const disclaimer = data.allContentfulDisclaimers.edges[0].node.firewoodDropDisclaimer.childMarkdownRemark.html 
   const postNode = {
     title: `Free Firewood - ${config.siteTitle}`,
   }
@@ -45,10 +46,33 @@ const Firewood = ( ) => {
         </HeaderBlock>
       </Fade>
       <Fade duration={2000}>
-        <ApplyForm />
+        <ApplyForm type="Firewood" disclaimer={disclaimer}/>
       </Fade>
     </Layout>
   )
 }
+
+export const query = graphql`
+  query {
+    allContentfulDisclaimers {
+      edges {
+        node {
+          firewoodDropDisclaimer {
+            childMarkdownRemark {
+              html
+              excerpt(pruneLength: 320)
+            }
+          }
+          woodchipDropDisclaimer {
+            childMarkdownRemark {
+              html
+              excerpt(pruneLength: 320)
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default Firewood

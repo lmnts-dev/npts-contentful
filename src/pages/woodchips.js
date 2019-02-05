@@ -12,7 +12,8 @@ import  Column  from '../components/Column'
 import Button from '../components/Button'
 import ApplyForm from '../components/ApplyForm'
 
-const Woodchips = ( ) => {
+const Woodchips = ({data} ) => {
+  const disclaimer = data.allContentfulDisclaimers.edges[0].node.woodchipDropDisclaimer.childMarkdownRemark.html 
   const postNode = {
     title: `Chip Drop - ${config.siteTitle}`,
   }
@@ -29,15 +30,38 @@ const Woodchips = ( ) => {
             Contact us
           </HeaderText>
           <HeaderText as="h1" padding="1vw 0 0 0" size="100" weight="700" color="#293536">
-            Apply for free wood chips
+            Apply for free Woodchips
           </HeaderText>
         </HeaderBlock>
       </Fade>
       <Fade duration={2000}>
-        <ApplyForm />
+        <ApplyForm type="Woodchips" disclaimer={disclaimer}/>
       </Fade>
     </Layout>
   )
 }
+
+export const query = graphql`
+  query {
+    allContentfulDisclaimers {
+      edges {
+        node {
+          firewoodDropDisclaimer {
+            childMarkdownRemark {
+              html
+              excerpt(pruneLength: 320)
+            }
+          }
+          woodchipDropDisclaimer {
+            childMarkdownRemark {
+              html
+              excerpt(pruneLength: 320)
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default Woodchips
