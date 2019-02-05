@@ -103,8 +103,8 @@ const About = ({ data, location }) => {
 }
 
 export const query = graphql`
-  query($skip: Int!, $limit: Int!) {
-    allContentfulAbout(limit: $limit, skip: $skip) {
+  query {
+    allContentfulAbout {
       edges {
         node {
           headerText
@@ -148,7 +148,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulIdentity(limit: $limit, skip: $skip) {
+    allContentfulIdentity {
       edges {
         node {
           headerText

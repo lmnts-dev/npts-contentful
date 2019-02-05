@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Button from '../components/Button'
 import { H3, PLarge, HeaderText, Text } from '../components/Headings'
-import Row from '../components/Row'
+import { RowWrapper } from '../components/Row'
 import phone from '!svg-react-loader!../images/svg-icons/phone.svg?name=phone'
 import email from '!svg-react-loader!../images/svg-icons/email.svg?name=email'
 import Fade from 'react-reveal/Fade'
@@ -15,6 +15,13 @@ import Fade from 'react-reveal/Fade'
 */
 
 // Styles
+
+const InfoRow = styled(RowWrapper)`
+  @media (max-width: 750px){
+    margin-bottom: 0px !important;
+  }
+`
+
 const TextBlock = styled.div`
   margin-bottom: 20px;
 `
@@ -264,13 +271,13 @@ class ContactForm extends React.Component {
               {' '}
               Let's Talk{' '}
             </HeaderText>
-            <Row align="center">
+            <InfoRow align="center">
               <Phone />
               <Info as="a" href="tel:7753760917" size="16" color="#FFFFFF">
                 775.376.0917
               </Info>
-            </Row>
-            <Row align="center">
+            </InfoRow>
+            <InfoRow align="center">
               <EmailIcon />
               <Info
                 as="a"
@@ -280,7 +287,7 @@ class ContactForm extends React.Component {
               >
                 noahsparktreecare@gmail.com
               </Info>
-            </Row>
+            </InfoRow>
           </TextBlock>
 
           <input type="hidden" name="form-name" value="contact" />

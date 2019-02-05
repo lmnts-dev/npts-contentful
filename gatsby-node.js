@@ -143,45 +143,6 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  /// /// Create Home Paage ////////////////////////////
-  const loadHomePage = new Promise((resolve, reject) => {
-    createPage({
-      path: `/`,
-      component: path.resolve(`./src/templates/index.js`),
-      context: {
-        limit: 20,
-        skip: 0,
-      },
-    })
-    resolve()
-  })
-
-  /// /// Create About Page ////////////////////////////
-  const loadAboutPage = new Promise((resolve, reject) => {
-    createPage({
-      path: `/about/`,
-      component: path.resolve(`./src/templates/about.js`),
-      context: {
-        limit: 20,
-        skip: 0,
-      },
-    })
-    resolve()
-  })
-
-  /// /// Create Services Page ////////////////////////////
-  const loadServicesPage = new Promise((resolve, reject) => {
-    createPage({
-      path: `/services/`,
-      component: path.resolve(`./src/templates/services.js`),
-      context: {
-        limit: 20,
-        skip: 0,
-      },
-    })
-    resolve()
-  })
-
   /// /// create service pages ///////////////////////
   const loadServices = new Promise((resolve, reject) => {
     graphql(`
@@ -196,13 +157,13 @@ exports.createPages = ({ graphql, actions }) => {
       }
     `).then(result => {
       const services = result.data.allContentfulService.edges
-      services.map(({ node }) => {
-        
+      services.map(({ node }, index) => {
         createPage({
           path: `services/${node.slug}/`,
           component: path.resolve(`./src/templates/service.js`),
           context: {
             slug: node.slug,
+            index: index,
           },
         })
       })
@@ -210,5 +171,5 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([loadPosts, loadTags, loadPages, loadServices, loadServicesPage, loadAboutPage, loadHomePage])
+  return Promise.all([loadPosts, loadTags, loadPages, loadServices])
 }

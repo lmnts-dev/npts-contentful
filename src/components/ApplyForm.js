@@ -115,17 +115,45 @@ const Location = styled.input`
 `
 
 const Radio = styled.input`
-  display: inline-block;
-  margin-bottom: 40px;
-  margin-right: 40px;
+  position: absolute;
+ // opacity: 0;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+  z-index: 5;
+  &:checked {
+    span {
+      background-color: white;
+    }
+  }
+`
+
+const RadioStyle = styled.span`
+  position: absolute;
+  height: 25px;
+  border-radius: 50%;
+  margin-left: 10px;
+  width: 25px;
+  background-color: #293536;
+  border: 2.5px solid #293536;
+  cursor: pointer;
+  z-index: 4;
 `
 
 const RadioLabel = styled(P)`
+  position: relative;
   display: inline-block;
+  position: relative;
   margin-bottom: 20px;
-  margin-right: 10px;
   margin-top 10px;
+  margin-right: 45px;
+  &:hover {
+    span {
+      background-color: rgba(159, 67, 0, .3);
+    }
+  }
 `
+
 
 const PhoneNumber = styled.input`
   margin-bottom: 20px;
@@ -253,8 +281,12 @@ class ContactForm extends React.Component {
   handleSuccess = () => {
     this.setState({
       name: '',
+      number: '',
       email: '',
       message: '',
+      notes: '',
+      location: '',
+      radio: '',
       showModal: true,
     })
   }
@@ -269,7 +301,7 @@ class ContactForm extends React.Component {
     return (
       <Fade cascade duration={2000}>
           <Form
-          name="contact"
+          name={this.props.type}
           onSubmit={this.handleSubmit}
           data-netlify="true"
           data-netlify-honeypot="bot"
@@ -284,137 +316,108 @@ class ContactForm extends React.Component {
                 <input name="bot" onChange={this.handleInputChange} />
                 </label>
             </p>
-          
-            <Block bgColor="#272929">
-            <List color="#FFFFFF" dangerouslySetInnerHTML={{
-              __html: this.props.disclaimer }}
-                />
-              {/*
-              <Disclaimer weight="700" color="#FFFFFF">Terms of Firewood Drop</Disclaimer>
-              <ol>
-                <li>
-                  <Disclaimer color="#FFFFFF">
-                    1. IF YOU WANT TO CANCEL, YOU MUST CONFIRM IT WITH NOAHS PARK TREE CARE BEFORE DELIVERY.
-                  </Disclaimer>
-                </li>
-                <li>
-                  <Disclaimer color="#FFFFFF">
-                    2. If you opt out, You won’t get any notice prior to delivery. 
-                  </Disclaimer>
-                </li>
-                <li>
-                  <Disclaimer color="#FFFFFF">
-                    3. Logs will be very large, you’ll need splitting tools and a chainsaw
-                  </Disclaimer>
-                </li>
-                <li>
-                  <Disclaimer color="#FFFFFF">
-                    4. Log drop quantities range from a couple logs to a 15 yard truck full. 
-                  </Disclaimer>
-                </li>
-                <li>
-                  <Disclaimer color="#FFFFFF">
-                    5. We can’t move or remove logs once delivered. 
-                  </Disclaimer>
-                </li>
-                <li>
-                  <Disclaimer color="#FFFFFF">
-                    6. We reserve the right to dump at our convenience, which in some cases may be weeks or months. Feel free to call and remind us, but we dump based on proximity to dump sites, so whatever is closest and takes us least amount of time will usually be get the logs. 
-                  </Disclaimer>
-                </li>
-              </ol>
-              */}
-              <Border color="#9F4300" width="100%" margin="40px 0" />
-              <Disclaimer color="#FFFFFF">Please indicate you have read and agree to the Terms of the {this.props.type} Drop.</Disclaimer>
-              <RadioLabel color="#FFFFFF">I Agree</RadioLabel>
-              <Radio 
-                  type="radio" 
-                  name="disclaimer" 
-                  value="I agree"
+          <FormBlock bgColor="#293536">
+            <Inner>
+              <Label for="name">Name</Label>
+              <Name
+                name="name"
+                type="text"
+                placeholder="Name (required)"
+                value={this.state.name}
+                onChange={this.handleInputChange}
+                required
               />
-              <RadioLabel color="#FFFFFF">Cancel</RadioLabel>
-              <Radio 
-                  type="radio" 
-                  name="disclaimer" 
-                  value="Cancel"
+              <Label for="location">Drop-off location</Label>
+              <Location
+                name="location"
+                type="text"
+                placeholder="Drop off address (required)"
+                value={this.state.location}
+                onChange={this.handleInputChange}
+                required
               />
-            </Block>
-            <FormBlock bgColor="#293536">
-              <Inner>
-                <Label for="name">Name</Label>
-                <Name
-                    name="name"
-                    type="text"
-                    placeholder="Name (required)"
-                    value={this.state.name}
-                    onChange={this.handleInputChange}
-                    required
-                />
-                <Label for="location">Drop-off location</Label>
-                <Location
-                    name="location"
-                    type="text"
-                    placeholder="Drop off address (required)"
-                    value={this.state.location}
-                    onChange={this.handleInputChange}
-                    required
-                />
-                <Label for="number">Phone Number</Label>
-                <PhoneNumber
-                    name="number"
-                    type="tel"
-                    placeholder="Phone number (required)"
-                    value={this.state.number}
-                    onChange={this.handleInputChange}
-                    required
-                />
-                <Label for="message">
-                    Please leave a detailed description of where you would like the {this.props.type.toLowerCase()} dropped.
+              <Label for="number">Phone Number</Label>
+              <PhoneNumber
+                name="number"
+                type="tel"
+                placeholder="Phone number (required)"
+                value={this.state.number}
+                onChange={this.handleInputChange}
+                required
+              />
+              <Label for="message">
+                Please leave a detailed description of where you would like the {this.props.type.toLowerCase()} dropped.
                     <i>Ex: “Left side of driveway, near the rose bush”</i>
-                </Label>
-                <Message
-                    name="message"
-                    type="text"
-                    placeholder="Description (required)"
-                    value={this.state.message}
-                    onChange={this.handleInputChange}
-                    required
-                />
-                <Label for="call">Call before delivery?</Label><br />
-                <RadioLabel color="#FFFFFF">Yes</RadioLabel>
-                <Radio 
-                  type="radio" 
-                  name="call" 
-                  value="yes"
-                />
-                <RadioLabel color="#FFFFFF">No</RadioLabel>
-                <Radio 
-                  type="radio" 
-                  name="call" 
-                  value="no"
-                /><br />
-                <Label for="notes">Additional notes</Label>
-                <Notes
-                    name="notes"
-                    type="text"
-                    placeholder="Notes"
-                    value={this.state.notes}
-                    onChange={this.handleInputChange}
-                    required
-                />
+              </Label>
+              <Message
+                name="message"
+                type="text"
+                placeholder="Description (required)"
+                value={this.state.message}
+                onChange={this.handleInputChange}
+                required
+              />
+              <Label for="call">Call before delivery?</Label><br />
+              <RadioLabel color="#FFFFFF">Yes</RadioLabel>
+              <Radio
+                type="radio"
+                name="call"
+                value="yes"
+              />
+              <RadioLabel color="#FFFFFF">No</RadioLabel>
+              <Radio
+                type="radio"
+                name="call"
+                value="no"
+              /><br />
+              <Label for="notes">Additional notes</Label>
+              <Notes
+                name="notes"
+                type="text"
+                placeholder="Notes"
+                value={this.state.notes}
+                onChange={this.handleInputChange}
+              />
+            </Inner>
+          </FormBlock>
+            <Block bgColor="#272929">
+              <Inner>
+                <List color="#FFFFFF" dangerouslySetInnerHTML={{
+                  __html: this.props.disclaimer }}
+                    />
+                  <Border color="#9F4300" width="100%" margin="40px 0" />
+                  <Disclaimer color="#FFFFFF">Please indicate you have read and agree to the Terms of the {this.props.type} Drop.</Disclaimer>
+                  
+                  <RadioLabel as="label" color="#FFFFFF">I Agree
+                    <Radio 
+                        type="radio" 
+                        name="disclaimer" 
+                        value="I agree"
+                    />
+                  <RadioStyle />
+              </RadioLabel>
+                  <RadioLabel color="#FFFFFF">Cancel
+                    <Radio 
+                        type="radio" 
+                        name="disclaimer" 
+                        value="Cancel"
+                    />
+                    <RadioStyle/>
+                  </RadioLabel>
               <Submit name="submit" type="submit" value={"Apply for free " + this.props.type.toLowerCase()} />
 
-                <Modal visible={this.state.showModal}>
-                    <p>
-                    Thank you for reaching out. We will get back to you as soon as
-                    possible.
+              <Modal visible={this.state.showModal}>
+                <p>
+                  Thank you for reaching out. We will get back to you as soon as
+                  possible.
                     </p>
-                    <Button dark to="#" onClick={this.closeModal}>
-                    Okay
+                <Button dark to="/success" onClick={this.closeModal}>
+                  Okay
                     </Button>
-                </Modal>
+              </Modal>
               </Inner>
-            </FormBlock>
+            </Block>
+
           </Form>
         
       </Fade>

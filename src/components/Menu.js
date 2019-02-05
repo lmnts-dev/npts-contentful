@@ -162,10 +162,6 @@ class Menu extends React.Component {
         height={this.state.isTop ? this.navTopHeight : this.navScrollHeight}
       >
         <LogoLink
-          cover
-          bg={lmnts.Anim.Page.Color}
-          duration={lmnts.Anim.Page.Duration}
-          direction={lmnts.Anim.Page.Direction}
           to="/"
           activeStyle={this.activeLinkStyle}
           animDuration={this.fadeInDuration + this.fadeInIncrement * 1 + 's'}
@@ -175,10 +171,6 @@ class Menu extends React.Component {
         <ul>
           <li>
             <NavLink
-              cover
-              bg={lmnts.Anim.Page.Color}
-              duration={lmnts.Anim.Page.Duration}
-              direction={lmnts.Anim.Page.Direction}
               to="/services"
               activeStyle={this.activeLinkStyle}
               animDuration={
@@ -190,10 +182,6 @@ class Menu extends React.Component {
           </li>
           <li>
             <NavLink
-              cover
-              bg={lmnts.Anim.Page.Color}
-              duration={lmnts.Anim.Page.Duration}
-              direction={lmnts.Anim.Page.Direction}
               to="/about"
               activeStyle={this.activeLinkStyle}
               animDuration={
@@ -205,10 +193,6 @@ class Menu extends React.Component {
           </li>
           <li>
             <NavLink
-              cover
-              bg={lmnts.Anim.Page.Color}
-              duration={lmnts.Anim.Page.Duration}
-              direction={lmnts.Anim.Page.Direction}
               to="/contact"
               activeStyle={this.activeLinkStyle}
               animDuration={

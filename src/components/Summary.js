@@ -8,7 +8,7 @@ import Leaf from "../images/leafSummary.png"
 import { LeftLeaf } from '../components/Leaves'
 
 const SummaryLeaf = styled(LeftLeaf)`
-  @media (max-width: 740px){
+  @media (max-width: 750px){
     bottom: 0;
   }
 `

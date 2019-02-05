@@ -38,9 +38,6 @@ const Success = ({ data } ) => {
         <HeaderText size="100" color="#9F4300" align="center" weight="700" >
           Got it, thanks!
         </HeaderText>
-        <P color="#293536" align="center">
-          Thanks for reaching out, we’ll get back to you as soon as possible.
-        </P>
       </Block>
       <Fade duration={2000}>
           <TestimonialSlider data={testimonials} />

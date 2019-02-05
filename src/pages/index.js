@@ -22,6 +22,7 @@ const Index = ({ data, location }) => {
   const testimonials = data.allContentfulTestimonial.edges
   const introBlocks = data.allContentfulIntroduction
   const slider = data.allContentfulSlider.edges[0].node
+  const video = data.allContentfulVideo.edges[0].node
 
   return (
     <Layout location={location}>
@@ -35,7 +36,7 @@ const Index = ({ data, location }) => {
           <IntroBlocks data={introBlocks} />
         </Fade>
         <Fade duration={2000}>
-          <Video />
+          <Video data={video}/>
         </Fade>
         <Fade duration={2000}>
           <TestimonialSlider data={testimonials} />
@@ -59,8 +60,8 @@ const Index = ({ data, location }) => {
 
 // GATSBY BUILD ERROR BELOW
 export const query = graphql`
-  query($skip: Int!, $limit: Int!) {
-    allContentfulService(limit: $limit, skip: $skip) {
+  query {
+    allContentfulService {
       edges {
         node {
           name
@@ -91,7 +92,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulTestimonial(limit: $limit, skip: $skip) {
+    allContentfulTestimonial {
       edges {
         node {
           firstName
@@ -107,7 +108,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulIntroduction(limit: $limit, skip: $skip) {
+    allContentfulIntroduction {
       edges {
         node {
           headerText1
@@ -142,7 +143,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulSlider(limit: $limit, skip: $skip) {
+    allContentfulSlider {
       edges {
         node {
           header
@@ -174,7 +175,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulIdentity(limit: $limit, skip: $skip) {
+    allContentfulIdentity {
       edges {
         node {
           headerText
@@ -189,7 +190,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulSummary(limit: 10, skip: 0) {
+    allContentfulSummary {
       edges {
         node {
           headerText
@@ -205,13 +206,22 @@ export const query = graphql`
         }
       }
     }
+    allContentfulVideo {
+      edges {
+        node {
+          headerText
+          paragraphText {
+            childMarkdownRemark {
+              html
+              excerpt(pruneLength: 320)
+            }
+          }
+          videoLink
+        }
+      }
+    }
   }
 `
 
 export default Index
 
-// export default props => (
-//   <Layout location={props.location}>
-//     <Index />
-//   </Layout>
-// )

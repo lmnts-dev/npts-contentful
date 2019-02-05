@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import arrowGrey from "../images/arrowGrey.png"
 import arrowWhite from "../images/arrowWhite.png"
-import AniLink from "gatsby-plugin-transition-link/AniLink";
 import * as lmnts from '../data/Styles'
 
 /* these are the four buttons you can call ////////////////
@@ -16,7 +15,7 @@ import * as lmnts from '../data/Styles'
     
 ///////////////////////////////////////////////////////// */
 
-export const ButtonStyle = styled(AniLink)`
+export const ButtonStyle = styled.a`
   display: ${props => props.hide ? 'none' : 'inline-block'};
   letter-spacing: 1px;
   font-size: 19px;
@@ -86,7 +85,7 @@ const Arrow = styled.img`
 export const Button = ({ to, hide, arrowButton, dark, children }) => {
   if (!arrowButton){
       return (
-        <ButtonStyle to={to} hide={hide} arrowButton={arrowButton} dark={dark} cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction}>
+        <ButtonStyle href={to} hide={hide} arrowButton={arrowButton} dark={dark}>
           {children}
         </ButtonStyle>
       )
@@ -94,7 +93,7 @@ export const Button = ({ to, hide, arrowButton, dark, children }) => {
     else {
     if (dark) {
       return (
-        <ButtonStyle to={to} hide={hide} arrowButton={arrowButton} dark={dark} cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction}>
+        <ButtonStyle href={to} hide={hide} arrowButton={arrowButton} dark={dark}>
           {children}
           <Arrow src={arrowGrey} alt="Arrow" />
         </ButtonStyle>
@@ -102,7 +101,7 @@ export const Button = ({ to, hide, arrowButton, dark, children }) => {
     }
     else {
       return (
-        <ButtonStyle to={to} hide={hide} arrowButton={arrowButton} dark={dark} cover bg={lmnts.Anim.Page.Color} duration={lmnts.Anim.Page.Duration} direction={lmnts.Anim.Page.Direction}>
+        <ButtonStyle href={to} hide={hide} arrowButton={arrowButton} dark={dark}>
           {children}
           <Arrow src={arrowWhite} alt="Arrow" />
         </ButtonStyle>

@@ -7,7 +7,6 @@ import { TwoColRowWrapper } from '../components/TwoColRow'
 import { ColumnWrapper } from '../components/Column'
 import { Wrapper } from '../components/Block'
 import { H1, H2, H3, P, PLarge, Text, HeaderText } from '../components/Headings'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
 import Fade from 'react-reveal/Fade'
 import { LargeTextBlock } from './TextBlocks'
 
@@ -93,7 +92,7 @@ const Block = styled(Wrapper)`
   }
 `
 
-const Item = styled(AniLink)`
+const Item = styled.a`
   font-size: 28px;
   @media (max-width: 1440px) {
     font-size: 1.94vw;
@@ -131,21 +130,21 @@ const Footer = props => (
           <Logo />
           <FooterLinks>
             <div>
-              <Item to="/">Home</Item>
-              <Item to="/services">Services</Item>
-              <Item to="/about">About</Item>
+              <Item href="/">Home</Item>
+              <Item href="/services">Services</Item>
+              <Item href="/about">About</Item>
             </div>
             <div>
-              <Item last to="/our-work">
+              <Item last href="/our-work">
                 Our Work
               </Item>
-              <Item last to="/firewood">
+              <Item last href="/firewood">
                 Firewood
               </Item>
-              <Item last to="/woodchips">
+              <Item last href="/woodchips">
                 Chip Drop
               </Item>
-              <Item last to="/careers">
+              <Item last href="/careers">
                 Careers
               </Item>
             </div>

@@ -5,7 +5,6 @@ import { Wrapper } from '../components/Block'
 import Hamburger from '!svg-react-loader!../images/svg-icons/navburger.svg?name=navburger'
 import Column from '../components/Column'
 import * as lmnts from '../data/Styles'
-import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const HamburgerLink = styled.div`
   display: none;
@@ -27,7 +26,7 @@ const HamburgerLink = styled.div`
   }
 `
 
-const Item = styled(AniLink)`
+const Item = styled.a`
   @media (max-width: 1440px) {
     font-size: 3vw;
   }
@@ -109,7 +108,10 @@ class MenuModal extends Component {
   // constructor to set state and bind "this"
   constructor(props) {
     super(props)
-    this.state = { showModal: false }
+    this.state = { 
+      showModal: false,
+      showHamburger: true
+    }
     this.handleClick = this.handleClick.bind(this)
   }
 
@@ -117,6 +119,9 @@ class MenuModal extends Component {
   handleClick() {
     this.setState(prevState => ({
       showModal: !prevState.showModal,
+    }))
+    this.setState(prevState => ({
+      showHamburger: !prevState.showHamburger,
     }))
   }
 
@@ -130,28 +135,31 @@ class MenuModal extends Component {
         </Exit>
         <Center>
           <Column align="center" justify="center">
-            <Item to="/">Home</Item>
-            <Item to="/services">Services</Item>
-            <Item to="/about">About</Item>
-            <Item to="/contact">Contact</Item>
+            <Item href="/" onClick={this.handleClick}>Home</Item>
+            <Item href="/services" onClick={this.handleClick}>Services</Item>
+            <Item href="/about" onClick={this.handleClick}>About</Item>
+            <Item href="/contact" onClick={this.handleClick}>Contact</Item>
             <SecondaryLinks>
-              <Item to="/our-work">Our Work</Item>
-              <Item to="/firewood">Firewood</Item>
-              <Item to="/woodchips">Chip Drop</Item>
-              <Item to="/careers">Careers</Item>
+              <Item href="/our-work" onClick={this.handleClick}>Our Work</Item>
+              <Item href="/firewood" onClick={this.handleClick}>Firewood</Item>
+              <Item href="/woodchips" onClick={this.handleClick}>Chip Drop</Item>
+              <Item href="/careers" onClick={this.handleClick}>Careers</Item>
             </SecondaryLinks>
           </Column>
         </Center>
       </Block>
     )
-    return (
-      <>
+    return <>
         {this.state.showModal ? modal : ''}
-        <HamburgerLink onClick={this.handleClick}>
-          <Hamburger />
-        </HamburgerLink>
+        {this.state.showHamburger ? 
+          <HamburgerLink onClick={this.handleClick}>
+            <Hamburger />
+          </HamburgerLink>
+          : 
+          ''
+          }
+
       </>
-    )
   }
 }
 

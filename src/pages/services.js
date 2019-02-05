@@ -31,7 +31,7 @@ const ServiceList = styled(Wrapper)`
 `
 
 const Services = ({ data, location }) => {
-  const services = data.allContentfulService.edges
+  const services = data.allContentfulService.edges.reverse()
   const firewood = data.allContentfulFirewood.edges[0].node
   const identity = data.allContentfulIdentity.edges[0].node
   const postNode = {
@@ -117,8 +117,8 @@ const Services = ({ data, location }) => {
 }
 
 export const query = graphql`
-  query($skip: Int!, $limit: Int!) {
-    allContentfulService(limit: $limit, skip: $skip) {
+  query {
+    allContentfulService {
       edges {
         node {
           name
@@ -149,7 +149,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulFirewood(limit: $limit, skip: $skip) {
+    allContentfulFirewood {
       edges {
         node {
           headerText
@@ -162,7 +162,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulIdentity(limit: $limit, skip: $skip) {
+    allContentfulIdentity {
       edges {
         node {
           headerText

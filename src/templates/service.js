@@ -26,6 +26,8 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
   const { name, fullDescription } = data.contentfulService
   const firewood = data.allContentfulFirewood.edges[0].node
   const summary = data.allContentfulSummary.edges[0].node
+  const color = pageContext.index;
+  console.log( color);
 
   return (
     <Layout location={location}>
@@ -35,11 +37,14 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
 
       <Container>
         <Fade duration={2000}>
-          <HeaderBlock bgColor="#9F4300">
-            <HeaderText as="h3" size="38" weight="700" color="#FFFFFF">
+          <HeaderBlock 
+            // make upt to 5 different colors for each services header up to 15
+            bgColor={(color === 0 || color === 5 || color === 10 ) ? "#CAD5E8" : (color === 1 || color === 6 || color === 11) ? "#CEE0CA" : (color === 2 || color === 7 || color === 12) ? "#F7F2D9" : (color === 3 || color === 8 || color === 13) ? "#DFEFC8" : "#D2EFE1"}
+          >
+            <HeaderText as="h3" size="38" weight="700" color="#293536">
               Tree care services
             </HeaderText>
-            <HeaderText as="h1" padding="1vw 0 0 0" size="100" weight="700" color="#FFFFFF">
+            <HeaderText as="h1" padding="1vw 0 0 0" size="100" weight="700" color="#293536">
               {name}
             </HeaderText>
           </HeaderBlock>
