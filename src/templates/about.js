@@ -9,9 +9,7 @@ import SEO from '../components/SEO'
 import { Wrapper, HeaderBlock, Block } from '../components/Block'
 import TwoColRow from '../components/TwoColRow'
 import { LargeTextBlock } from '../components/TextBlocks'
-import IntroImage from '../images/intro.jpg'
 import { H2, P, HeaderText } from '../components/Headings'
-import PHC from '../images/phc.jpg'
 import Leaf from '../images/leafTestimonial.png'
 import { RightLeaf } from '../components/Leaves'
 import Layout from '../components/Layout'
@@ -64,7 +62,7 @@ const About = ({ data, location }) => {
         </Fade>
         <Fade duration={2000}>
           <TwoColRow>
-            <Block padding="0" bgImage={IntroImage} />
+            <Block padding="0" bgImage={about.image1.ogimg.src}/>
             <MainBlock bgColor="#FFFFFF">
               <H2 color="#434343">{about.headerText}</H2>
               <P
@@ -87,7 +85,7 @@ const About = ({ data, location }) => {
               theme="dark"
               bgColor="#C9EAEB"
             />
-            <Block padding="0" bgImage={PHC} />
+            <Block padding="0" bgImage={about.image2.ogimg.src} />
           </TwoColRow>
         </Fade>
       </Container>
@@ -125,6 +123,28 @@ export const query = graphql`
           }
           blockButtonText
           blockButtonDestination
+          image1 {
+            title
+            fluid(maxWidth: 1800) {
+              ...GatsbyContentfulFluid_withWebp_noBase64
+            }
+            ogimg: resize(width: 1800) {
+              src
+              width
+              height
+            }
+          }
+          image2 {
+            title
+            fluid(maxWidth: 1800) {
+              ...GatsbyContentfulFluid_withWebp_noBase64
+            }
+            ogimg: resize(width: 1800) {
+              src
+              width
+              height
+            }
+          }
         }
       }
     }

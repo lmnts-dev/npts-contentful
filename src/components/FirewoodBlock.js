@@ -55,10 +55,10 @@ const FirewoodBlock = props => {
             </HeaderText>
             <PLarge color="#293536" align="center" dangerouslySetInnerHTML={{ __html: props.text }} />
             <Row>
-              <Button to="/">
+              <Button to="/firewood">
                 Free firewood
               </Button>
-              <Button to="/">
+              <Button to="/woodchips">
                 Free wood chips
               </Button>
               <Chip src={chip} alt="leaf"/>
