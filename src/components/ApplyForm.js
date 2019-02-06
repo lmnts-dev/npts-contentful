@@ -44,7 +44,12 @@ const Inner = styled.div`
 `
 
 const FormBlock = styled(Wrapper)`
-  padding-bottom: 150px;
+  padding: 100px 25px;
+  padding-bottom: ${props => (props.paddingBottom ? '200px' : '100px')};
+  @media (max-width: 1200px) {
+    padding: 10vw 25px;
+    padding-bottom: ${props => (props.paddingBottom ? '20vw' : '10vw')};
+  }
 `
 
 const Form = styled.form`
@@ -58,7 +63,10 @@ const Form = styled.form`
     font-family: inherit;
     font-size: inherit;
     margin-top: 5px;
-    @media (max-width: 600px) {
+    @media (max-width: 1440px) {
+      font-size: 1.11vw;
+    }
+    @media (max-width: 1100px) {
       font-size: 12px;
     }
     border: none;
@@ -102,6 +110,14 @@ const Form = styled.form`
     opacity: ${props => (props.overlay ? '.8' : '0')};
     visibility: ${props => (props.overlay ? 'visible' : 'hidden')};
   }
+  label {
+    @media (max-width: 1440px) {
+      font-size: 1.11vw;
+    }
+    @media (max-width: 1100px) {
+      font-size: 12px;
+    }
+  }
 `
 
 const Name = styled.input`
@@ -116,13 +132,12 @@ const Location = styled.input`
 
 const Check = styled.input`
   position: absolute;
- // opacity: 0;
+  opacity: 0;
   cursor: pointer;
-  height: 25px;
-  width: 25px;
+  height: 40px;
+  width: 40px;
   z-index: 5;
   &:checked {
-    color: red !important;
     span {
       background-color: white;
     }
@@ -135,10 +150,10 @@ const CheckStyle = styled.span`
   border-radius: 50%;
   margin-left: 10px;
   width: 25px;
-  background-color: #212829;
-  border: 2.5px solid #212829;
+  border:  ${props => (props.grey ? '2.5px solid #363636;' : '2.5px solid #212829;')}; 
   cursor: pointer;
   z-index: 4;
+  background-color: ${props => (props.checked ? '#9F4300' : (props.grey ? '#363636' : '#212829'))};
 `
 
 const CheckLabel = styled(P)`
@@ -148,11 +163,6 @@ const CheckLabel = styled(P)`
   margin-bottom: 20px;
   margin-top 10px;
   margin-right: 45px;
-  &:hover {
-    span {
-      background-color: rgba(159, 67, 0, .3);
-    }
-  }
 `
 
 
@@ -255,6 +265,7 @@ class ContactForm extends React.Component {
       notes: '',
       location: '',
       isChecked: false,
+      isCallChecked: false,
       showModal: false,
     }
   }
@@ -283,6 +294,13 @@ class ContactForm extends React.Component {
     console.log('checkbox changed!', this.state.isChecked)
     this.setState((state) => {
       return { isChecked: !state.isChecked }
+    });
+  }
+
+  handleCallChange = event => {
+    console.log('checkbox changed!', this.state.isCallChecked)
+    this.setState((state) => {
+      return { isCallChecked: !state.isCallChecked }
     });
   }
 
@@ -366,12 +384,16 @@ class ContactForm extends React.Component {
                 required
               />
               <Label htmlFor="call">Call before delivery?</Label><br />
-              <CheckLabel color="#FFFFFF">Yes</CheckLabel>
-              <Check
-                type="checkbox"
-                name="call"
-                value="yes"
-              />< br />
+              <CheckLabel as="label" htmlFor="call" color="#FFFFFF">Yes
+                    <Check
+                  onChange={this.handleCallChange}
+                  checked={this.state.isCallChecked}
+                  type="checkbox"
+                  name="call"
+                  value="Yes"
+                />
+                <CheckStyle checked={this.state.isCallChecked} grey/>
+              </CheckLabel>< br />
               <Label htmlFor="notes">Additional notes</Label>
               <Notes
                 name="notes"
@@ -382,39 +404,39 @@ class ContactForm extends React.Component {
               />
             </Inner>
           </FormBlock>
-            <Block bgColor="#293536">
-              <Inner>
-                <List color="#FFFFFF" dangerouslySetInnerHTML={{
-                  __html: this.props.disclaimer }}
-                    />
-                  <Border color="#9F4300" width="100%" margin="40px 0" />
-                  <Disclaimer color="#FFFFFF">Please indicate you have read and agree to the Terms of the {this.props.type} Drop.</Disclaimer>
-                  
-                  <CheckLabel as="label" htmlFor="disclaimer" color="#FFFFFF">I Agree
-                    <Check 
-                        onChange={this.handleCheckboxChange} 
-                        checked={this.state.isChecked}
-                        type="checkbox" 
-                        name="disclaimer" 
-                        value="I agree"
-                    />
-                  <CheckStyle />
-                  </CheckLabel>< br/>
-              <Submit name="submit" type="submit" value={"Apply for free " + this.props.type.toLowerCase()} />
+          <FormBlock bgColor="#293536" paddingBottom>
+            <Inner>
+              <List color="#FFFFFF" dangerouslySetInnerHTML={{
+                __html: this.props.disclaimer }}
+                  />
+                <Border color="#9F4300" width="100%" margin="40px 0" />
+                <Disclaimer color="#FFFFFF">Please indicate you have read and agree to the Terms of the {this.props.type} Drop.</Disclaimer>
+                
+                <CheckLabel as="label" htmlFor="disclaimer" color="#FFFFFF">I Agree
+                  <Check 
+                      onChange={this.handleCheckboxChange} 
+                      checked={this.state.isChecked}
+                      type="checkbox" 
+                      name="disclaimer" 
+                      value="I agree"
+                  />
+              <CheckStyle checked={this.state.isChecked} />
+                </CheckLabel>< br/>
+            <Submit name="submit" type="submit" value={"Apply for free " + this.props.type.toLowerCase()} />
 
-              <Modal visible={this.state.showModal}>
-                <p>
-                  Thank you for reaching out. We will get back to you as soon as
-                  possible.
-                    </p>
-                <Button dark to="/success" onClick={this.closeModal}>
-                  Okay
-                    </Button>
-              </Modal>
-              </Inner>
-            </Block>
+            <Modal visible={this.state.showModal}>
+              <p>
+                Thank you for reaching out. We will get back to you as soon as
+                possible.
+                  </p>
+              <Button dark to="/success" onClick={this.closeModal}>
+                Okay
+                  </Button>
+            </Modal>
+            </Inner>
+          </FormBlock>
 
-          </Form>
+        </Form>
         
       </Fade>
     )

@@ -18,13 +18,6 @@ import { Border } from '../components/Lines'
 
 // Styles
 
-const Disclaimer = styled(P)`
-  line-height: 1.6;
-`
-
-const TextBlock = styled.div`
-  margin-bottom: 20px;
-`
 
 const Inner = styled.div`
     margin: 0 auto;
@@ -32,9 +25,13 @@ const Inner = styled.div`
 `
 
 const FormBlock = styled(Wrapper)`
-  padding-bottom: 150px;
+  padding: 100px 25px;
+  padding-bottom: ${props => (props.paddingBottom ? '200px' : '100px')};
+  @media (max-width: 1200px) {
+    padding: 10vw 25px;
+    padding-bottom: ${props => (props.paddingBottom ? '20vw' : '10vw')};
+  }
 `
-
 const Form = styled.form`
   display: flex;
   flex-flow: row wrap;
@@ -46,13 +43,16 @@ const Form = styled.form`
     font-family: inherit;
     font-size: inherit;
     margin-top: 5px;
-    @media (max-width: 600px) {
+    @media (max-width: 1440px) {
+      font-size: 1.11vw;
+    }
+    @media (max-width: 1100px) {
       font-size: 12px;
     }
     border: none;
     outline: none;
     background: #212829;
-    letter-spacing: .05em;
+    letter-spacing: 0.05em;
     color: #ffffff;
     padding: 23.5px 28px;
     @media (max-width: 600px) {
@@ -90,6 +90,14 @@ const Form = styled.form`
     opacity: ${props => (props.overlay ? '.8' : '0')};
     visibility: ${props => (props.overlay ? 'visible' : 'hidden')};
   }
+  label {
+    @media (max-width: 1440px) {
+      font-size: 1.11vw;
+    }
+    @media (max-width: 1100px) {
+      font-size: 12px;
+    }
+  }
 `
 
 const Name = styled.input`
@@ -97,61 +105,54 @@ const Name = styled.input`
   width: 100%;
 `
 
-const Location = styled.input`
-  margin-bottom: 20px;
-  width: 100%;
-`
-
-const Radio = styled.input`
-  display: inline-block;
-  margin-bottom: 40px;
-  margin-right: 40px;
-`
-
 const Email = styled.input`
   margin-bottom: 20px;
   width: 100%;
 `
-
-const RadioLabel = styled(P)`
-  display: inline-block;
-  margin-bottom: 20px;
-  margin-right: 10px;
-  margin-top 10px;
-`
-
 const PhoneNumber = styled.input`
   margin-bottom: 20px;
   width: 100%;
 `
 
 const Resume = styled.input`
+  &::-webkit-file-upload-button {
+    visibility: hidden;
+    display: none;
+  }
+  &:before {
+    color: #ffffff;
+    content: 'Choose file';
+    font-size: 16px;
+    padding: 20px 60px;
+    @media (max-width: 1440px) {
+      font-size: 1.11vw;
+      padding: 1.38vw 4.16vw;
+    }
+    @media (max-width: 1100px) {
+      padding: 15.2px 45.8px;
+    }
+    display: inline-block;
+    border: 2px solid #9f4300;
+    border-radius: 100px;
+    cursor: pointer;
+  }
+  &:hover {
+    &:before {
+      background-color: #9f4300 !important;
+      transition-duration: .5s;
+    }
+  }
+  color: 
   margin-bottom: 20px;
   width: 100%;
-  padding: 0 !important;
-  color: rgba( 255, 255, 255, .3) !important;
+  padding: 10px 0 20px 0 !important;
+  color: rgba(255, 255, 255, 0.3) !important;
   background-color: transparent !important;
-  input {
-      padding: transparent;
-  }
 `
 
 const Notes = styled.input`
   margin-bottom: 40px;
   width: 100%;
-`
-
-const Reference = styled.input`
-  margin-bottom: 40px;
-  width: 100%;
-`
-
-const Message = styled.textarea`
-  width: 100%;
-  margin: 0 0 1em 0;
-  line-height: 1.6;
-  min-height: 127px;
-  resize: vertical;
 `
 
 const Submit = styled.input`
@@ -292,7 +293,7 @@ class ContactForm extends React.Component {
                 <input name="bot" onChange={this.handleInputChange} />
                 </label>
             </p>
-            <FormBlock bgColor="#293536">
+            <FormBlock bgColor="#293536" paddingBottom>
               <Inner>
                 <Label for="name">Full Name</Label>
                 <Name
@@ -329,7 +330,7 @@ class ContactForm extends React.Component {
                     onChange={this.handleInputChange}
                     required
                 />
-                <Label for="reference">Upload your resume (required):</Label>
+                <Label for="resume">Upload your resume (required):</Label>
                 <Resume
                     name="resume"
                     type="file"
