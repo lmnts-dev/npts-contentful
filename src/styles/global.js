@@ -39,7 +39,8 @@ const GlobalStyle = createGlobalStyle`
     padding: 36px;
     position: relative;
     .tl-wrapper-outer {
-      overflow-y: hidden;
+      overflow-y: visible;
+      overflow-x: visible !important;
     }
     @media (max-width: 2000px){
       padding: 1.8vw;
