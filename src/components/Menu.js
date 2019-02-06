@@ -129,6 +129,8 @@ class Menu extends React.Component {
   scrollDistance = 100
 
   // Scroll styles to be added after scrolling from the top of the page.
+  navTopClearBg = 
+    'linear-gradient(-180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 99%)'
   navTopBg =
     'linear-gradient(-180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99%)'
   navScrollBg =
@@ -157,10 +159,12 @@ class Menu extends React.Component {
   render() {
     return (
       // The line below this is where you can use the shorthand logic to change the Nav's styles on scroll. I'm passing these props into the styled component above.
+      
       <Nav
-        bgColor={this.state.isTop ? this.navTopBg : this.navScrollBg}
+        bgColor={(this.state.isTop && this.props.shadow) ? this.navTopBg : (this.state.isTop && !(this.props.shadow)) ? this.navTopClearBg : this.navScrollBg}
         height={this.state.isTop ? this.navTopHeight : this.navScrollHeight}
       >
+        {console.log(this.props.shadow)}
         <LogoLink
           to="/"
           activeStyle={this.activeLinkStyle}

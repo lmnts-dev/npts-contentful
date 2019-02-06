@@ -25,7 +25,7 @@ const Index = ({ data, location }) => {
   const video = data.allContentfulVideo.edges[0].node
 
   return (
-    <Layout location={location}>
+    <Layout location={location} shadow>
       <Helmet>
         <title>{ `${config.siteTitle}`}</title>
       </Helmet>

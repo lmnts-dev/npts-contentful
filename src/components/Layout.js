@@ -28,7 +28,8 @@ class Layout extends React.Component {
 
         <ThemeProvider theme={theme}>
           <div>
-            <Menu id="navBar" />
+            <Menu id="navBar" shadow={this.props.shadow}/>
+            
             
             {children}
 
