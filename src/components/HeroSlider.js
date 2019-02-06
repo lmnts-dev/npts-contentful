@@ -59,7 +59,7 @@ const TwoColRow = styled(TwoColRowWrapper)`
   @media (max-width: 400px) {
     height: 100vh !important;
     max-height: 650px !important;
-    min-height: 300px !important;
+    min-height: 600px !important;
   }
   position: absolute;
   top: 0;
@@ -89,7 +89,7 @@ const Slider = styled(slider)`
   @media (max-width: 400px) {
     height: 100vh !important;
     max-height: 650px !important;
-    min-height: 300px !important;
+    min-height: 600px !important;
   }
   z-index: 1;
 `
@@ -115,7 +115,7 @@ const SliderImage = styled(Wrapper)`
   @media (max-width: 400px) {
     height: 100vh !important;
     max-height: 650px !important;
-    min-height: 300px !important;
+    min-height: 600px !important;
   }
 `
 
