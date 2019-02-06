@@ -56,6 +56,11 @@ const TwoColRow = styled(TwoColRowWrapper)`
   @media (max-width: 600px) {
     min-height: 550px;
   }
+  @media (max-width: 400px) {
+    height: 100vh !important;
+    max-height: 650px !important;
+    min-height: 300px !important;
+  }
   position: absolute;
   top: 0;
   left: 0;
@@ -79,7 +84,12 @@ const Slider = styled(slider)`
     min-height: 750px;
   }
   @media (max-width: 600px) {
-    min-height: 550px;
+    height: 100vh !important;
+  }
+  @media (max-width: 400px) {
+    height: 100vh !important;
+    max-height: 650px !important;
+    min-height: 300px !important;
   }
   z-index: 1;
 `
@@ -101,7 +111,11 @@ const SliderImage = styled(Wrapper)`
   width: 100%;
   @media (max-width: 600px) {
     height: 100vh !important;
-    min-height: 550px;
+  }
+  @media (max-width: 400px) {
+    height: 100vh !important;
+    max-height: 650px !important;
+    min-height: 300px !important;
   }
 `
 
