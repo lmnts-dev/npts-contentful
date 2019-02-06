@@ -423,6 +423,7 @@ class DropForm extends React.Component {
                       type="checkbox" 
                       name="disclaimer" 
                       value="I agree"
+                      required
                   />
               <CheckStyle checked={this.state.isChecked} />
                 </CheckLabel>< br/>
@@ -430,8 +431,7 @@ class DropForm extends React.Component {
 
             <Modal visible={this.state.showModal}>
               <p>
-                Thank you for reaching out. We will get back to you as soon as
-                possible.
+                Thank you for requesting our drop service. We reach out to you with any questions, if any.
                   </p>
               <Button dark to="/success" onClick={this.closeModal}>
                 Okay

@@ -235,6 +235,7 @@ class ContactForm extends React.Component {
       email: '',
       position: '',
       reference: '',
+      resume: '',
       showModal: false,
     }
   }
@@ -262,8 +263,11 @@ class ContactForm extends React.Component {
   handleSuccess = () => {
     this.setState({
       name: '',
+      number: '',
       email: '',
-      message: '',
+      position: '',
+      reference: '',
+      resume: '',
       showModal: true,
     })
   }
@@ -295,7 +299,7 @@ class ContactForm extends React.Component {
             </p>
             <FormBlock bgColor="#293536" paddingBottom>
               <Inner>
-                <Label for="name">Full Name</Label>
+                <Label htmlFor="name">Full Name</Label>
                 <Name
                     name="name"
                     type="text"
@@ -304,7 +308,7 @@ class ContactForm extends React.Component {
                     onChange={this.handleInputChange}
                     required
                 />
-                <Label for="number">Phone Number</Label>
+                <Label htmlFor="number">Phone Number</Label>
                 <PhoneNumber
                     name="number"
                     type="tel"
@@ -313,7 +317,7 @@ class ContactForm extends React.Component {
                     onChange={this.handleInputChange}
                     required
                 />
-                <Label for="number">Email</Label>
+                <Label htmlFor="email">Email</Label>
                 <Email
                     name="email"
                     type="email"
@@ -322,7 +326,7 @@ class ContactForm extends React.Component {
                     onChange={this.handleInputChange}
                     required
                 />
-                <Label for="position">What position are you applying for?</Label>
+                <Label htmlFor="position">What position are you applying for?</Label>
                 <Notes
                     name="position"
                     type="text"
@@ -330,14 +334,14 @@ class ContactForm extends React.Component {
                     onChange={this.handleInputChange}
                     required
                 />
-                <Label for="resume">Upload your resume (required):</Label>
+                <Label htmlFor="resume">Upload your resume (required):</Label>
                 <Resume
                     name="resume"
                     type="file"
                     onChange={this.handleInputChange}
                     required
                 />
-                <Label for="reference">Where did you hear about this job?</Label> 
+                <Label htmlFor="reference">Where did you hear about this job?</Label> 
                 <Notes
                     name="reference"
                     type="text"
@@ -349,7 +353,7 @@ class ContactForm extends React.Component {
 
                 <Modal visible={this.state.showModal}>
                     <p>
-                    Thank you for reaching out. We will get back to you as soon as
+                    Thank you for applying. We will get back to you as soon as
                     possible.
                     </p>
                     <Button dark to="#" onClick={this.closeModal}>
