@@ -153,7 +153,7 @@ const Work = ( {data } ) => {
       </Fade>
       <Fade duration={2000}>
         <TwoColRow bias="left">
-          <Block bgColor="transparent" padding="0" bgImage={work.image1.ogimg.src} />
+          <Block bgColor="transparent" padding="0" bgImage={work.firstImage.ogimg.src} />
           <TextBlock bgColor="#FFFFFF" hideButton dest="/" theme="dark" header={work.secondaryHeader1} inlineText={work.paragraphText1.childMarkdownRemark.html} />
         </TwoColRow>
       </Fade>
@@ -162,7 +162,7 @@ const Work = ( {data } ) => {
           <TextBlock pushUp bgColor="#FFFFFF" bText={work.buttonText} dest={'/' + work.buttonDestination
                 .replace(/[^a-z0-9]/gi, '-')
                 .toLowerCase()} theme="dark" header={work.secondaryHeader2} inlineText={work.paragraphText2.childMarkdownRemark.html} />
-          <Block bgColor="transparent" padding="0" bgImage={work.image2.ogimg.src} />
+          <Block bgColor="transparent" padding="0" bgImage={work.secondImage.ogimg.src} />
         </TwoColRow>
       </Fade>
       <Fade duration={2000}>
@@ -261,7 +261,7 @@ export const query = graphql`
                  highlightTitle1
                  highlightTitle2
                  highlightTitle3
-                 image1 {
+                 firstImage {
                    title
                    fluid(maxWidth: 1800) {
                      ...GatsbyContentfulFluid_withWebp_noBase64
@@ -272,7 +272,7 @@ export const query = graphql`
                      height
                    }
                  }
-                 image2 {
+                 secondImage {
                    title
                    fluid(maxWidth: 1800) {
                      ...GatsbyContentfulFluid_withWebp_noBase64

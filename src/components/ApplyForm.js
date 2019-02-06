@@ -63,8 +63,8 @@ const Form = styled.form`
     }
     border: none;
     outline: none;
-    background: #212829;
-    letter-spacing: .05em;
+    background: #363636;
+    letter-spacing: 0.05em;
     color: #ffffff;
     padding: 23.5px 28px;
     @media (max-width: 600px) {
@@ -114,7 +114,7 @@ const Location = styled.input`
   width: 100%;
 `
 
-const Radio = styled.input`
+const Check = styled.input`
   position: absolute;
  // opacity: 0;
   cursor: pointer;
@@ -122,25 +122,26 @@ const Radio = styled.input`
   width: 25px;
   z-index: 5;
   &:checked {
+    color: red !important;
     span {
       background-color: white;
     }
   }
 `
 
-const RadioStyle = styled.span`
+const CheckStyle = styled.span`
   position: absolute;
   height: 25px;
   border-radius: 50%;
   margin-left: 10px;
   width: 25px;
-  background-color: #293536;
-  border: 2.5px solid #293536;
+  background-color: #212829;
+  border: 2.5px solid #212829;
   cursor: pointer;
   z-index: 4;
 `
 
-const RadioLabel = styled(P)`
+const CheckLabel = styled(P)`
   position: relative;
   display: inline-block;
   position: relative;
@@ -253,7 +254,7 @@ class ContactForm extends React.Component {
       message: '',
       notes: '',
       location: '',
-      radio: '',
+      isChecked: false,
       showModal: false,
     }
   }
@@ -278,6 +279,13 @@ class ContactForm extends React.Component {
     event.preventDefault()
   }
 
+  handleCheckboxChange = event => {
+    console.log('checkbox changed!', this.state.isChecked)
+    this.setState((state) => {
+      return { isChecked: !state.isChecked }
+    });
+  }
+
   handleSuccess = () => {
     this.setState({
       name: '',
@@ -286,7 +294,7 @@ class ContactForm extends React.Component {
       message: '',
       notes: '',
       location: '',
-      radio: '',
+      isChecked: false,
       showModal: true,
     })
   }
@@ -316,7 +324,7 @@ class ContactForm extends React.Component {
                 <input name="bot" onChange={this.handleInputChange} />
                 </label>
             </p>
-          <FormBlock bgColor="#293536">
+          <FormBlock bgColor="#272929">
             <Inner>
               <Label htmlFor="name">Name</Label>
               <Name
@@ -358,18 +366,12 @@ class ContactForm extends React.Component {
                 required
               />
               <Label htmlFor="call">Call before delivery?</Label><br />
-              <RadioLabel color="#FFFFFF">Yes</RadioLabel>
-              <Radio
-                type="radio"
+              <CheckLabel color="#FFFFFF">Yes</CheckLabel>
+              <Check
+                type="checkbox"
                 name="call"
                 value="yes"
-              />
-              <RadioLabel color="#FFFFFF">No</RadioLabel>
-              <Radio
-                type="radio"
-                name="call"
-                value="no"
-              /><br />
+              />< br />
               <Label htmlFor="notes">Additional notes</Label>
               <Notes
                 name="notes"
@@ -380,7 +382,7 @@ class ContactForm extends React.Component {
               />
             </Inner>
           </FormBlock>
-            <Block bgColor="#272929">
+            <Block bgColor="#293536">
               <Inner>
                 <List color="#FFFFFF" dangerouslySetInnerHTML={{
                   __html: this.props.disclaimer }}
@@ -388,22 +390,16 @@ class ContactForm extends React.Component {
                   <Border color="#9F4300" width="100%" margin="40px 0" />
                   <Disclaimer color="#FFFFFF">Please indicate you have read and agree to the Terms of the {this.props.type} Drop.</Disclaimer>
                   
-                  <RadioLabel as="label" htmlFor="disclaimer" color="#FFFFFF">I Agree
-                    <Radio 
-                        type="radio" 
+                  <CheckLabel as="label" htmlFor="disclaimer" color="#FFFFFF">I Agree
+                    <Check 
+                        onChange={this.handleCheckboxChange} 
+                        checked={this.state.isChecked}
+                        type="checkbox" 
                         name="disclaimer" 
                         value="I agree"
                     />
-                  <RadioStyle />
-                  </RadioLabel>
-                  <RadioLabel as="label" htmlFor="disclaimer" color="#FFFFFF">Cancel
-                    <Radio 
-                        type="radio" 
-                        name="disclaimer" 
-                        value="Cancel"
-                    />
-                    <RadioStyle/>
-                  </RadioLabel>
+                  <CheckStyle />
+                  </CheckLabel>< br/>
               <Submit name="submit" type="submit" value={"Apply for free " + this.props.type.toLowerCase()} />
 
               <Modal visible={this.state.showModal}>
