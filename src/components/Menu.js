@@ -20,6 +20,15 @@ const LogoLink = styled(Link)`
   position: absolute;
   left: 15px;
   top: 15px;
+  svg {
+    path {
+      ${props => props.dark ? 
+        `fill: #293536;`
+      :
+        `fill: #FFFFFF;`
+      }
+    }
+  }
   @media (max-width: 600px) {
     svg {
       width: 230px;
@@ -135,6 +144,8 @@ class Menu extends React.Component {
     'linear-gradient(-180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99%)'
   navScrollBg =
     'linear-gradient(-180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 99%)'
+  navScrollLightBg =
+    'linear-gradient(-180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 99%)'
   navTopHeight = '100px'
   navScrollHeight = '60px'
 
@@ -161,11 +172,12 @@ class Menu extends React.Component {
       // The line below this is where you can use the shorthand logic to change the Nav's styles on scroll. I'm passing these props into the styled component above.
       
       <Nav
-        bgColor={(this.state.isTop && this.props.shadow) ? this.navTopBg : (this.state.isTop && !(this.props.shadow)) ? this.navTopClearBg : this.navScrollBg}
+        bgColor={(this.state.isTop && this.props.shadow) ? this.navTopBg : (this.state.isTop && !(this.props.shadow)) ? this.navTopClearBg : (!(this.state.isTop) && this.props.dark) ? this.navScrollLightBg : this.navScrollBg}
         height={this.state.isTop ? this.navTopHeight : this.navScrollHeight}
       >
         {console.log(this.props.shadow)}
         <LogoLink
+          dark={this.props.dark}
           to="/"
           activeStyle={this.activeLinkStyle}
         >
@@ -206,7 +218,7 @@ class Menu extends React.Component {
             </NavButton>
           </li>
         </ul>
-        <HamburgerMenu />
+        <HamburgerMenu dark={this.props.dark}/>
       </Nav>
     )
   }

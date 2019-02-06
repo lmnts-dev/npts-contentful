@@ -13,7 +13,11 @@ const HamburgerLink = styled.div`
   top: 15px;
   cursor: pointer;
   rect {
-    fill: #ffffff;
+    ${props => props.dark ? 
+      `fill: #293536;`
+    :
+      `fill: #ffffff;`
+    }
   }
   @media (max-width: 1115px) {
     display: block;
@@ -152,7 +156,7 @@ class MenuModal extends Component {
     return <>
         {this.state.showModal ? modal : ''}
         {this.state.showHamburger ? 
-          <HamburgerLink onClick={this.handleClick}>
+          <HamburgerLink onClick={this.handleClick} dark={this.props.dark}>
             <Hamburger />
           </HamburgerLink>
           : 

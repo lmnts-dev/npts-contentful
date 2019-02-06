@@ -28,7 +28,7 @@ const Success = ({ data } ) => {
   const summary = data.allContentfulSummary.edges[0].node
   const identity = data.allContentfulIdentity.edges[0].node
   return (
-    <Layout>
+    <Layout dark>
       <Helmet>
         <title>{`${config.siteTitle}`}</title>
       </Helmet>

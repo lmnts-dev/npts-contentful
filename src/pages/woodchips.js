@@ -18,7 +18,7 @@ const Woodchips = ({data} ) => {
     title: `Chip Drop - ${config.siteTitle}`,
   }
   return (
-    <Layout>
+    <Layout dark>
       <Helmet>
         <title>{`Chip Drop - ${config.siteTitle}`}</title>
       </Helmet>

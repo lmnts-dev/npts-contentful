@@ -29,7 +29,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
   const color = pageContext.index;
 
   return (
-    <Layout location={location}>
+    <Layout location={location} dark>
       <Helmet>
         <title>{`${name} - ${config.siteTitle}`}</title>
       </Helmet>

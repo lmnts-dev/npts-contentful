@@ -39,7 +39,7 @@ const Services = ({ data, location }) => {
   }
 
   return (
-    <Layout location={location}>
+    <Layout location={location} dark>
       <Helmet>
         <title>{`Services - ${config.siteTitle}`}</title>
       </Helmet>
