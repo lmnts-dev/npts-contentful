@@ -313,7 +313,8 @@ class ContactForm extends React.Component {
       notes: '',
       location: '',
       isChecked: false,
-      showModal: true,
+      isCallChecked: false,
+      showModal: false,
     })
   }
 

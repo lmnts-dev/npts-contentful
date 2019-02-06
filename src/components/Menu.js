@@ -175,7 +175,6 @@ class Menu extends React.Component {
         bgColor={(this.state.isTop && this.props.shadow) ? this.navTopBg : (this.state.isTop && !(this.props.shadow)) ? this.navTopClearBg : (!(this.state.isTop) && this.props.dark) ? this.navScrollLightBg : this.navScrollBg}
         height={this.state.isTop ? this.navTopHeight : this.navScrollHeight}
       >
-        {console.log(this.props.shadow)}
         <LogoLink
           dark={this.props.dark}
           to="/"
