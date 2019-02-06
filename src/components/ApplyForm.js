@@ -261,6 +261,7 @@ class DropForm extends React.Component {
       name: '',
       number: '',
       email: '',
+      type: this.props.type,
       message: '',
       notes: '',
       location: '',
@@ -311,11 +312,12 @@ class DropForm extends React.Component {
       number: '',
       email: '',
       message: '',
+      type: this.props.type,
       notes: '',
       location: '',
       isChecked: false,
       isCallChecked: false,
-      showModal: false,
+      showModal: true,
     })
   }
 
