@@ -32,7 +32,6 @@ module.exports = {
     },
   },
   plugins: [
-    'gatsby-plugin-transition-link',
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {

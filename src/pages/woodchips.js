@@ -13,7 +13,7 @@ import Button from '../components/Button'
 import ApplyForm from '../components/ApplyForm'
 
 const Woodchips = ({data} ) => {
-  const disclaimer = data.allContentfulDisclaimers.edges[0].node.woodchipDropDisclaimer.childMarkdownRemark.html 
+  const disclaimer = data.allContentfulWoodchips.edges[0].node.woodchipsDropDisclaimer.childMarkdownRemark.html 
   const postNode = {
     title: `Chip Drop - ${config.siteTitle}`,
   }

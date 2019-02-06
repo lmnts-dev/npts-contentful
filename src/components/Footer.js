@@ -106,9 +106,9 @@ const Item = styled(Link)`
   transition: all 0.2s;
   color: #7c7c7c;
   text-decoration: none;
-  margin-right: ${props => (props.last ? '0' : '80px')};
+  margin-right: ${props => (props.last === 'true' ? '0' : '80px')};
   @media (max-width: 1440px) {
-    margin-right: ${props => (props.last ? '0' : '5.56vw')};
+    margin-right: ${props => (props.last === 'true' ? '0' : '5.56vw')};
   }
   @media (max-width: 750px) {
     margin: 0;
@@ -136,16 +136,16 @@ const Footer = props => (
               <Item to="/about">About</Item>
             </div>
             <div>
-              <Item last to="/our-work">
+              <Item last="true" to="/our-work">
                 Our Work
               </Item>
-              <Item last to="/firewood">
+              <Item last="true" to="/firewood">
                 Firewood
               </Item>
-              <Item last to="/woodchips">
+              <Item last="true" to="/woodchips">
                 Chip Drop
               </Item>
-              <Item last to="/careers">
+              <Item last="true" to="/careers">
                 Careers
               </Item>
             </div>
