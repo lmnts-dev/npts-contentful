@@ -254,7 +254,7 @@ const encode = data => {
     .join('&')
 }
 
-class ContactForm extends React.Component {
+class DropForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -283,7 +283,7 @@ class ContactForm extends React.Component {
     fetch('/?no-cache=1', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...this.state }),
+      body: encode({ 'form-name': 'drop', ...this.state }),
     })
       .then(this.handleSuccess)
       .catch(error => alert(error))
@@ -305,6 +305,7 @@ class ContactForm extends React.Component {
   }
 
   handleSuccess = () => {
+    console.log("success");
     this.setState({
       name: '',
       number: '',
@@ -328,7 +329,7 @@ class ContactForm extends React.Component {
     return (
       <Fade cascade duration={2000}>
           <Form
-          name={this.props.type}
+          name='drop'
           onSubmit={this.handleSubmit}
           data-netlify="true"
           data-netlify-honeypot="bot"
@@ -336,7 +337,7 @@ class ContactForm extends React.Component {
           onClick={this.closeModal}
           >
 
-            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="form-name" value='drop' />
             <p hidden>
                 <label>
                 Don’t fill this out:{' '}
@@ -444,9 +445,9 @@ class ContactForm extends React.Component {
   }
 }
 
-ContactForm.propTypes = {
+DropForm.propTypes = {
   data: PropTypes.object,
 }
 
 
-export default ContactForm
+export default DropForm
