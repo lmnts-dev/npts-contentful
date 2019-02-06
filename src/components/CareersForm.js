@@ -226,7 +226,7 @@ const encode = data => {
     .join('&')
 }
 
-class ContactForm extends React.Component {
+class CareersForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -234,6 +234,7 @@ class ContactForm extends React.Component {
       number: '',
       email: '',
       position: '',
+      type: 'application',
       reference: '',
       resume: '',
       showModal: false,
@@ -253,7 +254,7 @@ class ContactForm extends React.Component {
     fetch('/?no-cache=1', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...this.state }),
+      body: encode({ 'form-name': 'application', ...this.state }),
     })
       .then(this.handleSuccess)
       .catch(error => alert(error))
@@ -266,6 +267,7 @@ class ContactForm extends React.Component {
       number: '',
       email: '',
       position: '',
+      type: 'application',
       reference: '',
       resume: '',
       showModal: true,
@@ -282,7 +284,7 @@ class ContactForm extends React.Component {
     return (
       <Fade cascade duration={2000}>
           <Form
-          name="contact"
+          name="application"
           onSubmit={this.handleSubmit}
           data-netlify="true"
           data-netlify-honeypot="bot"
@@ -290,7 +292,7 @@ class ContactForm extends React.Component {
           onClick={this.closeModal}
           >
 
-            <input type="hidden" name="form-name" value="contact" />
+            <input type="hidden" name="form-name" value="application" />
             <p hidden>
                 <label>
                 Don’t fill this out:{' '}
@@ -369,8 +371,8 @@ class ContactForm extends React.Component {
   }
 }
 
-ContactForm.propTypes = {
+CareersForm.propTypes = {
   data: PropTypes.object,
 }
 
-export default ContactForm
+export default CareersForm
