@@ -125,6 +125,11 @@ const Name = styled.input`
   width: 100%;
 `
 
+const Type = styled.input`
+  z-index: -55;
+  position: absolute;;
+`
+
 const Location = styled.input`
   margin-bottom: 20px;
   width: 100%;
@@ -214,6 +219,11 @@ const Label = styled.label`
   margin-top: 10px;
   line-height: 1.6;
   letter-spacing: .05em;
+`
+
+const TypeLabel = styled.label`
+  z-index: -55;
+  position: absolute;
 `
 
 const Modal = styled.div`
@@ -306,7 +316,7 @@ class DropForm extends React.Component {
   }
 
   handleSuccess = () => {
-    console.log("success");
+    console.log(this.state);
     this.setState({
       name: '',
       number: '',
@@ -348,6 +358,15 @@ class DropForm extends React.Component {
             </p>
           <FormBlock bgColor="#272929">
             <Inner>
+              <TypeLabel htmlFor="typw">Type</TypeLabel>
+              <Type 
+                name="type"
+                placeholder={this.props.type}
+                type="text"
+                value={this.state.type}
+                onChange={this.handleInputChange}
+                required
+              />
               <Label htmlFor="name">Name</Label>
               <Name
                 name="name"

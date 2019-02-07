@@ -262,6 +262,7 @@ class CareersForm extends React.Component {
   }
 
   handleSuccess = () => {
+    console.log( this.state);
     this.setState({
       name: '',
       number: '',
@@ -340,6 +341,7 @@ class CareersForm extends React.Component {
                 <Resume
                     name="resume"
                     type="file"
+                    value={this.state.resume}
                     onChange={this.handleInputChange}
                     required
                 />
