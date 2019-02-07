@@ -29,58 +29,64 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
   const color = pageContext.index;
 
   return (
-    <Layout location={location} dark>
-      <Helmet>
-        <title>{`${name} - ${config.siteTitle}`}</title>
-      </Helmet>
+    
+      <Layout location={location} dark>
+        <Helmet>
+          <title>{`${name} - ${config.siteTitle}`}</title>
+          <meta itemprop="name" content={ name } />
+        </Helmet>
 
-      <Container>
-        <Fade duration={2000}>
-          <HeaderBlock 
-            // make upt to 5 different colors for each services header up to 15
-            bgColor={(color === 0 || color === 5 || color === 10 ) ? "#CAD5E8" : (color === 1 || color === 6 || color === 11) ? "#CEE0CA" : (color === 2 || color === 7 || color === 12) ? "#F7F2D9" : (color === 3 || color === 8 || color === 13) ? "#DFEFC8" : "#D2EFE1"}
-          >
-            <HeaderText as="h3" size="38" weight="700" color="#293536">
-              Tree care services
-            </HeaderText>
-            <HeaderText as="h1" padding="1vw 0 0 0" size="100" weight="700" color="#293536">
-              {name}
-            </HeaderText>
-          </HeaderBlock>
-        </Fade>
-        <Fade duration={2000}>
-          <Block bgColor="#FFFFFF">
-            <HeaderText as="h2" size="72" color="#293536" weight="700">
-              {name}
-            </HeaderText>
-            <PLarge
-              color="#293536"
-              dangerouslySetInnerHTML={{
-                __html: fullDescription.childMarkdownRemark.html,
-              }}
+        <Container>
+        <article itemscope itemtype="http://schema.org/LiveBlogPosting">
+          <Fade duration={2000}>
+            <HeaderBlock 
+              // make upt to 5 different colors for each services header up to 15
+              bgColor={(color === 0 || color === 5 || color === 10 ) ? "#CAD5E8" : (color === 1 || color === 6 || color === 11) ? "#CEE0CA" : (color === 2 || color === 7 || color === 12) ? "#F7F2D9" : (color === 3 || color === 8 || color === 13) ? "#DFEFC8" : "#D2EFE1"}
+            >
+              <HeaderText as="h3" size="38" weight="700" color="#293536" itemprop="description">
+                Tree care services
+              </HeaderText>
+              <HeaderText as="h1" padding="1vw 0 0 0" size="100" weight="700" color="#293536" itemprop="headline">
+                {name}
+              </HeaderText>
+            </HeaderBlock>
+          </Fade>
+          <Fade duration={2000}>
+            <Block bgColor="#FFFFFF">
+              <HeaderText as="h2" size="72" color="#293536" weight="700">
+                {name}
+              </HeaderText>
+              <PLarge
+                itemprop="articleBody"
+                color="#293536"
+                dangerouslySetInnerHTML={{
+                  __html: fullDescription.childMarkdownRemark.html,
+                }}
+              />
+              <Button to="/contact">Get a free quote</Button>
+            </Block>
+          </Fade>
+          </article>
+
+          <Fade duration={2000}>
+            <DropsBlock
+              header={drops.headerText}
+              text={drops.paragraphText.childMarkdownRemark.html}
             />
-            <Button to="/contact">Get a free quote</Button>
-          </Block>
-        </Fade>
-
-        <Fade duration={2000}>
-          <DropsBlock
-            header={drops.headerText}
-            text={drops.paragraphText.childMarkdownRemark.html}
-          />
-        </Fade>
-        <Fade duration={2000}>
-          <Summary
-            bgColor="#9F4300"
-            subhead={summary.subHeaderText}
-            header={summary.headerText}
-            text={summary.paragraphText.childMarkdownRemark.html}
-            bText={summary.buttonText}
-            dest={'/' + summary.buttonDestination}
-          />
-        </Fade>
-      </Container>
-    </Layout>
+          </Fade>
+          <Fade duration={2000}>
+            <Summary
+              bgColor="#9F4300"
+              subhead={summary.subHeaderText}
+              header={summary.headerText}
+              text={summary.paragraphText.childMarkdownRemark.html}
+              bText={summary.buttonText}
+              dest={'/' + summary.buttonDestination}
+            />
+          </Fade>
+        </Container>
+      </Layout>
+    
   )
 }
 
