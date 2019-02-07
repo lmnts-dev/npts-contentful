@@ -38,6 +38,8 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
 
         <Container>
         <article itemscope itemtype="http://schema.org/LiveBlogPosting">
+          <time itemprop="datePublished" content="2018-02-011T11:30:00-07:00" />
+          <div itemprop="author" content="Chubb-Silverman"/>
           <Fade duration={2000}>
             <HeaderBlock 
               // make upt to 5 different colors for each services header up to 15
