@@ -222,15 +222,11 @@ const Modal = styled.div`
 
 const encode = (data) => {
   return Object.keys(data)
-    .map(key => {
-      if (key === 'resume'){
-        encodeURIComponent(key) + '=' + encodeURIComponent(file + " " + file.name)
-      }
-      else {
-        encodeURIComponent(key) + '=' + encodeURIComponent(data[key] + "")
-      }
-    }
-    )
+    .map(key => 
+
+      encodeURIComponent(key) + '=' + encodeURIComponent(data[key] + ""),
+      
+      )
     .join('&')
 }
 
