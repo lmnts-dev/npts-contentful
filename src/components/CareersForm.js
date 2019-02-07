@@ -221,17 +221,11 @@ const Modal = styled.div`
 */
 
 const encode = (data) => {
-  const formData = new FormData()
-  Object.keys(data).map(key => {
-    if (key === 'files') {
-      for (const file of data[key]) {
-        formData.append(key, file, file.name)
-      }
-    } else {
-      formData.append(key, data[key])
-    }
-  })
-  return formData
+  return Object.keys(data)
+    .map(key => 
+      encodeURIComponent(key) + '=' + encodeURIComponent(data[key] + ""),
+      )
+    .join('&')
 }
 
 class CareersForm extends React.Component {
