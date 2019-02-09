@@ -7,12 +7,13 @@ import theme from '../styles/theme'
 import config from '../utils/siteConfig'
 import Menu from '../components/Menu'
 import Footer from '../components/Footer'
+import Transition from '../components/transition'
 
 class Layout extends React.Component {
-
   render() {
     const { children } = this.props
-    
+    const { location } = this.props.location
+
     return (
       <>
         <Helmet>
@@ -28,16 +29,15 @@ class Layout extends React.Component {
 
         <ThemeProvider theme={theme}>
           <div>
-            <Menu id="navBar" shadow={this.props.shadow} dark={this.props.dark}/>
-            
-            
+            <Menu
+              id="navBar"
+              shadow={this.props.shadow}
+              dark={this.props.dark}
+            />
+
             {children}
 
-            {this.props.altFooter? (
-              <Footer alt />
-                ) : (
-              <Footer />
-            )}
+            {this.props.altFooter ? <Footer alt /> : <Footer />}
           </div>
         </ThemeProvider>
         <GlobalStyle />
