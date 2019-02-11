@@ -31,10 +31,6 @@ const Disclaimer = styled(P)`
   line-height: 1.6;
 `
 
-const TextBlock = styled.div`
-  margin-bottom: 20px;
-`
-
 const Inner = styled.div`
   margin: 0 auto;
   max-width: 800px;
@@ -300,14 +296,12 @@ class DropForm extends React.Component {
   }
 
   handleCheckboxChange = event => {
-    console.log('checkbox changed!', this.state.isChecked)
     this.setState(state => {
       return { isChecked: !state.isChecked }
     })
   }
 
   handleCallChange = event => {
-    console.log('checkbox changed!', this.state.isCallChecked)
     this.setState(state => {
       return { isCallChecked: !state.isCallChecked }
     })

@@ -1,33 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
 import config from '../utils/siteConfig'
 import SEO from '../components/SEO'
 import Footer from '../components/Footer'
 import { HeaderText } from '../components/Headings'
 import Fade from 'react-reveal/Fade'
 import { HeaderBlock } from '../components/Block'
-import { TwoColRowWrapper } from '../components/TwoColRow'
 import CareersForm from '../components/CareersForm'
 import ScrollWrapper from '../components/ScrollWrapper'
-
-const Row = styled(TwoColRowWrapper)`
-  div,
-  h3 {
-    flex: 1 !important;
-  }
-  h3 {
-    margin-right: 5vw;
-  }
-`
-
-const Positions = styled.div`
-  .react-reveal:nth-child(even) {
-    div {
-      background-color: #e1f2f8 !important;
-    }
-  }
-`
 
 const Apply = () => {
   const postNode = {

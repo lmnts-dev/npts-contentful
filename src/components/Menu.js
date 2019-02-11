@@ -1,9 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import * as lmnts from '../data/Styles'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import Logo from '!svg-react-loader!../images/svg-icons/logo.svg?name=logo'
-import Hamburger from '!svg-react-loader!../images/svg-icons/navburger.svg?name=navburger'
 import HamburgerMenu from '../components/MenuOverlay'
 import { fadeIn } from '../data/KeyFrames'
 

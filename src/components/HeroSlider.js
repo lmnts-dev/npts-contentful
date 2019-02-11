@@ -3,15 +3,14 @@ import { TwoColRowWrapper } from './TwoColRow'
 import styled from 'styled-components'
 import Button from './Button'
 import { Row, RowWrapper } from './Row'
-import { Wrapper, Block } from './Block'
-import { H1, P, Text } from './Headings'
+import { Wrapper } from './Block'
+import { H1, Text } from './Headings'
 import { Border } from './Lines'
 import { ColumnWrapper } from './Column'
 import SVG from '!svg-react-loader!../images/svg-icons/badge.svg?name=badge'
 import lArrow from '!svg-react-loader!../images/svg-icons/arrowLeft.svg?name=arrow'
 import rArrow from '!svg-react-loader!../images/svg-icons/arrowRight.svg?name=arrow'
 import Locator from '!svg-react-loader!../images/svg-icons/locator.svg?name=locator'
-import SlideOne from '../images/slider1.jpg'
 import slider from 'react-slick'
 import Helmet from 'react-helmet'
 
@@ -226,7 +225,6 @@ export default class HomeSlider extends React.Component {
     var settings = {
       dots: false,
       infinite: true,
-      speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
       speed: 1500,
@@ -236,7 +234,6 @@ export default class HomeSlider extends React.Component {
       autoplaySpeed: 3000,
     }
 
-    var images = this.props.data.sliderImages
     return (
       <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
         <Container>

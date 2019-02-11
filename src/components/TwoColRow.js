@@ -11,8 +11,8 @@ export const TwoColRowWrapper = styled.div`
   div:first-of-type {
     flex: ${props => {
       /* adjust widths of each column */
-      if (props.bias == 'left') return '5'
-      if (props.bias == 'right') return '4'
+      if (props.bias === 'left') return '5'
+      if (props.bias === 'right') return '4'
       return '1'
     }};
     @media (max-width: 600px) {
@@ -22,8 +22,8 @@ export const TwoColRowWrapper = styled.div`
   div:last-of-type {
     flex: ${props => {
       /* adjust widths of each column */
-      if (props.bias == 'left') return '4'
-      if (props.bias == 'right') return '5'
+      if (props.bias === 'left') return '4'
+      if (props.bias === 'right') return '5'
       return '1'
     }};
     @media (max-width: 600px) {

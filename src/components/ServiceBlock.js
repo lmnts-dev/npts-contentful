@@ -1,17 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import Button from '../components/Button'
-import { H3, PLarge } from '../components/Headings'
+import { PLarge } from '../components/Headings'
 import { ColumnWrapper } from '../components/Column'
-import Planting from '../images/planting.jpg'
 import { Wrapper } from '../components/Block'
 import Fade from 'react-reveal/Fade'
+import { HeaderText } from '../components/Headings'
 
 const Text = styled(PLarge)`
   margin-bottom: 0;
 `
 
-const Header = styled(H3)`
+const Header = styled(HeaderText)`
+  text-decoration: none !important;
   margin-bottom: 30px;
   @media (max-width: 2000px) {
     margin-bottom: 1.5vw;
@@ -31,6 +32,7 @@ const Image = styled(Wrapper)`
 const Link = styled.a`
   height: 500px;
   width: 100%;
+  text-decoration-line: none !important;
   @media (max-width: 2000px) {
     height: 25vw;
   }
@@ -48,14 +50,14 @@ const Column = styled(ColumnWrapper)`
 `
 
 const ServiceBlock = props => (
-  <Fade big cascade when={true}>
+  <Fade big cascade>
     <Column>
-      <Fade big cascade when={true}>
-        <a href={props.dest}>
-          <Header as="h2" weight="700">
+      <Fade big cascade>
+        <Link href={props.dest}>
+          <Header as="h2" weight="700" size="42">
             {props.header}
           </Header>
-        </a>
+        </Link>
       </Fade>
       <Link href={props.dest}>
         <Image padding="0" bgImage={props.src} />

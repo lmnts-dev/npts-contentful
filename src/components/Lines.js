@@ -1,4 +1,4 @@
-import React from 'react'
+
 import styled from 'styled-components'
 
 /* these are what you can call ////////////////

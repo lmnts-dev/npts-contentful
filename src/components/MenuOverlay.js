@@ -4,7 +4,6 @@ import exit from '../images/exit.png'
 import { Wrapper } from '../components/Block'
 import Hamburger from '!svg-react-loader!../images/svg-icons/navburger.svg?name=navburger'
 import Column from '../components/Column'
-import * as lmnts from '../data/Styles'
 
 const HamburgerLink = styled.div`
   display: none;
@@ -100,9 +99,6 @@ const SecondaryLinks = styled.div`
   }
 `
 
-const activeLinkStyle = {
-  color: '#9F4300',
-}
 
 class MenuModal extends Component {
   // constructor to set state and bind "this"

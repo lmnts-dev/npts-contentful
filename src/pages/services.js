@@ -16,7 +16,6 @@ import ScrollWrapper from '../components/ScrollWrapper'
 import Fade from 'react-reveal/Fade'
 
 const TwoColRow = styled(TwoColRowWrapper)`
-  align-items: flex-end;
   @media (max-width: 700px) {
     flex-direction: column;
   }
