@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import * as lmnts from '../data/Styles'
 
 const Wrapper = styled.div`
   margin: -2em 0 0 0;

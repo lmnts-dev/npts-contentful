@@ -5,7 +5,7 @@ import favicon from '../images/favicon.ico'
 import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
 import config from '../utils/siteConfig'
-import Transition from '../components/transition'
+import Transition from '../components/Transition'
 
 const Layout = ({ children, location }) => (
   <>

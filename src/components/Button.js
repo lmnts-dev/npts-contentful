@@ -2,11 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import arrowGrey from '../images/arrowGrey.png'
 import arrowWhite from '../images/arrowWhite.png'
-import * as lmnts from '../data/Styles'
 
 /* these are the four buttons you can call ////////////////
-
-    STILL NEED TO FIGURE OUT CONTENT URL FOR BUTTON WITH ARROW 
     
     <Button to="/"> light pillow </Button>
     <Button to="/" dark> dark pillow </Button>

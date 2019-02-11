@@ -1,13 +1,12 @@
 import React from 'react'
 import Slider from 'react-slick'
-import styled from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { TwoColRowWrapper } from '../components/TwoColRow'
 import { RowWrapper } from '../components/Row'
 import Block from '../components/Block'
 import { Text, HeaderText } from '../components/Headings'
 import { ColumnWrapper } from '../components/Column'
 import Branch from '!svg-react-loader!../images/svg-icons/branch.svg?name=branch'
-import { createGlobalStyle } from 'styled-components'
 import Helmet from 'react-helmet'
 
 const Wrapper = styled.div`

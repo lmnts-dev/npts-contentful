@@ -2,13 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Button } from '../components/Button'
-import { P, H3, PLarge, HeaderText, Text } from '../components/Headings'
-import Row from '../components/Row'
-import phone from '!svg-react-loader!../images/svg-icons/phone.svg?name=phone'
-import email from '!svg-react-loader!../images/svg-icons/email.svg?name=email'
 import Fade from 'react-reveal/Fade'
-import { Block, Wrapper } from '../components/Block'
-import { Border } from '../components/Lines'
+import { Wrapper } from '../components/Block'
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.

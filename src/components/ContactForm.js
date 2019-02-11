@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Button from '../components/Button'
-import { H3, PLarge, HeaderText, Text } from '../components/Headings'
+import { HeaderText, Text } from '../components/Headings'
 import { RowWrapper } from '../components/Row'
 import phone from '!svg-react-loader!../images/svg-icons/phone.svg?name=phone'
 import email from '!svg-react-loader!../images/svg-icons/email.svg?name=email'
@@ -161,14 +161,6 @@ const Submit = styled.input`
   border-radius: 46px;
   background-color: #ffffff !important;
   box-shadow: 0 3px 36px rgba(0, 0, 0, 0.16);
-`
-
-const Image = styled.img`
-  position: absolute;
-  left: 20%;
-  top: 20%;
-  width: 60%;
-  height: 60%;
 `
 
 const Modal = styled.div`

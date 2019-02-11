@@ -33,13 +33,13 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
     <ScrollWrapper>
       <Helmet>
         <title>{`${name} - ${config.siteTitle}`}</title>
-        <meta itemprop="name" content={name} />
+        <meta itemProp="name" content={name} />
       </Helmet>
 
       <Container>
-        <article itemscope itemtype="http://schema.org/LiveBlogPosting">
-          <time itemprop="datePublished" content="2018-02-011T11:30:00-07:00" />
-          <div itemprop="author" content="Chubb-Silverman" />
+        <article itemScope itemType="http://schema.org/LiveBlogPosting">
+          <time itemProp="datePublished" content="2018-02-011T11:30:00-07:00" />
+          <div itemProp="author" content="Chubb-Silverman" />
           <Fade duration={2000}>
             <HeaderBlock
               // make upt to 5 different colors for each services header up to 15
@@ -60,7 +60,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
                 size="38"
                 weight="700"
                 color="#293536"
-                itemprop="description"
+                itemProp="description"
               >
                 Tree care services
               </HeaderText>
@@ -70,7 +70,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
                 size="100"
                 weight="700"
                 color="#293536"
-                itemprop="headline"
+                itemProp="headline"
               >
                 {name}
               </HeaderText>
@@ -82,7 +82,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
                 {name}
               </HeaderText>
               <PLarge
-                itemprop="articleBody"
+                itemProp="articleBody"
                 color="#293536"
                 dangerouslySetInnerHTML={{
                   __html: fullDescription.childMarkdownRemark.html,
