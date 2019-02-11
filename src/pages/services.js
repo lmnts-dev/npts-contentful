@@ -31,7 +31,8 @@ const ServiceList = styled(Wrapper)`
 `
 
 const Services = ({ data, location }) => {
-  const services = data.allContentfulService.edges.reverse()
+  const servicesRaw = data.allContentfulService.edges
+  const services = servicesRaw.reverse();
   const drops = data.allContentfulDrops.edges[0].node
   const identity = data.allContentfulIdentity.edges[0].node
   const postNode = {
