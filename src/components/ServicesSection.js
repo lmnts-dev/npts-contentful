@@ -53,7 +53,7 @@ const Services = props => {
             bText="Learn more"
             dest={
               '/services/' +
-              firstService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
+              firstService.name.replace('(', '').replace(')', '').replace(/[^a-z0-9]/gi, '-').toLowerCase()
             }
             theme="light"
             bgColor="#272929"
@@ -71,7 +71,7 @@ const Services = props => {
             bText="Learn more"
             dest={
               '/services/' +
-              secondService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
+              secondService.name.replace('(', '').replace(')', '').replace(/[^a-z0-9]/gi, '-').toLowerCase()
             }
             theme="dark"
             bgColor="#FFFFFF"
@@ -88,7 +88,7 @@ const Services = props => {
             bText="Learn more"
             dest={
               '/services/' +
-              thirdService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
+              thirdService.name.replace('(', '').replace(')', '').replace(/[^a-z0-9]/gi, '-').toLowerCase()
             }
             theme="dark"
             bgColor="#C9EAEB"
@@ -106,7 +106,7 @@ const Services = props => {
             bText="Learn more"
             dest={
               '/services/' +
-              fourthService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
+              fourthService.name.replace('(', '').replace(')', '').replace(/[^a-z0-9]/gi, '-').toLowerCase()
             }
             theme="dark"
             bgColor="#FFFFFF"
@@ -122,11 +122,7 @@ const Services = props => {
             bText="Learn more"
             dest={
               '/services/' +
-              fifthService.name
-                .replace(')', '')
-                .replace('(', '')
-                .replace(/[^a-z0-9]/gi, '-')
-                .toLowerCase()
+              fifthService.name.replace('(', '').replace(')', '').replace(/[^a-z0-9]/gi, '-').toLowerCase()
             }
             theme="dark"
             bgColor="#C9EAEB"
