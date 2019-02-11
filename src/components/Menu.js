@@ -55,30 +55,54 @@ const NavButton = styled.a`
       : 'margin-left: 0'}
 `
 
-const Nav = styled.nav`
+const NavInner = styled.div`
   animation: ${fadeIn} 0.5s ease-in-out 0s;
-  animation-iteration-count: 1;
   padding: 20px 20px 60px 20px;
-  position: fixed;
-  top: ${props => props.topDistance};
-  left: 36px;
+  max-width: 2000px;
+  width: 100%;
+  position: ${props => (props.isTop ? 'unset' : 'relative')};
+`
+
+const Nav = styled.nav`
+  animation-iteration-count: 1;
+  position: ${props => props.navPosition};
+  top: 0px;
   right: 36px;
+  left: ${props => (props.isTop ? '36px' : '50%')};
+  width: ${props => (props.isTop ? 'auto' : '100%')};
+  transform: ${props =>
+    props.isTop ? 'translateY(36px)' : 'translateX(-50%)'};
+  padding: ${props => (props.isTop ? '0px 0px 0px 0px' : '0px 36px 0px 36px')};
   z-index: 100;
-  /* width: 100%; */
-  transition: all 1s ease;
+  max-width: 2000px;
+  @media (max-width: 600px) {
+    right: 16px;
+    left: ${props => (props.isTop ? '16px' : '50%')};
+    width: ${props => (props.isTop ? 'auto' : '100%')};
+    transform: ${props =>
+      props.isTop ? 'translateY(16px)' : 'translateX(-50%)'};
+    padding: ${props =>
+      props.isTop ? '0px 0px 0px 0px' : '0px 16px 0px 16px'};
+  }
   &:before {
     content: '';
     position: absolute;
     left: 0;
     right: 0;
     top: 0;
-    height: 100px;
-    background-image: linear-gradient(
-      -180deg,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 0) 99%
-    );
+    transition: background-color 1s ease;
     background: ${props => props.bgColor};
+    height: ${props => props.height};
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    transition: all 1s ease;
+    opacity: ${props => (props.isTop ? '0' : '1')};
+    background: #000000;
     height: ${props => props.height};
   }
   ul {
@@ -100,7 +124,7 @@ const Nav = styled.nav`
   a,
   div {
     text-decoration: none;
-    color: #293536;
+    color: #ffffff;
     font-weight: 600;
     transition: all 0.2s;
     z-index: 800;
@@ -132,57 +156,54 @@ class Menu extends React.Component {
   navTopHeight = '100px'
   navScrollHeight = '60px'
 
-  navScrollTopDistance = '0px'
-  navTopDistance = '36px'
-
   render() {
     console.log('isTop: ' + this.props.isTop)
-    console.log(this.props.isTop ? this.navTopBg : this.navScrollBg )
+    console.log(this.props.isTop ? this.navTopBg : this.navScrollBg)
     return (
       // The line below this is where you can use the shorthand logic to change the Nav's styles on scroll. I'm passing these props into the styled component above.
 
       <Nav
         isTop={this.props.isTop} // Prop result passed from ScrollWrapper component.
         bgColor={this.props.isTop ? this.navTopBg : this.navScrollBg}
-        topDistance={
-          this.props.isTop ? this.navTopDistance : this.navScrollTopDistance
-        }
         height={this.props.isTop ? this.navTopHeight : this.navScrollHeight}
+        navPosition={this.props.isTop ? 'absolute' : 'fixed'}
       >
-        <LogoLink
-          dark={this.props.dark}
-          to="/"
-          activeStyle={this.activeLinkStyle}
-        >
-          <Logo />
-        </LogoLink>
-        <ul>
-          <li>
-            <NavLink to="/services" activeStyle={this.activeLinkStyle}>
-              Services
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/about" activeStyle={this.activeLinkStyle}>
-              About
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact" activeStyle={this.activeLinkStyle}>
-              Let's Talk
-            </NavLink>
-          </li>
-          <li>
-            <NavButton
-              divider
-              href="tel:7753760917"
-              activeStyle={this.activeLinkStyle}
-            >
-              775.376.0917
-            </NavButton>
-          </li>
-        </ul>
-        <HamburgerMenu dark={this.props.dark} />
+        <NavInner>
+          <LogoLink
+            dark={this.props.dark}
+            to="/"
+            activeStyle={this.activeLinkStyle}
+          >
+            <Logo />
+          </LogoLink>
+          <ul>
+            <li>
+              <NavLink to="/services" activeStyle={this.activeLinkStyle}>
+                Services
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/about" activeStyle={this.activeLinkStyle}>
+                About
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact" activeStyle={this.activeLinkStyle}>
+                Let's Talk
+              </NavLink>
+            </li>
+            <li>
+              <NavButton
+                divider
+                href="tel:7753760917"
+                activeStyle={this.activeLinkStyle}
+              >
+                775.376.0917
+              </NavButton>
+            </li>
+          </ul>
+          <HamburgerMenu dark={this.props.dark} />
+        </NavInner>
       </Nav>
     )
   }

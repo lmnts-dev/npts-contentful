@@ -43,6 +43,9 @@ export const ButtonStyle = styled.a`
       background-color: #F7F7F7;
       color: #9f4300;
       border-radius: 46px;
+      &:hover {
+        background-color: #f2f2f2;
+      }
     `
     /* white background circle button */
     if (!props.arrowButton && !props.dark)
@@ -58,6 +61,9 @@ export const ButtonStyle = styled.a`
       border-radius: 46px;
       background-color: #FFFFFF;
       box-shadow: 0 3px 36px rgba( 0, 0, 0, .16);
+      &:hover {
+        background-color: #f2f2f2;
+      }
     `
     /* white arrow button */
     if (props.arrowButton && !props.dark)
