@@ -70,10 +70,20 @@ const Nav = styled.nav`
   right: 36px;
   left: ${props => (props.isTop ? '36px' : '50%')};
   width: ${props => (props.isTop ? 'auto' : '100%')};
-  transform: ${props => (props.isTop ? 'translateY(36px)' : 'translateX(-50%)')};
+  transform: ${props =>
+    props.isTop ? 'translateY(36px)' : 'translateX(-50%)'};
   padding: ${props => (props.isTop ? '0px 0px 0px 0px' : '0px 36px 0px 36px')};
   z-index: 100;
   max-width: 2000px;
+  @media (max-width: 600px) {
+    right: 16px;
+    left: ${props => (props.isTop ? '16px' : '50%')};
+    width: ${props => (props.isTop ? 'auto' : '100%')};
+    transform: ${props =>
+      props.isTop ? 'translateY(16px)' : 'translateX(-50%)'};
+    padding: ${props =>
+      props.isTop ? '0px 0px 0px 0px' : '0px 16px 0px 16px'};
+  }
   &:before {
     content: '';
     position: absolute;
@@ -146,9 +156,6 @@ class Menu extends React.Component {
   navTopHeight = '100px'
   navScrollHeight = '60px'
 
-  navScrollTopDistance = '0px'
-  navTopDistance = '36px'
-
   render() {
     console.log('isTop: ' + this.props.isTop)
     console.log(this.props.isTop ? this.navTopBg : this.navScrollBg)
@@ -158,9 +165,6 @@ class Menu extends React.Component {
       <Nav
         isTop={this.props.isTop} // Prop result passed from ScrollWrapper component.
         bgColor={this.props.isTop ? this.navTopBg : this.navScrollBg}
-        topDistance={
-          this.props.isTop ? this.navTopDistance : this.navScrollTopDistance
-        }
         height={this.props.isTop ? this.navTopHeight : this.navScrollHeight}
         navPosition={this.props.isTop ? 'absolute' : 'fixed'}
       >

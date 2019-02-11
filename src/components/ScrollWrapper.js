@@ -14,6 +14,9 @@ export const ScrollArea = styled.main`
   flex-direction: column;
   justify-content: space-between;
   padding: 36px;
+  @media (max-width: 600px) {
+    padding: 15px;
+  }
 `
 
 class Wrapper extends React.Component {
