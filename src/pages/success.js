@@ -4,11 +4,12 @@ import styled from 'styled-components'
 import config from '../utils/siteConfig'
 import SEO from '../components/SEO'
 import Footer from '../components/Footer'
-import { P, HeaderText } from '../components/Headings'
+import { HeaderText } from '../components/Headings'
 import Fade from 'react-reveal/Fade'
 import { Wrapper } from '../components/Block'
 import TestimonialSlider from '../components/TestimonialSlider'
 import Summary from '../components/Summary'
+import { graphql } from 'gatsby'
 
 const Block = styled(Wrapper)`
   padding: 12vw 10vw;

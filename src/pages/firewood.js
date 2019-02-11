@@ -1,26 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
 import config from '../utils/siteConfig'
 import SEO from '../components/SEO'
 import Footer from '../components/Footer'
-import { H3, P, HeaderText } from '../components/Headings'
+import { HeaderText } from '../components/Headings'
 import Fade from 'react-reveal/Fade'
-import { Wrapper, HeaderBlock, Block } from '../components/Block'
-import { TwoColRowWrapper } from '../components/TwoColRow'
-import Column from '../components/Column'
-import Button from '../components/Button'
+import { HeaderBlock} from '../components/Block'
 import ApplyForm from '../components/ApplyForm'
-
-const Row = styled(TwoColRowWrapper)`
-  div,
-  h3 {
-    flex: 1 !important;
-  }
-  h3 {
-    margin-right: 5vw;
-  }
-`
+import { graphql } from 'gatsby'
 
 const Firewood = ({ data }) => {
   const disclaimer =

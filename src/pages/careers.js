@@ -10,6 +10,7 @@ import { Wrapper, HeaderBlock } from '../components/Block'
 import { TwoColRowWrapper } from '../components/TwoColRow'
 import Column from '../components/Column'
 import Button from '../components/Button'
+import { graphql } from 'gatsby'
 
 const Block = styled(Wrapper)`
   padding: 100px 200px;

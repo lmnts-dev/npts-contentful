@@ -2,11 +2,12 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
 import SEO from '../components/SEO'
-import { H3, P, HeaderText } from '../components/Headings'
+import { HeaderText } from '../components/Headings'
 import Fade from 'react-reveal/Fade'
-import { Wrapper, HeaderBlock, Block } from '../components/Block'
+import { HeaderBlock } from '../components/Block'
 import ApplyForm from '../components/ApplyForm'
 import Footer from '../components/Footer'
+import { graphql } from 'gatsby'
 
 const Woodchips = ({ data }) => {
   const disclaimer =
