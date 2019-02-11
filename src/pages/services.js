@@ -12,6 +12,7 @@ import ServiceBlock from '../components/ServiceBlock'
 import { HeaderText } from '../components/Headings'
 import DropsBlock from '../components/DropsBlock'
 import Footer from '../components/Footer'
+import ScrollWrapper from '../components/ScrollWrapper'
 import Fade from 'react-reveal/Fade'
 
 const TwoColRow = styled(TwoColRowWrapper)`
@@ -39,7 +40,7 @@ const Services = ({ data, location }) => {
   }
 
   return (
-    <main>
+    <ScrollWrapper>
       <Helmet>
         <title>{`Services - ${config.siteTitle}`}</title>
       </Helmet>
@@ -119,7 +120,7 @@ const Services = ({ data, location }) => {
         </Fade>
       </Container>
       <Footer />
-    </main>
+    </ScrollWrapper>
   )
 }
 

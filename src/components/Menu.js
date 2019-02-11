@@ -62,7 +62,7 @@ const Nav = styled.nav`
   animation-iteration-count: 1;
   padding: 20px 20px 60px 20px;
   position: fixed;
-  top: 36px;
+  top: ${props => props.topDistance};
   left: 36px;
   right: 36px;
   z-index: 100;
@@ -80,12 +80,8 @@ const Nav = styled.nav`
       rgba(0, 0, 0, 0.5) 0%,
       rgba(0, 0, 0, 0) 99%
     );
-    ${props =>
-      props.bgColor &&
-      css`
-        background-image: ${props => props.bgColor};
-        height: ${props => props.height};
-      `};
+    background: ${props => props.bgColor};
+    height: ${props => props.height};
   }
   ul {
     width: 100%;
@@ -114,16 +110,6 @@ const Nav = styled.nav`
 `
 
 class Menu extends React.Component {
-  _isMounted = false
-
-  constructor(props) {
-    super(props)
-
-    // Default scroll state.
-    this.state = {
-      isTop: true,
-    }
-  }
   // Optional link style for when you are on a specific page.
   activeLinkStyle = {}
 
@@ -139,46 +125,31 @@ class Menu extends React.Component {
     'linear-gradient(-180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 99%)'
   navTopBg =
     'linear-gradient(-180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99%)'
+
   navScrollBg =
     'linear-gradient(-180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 99%)'
   navScrollLightBg =
     'linear-gradient(-180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 99%)'
+
   navTopHeight = '100px'
   navScrollHeight = '60px'
 
-  // Only run the function after the page is rendered - so SSR won't have a heart attack. The function below checks if the window.scrollY is less than the scrollDistance specified above. For each result, it changes it's state.
-  componentDidMount() {
-    this._isMounted = true
-    document.addEventListener('scroll', () => {
-      const isTop = window.scrollY < this.scrollDistance
-      if (isTop !== this.state.isTop) {
-        if (this._isMounted) {
-          this.setState({ isTop })
-        }
-      }
-    })
-  }
+  navScrollTopDistance = '0px'
+  navTopDistance = '36px'
 
-  componentWillUnmount() {
-    this._isMounted = false
-  }
-
-  // Let it run.
   render() {
+    console.log('isTop: ' + this.props.isTop)
+    console.log(this.props.isTop ? this.navTopBg : this.navScrollBg )
     return (
       // The line below this is where you can use the shorthand logic to change the Nav's styles on scroll. I'm passing these props into the styled component above.
 
       <Nav
-        bgColor={
-          this.state.isTop && this.props.shadow
-            ? this.navTopBg
-            : this.state.isTop && !this.props.shadow
-            ? this.navTopClearBg
-            : !this.state.isTop && this.props.dark
-            ? this.navScrollLightBg
-            : this.navScrollBg
+        isTop={this.props.isTop} // Prop result passed from ScrollWrapper component.
+        bgColor={this.props.isTop ? this.navTopBg : this.navScrollBg}
+        topDistance={
+          this.props.isTop ? this.navTopDistance : this.navScrollTopDistance
         }
-        height={this.state.isTop ? this.navTopHeight : this.navScrollHeight}
+        height={this.props.isTop ? this.navTopHeight : this.navScrollHeight}
       >
         <LogoLink
           dark={this.props.dark}

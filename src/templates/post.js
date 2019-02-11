@@ -10,6 +10,7 @@ import TagList from '../components/TagList'
 import PostLinks from '../components/PostLinks'
 import PostDate from '../components/PostDate'
 import SEO from '../components/SEO'
+import ScrollWrapper from '../components/ScrollWrapper'
 
 const PostTemplate = ({ data, pageContext, location }) => {
   const {
@@ -26,7 +27,7 @@ const PostTemplate = ({ data, pageContext, location }) => {
   const next = pageContext.next
 
   return (
-    <main>
+    <ScrollWrapper>
       <Helmet>
         <title>{`${title} - ${config.siteTitle}`}</title>
       </Helmet>
@@ -41,7 +42,7 @@ const PostTemplate = ({ data, pageContext, location }) => {
       </Container>
       <PostLinks previous={previous} next={next} />
       <Footer />
-    </main>
+    </ScrollWrapper>
   )
 }
 

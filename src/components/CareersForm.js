@@ -138,10 +138,9 @@ const Resume = styled.input`
   &:hover {
     &:before {
       background-color: #9f4300 !important;
-      transition-duration: .5s;
+      transition-duration: 0.5s;
     }
   }
-  color: 
   margin-bottom: 20px;
   width: 100%;
   padding: 10px 0 20px 0 !important;

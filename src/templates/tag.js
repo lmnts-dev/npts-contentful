@@ -9,6 +9,7 @@ import Card from '../components/Card'
 import CardList from '../components/CardList'
 import Pagination from '../components/Pagination'
 import Container from '../components/Container'
+import ScrollWrapper from '../components/ScrollWrapper'
 
 const TagTemplate = ({ data, pageContext, location }) => {
   const posts = orderBy(
@@ -26,7 +27,7 @@ const TagTemplate = ({ data, pageContext, location }) => {
   const isFirstPage = currentPage === 1
 
   return (
-    <main>
+    <ScrollWrapper>
       {isFirstPage ? (
         <Helmet>
           <title>{`Tag: ${title} - ${config.siteTitle}`}</title>
@@ -66,7 +67,7 @@ const TagTemplate = ({ data, pageContext, location }) => {
       </Container>
       <Pagination context={pageContext} />
       <Footer />
-    </main>
+    </ScrollWrapper>
   )
 }
 

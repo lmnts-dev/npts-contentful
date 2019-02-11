@@ -102,14 +102,14 @@ const TwoColRow = styled(TwoColRowWrapper)`
 `
 
 const Row = styled(RowWrapper)`
-    margin-top 20px;
-    width: 100%;
-    span {
-        margin-right: 10px;
-    }
-    @media ( max-width: 600px ){
-        justify-content: center;
-    }
+  margin-top: 20px;
+  width: 100%;
+  span {
+    margin-right: 10px;
+  }
+  @media (max-width: 600px) {
+    justify-content: center;
+  }
 `
 const Slash = styled.span`
   width: 10%;

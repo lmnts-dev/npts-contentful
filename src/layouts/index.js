@@ -5,7 +5,6 @@ import favicon from '../images/favicon.ico'
 import GlobalStyle from '../styles/global'
 import theme from '../styles/theme'
 import config from '../utils/siteConfig'
-import Menu from '../components/Menu'
 import Transition from '../components/transition'
 
 const Layout = ({ children, location }) => (
@@ -22,10 +21,7 @@ const Layout = ({ children, location }) => (
     </Helmet>
 
     <ThemeProvider theme={theme}>
-      <div>
-        <Menu id="navBar" />
-        <Transition location={location}>{children}</Transition>
-      </div>
+      <Transition location={location}>{children}</Transition>
     </ThemeProvider>
     <GlobalStyle />
   </>

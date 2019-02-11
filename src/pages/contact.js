@@ -6,6 +6,7 @@ import SEO from '../components/SEO'
 import { Wrapper } from '../components/Block'
 import Footer from '../components/Footer'
 import Contact from '../components/ContactForm'
+import ScrollWrapper from '../components/ScrollWrapper'
 
 const Center = styled.div`
   display: flex;
@@ -33,7 +34,7 @@ const LetsTalk = location => {
   }
 
   return (
-    <main>
+    <ScrollWrapper>
       <Helmet>
         <title>{`Contact - ${config.siteTitle}`}</title>
       </Helmet>
@@ -45,7 +46,7 @@ const LetsTalk = location => {
         </Center>
       </Block>
       <Footer alt />
-    </main>
+    </ScrollWrapper>
   )
 }
 

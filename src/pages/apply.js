@@ -4,13 +4,12 @@ import styled from 'styled-components'
 import config from '../utils/siteConfig'
 import SEO from '../components/SEO'
 import Footer from '../components/Footer'
-import { H3, P, HeaderText } from '../components/Headings'
+import { HeaderText } from '../components/Headings'
 import Fade from 'react-reveal/Fade'
-import { Wrapper, HeaderBlock, Block } from '../components/Block'
+import { HeaderBlock } from '../components/Block'
 import { TwoColRowWrapper } from '../components/TwoColRow'
-import Column from '../components/Column'
-import Button from '../components/Button'
 import CareersForm from '../components/CareersForm'
+import ScrollWrapper from '../components/ScrollWrapper'
 
 const Row = styled(TwoColRowWrapper)`
   div,
@@ -35,7 +34,7 @@ const Apply = () => {
     title: `Apply - ${config.siteTitle}`,
   }
   return (
-    <main>
+    <ScrollWrapper>
       <Helmet>
         <title>{`Apply - ${config.siteTitle}`}</title>
       </Helmet>
@@ -61,7 +60,7 @@ const Apply = () => {
         <CareersForm />
       </Fade>
       <Footer />
-    </main>
+    </ScrollWrapper>
   )
 }
 

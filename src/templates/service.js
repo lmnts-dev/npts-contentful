@@ -11,6 +11,7 @@ import styled from 'styled-components'
 import { PLarge, HeaderText } from '../components/Headings'
 import DropsBlock from '../components/DropsBlock'
 import Fade from 'react-reveal/Fade'
+import ScrollWrapper from '../components/ScrollWrapper'
 
 const Block = styled(Wrapper)`
   padding: 160px 300px;
@@ -29,7 +30,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
   const color = pageContext.index
 
   return (
-    <main>
+    <ScrollWrapper>
       <Helmet>
         <title>{`${name} - ${config.siteTitle}`}</title>
         <meta itemprop="name" content={name} />
@@ -110,7 +111,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
         </Fade>
       </Container>
       <Footer />
-    </main>
+    </ScrollWrapper>
   )
 }
 

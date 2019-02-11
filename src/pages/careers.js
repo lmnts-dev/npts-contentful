@@ -10,6 +10,7 @@ import { Wrapper, HeaderBlock } from '../components/Block'
 import { TwoColRowWrapper } from '../components/TwoColRow'
 import Column from '../components/Column'
 import Button from '../components/Button'
+import ScrollWrapper from '../components/ScrollWrapper'
 
 const Block = styled(Wrapper)`
   padding: 100px 200px;
@@ -63,7 +64,7 @@ const Careers = ({ data }) => {
     title: `Careers - ${config.siteTitle}`,
   }
   return (
-    <main>
+    <ScrollWrapper>
       <Helmet>
         <title>{`Careers - ${config.siteTitle}`}</title>
       </Helmet>
@@ -127,7 +128,7 @@ const Careers = ({ data }) => {
         })}
       </Positions>
       <Footer />
-    </main>
+    </ScrollWrapper>
   )
 }
 

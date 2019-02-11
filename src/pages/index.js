@@ -12,6 +12,7 @@ import Video from '../components/Video'
 import { graphql } from 'gatsby'
 import Fade from 'react-reveal/Fade'
 import Footer from '../components/Footer'
+import ScrollWrapper from '../components/ScrollWrapper'
 
 const Index = ({ data, location }) => {
   const postNode = {
@@ -25,7 +26,7 @@ const Index = ({ data, location }) => {
   const video = data.allContentfulVideo.edges[0].node
 
   return (
-    <main>
+    <ScrollWrapper>
       <Helmet>
         <title>{`${config.siteTitle}`}</title>
       </Helmet>
@@ -55,7 +56,7 @@ const Index = ({ data, location }) => {
         </Fade>
       </Container>
       <Footer />
-    </main>
+    </ScrollWrapper>
   )
 }
 

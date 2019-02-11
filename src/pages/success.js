@@ -4,11 +4,13 @@ import styled from 'styled-components'
 import config from '../utils/siteConfig'
 import SEO from '../components/SEO'
 import Footer from '../components/Footer'
-import { P, HeaderText } from '../components/Headings'
+import { HeaderText } from '../components/Headings'
 import Fade from 'react-reveal/Fade'
 import { Wrapper } from '../components/Block'
 import TestimonialSlider from '../components/TestimonialSlider'
 import Summary from '../components/Summary'
+import { graphql } from 'gatsby'
+import ScrollWrapper from '../components/ScrollWrapper'
 
 const Block = styled(Wrapper)`
   padding: 12vw 10vw;
@@ -28,7 +30,7 @@ const Success = ({ data }) => {
   const summary = data.allContentfulSummary.edges[0].node
   const identity = data.allContentfulIdentity.edges[0].node
   return (
-    <main>
+    <ScrollWrapper>
       <Helmet>
         <title>{`${config.siteTitle}`}</title>
       </Helmet>
@@ -64,7 +66,7 @@ const Success = ({ data }) => {
         />
       </Fade>
       <Footer />
-    </main>
+    </ScrollWrapper>
   )
 }
 

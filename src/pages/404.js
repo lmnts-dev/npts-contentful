@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import Container from '../components/Container'
 import Footer from '../components/Footer'
+import ScrollWrapper from '../components/ScrollWrapper'
 
 const Text = styled.p`
   text-align: center;
@@ -14,7 +15,7 @@ const Text = styled.p`
 `
 
 const NotFoundPage = location => (
-  <main>
+  <ScrollWrapper>
     <Helmet>
       <title>404 - Page Not Found</title>
       <meta name="description" content="Page not found" />
@@ -28,7 +29,7 @@ const NotFoundPage = location => (
       </Text>
     </Container>
     <Footer />
-  </main>
+  </ScrollWrapper>
 )
 
 export default NotFoundPage

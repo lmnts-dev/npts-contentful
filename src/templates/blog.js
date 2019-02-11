@@ -8,6 +8,7 @@ import Container from '../components/Container'
 import Pagination from '../components/Pagination'
 import SEO from '../components/SEO'
 import config from '../utils/siteConfig'
+import ScrollWrapper from '../components/ScrollWrapper'
 
 const Blog = ({ data, pageContext, location }) => {
   const posts = data.allContentfulPost.edges
@@ -16,7 +17,7 @@ const Blog = ({ data, pageContext, location }) => {
 
   const isFirstPage = currentPage === 1
   return (
-    <main>
+    <ScrollWrapper>
       <SEO />
       {!isFirstPage && (
         <Helmet>
@@ -41,7 +42,7 @@ const Blog = ({ data, pageContext, location }) => {
       </Container>
       <Pagination context={pageContext} />
       <Footer />
-    </main>
+    </ScrollWrapper>
   )
 }
 export const query = graphql`

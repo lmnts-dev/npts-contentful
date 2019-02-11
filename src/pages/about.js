@@ -13,6 +13,7 @@ import { H2, P, HeaderText } from '../components/Headings'
 import Leaf from '../images/leafTestimonial.png'
 import { RightLeaf } from '../components/Leaves'
 import Footer from '../components/Footer'
+import ScrollWrapper from '../components/ScrollWrapper'
 
 import Fade from 'react-reveal/Fade'
 
@@ -44,7 +45,7 @@ const About = ({ data, location }) => {
   const about = data.allContentfulAbout.edges[0].node
 
   return (
-    <main>
+    <ScrollWrapper>
       <Helmet>
         <title>{`About - ${config.siteTitle}`}</title>
       </Helmet>
@@ -106,7 +107,7 @@ const About = ({ data, location }) => {
         />
       </Fade>
       <Footer />
-    </main>
+    </ScrollWrapper>
   )
 }
 

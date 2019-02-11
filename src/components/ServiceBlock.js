@@ -1,13 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import PageBody from '../components/PageBody'
 import Button from '../components/Button'
 import { H3, PLarge } from '../components/Headings'
 import { ColumnWrapper } from '../components/Column'
 import Planting from '../images/planting.jpg'
 import { Wrapper } from '../components/Block'
 import Fade from 'react-reveal/Fade'
-import * as lmnts from '../data/Styles'
 
 const Text = styled(PLarge)`
   margin-bottom: 0;

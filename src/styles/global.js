@@ -68,18 +68,6 @@ const GlobalStyle = createGlobalStyle`
     overflow: hidden;
   }
 
-  main {
-    height: 100vh;
-    width: 100vw; 
-    overflow-x: hidden;
-    overflow-y: auto;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 36px;
-  }
-
   * {
     box-sizing: border-box
   }
