@@ -4,6 +4,8 @@ import Menu from './Menu'
 
 export const ScrollArea = styled.main`
   height: 100vh;
+  max-width: 2000px;
+  margin: 0 auto;
   width: 100vw;
   overflow-x: hidden;
   overflow-y: auto;
@@ -23,7 +25,7 @@ class Wrapper extends React.Component {
   }
 
   handleScroll = e => {
-    const top = e.target.scrollTop > 5
+    const top = e.target.scrollTop > 36
     if (top) {
       this.setState({
         isTop: false,
