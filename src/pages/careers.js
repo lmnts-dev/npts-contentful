@@ -11,6 +11,7 @@ import { TwoColRowWrapper } from '../components/TwoColRow'
 import Column from '../components/Column'
 import Button from '../components/Button'
 import ScrollWrapper from '../components/ScrollWrapper'
+import { graphql } from 'gatsby'
 
 const Block = styled(Wrapper)`
   padding: 100px 200px;
