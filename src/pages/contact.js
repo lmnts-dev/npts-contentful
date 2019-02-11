@@ -4,8 +4,7 @@ import styled from 'styled-components'
 import config from '../utils/siteConfig'
 import SEO from '../components/SEO'
 import { Wrapper } from '../components/Block'
-import Layout from '../components/Layout'
-
+import Footer from '../components/Footer'
 import Contact from '../components/ContactForm'
 
 const Center = styled.div`
@@ -28,13 +27,13 @@ const Block = styled(Wrapper)`
   }
 `
 
-const LetsTalk = ( location ) => {
+const LetsTalk = location => {
   const postNode = {
     title: `Contact - ${config.siteTitle}`,
   }
 
   return (
-    <Layout altFooter>
+    <main>
       <Helmet>
         <title>{`Contact - ${config.siteTitle}`}</title>
       </Helmet>
@@ -45,7 +44,8 @@ const LetsTalk = ( location ) => {
           <Contact />
         </Center>
       </Block>
-    </Layout>
+      <Footer alt />
+    </main>
   )
 }
 

@@ -4,7 +4,6 @@ const path = require(`path`)
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
-  
   /// /// crete blog page ////////////////////////////
   const loadPosts = new Promise((resolve, reject) => {
     graphql(`
@@ -73,7 +72,7 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
   /// ////////////////////end create blog page //////////////
-  
+
   /// /////////// create tag pages /////////////////////
   const loadTags = new Promise((resolve, reject) => {
     graphql(`

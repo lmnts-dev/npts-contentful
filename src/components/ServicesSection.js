@@ -9,9 +9,9 @@ import { MiddleLeaf, RightLeaf } from './Leaves'
 import Fade from 'react-reveal/Fade'
 
 const TrimmingLeaf = styled(MiddleLeaf)`
-  bottom: auto; 
+  bottom: auto;
   top: -35%;
-  @media (max-width: 600px){
+  @media (max-width: 600px) {
     bottom: auto;
     top: -5%;
     left: -2%;
@@ -21,7 +21,7 @@ const TrimmingLeaf = styled(MiddleLeaf)`
 const SurgeryLeaf = styled(RightLeaf)`
   bottom: auto;
   top: -20%;
-  @media (max-width: 600px){
+  @media (max-width: 600px) {
     bottom: auto;
     top: -5%;
     right: -2%;
@@ -45,7 +45,6 @@ const Services = props => {
   return (
     <div>
       <Fade duration={2000}>
-        
         <TwoColRow smallReverse bias="left">
           <LargeTextBlock
             line="right"
@@ -53,7 +52,8 @@ const Services = props => {
             inlineText={firstService.shortSummary.childMarkdownRemark.html}
             bText="Learn more"
             dest={
-              '/services/' + firstService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
+              '/services/' +
+              firstService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
             }
             theme="light"
             bgColor="#272929"
@@ -70,7 +70,8 @@ const Services = props => {
             inlineText={secondService.shortSummary.childMarkdownRemark.html}
             bText="Learn more"
             dest={
-              '/services/' + secondService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
+              '/services/' +
+              secondService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
             }
             theme="dark"
             bgColor="#FFFFFF"
@@ -86,7 +87,8 @@ const Services = props => {
             inlineText={thirdService.shortSummary.childMarkdownRemark.html}
             bText="Learn more"
             dest={
-              '/services/' + thirdService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
+              '/services/' +
+              thirdService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
             }
             theme="dark"
             bgColor="#C9EAEB"
@@ -103,7 +105,8 @@ const Services = props => {
             inlineText={fourthService.shortSummary.childMarkdownRemark.html}
             bText="Learn more"
             dest={
-              '/services/' + fourthService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
+              '/services/' +
+              fourthService.name.replace(/[^a-z0-9]/gi, '-').toLowerCase()
             }
             theme="dark"
             bgColor="#FFFFFF"

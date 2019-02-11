@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import Container from '../components/Container'
-import Layout from '../components/Layout'
+import Footer from '../components/Footer'
 
 const Text = styled.p`
   text-align: center;
@@ -13,8 +13,8 @@ const Text = styled.p`
   }
 `
 
-const NotFoundPage = ( location ) => (
-  <Layout location={ location }>
+const NotFoundPage = location => (
+  <main>
     <Helmet>
       <title>404 - Page Not Found</title>
       <meta name="description" content="Page not found" />
@@ -27,7 +27,8 @@ const NotFoundPage = ( location ) => (
         different page.
       </Text>
     </Container>
-  </Layout>
+    <Footer />
+  </main>
 )
 
 export default NotFoundPage

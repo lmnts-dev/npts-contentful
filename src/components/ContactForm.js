@@ -17,7 +17,7 @@ import Fade from 'react-reveal/Fade'
 // Styles
 
 const InfoRow = styled(RowWrapper)`
-  @media (max-width: 750px){
+  @media (max-width: 750px) {
     margin-bottom: 0px !important;
   }
 `

@@ -6,12 +6,12 @@ import IntroBlocks from '../components/IntroBlocks'
 import Services from '../components/ServicesSection'
 import Summary from '../components/Summary'
 import Container from '../components/Container'
-import Layout from '../components/Layout'
 import TestimonialSlider from '../components/TestimonialSlider'
 import SEO from '../components/SEO'
 import Video from '../components/Video'
 import { graphql } from 'gatsby'
 import Fade from 'react-reveal/Fade'
+import Footer from '../components/Footer'
 
 const Index = ({ data, location }) => {
   const postNode = {
@@ -25,9 +25,9 @@ const Index = ({ data, location }) => {
   const video = data.allContentfulVideo.edges[0].node
 
   return (
-    <Layout location={location} shadow>
+    <main>
       <Helmet>
-        <title>{ `${config.siteTitle}`}</title>
+        <title>{`${config.siteTitle}`}</title>
       </Helmet>
       <SEO postNode={postNode} pagePath="contact" customTitle />
       <Container>
@@ -36,7 +36,7 @@ const Index = ({ data, location }) => {
           <IntroBlocks data={introBlocks} />
         </Fade>
         <Fade duration={2000}>
-          <Video data={video}/>
+          <Video data={video} />
         </Fade>
         <Fade duration={2000}>
           <TestimonialSlider data={testimonials} />
@@ -54,7 +54,8 @@ const Index = ({ data, location }) => {
           />
         </Fade>
       </Container>
-    </Layout>
+      <Footer />
+    </main>
   )
 }
 
@@ -224,4 +225,3 @@ export const query = graphql`
 `
 
 export default Index
-

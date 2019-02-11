@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import arrowGrey from "../images/arrowGrey.png"
-import arrowWhite from "../images/arrowWhite.png"
+import arrowGrey from '../images/arrowGrey.png'
+import arrowWhite from '../images/arrowWhite.png'
 import * as lmnts from '../data/Styles'
 
 /* these are the four buttons you can call ////////////////
@@ -16,17 +16,17 @@ import * as lmnts from '../data/Styles'
 ///////////////////////////////////////////////////////// */
 
 export const ButtonStyle = styled.a`
-  display: ${props => props.hide ? 'none' : 'inline-block'};
+  display: ${props => (props.hide ? 'none' : 'inline-block')};
   letter-spacing: 1px;
   font-size: 19px;
   z-index: 200;
   text-align: center;
   cursor: pointer;
   text-decoration: none;
-  @media ( max-width: 1440px ){
+  @media (max-width: 1440px) {
     font-size: 1.25vw;
   }
-  @media ( max-width: 1120px ){
+  @media (max-width: 1120px) {
     font-size: 14px;
   }
   font-family: 'Montserrat', sans-serif;
@@ -34,7 +34,8 @@ export const ButtonStyle = styled.a`
   font-weight: 700;
   ${props => {
     /* grey background circle button */
-    if (!props.arrowButton && props.dark) return ` 
+    if (!props.arrowButton && props.dark)
+      return ` 
       padding: 23px 46px;
       @media ( max-width: 1440px ){
         padding: 1.6vw 3.19vw;
@@ -47,7 +48,8 @@ export const ButtonStyle = styled.a`
       border-radius: 46px;
     `
     /* white background circle button */
-    if (!props.arrowButton && !props.dark) return `
+    if (!props.arrowButton && !props.dark)
+      return `
       padding: 23px 46px;
       @media ( max-width: 1440px ){
         padding: 1.6vw 3.19vw;
@@ -61,11 +63,13 @@ export const ButtonStyle = styled.a`
       box-shadow: 0 3px 36px rgba( 0, 0, 0, .16);
     `
     /* white arrow button */
-    if (props.arrowButton && !props.dark) return `
+    if (props.arrowButton && !props.dark)
+      return `
       color: #FFFFFF;
     `
     /* dark arrow button */
-    if (props.arrowButton && props.dark) return `
+    if (props.arrowButton && props.dark)
+      return `
       color: #9F4300;
     `
   }}
@@ -73,40 +77,48 @@ export const ButtonStyle = styled.a`
 
 const Arrow = styled.img`
   width: 28.8px;
-  transform: translate( 30%, 30%);
-  @media (max-width: 1440px){
+  transform: translate(30%, 30%);
+  @media (max-width: 1440px) {
     width: 2vw;
   }
-  @media ( max-width: 1120px ){
+  @media (max-width: 1120px) {
     width: 22.4px;
   }
 `
 
 export const Button = ({ to, hide, arrowButton, dark, children }) => {
-  if (!arrowButton){
-      return (
-        <ButtonStyle href={to} hide={hide} arrowButton={arrowButton} dark={dark}>
-          {children}
-        </ButtonStyle>
-      )
-    }
-    else {
+  if (!arrowButton) {
+    return (
+      <ButtonStyle href={to} hide={hide} arrowButton={arrowButton} dark={dark}>
+        {children}
+      </ButtonStyle>
+    )
+  } else {
     if (dark) {
       return (
-        <ButtonStyle href={to} hide={hide} arrowButton={arrowButton} dark={dark}>
+        <ButtonStyle
+          href={to}
+          hide={hide}
+          arrowButton={arrowButton}
+          dark={dark}
+        >
           {children}
           <Arrow src={arrowGrey} alt="Arrow" />
         </ButtonStyle>
       )
-    }
-    else {
+    } else {
       return (
-        <ButtonStyle href={to} hide={hide} arrowButton={arrowButton} dark={dark}>
+        <ButtonStyle
+          href={to}
+          hide={hide}
+          arrowButton={arrowButton}
+          dark={dark}
+        >
           {children}
           <Arrow src={arrowWhite} alt="Arrow" />
         </ButtonStyle>
       )
-    } 
+    }
   }
 }
 export default Button

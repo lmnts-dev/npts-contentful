@@ -7,7 +7,6 @@ import Button from './Button'
 import { PLarge, HeaderText } from './Headings'
 import chip from '../images/chip.png'
 
-
 const Block = styled(Wrapper)`
   padding: 160px 300px;
   @media (max-width: 2000px) {
@@ -37,7 +36,7 @@ const Row = styled(RowWrapper)`
   a {
     margin: 0 10px;
   }
-  @media(max-width: 700px){
+  @media (max-width: 700px) {
     flex-direction: column;
     align-items: center;
     a {
@@ -47,25 +46,25 @@ const Row = styled(RowWrapper)`
 `
 
 const DropsBlock = props => {
-      return (  
-        <Block bgColor="#9DD5EA">
-          <Column align="center">
-            <HeaderText size="100" color="#293536" weight="700" align="center">
-              {props.header}
-            </HeaderText>
-            <PLarge color="#293536" align="center" dangerouslySetInnerHTML={{ __html: props.text }} />
-            <Row>
-              <Button to="/firewood">
-                Free firewood
-              </Button>
-              <Button to="/woodchips">
-                Free wood chips
-              </Button>
-              <Chip src={chip} alt="leaf"/>
-            </Row>
-          </Column>
-        </Block>
-    )
-  }
+  return (
+    <Block bgColor="#9DD5EA">
+      <Column align="center">
+        <HeaderText size="100" color="#293536" weight="700" align="center">
+          {props.header}
+        </HeaderText>
+        <PLarge
+          color="#293536"
+          align="center"
+          dangerouslySetInnerHTML={{ __html: props.text }}
+        />
+        <Row>
+          <Button to="/firewood">Free firewood</Button>
+          <Button to="/woodchips">Free wood chips</Button>
+          <Chip src={chip} alt="leaf" />
+        </Row>
+      </Column>
+    </Block>
+  )
+}
 
 export default DropsBlock

@@ -18,10 +18,9 @@ import { Border } from '../components/Lines'
 
 // Styles
 
-
 const Inner = styled.div`
-    margin: 0 auto;
-    max-width: 800px;
+  margin: 0 auto;
+  max-width: 800px;
 `
 
 const FormBlock = styled(Wrapper)`
@@ -182,10 +181,10 @@ const Submit = styled.input`
   box-shadow: 0 3px 36px rgba(0, 0, 0, 0.16);
 `
 const Label = styled.label`
-  color: #FFFFFF;
+  color: #ffffff;
   margin-top: 10px;
   line-height: 1.6;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
 `
 
 const Modal = styled.div`
@@ -220,13 +219,11 @@ const Modal = styled.div`
   https://www.netlify.com/docs/form-handling/
 */
 
-const encode = (data) => {
+const encode = data => {
   return Object.keys(data)
-    .map(key => 
-
-      encodeURIComponent(key) + '=' + encodeURIComponent(data[key] + ""),
-      
-      )
+    .map(
+      key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key] + '')
+    )
     .join('&')
 }
 
@@ -266,7 +263,7 @@ class CareersForm extends React.Component {
   }
 
   handleSuccess = () => {
-    console.log( this.state);
+    console.log(this.state)
     this.setState({
       name: '',
       number: '',
@@ -288,90 +285,92 @@ class CareersForm extends React.Component {
   render() {
     return (
       <Fade cascade duration={2000}>
-          <Form
+        <Form
           name="application"
           onSubmit={this.handleSubmit}
           data-netlify="true"
           data-netlify-honeypot="bot"
           overlay={this.state.showModal}
           onClick={this.closeModal}
-          >
+        >
+          <input type="hidden" name="form-name" value="application" />
+          <p hidden>
+            <label>
+              Don’t fill this out:{' '}
+              <input name="bot" onChange={this.handleInputChange} />
+            </label>
+          </p>
+          <FormBlock bgColor="#293536" paddingBottom>
+            <Inner>
+              <Label htmlFor="name">Full Name</Label>
+              <Name
+                name="name"
+                type="text"
+                placeholder="Name (required)"
+                value={this.state.name}
+                onChange={this.handleInputChange}
+                required
+              />
+              <Label htmlFor="number">Phone Number</Label>
+              <PhoneNumber
+                name="number"
+                type="tel"
+                placeholder="Phone number (required)"
+                value={this.state.number}
+                onChange={this.handleInputChange}
+                required
+              />
+              <Label htmlFor="email">Email</Label>
+              <Email
+                name="email"
+                type="email"
+                placeholder="Email (required)"
+                value={this.state.email}
+                onChange={this.handleInputChange}
+                required
+              />
+              <Label htmlFor="position">
+                What position are you applying for?
+              </Label>
+              <Notes
+                name="position"
+                type="text"
+                value={this.state.position}
+                onChange={this.handleInputChange}
+                required
+              />
+              <Label htmlFor="resume">Upload your resume (required):</Label>
+              <Resume
+                name="resume"
+                type="file"
+                value={this.state.resume}
+                onChange={this.handleInputChange}
+                required
+              />
+              <Label htmlFor="reference">
+                Where did you hear about this job?
+              </Label>
+              <Notes
+                name="reference"
+                type="text"
+                value={this.state.reference}
+                onChange={this.handleInputChange}
+                required
+              />
+              <Submit name="submit" type="submit" value="Submit Application" />
 
-            <input type="hidden" name="form-name" value="application" />
-            <p hidden>
-                <label>
-                Don’t fill this out:{' '}
-                <input name="bot" onChange={this.handleInputChange} />
-                </label>
-            </p>
-            <FormBlock bgColor="#293536" paddingBottom>
-              <Inner>
-                <Label htmlFor="name">Full Name</Label>
-                <Name
-                    name="name"
-                    type="text"
-                    placeholder="Name (required)"
-                    value={this.state.name}
-                    onChange={this.handleInputChange}
-                    required
-                />
-                <Label htmlFor="number">Phone Number</Label>
-                <PhoneNumber
-                    name="number"
-                    type="tel"
-                    placeholder="Phone number (required)"
-                    value={this.state.number}
-                    onChange={this.handleInputChange}
-                    required
-                />
-                <Label htmlFor="email">Email</Label>
-                <Email
-                    name="email"
-                    type="email"
-                    placeholder="Email (required)"
-                    value={this.state.email}
-                    onChange={this.handleInputChange}
-                    required
-                />
-                <Label htmlFor="position">What position are you applying for?</Label>
-                <Notes
-                    name="position"
-                    type="text"
-                    value={this.state.position}
-                    onChange={this.handleInputChange}
-                    required
-                />
-                <Label htmlFor="resume">Upload your resume (required):</Label>
-                <Resume
-                    name="resume"
-                    type="file"
-                    value={this.state.resume}
-                    onChange={this.handleInputChange}
-                    required
-                />
-                <Label htmlFor="reference">Where did you hear about this job?</Label> 
-                <Notes
-                    name="reference"
-                    type="text"
-                    value={this.state.reference}
-                    onChange={this.handleInputChange}
-                    required
-                />
-                <Submit name="submit" type="submit" value="Submit Application" />
-
-                <Modal visible={this.state.showModal}>
-                    <p>
-                    Thank you for applying. We will get back to you as soon as
-                    possible.
-                    </p>
-                    <Button dark to="/success" onClick={this.closeModal}>
-                    Okay
-                    </Button>
-                </Modal>
-              </Inner>
-            </FormBlock>
-          </Form>
-        
+              <Modal visible={this.state.showModal}>
+                <p>
+                  Thank you for applying. We will get back to you as soon as
+                  possible.
+                </p>
+                <Button dark to="/success" onClick={this.closeModal}>
+                  Okay
+                </Button>
+              </Modal>
+            </Inner>
+          </FormBlock>
+        </Form>
       </Fade>
     )
   }

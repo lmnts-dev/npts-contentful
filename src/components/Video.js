@@ -6,7 +6,6 @@ import { H2, P } from '../components/Headings'
 import leaf from '../images/leafTestimonial.png'
 import { RightToMidLeaf } from '../components/Leaves'
 import { Divider } from '../components/Lines'
- 
 
 const RightLeaf = styled(RightToMidLeaf)`
   bottom: auto;
@@ -34,7 +33,7 @@ const Row = styled(RowWrapper)`
       width: 60vw !important;
     }
   }
-  @media (max-width: 1000px){
+  @media (max-width: 1000px) {
     flex-direction: column-reverse;
     div:first-of-type {
       width: 96.4vw !important;
@@ -43,7 +42,7 @@ const Row = styled(RowWrapper)`
   }
 `
 
-const Holder = styled.span `
+const Holder = styled.span`
   display: block;
 `
 
@@ -85,26 +84,33 @@ const Block = styled.div`
 `
 
 export default class App extends Component {
-  render () {
-      
-      return (
+  render() {
+    return (
       <div>
-          <Divider />
-            <Row>
-                <ReactPlayer url={this.props.data.videoLink} loop height="33.75vw" width="60vw" controls />
-                <Block bgColor="#9F4300">
-                  <Holder>
-                    <H2 color="#FFFFFF">
-                      {this.props.data.headerText}
-                    </H2>
-                    <P color="#FFFFFF" dangerouslySetInnerHTML={{
-                      __html: this.props.data.paragraphText.childMarkdownRemark.html
-                    }}/>
-                </Holder>
-                </Block>
-                <RightLeaf src={leaf}/>
-              </Row>
-        </div>
-      )
+        <Divider />
+        <Row>
+          <ReactPlayer
+            url={this.props.data.videoLink}
+            loop
+            height="33.75vw"
+            width="60vw"
+            controls
+          />
+          <Block bgColor="#9F4300">
+            <Holder>
+              <H2 color="#FFFFFF">{this.props.data.headerText}</H2>
+              <P
+                color="#FFFFFF"
+                dangerouslySetInnerHTML={{
+                  __html: this.props.data.paragraphText.childMarkdownRemark
+                    .html,
+                }}
+              />
+            </Holder>
+          </Block>
+          <RightLeaf src={leaf} />
+        </Row>
+      </div>
+    )
   }
 }

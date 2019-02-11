@@ -14,7 +14,10 @@ import Locator from '!svg-react-loader!../images/svg-icons/locator.svg?name=loca
 import SlideOne from '../images/slider1.jpg'
 import slider from 'react-slick'
 import Helmet from 'react-helmet'
-import { fadeIn } from '../data/KeyFrames'
+
+// test
+import ScrollAnimation from 'react-animate-on-scroll'
+import 'animate.css/animate.min.css'
 
 /* height is 100vh - body's top padding of 1.8vw */
 
@@ -33,8 +36,6 @@ const H1Text = styled(H1)`
 `
 
 const Container = styled.div`
-  animation: ${fadeIn} 1s ease-in-out 0s;
-  animation-iteration-count: 1;
   position: relative;
 `
 
@@ -119,9 +120,7 @@ const SliderImage = styled(Wrapper)`
   }
 `
 
-const DisclaimerCol = styled(ColumnWrapper)`
-
-`
+const DisclaimerCol = styled(ColumnWrapper)``
 
 const SliderNav = styled(ColumnWrapper)`
   margin: 12px;
@@ -203,14 +202,13 @@ const LocatorRow = styled(RowWrapper)`
 
 const WordsInner = styled.div`
   max-width: 550px;
-  @media( max-width: 1440px){
+  @media (max-width: 1440px) {
     max-width: 39vw;
   }
-  @media( max-width: 600px ){
+  @media (max-width: 600px) {
     max-width: 100%;
   }
 `
-
 
 export default class HomeSlider extends React.Component {
   constructor(props) {
@@ -240,77 +238,79 @@ export default class HomeSlider extends React.Component {
 
     var images = this.props.data.sliderImages
     return (
-      <Container>
-        <Helmet>
-          <link
-            rel="stylesheet"
-            type="text/css"
-            charset="UTF-8"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-          />
-        </Helmet>
-        <TwoColRow bias="left">
-          <WordsBlock bgColor="rgba(0, 0, 0, .6)" absolute="left">
-            <WordsInner>
-              <H1Text color="#FFFFFF">{this.props.data.header}</H1Text>
-              <HeroBorder color="white" width="90%" margin="40px 0" />
-              <Text
-                size="38"
-                lHeight="2"
-                color="white"
-                padding="0 0 2vw 0"
-                as="p"
-                dangerouslySetInnerHTML={{
-                  __html: this.props.data.paragraphText.childMarkdownRemark
-                    .html,
-                }}
-              />
-              <Button to={'/' + this.props.data.buttonDestination}>
-                {this.props.data.buttonText}
-              </Button>
-            </WordsInner>
-            <DisclaimerCol align="flex-start">
-              <Row justify="flex-start" align="center">
-                <Badge />
-                <Disclaimer
-                  size="12"
-                  lHeight="1.8"
-                  color="#FFFFFF"
+      <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
+        <Container>
+          <Helmet>
+            <link
+              rel="stylesheet"
+              type="text/css"
+              charset="UTF-8"
+              href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+            />
+          </Helmet>
+          <TwoColRow bias="left">
+            <WordsBlock bgColor="rgba(0, 0, 0, .6)" absolute="left">
+              <WordsInner>
+                <H1Text color="#FFFFFF">{this.props.data.header}</H1Text>
+                <HeroBorder color="white" width="90%" margin="40px 0" />
+                <Text
+                  size="38"
+                  lHeight="2"
+                  color="white"
+                  padding="0 0 2vw 0"
+                  as="p"
                   dangerouslySetInnerHTML={{
-                    __html: this.props.data.disclaimerText.childMarkdownRemark
+                    __html: this.props.data.paragraphText.childMarkdownRemark
                       .html,
                   }}
                 />
+                <Button to={'/' + this.props.data.buttonDestination}>
+                  {this.props.data.buttonText}
+                </Button>
+              </WordsInner>
+              <DisclaimerCol align="flex-start">
+                <Row justify="flex-start" align="center">
+                  <Badge />
+                  <Disclaimer
+                    size="12"
+                    lHeight="1.8"
+                    color="#FFFFFF"
+                    dangerouslySetInnerHTML={{
+                      __html: this.props.data.disclaimerText.childMarkdownRemark
+                        .html,
+                    }}
+                  />
+                </Row>
+              </DisclaimerCol>
+            </WordsBlock>
+            <NavBlock absolute="right" bgColor="transparent" padding="0">
+              <Row justify="space-between">
+                <LocatorRow absolute="bottomLeft" align="center">
+                  <Locator />
+                  <Text color="#FFFFFF" weight="300" transform="uppercase">
+                    Reno, NV
+                  </Text>
+                </LocatorRow>
+                <SliderNav absolute="bottomRight">
+                  <RightArrow onClick={this.previous} />
+                  <LeftArrow onClick={this.next} />
+                </SliderNav>
               </Row>
-            </DisclaimerCol>
-          </WordsBlock>
-          <NavBlock absolute="right" bgColor="transparent" padding="0">
-            <Row justify="space-between">
-              <LocatorRow absolute="bottomLeft" align="center">
-                <Locator />
-                <Text color="#FFFFFF" weight="300" transform="uppercase">
-                  Reno, NV
-                </Text>
-              </LocatorRow>
-              <SliderNav absolute="bottomRight">
-                <RightArrow onClick={this.previous} />
-                <LeftArrow onClick={this.next} />
-              </SliderNav>
-            </Row>
-          </NavBlock>
-        </TwoColRow>
-        <Slider ref={c => (this.slider = c)} {...settings}>
-          {this.props.data.sliderImages.map(({ node: image }, index) => {
-            return (
+            </NavBlock>
+          </TwoColRow>
+          <Slider ref={c => (this.slider = c)} {...settings}>
+            {this.props.data.sliderImages.map(({ node: image }, index) => {
+              return (
                 <SliderImage
-                  key={index + ""}
+                  key={index + ''}
                   bgImage={this.props.data.sliderImages[index].ogimg.src}
                   padding="0"
                 />
-            )
-          })}
-        </Slider>
-      </Container>
+              )
+            })}
+          </Slider>
+        </Container>
+      </ScrollAnimation>
     )
   }
 }

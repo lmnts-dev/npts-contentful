@@ -1,24 +1,22 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import styled from 'styled-components'
 import config from '../utils/siteConfig'
 import SEO from '../components/SEO'
-import Layout from '../components/Layout'
 import { H3, P, HeaderText } from '../components/Headings'
 import Fade from 'react-reveal/Fade'
 import { Wrapper, HeaderBlock, Block } from '../components/Block'
-import { TwoColRowWrapper } from '../components/TwoColRow'
-import  Column  from '../components/Column'
-import Button from '../components/Button'
 import ApplyForm from '../components/ApplyForm'
+import Footer from '../components/Footer'
 
-const Woodchips = ({data} ) => {
-  const disclaimer = data.allContentfulWoodchips.edges[0].node.woodchipsDropDisclaimer.childMarkdownRemark.html 
+const Woodchips = ({ data }) => {
+  const disclaimer =
+    data.allContentfulWoodchips.edges[0].node.woodchipsDropDisclaimer
+      .childMarkdownRemark.html
   const postNode = {
     title: `Chip Drop - ${config.siteTitle}`,
   }
   return (
-    <Layout dark>
+    <main>
       <Helmet>
         <title>{`Chip Drop - ${config.siteTitle}`}</title>
       </Helmet>
@@ -29,15 +27,22 @@ const Woodchips = ({data} ) => {
           <HeaderText as="h3" size="38" weight="700" color="#293536">
             Contact us
           </HeaderText>
-          <HeaderText as="h1" padding="1vw 0 0 0" size="100" weight="700" color="#293536">
+          <HeaderText
+            as="h1"
+            padding="1vw 0 0 0"
+            size="100"
+            weight="700"
+            color="#293536"
+          >
             Apply for free Woodchips
           </HeaderText>
         </HeaderBlock>
       </Fade>
       <Fade duration={2000}>
-        <ApplyForm type="Woodchips" disclaimer={disclaimer}/>
+        <ApplyForm type="Woodchips" disclaimer={disclaimer} />
       </Fade>
-    </Layout>
+      <Footer />
+    </main>
   )
 }
 

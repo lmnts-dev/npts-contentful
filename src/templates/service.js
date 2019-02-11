@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
-import Layout from '../components/Layout'
+import Footer from '../components/Footer'
 import Container from '../components/Container'
 import Button from '../components/Button'
 import Summary from '../components/Summary'
@@ -26,29 +26,51 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
   const { name, fullDescription } = data.contentfulService
   const drops = data.allContentfulDrops.edges[0].node
   const summary = data.allContentfulSummary.edges[0].node
-  const color = pageContext.index;
+  const color = pageContext.index
 
   return (
-    
-      <Layout location={location} dark>
-        <Helmet>
-          <title>{`${name} - ${config.siteTitle}`}</title>
-          <meta itemprop="name" content={ name } />
-        </Helmet>
+    <main>
+      <Helmet>
+        <title>{`${name} - ${config.siteTitle}`}</title>
+        <meta itemprop="name" content={name} />
+      </Helmet>
 
-        <Container>
+      <Container>
         <article itemscope itemtype="http://schema.org/LiveBlogPosting">
           <time itemprop="datePublished" content="2018-02-011T11:30:00-07:00" />
-          <div itemprop="author" content="Chubb-Silverman"/>
+          <div itemprop="author" content="Chubb-Silverman" />
           <Fade duration={2000}>
-            <HeaderBlock 
+            <HeaderBlock
               // make upt to 5 different colors for each services header up to 15
-              bgColor={(color === 0 || color === 5 || color === 10 ) ? "#CAD5E8" : (color === 1 || color === 6 || color === 11) ? "#CEE0CA" : (color === 2 || color === 7 || color === 12) ? "#F7F2D9" : (color === 3 || color === 8 || color === 13) ? "#DFEFC8" : "#D2EFE1"}
+              bgColor={
+                color === 0 || color === 5 || color === 10
+                  ? '#CAD5E8'
+                  : color === 1 || color === 6 || color === 11
+                  ? '#CEE0CA'
+                  : color === 2 || color === 7 || color === 12
+                  ? '#F7F2D9'
+                  : color === 3 || color === 8 || color === 13
+                  ? '#DFEFC8'
+                  : '#D2EFE1'
+              }
             >
-              <HeaderText as="h3" size="38" weight="700" color="#293536" itemprop="description">
+              <HeaderText
+                as="h3"
+                size="38"
+                weight="700"
+                color="#293536"
+                itemprop="description"
+              >
                 Tree care services
               </HeaderText>
-              <HeaderText as="h1" padding="1vw 0 0 0" size="100" weight="700" color="#293536" itemprop="headline">
+              <HeaderText
+                as="h1"
+                padding="1vw 0 0 0"
+                size="100"
+                weight="700"
+                color="#293536"
+                itemprop="headline"
+              >
                 {name}
               </HeaderText>
             </HeaderBlock>
@@ -68,27 +90,27 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
               <Button to="/contact">Get a free quote</Button>
             </Block>
           </Fade>
-          </article>
+        </article>
 
-          <Fade duration={2000}>
-            <DropsBlock
-              header={drops.headerText}
-              text={drops.paragraphText.childMarkdownRemark.html}
-            />
-          </Fade>
-          <Fade duration={2000}>
-            <Summary
-              bgColor="#9F4300"
-              subhead={summary.subHeaderText}
-              header={summary.headerText}
-              text={summary.paragraphText.childMarkdownRemark.html}
-              bText={summary.buttonText}
-              dest={'/' + summary.buttonDestination}
-            />
-          </Fade>
-        </Container>
-      </Layout>
-    
+        <Fade duration={2000}>
+          <DropsBlock
+            header={drops.headerText}
+            text={drops.paragraphText.childMarkdownRemark.html}
+          />
+        </Fade>
+        <Fade duration={2000}>
+          <Summary
+            bgColor="#9F4300"
+            subhead={summary.subHeaderText}
+            header={summary.headerText}
+            text={summary.paragraphText.childMarkdownRemark.html}
+            bText={summary.buttonText}
+            dest={'/' + summary.buttonDestination}
+          />
+        </Fade>
+      </Container>
+      <Footer />
+    </main>
   )
 }
 

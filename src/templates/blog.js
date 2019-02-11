@@ -1,7 +1,6 @@
-
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout'
+import Footer from '../components/Footer'
 import CardList from '../components/CardList'
 import Card from '../components/Card'
 import Helmet from 'react-helmet'
@@ -10,7 +9,6 @@ import Pagination from '../components/Pagination'
 import SEO from '../components/SEO'
 import config from '../utils/siteConfig'
 
-
 const Blog = ({ data, pageContext, location }) => {
   const posts = data.allContentfulPost.edges
   const featuredPost = posts[0].node
@@ -18,7 +16,7 @@ const Blog = ({ data, pageContext, location }) => {
 
   const isFirstPage = currentPage === 1
   return (
-    <Layout location={ location }>
+    <main>
       <SEO />
       {!isFirstPage && (
         <Helmet>
@@ -42,7 +40,8 @@ const Blog = ({ data, pageContext, location }) => {
         )}
       </Container>
       <Pagination context={pageContext} />
-    </Layout>
+      <Footer />
+    </main>
   )
 }
 export const query = graphql`

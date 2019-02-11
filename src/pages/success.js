@@ -3,7 +3,7 @@ import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import config from '../utils/siteConfig'
 import SEO from '../components/SEO'
-import Layout from '../components/Layout'
+import Footer from '../components/Footer'
 import { P, HeaderText } from '../components/Headings'
 import Fade from 'react-reveal/Fade'
 import { Wrapper } from '../components/Block'
@@ -12,15 +12,15 @@ import Summary from '../components/Summary'
 
 const Block = styled(Wrapper)`
   padding: 12vw 10vw;
-  @media ( max-width: 900px){
+  @media (max-width: 900px) {
     padding: 200px 10vw 150px 10vw;
   }
-  @media ( max-width: 600px){
+  @media (max-width: 600px) {
     padding: 200px 25px 150px 25px;
   }
 `
 
-const Success = ({ data } ) => {
+const Success = ({ data }) => {
   const postNode = {
     title: `${config.siteTitle}`,
   }
@@ -28,19 +28,19 @@ const Success = ({ data } ) => {
   const summary = data.allContentfulSummary.edges[0].node
   const identity = data.allContentfulIdentity.edges[0].node
   return (
-    <Layout dark>
+    <main>
       <Helmet>
         <title>{`${config.siteTitle}`}</title>
       </Helmet>
       <SEO postNode={postNode} pagePath="success" customTitle />
 
       <Block bgColor="#FFFFFF">
-        <HeaderText size="100" color="#9F4300" align="center" weight="700" >
+        <HeaderText size="100" color="#9F4300" align="center" weight="700">
           Got it, thanks!
         </HeaderText>
       </Block>
       <Fade duration={2000}>
-          <TestimonialSlider data={testimonials} />
+        <TestimonialSlider data={testimonials} />
       </Fade>
       <Fade duration={2000}>
         <Summary
@@ -63,7 +63,8 @@ const Success = ({ data } ) => {
           dest={'/' + summary.buttonDestination}
         />
       </Fade>
-    </Layout>
+      <Footer />
+    </main>
   )
 }
 

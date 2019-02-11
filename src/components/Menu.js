@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "gatsby"
+import { Link } from 'gatsby'
 import * as lmnts from '../data/Styles'
 import styled, { css } from 'styled-components'
 import Logo from '!svg-react-loader!../images/svg-icons/logo.svg?name=logo'
@@ -21,13 +21,7 @@ const LogoLink = styled(Link)`
   left: 15px;
   top: 15px;
   svg {
-    path {
-      ${props => props.dark ? 
-        `fill: #293536;`
-      :
-        `fill: #FFFFFF;`
-      }
-    }
+    fill: #293536 !important;
   }
   @media (max-width: 600px) {
     svg {
@@ -67,13 +61,12 @@ const Nav = styled.nav`
   animation: ${fadeIn} 0.5s ease-in-out 0s;
   animation-iteration-count: 1;
   padding: 20px 20px 60px 20px;
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  margin-bottom: -102px;
+  position: fixed;
+  top: 36px;
+  left: 36px;
+  right: 36px;
   z-index: 100;
-  width: 100%;
+  /* width: 100%; */
   transition: all 1s ease;
   &:before {
     content: '';
@@ -82,13 +75,17 @@ const Nav = styled.nav`
     right: 0;
     top: 0;
     height: 100px;
-    background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99%);
+    background-image: linear-gradient(
+      -180deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0) 99%
+    );
     ${props =>
-    props.bgColor &&
-    css`
-      background-image: ${props => props.bgColor};
-      height: ${props => props.height};
-    `};
+      props.bgColor &&
+      css`
+        background-image: ${props => props.bgColor};
+        height: ${props => props.height};
+      `};
   }
   ul {
     width: 100%;
@@ -109,7 +106,7 @@ const Nav = styled.nav`
   a,
   div {
     text-decoration: none;
-    color: #ffffff;
+    color: #293536;
     font-weight: 600;
     transition: all 0.2s;
     z-index: 800;
@@ -120,12 +117,12 @@ class Menu extends React.Component {
   _isMounted = false
 
   constructor(props) {
-    super(props);
+    super(props)
 
     // Default scroll state.
     this.state = {
       isTop: true,
-    };
+    }
   }
   // Optional link style for when you are on a specific page.
   activeLinkStyle = {}
@@ -138,7 +135,7 @@ class Menu extends React.Component {
   scrollDistance = 100
 
   // Scroll styles to be added after scrolling from the top of the page.
-  navTopClearBg = 
+  navTopClearBg =
     'linear-gradient(-180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 99%)'
   navTopBg =
     'linear-gradient(-180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 99%)'
@@ -163,16 +160,24 @@ class Menu extends React.Component {
   }
 
   componentWillUnmount() {
-    this._isMounted = false;
+    this._isMounted = false
   }
 
   // Let it run.
   render() {
     return (
       // The line below this is where you can use the shorthand logic to change the Nav's styles on scroll. I'm passing these props into the styled component above.
-      
+
       <Nav
-        bgColor={(this.state.isTop && this.props.shadow) ? this.navTopBg : (this.state.isTop && !(this.props.shadow)) ? this.navTopClearBg : (!(this.state.isTop) && this.props.dark) ? this.navScrollLightBg : this.navScrollBg}
+        bgColor={
+          this.state.isTop && this.props.shadow
+            ? this.navTopBg
+            : this.state.isTop && !this.props.shadow
+            ? this.navTopClearBg
+            : !this.state.isTop && this.props.dark
+            ? this.navScrollLightBg
+            : this.navScrollBg
+        }
         height={this.state.isTop ? this.navTopHeight : this.navScrollHeight}
       >
         <LogoLink
@@ -184,26 +189,17 @@ class Menu extends React.Component {
         </LogoLink>
         <ul>
           <li>
-            <NavLink
-              to="/services"
-              activeStyle={this.activeLinkStyle}
-            >
+            <NavLink to="/services" activeStyle={this.activeLinkStyle}>
               Services
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="/about"
-              activeStyle={this.activeLinkStyle}
-            >
+            <NavLink to="/about" activeStyle={this.activeLinkStyle}>
               About
             </NavLink>
           </li>
           <li>
-            <NavLink
-              to="/contact"
-              activeStyle={this.activeLinkStyle}
-            >
+            <NavLink to="/contact" activeStyle={this.activeLinkStyle}>
               Let's Talk
             </NavLink>
           </li>
@@ -217,7 +213,7 @@ class Menu extends React.Component {
             </NavButton>
           </li>
         </ul>
-        <HamburgerMenu dark={this.props.dark}/>
+        <HamburgerMenu dark={this.props.dark} />
       </Nav>
     )
   }

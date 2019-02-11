@@ -12,7 +12,8 @@ import { LargeTextBlock } from '../components/TextBlocks'
 import { H2, P, HeaderText } from '../components/Headings'
 import Leaf from '../images/leafTestimonial.png'
 import { RightLeaf } from '../components/Leaves'
-import Layout from '../components/Layout'
+import Footer from '../components/Footer'
+
 import Fade from 'react-reveal/Fade'
 
 const AboutLeaf = styled(RightLeaf)`
@@ -43,7 +44,7 @@ const About = ({ data, location }) => {
   const about = data.allContentfulAbout.edges[0].node
 
   return (
-    <Layout location={location}>
+    <main>
       <Helmet>
         <title>{`About - ${config.siteTitle}`}</title>
       </Helmet>
@@ -55,14 +56,20 @@ const About = ({ data, location }) => {
             <HeaderText as="h3" size="38" weight="700" color="#FFFFFF">
               Local, knowledgeable tree and shrub care
             </HeaderText>
-            <HeaderText as="h1" padding="1vw 0 0 0" size="100" weight="700" color="#FFFFFF">
+            <HeaderText
+              as="h1"
+              padding="1vw 0 0 0"
+              size="100"
+              weight="700"
+              color="#FFFFFF"
+            >
               About Us
             </HeaderText>
           </HeaderBlock>
         </Fade>
         <Fade duration={2000}>
           <TwoColRow>
-            <Block padding="0" bgImage={about.image1.ogimg.src}/>
+            <Block padding="0" bgImage={about.image1.ogimg.src} />
             <MainBlock bgColor="#FFFFFF">
               <H2 color="#434343">{about.headerText}</H2>
               <P
@@ -98,7 +105,8 @@ const About = ({ data, location }) => {
           dest={'/' + identity.buttonDestination}
         />
       </Fade>
-    </Layout>
+      <Footer />
+    </main>
   )
 }
 

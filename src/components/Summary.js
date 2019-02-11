@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { PLarge, HeaderText } from '../components/Headings'
 import Column from '../components/Column'
 import Button from '../components/Button'
-import Leaf from "../images/leafSummary.png"
+import Leaf from '../images/leafSummary.png'
 import { LeftLeaf } from '../components/Leaves'
 
 const SummaryLeaf = styled(LeftLeaf)`
@@ -40,21 +40,25 @@ const Block = styled(Wrapper)`
   }
 `
 
-const Summary = props => (                  
-        <Block bgColor={props.bgColor}>
-            <Column align="center">
-                <HeaderText size="38" weight="700" color="#FFFFFF" align="center">
-                    {props.subhead}
-                </HeaderText>
-                <HeaderText size="80" weight="700" color="#FFFFFF" align="center">
-                    {props.header}
-                </HeaderText>
-                <PLarge color="#FFFFFF" align="center" dangerouslySetInnerHTML={{ __html: props.text }}/>
-                <Button hide={props.hideButton} dark to={props.dest}>
-                  {props.bText}
-                </Button>
-            </Column>
-            <SummaryLeaf noLeaf={props.noLeaf} src={Leaf} alt="leaf"/>
-        </Block>
-    )
+const Summary = props => (
+  <Block bgColor={props.bgColor}>
+    <Column align="center">
+      <HeaderText size="38" weight="700" color="#FFFFFF" align="center">
+        {props.subhead}
+      </HeaderText>
+      <HeaderText size="80" weight="700" color="#FFFFFF" align="center">
+        {props.header}
+      </HeaderText>
+      <PLarge
+        color="#FFFFFF"
+        align="center"
+        dangerouslySetInnerHTML={{ __html: props.text }}
+      />
+      <Button hide={props.hideButton} dark to={props.dest}>
+        {props.bText}
+      </Button>
+    </Column>
+    <SummaryLeaf noLeaf={props.noLeaf} src={Leaf} alt="leaf" />
+  </Block>
+)
 export default Summary

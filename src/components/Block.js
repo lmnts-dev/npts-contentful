@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { fadeIn } from '../data/KeyFrames'
-import Fade from 'react-reveal/Fade';
+import Fade from 'react-reveal/Fade'
 
 export const Wrapper = styled.div`
   animation: ${fadeIn} .5s ease-in-out 0s;
@@ -14,22 +14,26 @@ export const Wrapper = styled.div`
   }
   ${props => {
     /* absolute positioned block */
-    if (props.absolute == 'bottomLeft') return `
+    if (props.absolute == 'bottomLeft')
+      return `
         position: absolute;
         bottom: 0;
         left: 0;
     `
-    if (props.absolute == 'bottomRight') return `
+    if (props.absolute == 'bottomRight')
+      return `
         position: absolute;
         bottom: 0;
         right: 0;
     `
-    if (props.absolute == 'topLeft') return `
+    if (props.absolute == 'topLeft')
+      return `
         position: absolute;
         top: 0
         left: 0;
     `
-    if (props.absolute == 'topRight') return `
+    if (props.absolute == 'topRight')
+      return `
         position: absolute;
         top: 0;
         right: 0;
@@ -37,7 +41,8 @@ export const Wrapper = styled.div`
   }};
   ${props => {
     /* push block up */
-    if (props.pushUp) return ` 
+    if (props.pushUp)
+      return ` 
       position: relative;
       transform: translateY(-50px);
       @media ( max-width: 750px ){
@@ -59,7 +64,8 @@ export const Wrapper = styled.div`
   }}
   ${props => {
     /* background image*/
-    if (props.bgImage) return ` 
+    if (props.bgImage)
+      return ` 
         background-position: center center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -82,13 +88,26 @@ export const HeaderBlock = styled(Wrapper)`
   }
 `
 
-export const Block = ({ bgImage, padding, bgColor, width, pushUp, absolute, children }) => {
-    return (
-
-          <Wrapper bgImage={bgImage} padding={padding} bgColor={bgColor} width={width} pushUp={pushUp} absolute={absolute}>
-              {children}
-          </Wrapper>
-
-    )
+export const Block = ({
+  bgImage,
+  padding,
+  bgColor,
+  width,
+  pushUp,
+  absolute,
+  children,
+}) => {
+  return (
+    <Wrapper
+      bgImage={bgImage}
+      padding={padding}
+      bgColor={bgColor}
+      width={width}
+      pushUp={pushUp}
+      absolute={absolute}
+    >
+      {children}
+    </Wrapper>
+  )
 }
 export default Block

@@ -13,11 +13,7 @@ const HamburgerLink = styled.div`
   top: 15px;
   cursor: pointer;
   rect {
-    ${props => props.dark ? 
-      `fill: #293536;`
-    :
-      `fill: #ffffff;`
-    }
+    ${props => (props.dark ? `fill: #293536;` : `fill: #ffffff;`)}
   }
   @media (max-width: 1115px) {
     display: block;
@@ -112,9 +108,9 @@ class MenuModal extends Component {
   // constructor to set state and bind "this"
   constructor(props) {
     super(props)
-    this.state = { 
+    this.state = {
       showModal: false,
-      showHamburger: true
+      showHamburger: true,
     }
     this.handleClick = this.handleClick.bind(this)
   }
@@ -133,37 +129,54 @@ class MenuModal extends Component {
   render() {
     // the modal you will toggle on and off
     const modal = (
-      <Block bgColor="#272929" >
+      <Block bgColor="#272929">
         <Exit>
-          <Image src={exit} onClick={this.handleClick}/>
+          <Image src={exit} onClick={this.handleClick} />
         </Exit>
         <Center>
           <Column align="center" justify="center">
-            <Item href="/" onClick={this.handleClick}>Home</Item>
-            <Item href="/services" onClick={this.handleClick}>Services</Item>
-            <Item href="/about" onClick={this.handleClick}>About</Item>
-            <Item href="/contact" onClick={this.handleClick}>Contact</Item>
+            <Item href="/" onClick={this.handleClick}>
+              Home
+            </Item>
+            <Item href="/services" onClick={this.handleClick}>
+              Services
+            </Item>
+            <Item href="/about" onClick={this.handleClick}>
+              About
+            </Item>
+            <Item href="/contact" onClick={this.handleClick}>
+              Contact
+            </Item>
             <SecondaryLinks>
-              <Item href="/our-work" onClick={this.handleClick}>Our Work</Item>
-              <Item href="/firewood" onClick={this.handleClick}>Firewood</Item>
-              <Item href="/woodchips" onClick={this.handleClick}>Chip Drop</Item>
-              <Item href="/careers" onClick={this.handleClick}>Careers</Item>
+              <Item href="/our-work" onClick={this.handleClick}>
+                Our Work
+              </Item>
+              <Item href="/firewood" onClick={this.handleClick}>
+                Firewood
+              </Item>
+              <Item href="/woodchips" onClick={this.handleClick}>
+                Chip Drop
+              </Item>
+              <Item href="/careers" onClick={this.handleClick}>
+                Careers
+              </Item>
             </SecondaryLinks>
           </Column>
         </Center>
       </Block>
     )
-    return <>
+    return (
+      <>
         {this.state.showModal ? modal : ''}
-        {this.state.showHamburger ? 
+        {this.state.showHamburger ? (
           <HamburgerLink onClick={this.handleClick} dark={this.props.dark}>
             <Hamburger />
           </HamburgerLink>
-          : 
+        ) : (
           ''
-          }
-
+        )}
       </>
+    )
   }
 }
 

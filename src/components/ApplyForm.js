@@ -2,12 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Button } from '../components/Button'
-import { P, H3, PLarge, HeaderText, Text } from '../components/Headings'
-import Row from '../components/Row'
-import phone from '!svg-react-loader!../images/svg-icons/phone.svg?name=phone'
-import email from '!svg-react-loader!../images/svg-icons/email.svg?name=email'
+import { P } from '../components/Headings'
 import Fade from 'react-reveal/Fade'
-import { Block, Wrapper } from '../components/Block'
+import { Wrapper } from '../components/Block'
 import { Border } from '../components/Lines'
 
 /*
@@ -39,8 +36,8 @@ const TextBlock = styled.div`
 `
 
 const Inner = styled.div`
-    margin: 0 auto;
-    max-width: 800px;
+  margin: 0 auto;
+  max-width: 800px;
 `
 
 const FormBlock = styled(Wrapper)`
@@ -127,7 +124,7 @@ const Name = styled.input`
 
 const Type = styled.input`
   z-index: -55;
-  position: absolute;;
+  position: absolute;
 `
 
 const Location = styled.input`
@@ -155,10 +152,12 @@ const CheckStyle = styled.span`
   border-radius: 50%;
   margin-left: 10px;
   width: 25px;
-  border:  ${props => (props.grey ? '2.5px solid #363636;' : '2.5px solid #212829;')}; 
+  border: ${props =>
+    props.grey ? '2.5px solid #363636;' : '2.5px solid #212829;'};
   cursor: pointer;
   z-index: 4;
-  background-color: ${props => (props.checked ? '#9F4300' : (props.grey ? '#363636' : '#212829'))};
+  background-color: ${props =>
+    props.checked ? '#9F4300' : props.grey ? '#363636' : '#212829'};
 `
 
 const CheckLabel = styled(P)`
@@ -166,10 +165,9 @@ const CheckLabel = styled(P)`
   display: inline-block;
   position: relative;
   margin-bottom: 20px;
-  margin-top 10px;
+  margin-top: 10px;
   margin-right: 45px;
 `
-
 
 const PhoneNumber = styled.input`
   margin-bottom: 20px;
@@ -215,10 +213,10 @@ const Submit = styled.input`
   box-shadow: 0 3px 36px rgba(0, 0, 0, 0.16);
 `
 const Label = styled.label`
-  color: #FFFFFF;
+  color: #ffffff;
   margin-top: 10px;
   line-height: 1.6;
-  letter-spacing: .05em;
+  letter-spacing: 0.05em;
 `
 
 const TypeLabel = styled.label`
@@ -303,20 +301,20 @@ class DropForm extends React.Component {
 
   handleCheckboxChange = event => {
     console.log('checkbox changed!', this.state.isChecked)
-    this.setState((state) => {
+    this.setState(state => {
       return { isChecked: !state.isChecked }
-    });
+    })
   }
 
   handleCallChange = event => {
     console.log('checkbox changed!', this.state.isCallChecked)
-    this.setState((state) => {
+    this.setState(state => {
       return { isCallChecked: !state.isCallChecked }
-    });
+    })
   }
 
   handleSuccess = () => {
-    console.log(this.state);
+    console.log(this.state)
     this.setState({
       name: '',
       number: '',
@@ -340,26 +338,25 @@ class DropForm extends React.Component {
   render() {
     return (
       <Fade cascade duration={2000}>
-          <Form
-          name='drop'
+        <Form
+          name="drop"
           onSubmit={this.handleSubmit}
           data-netlify="true"
           data-netlify-honeypot="bot"
           overlay={this.state.showModal}
           onClick={this.closeModal}
-          >
-
-            <input type="hidden" name="form-name" value='drop' />
-            <p hidden>
-                <label>
-                Don’t fill this out:{' '}
-                <input name="bot" onChange={this.handleInputChange} />
-                </label>
-            </p>
+        >
+          <input type="hidden" name="form-name" value="drop" />
+          <p hidden>
+            <label>
+              Don’t fill this out:{' '}
+              <input name="bot" onChange={this.handleInputChange} />
+            </label>
+          </p>
           <FormBlock bgColor="#272929">
             <Inner>
               <TypeLabel htmlFor="typw">Type</TypeLabel>
-              <Type 
+              <Type
                 name="type"
                 placeholder={this.props.type}
                 type="text"
@@ -395,8 +392,9 @@ class DropForm extends React.Component {
                 required
               />
               <Label htmlFor="message">
-                Please leave a detailed description of where you would like the {this.props.type.toLowerCase()} dropped.
-                    <i>Ex: “Left side of driveway, near the rose bush”</i>
+                Please leave a detailed description of where you would like the{' '}
+                {this.props.type.toLowerCase()} dropped.
+                <i>Ex: “Left side of driveway, near the rose bush”</i>
               </Label>
               <Message
                 name="message"
@@ -406,17 +404,20 @@ class DropForm extends React.Component {
                 onChange={this.handleInputChange}
                 required
               />
-              <Label htmlFor="call">Call before delivery?</Label><br />
-              <CheckLabel as="label" htmlFor="call" color="#FFFFFF">Yes
-                    <Check
+              <Label htmlFor="call">Call before delivery?</Label>
+              <br />
+              <CheckLabel as="label" htmlFor="call" color="#FFFFFF">
+                Yes
+                <Check
                   onChange={this.handleCallChange}
                   checked={this.state.isCallChecked}
                   type="checkbox"
                   name="call"
                   value="Yes"
                 />
-                <CheckStyle checked={this.state.isCallChecked} grey/>
-              </CheckLabel>< br />
+                <CheckStyle checked={this.state.isCallChecked} grey />
+              </CheckLabel>
+              <br />
               <Label htmlFor="notes">Additional notes</Label>
               <Notes
                 name="notes"
@@ -429,38 +430,49 @@ class DropForm extends React.Component {
           </FormBlock>
           <FormBlock bgColor="#293536" paddingBottom>
             <Inner>
-              <List color="#FFFFFF" dangerouslySetInnerHTML={{
-                __html: this.props.disclaimer }}
-                  />
-                <Border color="#9F4300" width="100%" margin="40px 0" />
-                <Disclaimer color="#FFFFFF">Please indicate you have read and agree to the Terms of the {this.props.type} Drop.</Disclaimer>
-                
-                <CheckLabel as="label" htmlFor="disclaimer" color="#FFFFFF">I Agree
-                  <Check 
-                      onChange={this.handleCheckboxChange} 
-                      checked={this.state.isChecked}
-                      type="checkbox" 
-                      name="disclaimer" 
-                      value="I agree"
-                      required
-                  />
-              <CheckStyle checked={this.state.isChecked} />
-                </CheckLabel>< br/>
-            <Submit name="submit" type="submit" value={"Apply for free " + this.props.type.toLowerCase()} />
+              <List
+                color="#FFFFFF"
+                dangerouslySetInnerHTML={{
+                  __html: this.props.disclaimer,
+                }}
+              />
+              <Border color="#9F4300" width="100%" margin="40px 0" />
+              <Disclaimer color="#FFFFFF">
+                Please indicate you have read and agree to the Terms of the{' '}
+                {this.props.type} Drop.
+              </Disclaimer>
 
-            <Modal visible={this.state.showModal}>
-              <p>
-                Thank you for requesting our drop service. We reach out to you with any questions, if any.
-                  </p>
-              <Button dark to="/success" onClick={this.closeModal}>
-                Okay
-                  </Button>
-            </Modal>
+              <CheckLabel as="label" htmlFor="disclaimer" color="#FFFFFF">
+                I Agree
+                <Check
+                  onChange={this.handleCheckboxChange}
+                  checked={this.state.isChecked}
+                  type="checkbox"
+                  name="disclaimer"
+                  value="I agree"
+                  required
+                />
+                <CheckStyle checked={this.state.isChecked} />
+              </CheckLabel>
+              <br />
+              <Submit
+                name="submit"
+                type="submit"
+                value={'Apply for free ' + this.props.type.toLowerCase()}
+              />
+
+              <Modal visible={this.state.showModal}>
+                <p>
+                  Thank you for requesting our drop service. We reach out to you
+                  with any questions, if any.
+                </p>
+                <Button dark to="/success" onClick={this.closeModal}>
+                  Okay
+                </Button>
+              </Modal>
             </Inner>
           </FormBlock>
-
         </Form>
-        
       </Fade>
     )
   }
@@ -469,6 +481,5 @@ class DropForm extends React.Component {
 DropForm.propTypes = {
   data: PropTypes.object,
 }
-
 
 export default DropForm

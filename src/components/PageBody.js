@@ -5,7 +5,7 @@ require('prismjs/themes/prism.css')
 const Body = styled.div`
   margin: 0 auto;
   overflow-x: hidden;
-  color:#293536;
+  color: #293536;
 
   h1,
   h2,
@@ -28,7 +28,7 @@ const Body = styled.div`
 
   p {
     font-size: 22px;
-    margin-bottom: 20px;;
+    margin-bottom: 20px;
     @media (max-width: 1440px) {
       font-size: 1.53vw;
     }

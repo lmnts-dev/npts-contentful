@@ -5,15 +5,14 @@ import config from '../utils/siteConfig'
 import Container from '../components/Container'
 import PageBody from '../components/PageBody'
 import SEO from '../components/SEO'
-import Layout from '../components/Layout'
-
+import Footer from '../components/Footer'
 
 const PageTemplate = ({ data, location }) => {
   const { title, slug, body } = data.contentfulPage
   const postNode = data.contentfulPage
-  
+
   return (
-    <Layout location={ location }>
+    <main>
       <Helmet>
         <title>{`${title} - ${config.siteTitle}`}</title>
       </Helmet>
@@ -23,7 +22,8 @@ const PageTemplate = ({ data, location }) => {
         <h1>{title}</h1>
         <PageBody body={body} />
       </Container>
-    </Layout>
+      <Footer />
+    </main>
   )
 }
 

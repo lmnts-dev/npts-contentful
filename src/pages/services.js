@@ -11,7 +11,7 @@ import { TwoColRowWrapper } from '../components/TwoColRow'
 import ServiceBlock from '../components/ServiceBlock'
 import { HeaderText } from '../components/Headings'
 import DropsBlock from '../components/DropsBlock'
-import Layout from '../components/Layout'
+import Footer from '../components/Footer'
 import Fade from 'react-reveal/Fade'
 
 const TwoColRow = styled(TwoColRowWrapper)`
@@ -39,7 +39,7 @@ const Services = ({ data, location }) => {
   }
 
   return (
-    <Layout location={location} dark>
+    <main>
       <Helmet>
         <title>{`Services - ${config.siteTitle}`}</title>
       </Helmet>
@@ -51,7 +51,13 @@ const Services = ({ data, location }) => {
             <HeaderText as="h3" size="38" weight="700" color="#312B2B">
               Do what's right for the tree
             </HeaderText>
-            <HeaderText as="h1" padding="1vw 0 0 0" size="100" weight="700" color="#312B2B">
+            <HeaderText
+              as="h1"
+              padding="1vw 0 0 0"
+              size="100"
+              weight="700"
+              color="#312B2B"
+            >
               Tree Care Services
             </HeaderText>
           </HeaderBlock>
@@ -62,26 +68,26 @@ const Services = ({ data, location }) => {
             {services.map(({ node: service }, index) => {
               if (index % 2 === 0 && index + 1 !== services.length)
                 return (
-                    <TwoColRow key={index + ""}>
-                      <ServiceBlock
-                        src={service.image.ogimg.src}
-                        header={service.name}
-                        text={service.shortSummary}
-                        bText="Learn More"
-                        dest={'/services/' + service.slug}
-                      />
-                      <ServiceBlock
-                        src={services[index + 1].node.image.ogimg.src}
-                        header={services[index + 1].node.name}
-                        text={services[index + 1].node.shortSummary}
-                        bText="Learn More"
-                        dest={'/services/' + services[index + 1].node.slug}
-                      />
-                    </TwoColRow>
+                  <TwoColRow key={index + ''}>
+                    <ServiceBlock
+                      src={service.image.ogimg.src}
+                      header={service.name}
+                      text={service.shortSummary}
+                      bText="Learn More"
+                      dest={'/services/' + service.slug}
+                    />
+                    <ServiceBlock
+                      src={services[index + 1].node.image.ogimg.src}
+                      header={services[index + 1].node.name}
+                      text={services[index + 1].node.shortSummary}
+                      bText="Learn More"
+                      dest={'/services/' + services[index + 1].node.slug}
+                    />
+                  </TwoColRow>
                 )
               if (index % 2 === 0 && index + 1 === services.length)
                 return (
-                  <TwoColRow key={index + ""}>
+                  <TwoColRow key={index + ''}>
                     <ServiceBlock
                       src={service.image.ogimg.src}
                       header={service.name}
@@ -112,7 +118,8 @@ const Services = ({ data, location }) => {
           />
         </Fade>
       </Container>
-    </Layout>
+      <Footer />
+    </main>
   )
 }
 

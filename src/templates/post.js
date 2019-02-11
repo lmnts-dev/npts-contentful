@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
-import Layout from '../components/Layout'
+import Footer from '../components/Footer'
 import Hero from '../components/Hero'
 import Container from '../components/Container'
 import PageBody from '../components/PageBody'
@@ -10,7 +10,6 @@ import TagList from '../components/TagList'
 import PostLinks from '../components/PostLinks'
 import PostDate from '../components/PostDate'
 import SEO from '../components/SEO'
-
 
 const PostTemplate = ({ data, pageContext, location }) => {
   const {
@@ -27,7 +26,7 @@ const PostTemplate = ({ data, pageContext, location }) => {
   const next = pageContext.next
 
   return (
-    <Layout location={ location }>
+    <main>
       <Helmet>
         <title>{`${title} - ${config.siteTitle}`}</title>
       </Helmet>
@@ -41,7 +40,8 @@ const PostTemplate = ({ data, pageContext, location }) => {
         <PageBody body={body} />
       </Container>
       <PostLinks previous={previous} next={next} />
-    </Layout>
+      <Footer />
+    </main>
   )
 }
 

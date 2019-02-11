@@ -4,12 +4,11 @@ import orderBy from 'lodash/orderBy'
 import Helmet from 'react-helmet'
 import moment from 'moment'
 import config from '../utils/siteConfig'
-import Layout from '../components/Layout'
+import Footer from '../components/Footer'
 import Card from '../components/Card'
 import CardList from '../components/CardList'
 import Pagination from '../components/Pagination'
 import Container from '../components/Container'
-
 
 const TagTemplate = ({ data, pageContext, location }) => {
   const posts = orderBy(
@@ -27,7 +26,7 @@ const TagTemplate = ({ data, pageContext, location }) => {
   const isFirstPage = currentPage === 1
 
   return (
-    <Layout location={ location }>
+    <main>
       {isFirstPage ? (
         <Helmet>
           <title>{`Tag: ${title} - ${config.siteTitle}`}</title>
@@ -66,7 +65,8 @@ const TagTemplate = ({ data, pageContext, location }) => {
         </CardList>
       </Container>
       <Pagination context={pageContext} />
-    </Layout>
+      <Footer />
+    </main>
   )
 }
 
