@@ -10,11 +10,7 @@ import TestimonialSlider from '../components/TestimonialSlider'
 import Fade from 'react-reveal/Fade'
 import { Wrapper, HeaderBlock, Block } from '../components/Block'
 import { TwoColRow } from '../components/TwoColRow'
-<<<<<<< HEAD
 import { RowWrapper } from '../components/Row'
-=======
-import { RowWrapper} from '../components/Row'
->>>>>>> d5f45f6c8d68c6f90f1168330c4a10fbc05d9a58
 import Column from '../components/Column'
 import leafService from '../images/leaf1.png'
 import leafEstimates from '../images/leaf4.png'
@@ -24,10 +20,7 @@ import { RightToMidLeaf, LeftTopLeaf } from '../components/Leaves'
 import pine from '../images/leaf3.png'
 import pine2 from '../images/leaf6.png'
 import { graphql } from 'gatsby'
-<<<<<<< HEAD
 import ScrollWrapper from '../components/ScrollWrapper'
-=======
->>>>>>> d5f45f6c8d68c6f90f1168330c4a10fbc05d9a58
 
 const LeftLeaf = styled(LeftTopLeaf)`
   left: -60px;
