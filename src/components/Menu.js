@@ -62,7 +62,8 @@ const Nav = styled.nav`
   animation-iteration-count: 1;
   padding: 20px 20px 60px 20px;
   position: fixed;
-  top: ${props => props.topDistance};
+  top: 0px;
+  transform: translateY(${props => props.topDistance});
   left: 36px;
   right: 36px;
   z-index: 100;
@@ -75,11 +76,6 @@ const Nav = styled.nav`
     right: 0;
     top: 0;
     height: 100px;
-    background-image: linear-gradient(
-      -180deg,
-      rgba(0, 0, 0, 0.5) 0%,
-      rgba(0, 0, 0, 0) 99%
-    );
     background: ${props => props.bgColor};
     height: ${props => props.height};
   }
