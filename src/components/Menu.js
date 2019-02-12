@@ -23,7 +23,7 @@ const LogoLink = styled(Link)`
   svg {
     transition: all 1s ease;
     ${props =>
-      props.darkNav && props.isTop ? 'fill: #312B2B' : 'fill: #ffffff'}
+      props.darkNav && props.pageTop ? 'fill: #312B2B' : 'fill: #ffffff'}
   }
   @media (max-width: 600px) {
     svg {
@@ -64,29 +64,29 @@ const NavInner = styled.div`
   padding: 20px 20px 60px 20px;
   max-width: 2000px;
   width: 100%;
-  position: ${props => (props.isTop ? 'unset' : 'relative')};
+  position: ${props => (props.pageTop ? 'unset' : 'relative')};
 `
 
-const Nav = styled.nav`
+const NavWrapper = styled.nav`
   animation-iteration-count: 1;
   position: ${props => props.navPosition};
   top: 0px;
   right: 36px;
-  left: ${props => (props.isTop ? '36px' : '50%')};
-  width: ${props => (props.isTop ? 'auto' : '100%')};
+  left: ${props => (props.pageTop ? '36px' : '50%')};
+  width: ${props => (props.pageTop ? 'auto' : '100%')};
   transform: ${props =>
-    props.isTop ? 'translateY(36px)' : 'translateX(-50%)'};
-  padding: ${props => (props.isTop ? '0px 0px 0px 0px' : '0px 36px 0px 36px')};
+    props.pageTop ? 'translateY(36px)' : 'translateX(-50%)'};
+  padding: ${props => (props.pageTop ? '0px 0px 0px 0px' : '0px 36px 0px 36px')};
   z-index: 100;
   max-width: 2000px;
   @media (max-width: 600px) {
     right: 16px;
-    left: ${props => (props.isTop ? '16px' : '50%')};
-    width: ${props => (props.isTop ? 'auto' : '100%')};
+    left: ${props => (props.pageTop ? '16px' : '50%')};
+    width: ${props => (props.pageTop ? 'auto' : '100%')};
     transform: ${props =>
-      props.isTop ? 'translateY(16px)' : 'translateX(-50%)'};
+      props.pageTop ? 'translateY(16px)' : 'translateX(-50%)'};
     padding: ${props =>
-      props.isTop ? '0px 0px 0px 0px' : '0px 16px 0px 16px'};
+      props.pageTop ? '0px 0px 0px 0px' : '0px 16px 0px 16px'};
   }
   &:before {
     content: '';
@@ -105,7 +105,7 @@ const Nav = styled.nav`
     right: 0;
     top: 0;
     transition: all 1s ease;
-    opacity: ${props => (props.isTop ? '0' : '1')};
+    opacity: ${props => (props.pageTop ? '0' : '1')};
     background: #000000;
     height: ${props => props.height};
   }
@@ -132,7 +132,7 @@ const Nav = styled.nav`
     transition: all 1s ease;
     z-index: 800;
     ${props =>
-      props.darkNav && props.isTop ? 'color: #312B2B' : 'color: #ffffff'}
+      props.darkNav && props.pageTop ? 'color: #312B2B' : 'color: #ffffff'}
   }
 `
 
@@ -165,16 +165,16 @@ class Menu extends React.Component {
     return (
       // The line below this is where you can use the shorthand logic to change the Nav's styles on scroll. I'm passing these props into the styled component above.
 
-      <Nav
-        isTop={this.props.isTop} // Prop result passed from ScrollWrapper component.
-        bgColor={this.props.isTop ? this.navTopBg : this.navScrollBg}
-        height={this.props.isTop ? this.navTopHeight : this.navScrollHeight}
-        navPosition={this.props.isTop ? 'absolute' : 'fixed'}
+      <NavWrapper
+        pageTop={this.props.pageTop} // Prop result passed from ScrollWrapper component.
+        bgColor={this.props.pageTop ? this.navTopBg : this.navScrollBg}
+        height={this.props.pageTop ? this.navTopHeight : this.navScrollHeight}
+        navPosition={this.props.pageTop ? 'absolute' : 'fixed'}
         darkNav={this.props.darkNav} // Prop result passed from ScrollWrapper component.
       >
         <NavInner>
           <LogoLink
-            isTop={this.props.isTop} // Prop result passed from ScrollWrapper component.
+            pageTop={this.props.pageTop} // Prop result passed from ScrollWrapper component.
             darkNav={this.props.darkNav} // Prop result passed from ScrollWrapper component.
             to="/"
             activeStyle={this.activeLinkStyle}
@@ -208,11 +208,11 @@ class Menu extends React.Component {
             </li>
           </ul>
           <HamburgerMenu
-            isTop={this.props.isTop} // Prop result passed from ScrollWrapper component.
+            pageTop={this.props.pageTop} // Prop result passed from ScrollWrapper component.
             darkNav={this.props.darkNav} // Prop result passed from ScrollWrapper component.
           />
         </NavInner>
-      </Nav>
+      </NavWrapper>
     )
   }
 }

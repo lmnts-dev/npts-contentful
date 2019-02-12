@@ -12,6 +12,7 @@ import Summary from '../components/Summary'
 import { graphql } from 'gatsby'
 import ScrollWrapper from '../components/ScrollWrapper'
 
+
 const Block = styled(Wrapper)`
   padding: 12vw 10vw;
   @media (max-width: 900px) {
@@ -30,7 +31,7 @@ const Success = ({ data }) => {
   const summary = data.allContentfulSummary.edges[0].node
   const identity = data.allContentfulIdentity.edges[0].node
   return (
-    <ScrollWrapper>
+    <ScrollWrapper darkNav>
       <Helmet>
         <title>{`${config.siteTitle}`}</title>
       </Helmet>

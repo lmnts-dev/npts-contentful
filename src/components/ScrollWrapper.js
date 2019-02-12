@@ -20,7 +20,7 @@ class ScrollWrapper extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isTop: true
+      pageTop: true
     }
   }
 
@@ -28,11 +28,11 @@ class ScrollWrapper extends React.Component {
     const top = e.target.scrollTop > 36
     if (top) {
       this.setState({
-        isTop: false,
+        pageTop: false,
       })
     } else {
       this.setState({
-        isTop: true,
+        pageTop: true,
       })
     }
   }
@@ -42,7 +42,7 @@ class ScrollWrapper extends React.Component {
 
     return (
       <ScrollArea onScroll={this.handleScroll}>
-        <Menu id="navBar" isTop={this.state.isTop} darkNav={this.props.darkNav} />
+        <Menu id="navBar" pageTop={this.state.pageTop} darkNav={this.props.darkNav} />
         {children}
       </ScrollArea>
     )

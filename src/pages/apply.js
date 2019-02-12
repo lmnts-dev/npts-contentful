@@ -14,10 +14,8 @@ class Apply extends React.Component {
     const postNode = {
       title: `Apply - ${config.siteTitle}`,
     }
-    const darkNav = true
-
     return (
-      <ScrollWrapper darkNav={darkNav}>
+      <ScrollWrapper darkNav>
         <Helmet>
           <title>{`Apply - ${config.siteTitle}`}</title>
         </Helmet>
