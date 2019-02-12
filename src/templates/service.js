@@ -4,7 +4,7 @@ import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
 import Footer from '../components/Footer'
 import Container from '../components/Container'
-import Button from '../components/Button'
+import { ButtonStyle } from '../components/Button'
 import { ColumnWrapper } from '../components/Column'
 import Summary from '../components/Summary'
 import { Block, Wrapper, HeaderBlock } from '../components/Block'
@@ -15,18 +15,43 @@ import Fade from 'react-reveal/Fade'
 import ScrollWrapper from '../components/ScrollWrapper'
 import { TwoColRowWrapper } from '../components/TwoColRow'
 
-const Column = styled(ColumnWrapper)`
-  padding: 5vw 8vw;
+const Header = styled(HeaderBlock)`
+  @media (max-width: 900px ){
+    padding-bottom: 100px;
+  }
+  @media (max-width: 600px ){
+    padding-bottom: 60px;
+  }
+`
+
+const Button = styled(ButtonStyle)`
+  position: absolute;
+  top: -25px;
+  left: 8vw;
   @media (max-width: 1000px ){
-    padding: 40px 50px;
+    left: 50px;
+  }
+  @media (max-width: 500px ){
+    left: 25px;
+  }
+`
+
+const Column = styled(ColumnWrapper)`
+  padding: 8vw;
+  @media (max-width: 1000px ){
+    padding: 60px 50px;
+  }
+  @media (max-width: 500px ){
+    padding: 60px 25px;
   }
 `
 const TwoColRow = styled( TwoColRowWrapper )`
+  position: relative;
   @media ( max-width: 750px){
     flex-direction: column;
   }
   @media (max-width: 750px) {
-    flex-direction: ${props => (props.reverse ? 'column' : 'column-reverse')};
+    flex-direction: ${props => (props.reverse ? 'column-reverse' : 'column')};
   }
 `
 
@@ -56,7 +81,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
           <time itemProp="datePublished" content="2018-02-011T11:30:00-07:00" />
           <div itemProp="author" content="Chubb-Silverman" />
           <Fade duration={2000}>
-            <HeaderBlock
+            <Header
               // make upt to 5 different colors for each services header up to 15
               bgColor={
                 color === 0 || color === 5 || color === 10
@@ -89,11 +114,11 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
               >
                 {name}
               </HeaderText>
-            </HeaderBlock>
-            <Button to="/contact">Get a free quote</Button>
+            </Header>
           </Fade>
           <Fade duration={2000}>
             <Block bgColor="#FFFFFF" padding="0">
+              <Button to="/contact">Get a free quote</Button>
               <TwoColRow bias="left">
                 <Column>
                   <HeaderText as="h2" size="42" color="#293536" weight="700">
@@ -113,7 +138,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
           </Fade>
           <Fade duration={2000}>
             <Block bgColor="#FFFFFF" padding="0">
-              <TwoColRow smallReverse bias="right">
+              <TwoColRow reverse bias="right">
                 <ImageBlock padding="0" bgImage={secondAspectImage.ogimg.src} />
                 <Column>
                   <HeaderText as="h2" size="42" color="#293536" weight="700">
