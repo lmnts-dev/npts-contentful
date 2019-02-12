@@ -40,7 +40,7 @@ const Services = ({ data, location }) => {
   }
 
   return (
-    <ScrollWrapper>
+    <ScrollWrapper darkNav>
       <Helmet>
         <title>{`Services - ${config.siteTitle}`}</title>
       </Helmet>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import exit from '../images/exit.png'
 import { Wrapper } from '../components/Block'
+import Transition from '../components/Transition'
 import Hamburger from '!svg-react-loader!../images/svg-icons/navburger.svg?name=navburger'
 import Column from '../components/Column'
 
@@ -133,41 +134,43 @@ class MenuModal extends Component {
   render() {
     // the modal you will toggle on and off
     const modal = (
-      <Block bgColor="#272929">
-        <Exit>
-          <Image src={exit} onClick={this.handleClick} />
-        </Exit>
-        <Center>
-          <Column align="center" justify="center">
-            <Item href="/" onClick={this.handleClick}>
-              Home
-            </Item>
-            <Item href="/services" onClick={this.handleClick}>
-              Services
-            </Item>
-            <Item href="/about" onClick={this.handleClick}>
-              About
-            </Item>
-            <Item href="/contact" onClick={this.handleClick}>
-              Contact
-            </Item>
-            <SecondaryLinks>
-              <Item href="/our-work" onClick={this.handleClick}>
-                Our Work
+      <Transition location='overlay'>
+        <Block bgColor="#272929">
+          <Exit>
+            <Image src={exit} onClick={this.handleClick} />
+          </Exit>
+          <Center>
+            <Column align="center" justify="center">
+              <Item href="/" onClick={this.handleClick}>
+                Home
               </Item>
-              <Item href="/firewood" onClick={this.handleClick}>
-                Firewood
+              <Item href="/services" onClick={this.handleClick}>
+                Services
               </Item>
-              <Item href="/woodchips" onClick={this.handleClick}>
-                Chip Drop
+              <Item href="/about" onClick={this.handleClick}>
+                About
               </Item>
-              <Item href="/careers" onClick={this.handleClick}>
-                Careers
+              <Item href="/contact" onClick={this.handleClick}>
+                Contact
               </Item>
-            </SecondaryLinks>
-          </Column>
-        </Center>
-      </Block>
+              <SecondaryLinks>
+                <Item href="/our-work" onClick={this.handleClick}>
+                  Our Work
+                </Item>
+                <Item href="/firewood" onClick={this.handleClick}>
+                  Firewood
+                </Item>
+                <Item href="/woodchips" onClick={this.handleClick}>
+                  Chip Drop
+                </Item>
+                <Item href="/careers" onClick={this.handleClick}>
+                  Careers
+                </Item>
+              </SecondaryLinks>
+            </Column>
+          </Center>
+        </Block>
+      </Transition>
     )
     return (
       <>
