@@ -16,11 +16,11 @@ export const ScrollArea = styled.main`
   }
 `
 
-class Wrapper extends React.Component {
+class ScrollWrapper extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      isTop: true,
+      isTop: true
     }
   }
 
@@ -35,8 +35,6 @@ class Wrapper extends React.Component {
         isTop: true,
       })
     }
-
-    console.log(this.state.isTop)
   }
 
   render() {
@@ -44,11 +42,11 @@ class Wrapper extends React.Component {
 
     return (
       <ScrollArea onScroll={this.handleScroll}>
-        <Menu id="navBar" isTop={ this.state.isTop } />
+        <Menu id="navBar" isTop={this.state.isTop} darkNav={this.props.darkNav} />
         {children}
       </ScrollArea>
     )
   }
 }
 
-export default Wrapper
+export default ScrollWrapper

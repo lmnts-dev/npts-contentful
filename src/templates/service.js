@@ -72,7 +72,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
   const color = pageContext.index
 
   return (
-    <ScrollWrapper>
+    <ScrollWrapper darkNav>
       <Helmet>
         <title>{`${name} - ${config.siteTitle}`}</title>
         <meta itemProp="name" content={name} />

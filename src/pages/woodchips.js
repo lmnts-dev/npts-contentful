@@ -18,7 +18,7 @@ const Woodchips = ({ data }) => {
     title: `Chip Drop - ${config.siteTitle}`,
   }
   return (
-    <ScrollWrapper>
+    <ScrollWrapper darkNav>
       <Helmet>
         <title>{`Chip Drop - ${config.siteTitle}`}</title>
       </Helmet>
