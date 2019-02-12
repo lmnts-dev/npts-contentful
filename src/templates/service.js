@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
 import Footer from '../components/Footer'
 import Container from '../components/Container'
+import GuidanceBlock from '../components/GuidanceBlock'
 import { ButtonStyle } from '../components/Button'
 import { ColumnWrapper } from '../components/Column'
 import Summary from '../components/Summary'
@@ -67,6 +68,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
   const { name, firstAspectHeader, secondAspectHeader, thirdAspectHeader, firstAspectText, secondAspectText, thirdAspectText, firstAspectImage, secondAspectImage, thirdAspectImage, } = data.contentfulService
   const drops = data.allContentfulDrops.edges[0].node
   const summary = data.allContentfulSummary.edges[0].node
+  const guidance = data.allContentfulGuidance.edges[0].node
   const color = pageContext.index
 
   return (
@@ -177,7 +179,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
             </Fade>
           }
         </article>
-
+        <GuidanceBlock guidance={guidance}/>
         <Fade duration={2000}>
           <DropsBlock
             header={drops.headerText}
@@ -274,6 +276,25 @@ export const query = graphql`
             childMarkdownRemark {
               html
               excerpt(pruneLength: 320)
+            }
+          }
+        }
+      }
+    }
+    allContentfulGuidance {
+      edges {
+        node {
+          header
+          points
+          image {
+            title
+            fluid(maxWidth: 1800) {
+              ...GatsbyContentfulFluid_withWebp_noBase64
+            }
+            ogimg: resize(width: 1800) {
+              src
+              width
+              height
             }
           }
         }
