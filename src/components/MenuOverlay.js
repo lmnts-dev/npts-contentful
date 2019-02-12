@@ -15,7 +15,7 @@ const HamburgerLink = styled.div`
   rect {
     transition: all 1s ease;
     ${props =>
-      props.darkNav && props.isTop ? 'fill: #312B2B' : 'fill: #ffffff'}
+      props.darknav && props.pagetop ? 'fill: #312B2B' : 'fill: #ffffff'}
   }
   @media (max-width: 1115px) {
     display: block;
@@ -178,8 +178,8 @@ class MenuModal extends Component {
         {this.state.showHamburger ? (
           <HamburgerLink
             onClick={this.handleClick}
-            darkNav={this.props.darkNav}
-            isTop={this.props.isTop}
+            darknav={this.props.darknav}
+            pagetop={this.props.pagetop}
           >
             <Hamburger />
           </HamburgerLink>
