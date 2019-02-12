@@ -8,7 +8,7 @@ import { fadeIn } from '../data/KeyFrames'
 const NavLink = styled(Link)`
   animation: ${fadeIn} ${props => props.animDuration} ease-in-out 0s;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 12px;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 2px;
   transition: all 1s ease;
@@ -109,6 +109,17 @@ const NavWrapper = styled.nav`
     background: #000000;
     height: ${props => props.height};
   }
+  ${props => (props.pageHome ? `
+    &:after {
+      content: '';
+      position: absolute;
+      top:0;
+      bottom: 0;
+      right:0;
+      left: 0;
+      background-image: ${props => (props.pagetop ? 'linear-gradient(black, transparent)' : 'linear-gradient(transparent, transparent)')};
+    }
+  ` : ``)};
   ul {
     width: 100%;
     display: flex;
@@ -116,7 +127,7 @@ const NavWrapper = styled.nav`
     justify-content: flex-end;
     align-items: center;
     z-index: 800;
-    @media (max-width: 1115px) {
+    @media (max-width: 1215px) {
       display: none;
     }
   }
@@ -166,6 +177,7 @@ class Menu extends React.Component {
       // The line below this is where you can use the shorthand logic to change the Nav's styles on scroll. I'm passing these props into the styled component above.
 
       <NavWrapper
+        pageHome={this.props.home} // Prop result passed from ScrollWrapper component.
         pagetop={this.props.pagetop} // Prop result passed from ScrollWrapper component.
         bgColor={this.props.pagetop ? this.navTopBg : this.navScrollBg}
         height={this.props.pagetop ? this.navTopHeight : this.navScrollHeight}
@@ -185,6 +197,11 @@ class Menu extends React.Component {
             <li>
               <NavLink to="/services" activeStyle={this.activeLinkStyle}>
                 Services
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/our-work" activeStyle={this.activeLinkStyle}>
+                Our Work
               </NavLink>
             </li>
             <li>

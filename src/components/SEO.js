@@ -119,24 +119,11 @@ class SEO extends Component {
 
     return (
       <Helmet>
-        {/* General tags */}
-        <meta name="image" content={image} />
-        <meta name="description" content={description} />
 
         {/* Schema.org tags */}
         <script type="application/ld+json">
           {JSON.stringify(schemaOrgJSONLD)}
         </script>
-
-        {/* OpenGraph tags */}
-        <meta property="og:title" content={title} />
-        {postSEO ? <meta property="og:type" content="article" /> : null}
-
-        <meta property="og:url" content={pageUrl} />
-        <meta property="og:image" content={image} />
-        <meta property="og:image:width" content={imgWidth} />
-        <meta property="og:image:height" content={imgHeight} />
-        <meta property="og:description" content={description} />
 
         {/* Twitter Card tags */}
         <meta name="twitter:card" content="summary_large_image" />

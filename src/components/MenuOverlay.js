@@ -17,7 +17,7 @@ const HamburgerLink = styled.div`
     ${props =>
       props.darknav && props.pagetop ? 'fill: #312B2B' : 'fill: #ffffff'}
   }
-  @media (max-width: 1115px) {
+  @media (max-width: 1215px) {
     display: block;
   }
   @media (max-width: 600px) {

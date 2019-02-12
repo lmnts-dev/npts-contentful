@@ -42,7 +42,8 @@ class ScrollWrapper extends React.Component {
 
     return (
       <ScrollArea onScroll={this.handleScroll}>
-        <Menu id="navBar" pagetop={this.state.pagetop} darknav={this.props.darknav} />
+        HERE {children.home}
+        <Menu id="navBar" pagetop={this.state.pagetop} darknav={this.props.darknav} home={this.props.home}/>
         {children}
       </ScrollArea>
     )
