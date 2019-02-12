@@ -233,6 +233,7 @@ class ContactForm extends React.Component {
   }
 
   handleSuccess = () => {
+    document.body.classList.add('modal-open');
     this.setState({
       name: '',
       email: '',
@@ -242,6 +243,7 @@ class ContactForm extends React.Component {
   }
 
   closeModal = () => {
+    document.body.classList.remove('modal-open');
     this.setState({ showModal: false })
   }
 

@@ -5,6 +5,11 @@ const GlobalStyle = createGlobalStyle`
   .tl-wrapper {
     position: relative !important;
   }
+  .modal-open {
+    main {
+      overflow-y: hidden;
+    }
+  }
   /* Reset CSS */
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,

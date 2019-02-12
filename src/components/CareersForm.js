@@ -258,6 +258,7 @@ class CareersForm extends React.Component {
 
   handleSuccess = () => {
     console.log(this.state)
+    document.body.classList.add('modal-open');
     this.setState({
       name: '',
       number: '',
@@ -271,6 +272,7 @@ class CareersForm extends React.Component {
   }
 
   closeModal = () => {
+    document.body.classList.remove('modal-open');
     this.setState({ showModal: false })
   }
 

@@ -309,6 +309,7 @@ class DropForm extends React.Component {
 
   handleSuccess = () => {
     console.log(this.state)
+    document.body.classList.add('modal-open');
     this.setState({
       name: '',
       number: '',
@@ -324,6 +325,7 @@ class DropForm extends React.Component {
   }
 
   closeModal = () => {
+    document.body.classList.remove('modal-open');
     this.setState({ showModal: false })
   }
 
@@ -457,7 +459,7 @@ class DropForm extends React.Component {
 
               <Modal visible={this.state.showModal}>
                 <p>
-                  Thank you for requesting our drop service. We reach out to you
+                  Thank you for requesting our drop service. We'll reach out to you
                   with any questions, if any.
                 </p>
                 <Button dark to="/success" onClick={this.closeModal}>
