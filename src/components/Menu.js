@@ -11,6 +11,7 @@ const NavLink = styled(Link)`
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 2px;
+  transition: all 1s ease;
 `
 
 const LogoLink = styled(Link)`
@@ -18,8 +19,10 @@ const LogoLink = styled(Link)`
   position: absolute;
   left: 15px;
   top: 15px;
+  transition: all 1s ease;
   svg {
-    fill: #293536 !important;
+    transition: all 1s ease;
+    ${props => props.darkNav && props.isTop ? 'fill: #312B2B' : 'fill: #ffffff'}
   }
   @media (max-width: 600px) {
     svg {
@@ -124,10 +127,10 @@ const Nav = styled.nav`
   a,
   div {
     text-decoration: none;
-    color: #ffffff;
     font-weight: 600;
-    transition: all 0.2s;
+    transition: all 1s ease;
     z-index: 800;
+    ${props => props.darkNav && props.isTop ? 'color: #312B2B' : 'color: #ffffff'}
   }
 `
 
@@ -157,8 +160,6 @@ class Menu extends React.Component {
   navScrollHeight = '60px'
 
   render() {
-    console.log('isTop: ' + this.props.isTop)
-    console.log(this.props.isTop ? this.navTopBg : this.navScrollBg)
     return (
       // The line below this is where you can use the shorthand logic to change the Nav's styles on scroll. I'm passing these props into the styled component above.
 
@@ -167,10 +168,12 @@ class Menu extends React.Component {
         bgColor={this.props.isTop ? this.navTopBg : this.navScrollBg}
         height={this.props.isTop ? this.navTopHeight : this.navScrollHeight}
         navPosition={this.props.isTop ? 'absolute' : 'fixed'}
+        darkNav={this.props.darkNav} // Prop result passed from ScrollWrapper component.
       >
         <NavInner>
           <LogoLink
-            dark={this.props.dark}
+            isTop={this.props.isTop} // Prop result passed from ScrollWrapper component.
+            darkNav={this.props.darkNav} // Prop result passed from ScrollWrapper component.
             to="/"
             activeStyle={this.activeLinkStyle}
           >

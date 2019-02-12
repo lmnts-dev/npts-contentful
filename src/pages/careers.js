@@ -65,7 +65,7 @@ const Careers = ({ data }) => {
     title: `Careers - ${config.siteTitle}`,
   }
   return (
-    <ScrollWrapper>
+    <ScrollWrapper darkNav>
       <Helmet>
         <title>{`Careers - ${config.siteTitle}`}</title>
       </Helmet>
