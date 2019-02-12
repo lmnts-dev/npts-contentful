@@ -12,7 +12,9 @@ const HamburgerLink = styled.div`
   top: 15px;
   cursor: pointer;
   rect {
-    ${props => (props.dark ? `fill: #293536;` : `fill: #ffffff;`)}
+    transition: all 1s ease;
+    ${props =>
+      props.darkNav && props.isTop ? 'fill: #312B2B' : 'fill: #ffffff'}
   }
   @media (max-width: 1115px) {
     display: block;
@@ -106,7 +108,6 @@ const SecondaryLinks = styled.div`
   }
 `
 
-
 class MenuModal extends Component {
   // constructor to set state and bind "this"
   constructor(props) {
@@ -172,7 +173,11 @@ class MenuModal extends Component {
       <>
         {this.state.showModal ? modal : ''}
         {this.state.showHamburger ? (
-          <HamburgerLink onClick={this.handleClick} dark={this.props.dark}>
+          <HamburgerLink
+            onClick={this.handleClick}
+            darkNav={this.props.darkNav}
+            isTop={this.props.isTop}
+          >
             <Hamburger />
           </HamburgerLink>
         ) : (

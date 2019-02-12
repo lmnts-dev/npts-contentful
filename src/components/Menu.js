@@ -22,7 +22,8 @@ const LogoLink = styled(Link)`
   transition: all 1s ease;
   svg {
     transition: all 1s ease;
-    ${props => props.darkNav && props.isTop ? 'fill: #312B2B' : 'fill: #ffffff'}
+    ${props =>
+      props.darkNav && props.isTop ? 'fill: #312B2B' : 'fill: #ffffff'}
   }
   @media (max-width: 600px) {
     svg {
@@ -130,7 +131,8 @@ const Nav = styled.nav`
     font-weight: 600;
     transition: all 1s ease;
     z-index: 800;
-    ${props => props.darkNav && props.isTop ? 'color: #312B2B' : 'color: #ffffff'}
+    ${props =>
+      props.darkNav && props.isTop ? 'color: #312B2B' : 'color: #ffffff'}
   }
 `
 
@@ -205,7 +207,10 @@ class Menu extends React.Component {
               </NavButton>
             </li>
           </ul>
-          <HamburgerMenu dark={this.props.dark} />
+          <HamburgerMenu
+            isTop={this.props.isTop} // Prop result passed from ScrollWrapper component.
+            darkNav={this.props.darkNav} // Prop result passed from ScrollWrapper component.
+          />
         </NavInner>
       </Nav>
     )
