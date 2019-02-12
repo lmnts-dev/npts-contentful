@@ -10,9 +10,6 @@ export const ScrollArea = styled.main`
   overflow-x: hidden;
   overflow-y: auto;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   padding: 36px;
   @media (max-width: 600px) {
     padding: 15px;
