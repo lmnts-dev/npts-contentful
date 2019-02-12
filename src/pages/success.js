@@ -31,7 +31,7 @@ const Success = ({ data }) => {
   const summary = data.allContentfulSummary.edges[0].node
   const identity = data.allContentfulIdentity.edges[0].node
   return (
-    <ScrollWrapper darkNav>
+    <ScrollWrapper darknav>
       <Helmet>
         <title>{`${config.siteTitle}`}</title>
       </Helmet>
