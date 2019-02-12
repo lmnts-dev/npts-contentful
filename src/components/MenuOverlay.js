@@ -51,18 +51,25 @@ const Center = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  background-color: #293536;
+  padding: 0 4vw;
 `
 
 const Block = styled(Wrapper)`
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
   z-index: 999;
-  padding: 0 4vw;
   margin: 0 auto;
+  position: fixed;
+  top: -16px;
+  bottom: -16px;
+  right: -17px;
+  left: -17px;
+  height: 100vh;
+  width: 100vw;
+  background-color: #293536;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   form {
     margin-top: 0;
   }
