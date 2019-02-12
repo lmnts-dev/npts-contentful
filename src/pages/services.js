@@ -118,8 +118,8 @@ const Services = ({ data, location }) => {
             dest={'/' + identity.buttonDestination}
           />
         </Fade>
+        <Footer />
       </Container>
-      <Footer />
     </ScrollWrapper>
   )
 }
