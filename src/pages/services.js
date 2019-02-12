@@ -71,14 +71,14 @@ const Services = ({ data, location }) => {
                 return (
                   <TwoColRow key={index + ''}>
                     <ServiceBlock
-                      src={service.image.ogimg.src}
+                      src={service.firstAspectImage.ogimg.src}
                       header={service.name}
                       text={service.shortSummary}
                       bText="Learn More"
                       dest={'/services/' + service.slug}
                     />
                     <ServiceBlock
-                      src={services[index + 1].node.image.ogimg.src}
+                      src={services[index + 1].node.firstAspectImage.ogimg.src}
                       header={services[index + 1].node.name}
                       text={services[index + 1].node.shortSummary}
                       bText="Learn More"
@@ -90,7 +90,7 @@ const Services = ({ data, location }) => {
                 return (
                   <TwoColRow key={index + ''}>
                     <ServiceBlock
-                      src={service.image.ogimg.src}
+                      src={service.firstAspectImage.ogimg.src}
                       header={service.name}
                       text={service.shortSummary}
                       bText="Learn More"
@@ -131,7 +131,16 @@ export const query = graphql`
         node {
           name
           slug
-          image {
+          shortSummary {
+            childMarkdownRemark {
+              html
+              excerpt(pruneLength: 320)
+            }
+          }
+          firstAspectHeader
+          secondAspectHeader
+          thirdAspectHeader
+          firstAspectImage {
             title
             fluid(maxWidth: 1800) {
               ...GatsbyContentfulFluid_withWebp_noBase64
@@ -142,13 +151,41 @@ export const query = graphql`
               height
             }
           }
-          shortSummary {
+          secondAspectImage {
+            title
+            fluid(maxWidth: 1800) {
+              ...GatsbyContentfulFluid_withWebp_noBase64
+            }
+            ogimg: resize(width: 1800) {
+              src
+              width
+              height
+            }
+          }
+          thirdAspectImage {
+            title
+            fluid(maxWidth: 1800) {
+              ...GatsbyContentfulFluid_withWebp_noBase64
+            }
+            ogimg: resize(width: 1800) {
+              src
+              width
+              height
+            }
+          }
+          firstAspectText {
             childMarkdownRemark {
               html
               excerpt(pruneLength: 320)
             }
           }
-          fullDescription {
+          secondAspectText {
+            childMarkdownRemark {
+              html
+              excerpt(pruneLength: 320)
+            }
+          }
+          thirdAspectText {
             childMarkdownRemark {
               html
               excerpt(pruneLength: 320)

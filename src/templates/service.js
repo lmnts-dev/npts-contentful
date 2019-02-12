@@ -4,29 +4,71 @@ import Helmet from 'react-helmet'
 import config from '../utils/siteConfig'
 import Footer from '../components/Footer'
 import Container from '../components/Container'
-import Button from '../components/Button'
+import GuidanceBlock from '../components/GuidanceBlock'
+import { ButtonStyle } from '../components/Button'
+import { ColumnWrapper } from '../components/Column'
 import Summary from '../components/Summary'
-import { Wrapper, HeaderBlock } from '../components/Block'
+import { Block, Wrapper, HeaderBlock } from '../components/Block'
 import styled from 'styled-components'
 import { PLarge, HeaderText } from '../components/Headings'
 import DropsBlock from '../components/DropsBlock'
 import Fade from 'react-reveal/Fade'
 import ScrollWrapper from '../components/ScrollWrapper'
+import { TwoColRowWrapper } from '../components/TwoColRow'
 
-const Block = styled(Wrapper)`
-  padding: 160px 300px;
-  @media (max-width: 2000px) {
-    padding: 8vw 15vw;
+const Header = styled(HeaderBlock)`
+  @media (max-width: 900px ){
+    padding-bottom: 100px;
   }
-  @media (max-width: 500px) {
-    padding: 10vw 10vw;
+  @media (max-width: 600px ){
+    padding-bottom: 60px;
+  }
+`
+
+const Button = styled(ButtonStyle)`
+  position: absolute;
+  top: -25px;
+  left: 8vw;
+  @media (max-width: 1000px ){
+    left: 50px;
+  }
+  @media (max-width: 500px ){
+    left: 25px;
+  }
+`
+
+const Column = styled(ColumnWrapper)`
+  padding: 8vw;
+  @media (max-width: 1000px ){
+    padding: 60px 50px;
+  }
+  @media (max-width: 500px ){
+    padding: 60px 25px;
+  }
+`
+const TwoColRow = styled( TwoColRowWrapper )`
+  position: relative;
+  @media ( max-width: 750px){
+    flex-direction: column;
+  }
+  @media (max-width: 750px) {
+    flex-direction: ${props => (props.reverse ? 'column-reverse' : 'column')};
+  }
+`
+
+const ImageBlock = styled(Wrapper)`
+  @media ( max-width: 750px){
+    height: 30vh;
+    min-height: 300px;
+    max-height: 500px;
   }
 `
 
 const ServiceTemplate = ({ data, pageContext, location }) => {
-  const { name, fullDescription } = data.contentfulService
+  const { name, firstAspectHeader, secondAspectHeader, thirdAspectHeader, firstAspectText, secondAspectText, thirdAspectText, firstAspectImage, secondAspectImage, thirdAspectImage, } = data.contentfulService
   const drops = data.allContentfulDrops.edges[0].node
   const summary = data.allContentfulSummary.edges[0].node
+  const guidance = data.allContentfulGuidance.edges[0].node
   const color = pageContext.index
 
   return (
@@ -41,7 +83,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
           <time itemProp="datePublished" content="2018-02-011T11:30:00-07:00" />
           <div itemProp="author" content="Chubb-Silverman" />
           <Fade duration={2000}>
-            <HeaderBlock
+            <Header
               // make upt to 5 different colors for each services header up to 15
               bgColor={
                 color === 0 || color === 5 || color === 10
@@ -74,25 +116,70 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
               >
                 {name}
               </HeaderText>
-            </HeaderBlock>
+            </Header>
           </Fade>
           <Fade duration={2000}>
-            <Block bgColor="#FFFFFF">
-              <HeaderText as="h2" size="72" color="#293536" weight="700">
-                {name}
-              </HeaderText>
-              <PLarge
-                itemProp="articleBody"
-                color="#293536"
-                dangerouslySetInnerHTML={{
-                  __html: fullDescription.childMarkdownRemark.html,
-                }}
-              />
+            <Block bgColor="#FFFFFF" padding="0">
               <Button to="/contact">Get a free quote</Button>
+              <TwoColRow bias="left">
+                <Column>
+                  <HeaderText as="h2" size="42" color="#293536" weight="700">
+                    {firstAspectHeader}
+                  </HeaderText>
+                  <PLarge
+                    itemProp="articleBody"
+                    color="#293536"
+                    dangerouslySetInnerHTML={{
+                      __html: firstAspectText.childMarkdownRemark.html,
+                    }}
+                  />
+                </Column>
+                <ImageBlock padding="0" bgImage={firstAspectImage.ogimg.src} />
+              </TwoColRow>
             </Block>
           </Fade>
+          <Fade duration={2000}>
+            <Block bgColor="#FFFFFF" padding="0">
+              <TwoColRow reverse bias="right">
+                <ImageBlock padding="0" bgImage={secondAspectImage.ogimg.src} />
+                <Column>
+                  <HeaderText as="h2" size="42" color="#293536" weight="700">
+                    {secondAspectHeader}
+                  </HeaderText>
+                  <PLarge
+                    itemProp="articleBody"
+                    color="#293536"
+                    dangerouslySetInnerHTML={{
+                      __html: secondAspectText.childMarkdownRemark.html,
+                    }}
+                  />
+                </Column>
+              </TwoColRow>
+            </Block>
+          </Fade>
+          {thirdAspectHeader && thirdAspectText && thirdAspectImage &&
+            <Fade duration={2000}>
+            <Block bgColor="#FFFFFF" padding="0">
+              <TwoColRow bias="left">
+                  <Column>
+                    <HeaderText as="h2" size="42" color="#293536" weight="700">
+                      {thirdAspectHeader}
+                    </HeaderText>
+                    <PLarge
+                      itemProp="articleBody"
+                      color="#293536"
+                      dangerouslySetInnerHTML={{
+                        __html: thirdAspectText.childMarkdownRemark.html,
+                      }}
+                    />
+                  </Column>
+                  <ImageBlock padding="0" bgImage={thirdAspectImage.ogimg.src} />
+                </TwoColRow>
+              </Block>
+            </Fade>
+          }
         </article>
-
+        <GuidanceBlock guidance={guidance}/>
         <Fade duration={2000}>
           <DropsBlock
             header={drops.headerText}
@@ -120,7 +207,16 @@ export const query = graphql`
     contentfulService(slug: { eq: $slug }) {
       name
       slug
-      image {
+      shortSummary {
+        childMarkdownRemark {
+          html
+          excerpt(pruneLength: 320)
+        }
+      }
+      firstAspectHeader
+      secondAspectHeader
+      thirdAspectHeader
+      firstAspectImage {
         title
         fluid(maxWidth: 1800) {
           ...GatsbyContentfulFluid_withWebp_noBase64
@@ -131,13 +227,41 @@ export const query = graphql`
           height
         }
       }
-      shortSummary {
+      secondAspectImage {
+        title
+        fluid(maxWidth: 1800) {
+          ...GatsbyContentfulFluid_withWebp_noBase64
+        }
+        ogimg: resize(width: 1800) {
+          src
+          width
+          height
+        }
+      }
+      thirdAspectImage {
+        title
+        fluid(maxWidth: 1800) {
+          ...GatsbyContentfulFluid_withWebp_noBase64
+        }
+        ogimg: resize(width: 1800) {
+          src
+          width
+          height
+        }
+      }
+      firstAspectText {
         childMarkdownRemark {
           html
           excerpt(pruneLength: 320)
         }
       }
-      fullDescription {
+      secondAspectText {
+        childMarkdownRemark {
+          html
+          excerpt(pruneLength: 320)
+        }
+      }
+      thirdAspectText {
         childMarkdownRemark {
           html
           excerpt(pruneLength: 320)
@@ -152,6 +276,25 @@ export const query = graphql`
             childMarkdownRemark {
               html
               excerpt(pruneLength: 320)
+            }
+          }
+        }
+      }
+    }
+    allContentfulGuidance {
+      edges {
+        node {
+          header
+          points
+          image {
+            title
+            fluid(maxWidth: 1800) {
+              ...GatsbyContentfulFluid_withWebp_noBase64
+            }
+            ogimg: resize(width: 1800) {
+              src
+              width
+              height
             }
           }
         }

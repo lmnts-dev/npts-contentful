@@ -68,7 +68,13 @@ export const query = graphql`
         node {
           name
           slug
-          image {
+          shortSummary {
+            childMarkdownRemark {
+              html
+              excerpt(pruneLength: 320)
+            }
+          }
+          firstAspectImage {
             title
             fluid(maxWidth: 1800) {
               ...GatsbyContentfulFluid_withWebp_noBase64
@@ -77,18 +83,6 @@ export const query = graphql`
               src
               width
               height
-            }
-          }
-          shortSummary {
-            childMarkdownRemark {
-              html
-              excerpt(pruneLength: 320)
-            }
-          }
-          fullDescription {
-            childMarkdownRemark {
-              html
-              excerpt(pruneLength: 320)
             }
           }
         }
