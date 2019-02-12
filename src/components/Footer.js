@@ -10,6 +10,8 @@ import { Text } from '../components/Headings'
 import Fade from 'react-reveal/Fade'
 import { LargeTextBlock } from './TextBlocks'
 import { Link } from 'gatsby'
+import insta from '../images/instagram.png'
+import fb from '../images/facebook.png'
 
 const FooterLinks = styled(RowWrapper)`
   @media (max-width: 750px) {
@@ -92,6 +94,19 @@ const Block = styled(Wrapper)`
     padding: 36px 25px 72px 25px;
   }
 `
+const Social = styled.a`
+  img {
+    height: 48px;
+    margin: 5%;
+    @media (max-width: 1440px) {
+      height: 3.33vw;
+    }
+    @media (max-width: 720px) {
+      height: 24px;
+      margin: 25px 12px 0 12px;;
+    }
+  }
+`
 
 const Item = styled(Link)`
   font-size: 28px;
@@ -148,6 +163,12 @@ const Footer = props => (
               <Item last="true" to="/careers">
                 Careers
               </Item>
+              <Social href="https://www.facebook.com/NoahsParkTreeCare/">
+                <img src={fb} />
+              </Social>
+              <Social href="https://www.instagram.com/noahsparktreecare/">
+                <img src={insta}/>
+              </Social>
             </div>
           </FooterLinks>
         </MainInfo>
