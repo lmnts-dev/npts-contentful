@@ -161,7 +161,7 @@ class MenuModal extends Component {
                   Firewood
                 </Item>
                 <Item href="/woodchips" onClick={this.handleClick}>
-                  Chip Drop
+                  Woodchips
                 </Item>
                 <Item href="/careers" onClick={this.handleClick}>
                   Careers
