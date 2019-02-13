@@ -156,7 +156,7 @@ const Footer = props => (
                 Firewood
               </Item>
               <Item last="true" to="/woodchips">
-                Chip Drop
+                Woodchips
               </Item>
               <Item last="true" to="/careers">
                 Careers
