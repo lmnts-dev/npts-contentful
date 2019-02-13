@@ -109,17 +109,17 @@ const NavWrapper = styled.nav`
     background: #000000;
     height: ${props => props.height};
   }
-  ${props => (props.pageHome ? `
+  
     &:after {
       content: '';
       position: absolute;
       top:0;
-      bottom: 0;
+      bottom: 30px;
       right:0;
       left: 0;
-      background-image: ${props => (props.pagetop ? 'linear-gradient(black, transparent)' : 'linear-gradient(transparent, transparent)')};
+      background-image: ${props => (!(props.homePage) ? 'linear-gradient(transparent, transparent)' : props.pageTop ? 'linear-gradient(transparent, transparent)' : 'linear-gradient(black, transparent)' )};
     }
-  ` : ``)};
+  
   ul {
     width: 100%;
     display: flex;
@@ -177,7 +177,7 @@ class Menu extends React.Component {
       // The line below this is where you can use the shorthand logic to change the Nav's styles on scroll. I'm passing these props into the styled component above.
 
       <NavWrapper
-        pageHome={this.props.home} // Prop result passed from ScrollWrapper component.
+        homePage={this.props.homePage} // Prop result passed from ScrollWrapper component.
         pagetop={this.props.pagetop} // Prop result passed from ScrollWrapper component.
         bgColor={this.props.pagetop ? this.navTopBg : this.navScrollBg}
         height={this.props.pagetop ? this.navTopHeight : this.navScrollHeight}

@@ -39,11 +39,10 @@ class ScrollWrapper extends React.Component {
 
   render() {
     const { children } = this.props
-
+    const anger = this.props.homePage
     return (
       <ScrollArea onScroll={this.handleScroll}>
-        HERE {children.home}
-        <Menu id="navBar" pagetop={this.state.pagetop} darknav={this.props.darknav} home={this.props.home}/>
+        <Menu id="navBar" pagetop={this.state.pagetop} darknav={this.props.darknav} homePage={anger}/>
         {children}
       </ScrollArea>
     )

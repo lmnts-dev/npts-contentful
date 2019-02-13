@@ -26,7 +26,7 @@ const Index = ({ data, location }) => {
   const video = data.allContentfulVideo.edges[0].node
 
   return (
-    <ScrollWrapper home>
+    <ScrollWrapper homePage>
       <Helmet>
         <title>{`${config.siteTitle}`}</title>
       </Helmet>
