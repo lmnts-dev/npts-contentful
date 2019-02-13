@@ -15,8 +15,6 @@ import { RightLeaf } from '../components/Leaves'
 import Footer from '../components/Footer'
 import ScrollWrapper from '../components/ScrollWrapper'
 
-import Fade from 'react-reveal/Fade'
-
 const AboutLeaf = styled(RightLeaf)`
   top: -20%;
   @media (max-width: 600px) {
@@ -52,7 +50,6 @@ const About = ({ data, location }) => {
       <SEO postNode={postNode} pagePath="contact" customTitle />
 
       <Container>
-        <Fade duration={2000}>
           <HeaderBlock bgColor="#293536">
             <HeaderText as="h3" size="38" weight="700" color="#FFFFFF">
               Local, knowledgeable tree and shrub care
@@ -67,8 +64,6 @@ const About = ({ data, location }) => {
               About Us
             </HeaderText>
           </HeaderBlock>
-        </Fade>
-        <Fade duration={2000}>
           <TwoColRow>
             <Block padding="0" bgImage={about.image1.ogimg.src} />
             <MainBlock bgColor="#FFFFFF">
@@ -81,8 +76,6 @@ const About = ({ data, location }) => {
               />
             </MainBlock>
           </TwoColRow>
-        </Fade>
-        <Fade duration={2000}>
           <TwoColRow smallReverse bias="left">
             <LargeTextBlock
               header={about.blockHeaderText}
@@ -95,9 +88,7 @@ const About = ({ data, location }) => {
             <Block padding="0" bgImage={about.image2.ogimg.src} />
             <AboutLeaf src={Leaf} />
           </TwoColRow>
-        </Fade>
       </Container>
-      <Fade duration={2000}>
         <Summary
           bgColor="#394343"
           header={identity.headerText}
@@ -105,7 +96,6 @@ const About = ({ data, location }) => {
           bText={identity.buttonText}
           dest={'/' + identity.buttonDestination}
         />
-      </Fade>
       <Footer />
     </ScrollWrapper>
   )

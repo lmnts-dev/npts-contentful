@@ -7,7 +7,6 @@ import { TwoColRowWrapper } from '../components/TwoColRow'
 import { ColumnWrapper } from '../components/Column'
 import { Wrapper } from '../components/Block'
 import { Text } from '../components/Headings'
-import Fade from 'react-reveal/Fade'
 import { LargeTextBlock } from './TextBlocks'
 import { Link } from 'gatsby'
 import insta from '../images/instagram.png'
@@ -140,8 +139,7 @@ const Item = styled(Link)`
 
 const Footer = props => (
   <TwoColRow as="footer">
-    <Fade cascade duration={2000}>
-      <Column justify="flex-start">
+    <Column justify="flex-start">
         <MainInfo>
           <Logo />
           <FooterLinks>
@@ -176,8 +174,7 @@ const Footer = props => (
           © {new Date().getFullYear()} Noah's Park Tree Care
         </CopyWright>
       </Column>
-    </Fade>
-    <Fade duration={2000}>
+    <>
       {props.alt ? (
         <LargeTextBlock
           header="Our Work"
@@ -193,7 +190,7 @@ const Footer = props => (
           <Contact noExit={props.noExit} />
         </Block>
       )}
-    </Fade>
+    </>
   </TwoColRow>
 )
 export default Footer

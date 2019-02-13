@@ -77,7 +77,7 @@ const NavWrapper = styled.nav`
   transform: ${props =>
     props.pagetop ? 'translateY(36px)' : 'translateX(-50%)'};
   padding: ${props => (props.pagetop ? '0px 0px 0px 0px' : '0px 36px 0px 36px')};
-  z-index: 100;
+  z-index: 500;
   max-width: 2000px;
   @media (max-width: 600px) {
     right: 16px;

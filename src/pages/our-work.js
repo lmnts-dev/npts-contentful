@@ -7,7 +7,6 @@ import Footer from '../components/Footer'
 import { P, HeaderText } from '../components/Headings'
 import Summary from '../components/Summary'
 import TestimonialSlider from '../components/TestimonialSlider'
-import Fade from 'react-reveal/Fade'
 import { Wrapper, HeaderBlock, Block } from '../components/Block'
 import { TwoColRow } from '../components/TwoColRow'
 import { RowWrapper } from '../components/Row'
@@ -139,147 +138,133 @@ const Work = ({ data }) => {
       </Helmet>
       <SEO postNode={postNode} pagePath="contact" customTitle />
 
-      <Fade duration={2000}>
-        <HeaderBlock bgColor="#9F4300">
-          <HeaderText as="h3" size="38" color="#FFFFFF">
-            {work.subHeaderText}
-          </HeaderText>
-          <HeaderText
-            as="h1"
-            padding="1vw 0 0 0"
-            size="100"
-            weight="700"
-            color="#FFFFFF"
-          >
-            {work.headerText}
-          </HeaderText>
-          <HeaderRow>
-            {work.qualifications.map(({ node: qualification }, index) => {
-              return (
-                <P key={index + ''} color="#FFFFFF">
-                  {work.qualifications[index]}
-                </P>
-              )
-            })}
-          </HeaderRow>
-        </HeaderBlock>
-      </Fade>
-      <Fade duration={2000}>
-        <TwoColRow bias="left">
-          <Block
-            bgColor="transparent"
-            padding="0"
-            bgImage={work.firstImage.ogimg.src}
-          />
-          <TextBlock
-            bgColor="#FFFFFF"
-            hideButton
-            dest="/"
-            theme="dark"
-            header={work.secondaryHeader1}
-            inlineText={work.paragraphText1.childMarkdownRemark.html}
-          />
-        </TwoColRow>
-      </Fade>
-      <Fade duration={2000}>
-        <TwoColRow bias="right" smallReverse>
-          <TextBlock
-            pushUp
-            bgColor="#FFFFFF"
-            bText={work.buttonText}
-            dest={
-              '/' +
-              work.buttonDestination.replace(/[^a-z0-9]/gi, '-').toLowerCase()
-            }
-            theme="dark"
-            header={work.secondaryHeader2}
-            inlineText={work.paragraphText2.childMarkdownRemark.html}
-          />
-          <Block
-            bgColor="transparent"
-            padding="0"
-            bgImage={work.secondImage.ogimg.src}
-          />
-        </TwoColRow>
-      </Fade>
-      <Fade duration={2000}>
-        <Block bgColor="#C9EAEB" padding="0">
-          <WorkRow>
-            <Column className="work">
-              <Image src={leafService} />
-              <HeaderText as="h6" size="30" weight="700" color="#434343">
-                {work.highlightTitle1}
-              </HeaderText>
-              <P
-                color="#293536"
-                dangerouslySetInnerHTML={{
-                  __html: work.highlightParagraph1.childMarkdownRemark.html,
-                }}
-              />
-            </Column>
-            <Column>
-              <Image src={leafCare} />
-              <HeaderText as="h6" size="30" weight="700" color="#434343">
-                {work.highlightTitle2}
-              </HeaderText>
-              <P
-                color="#293536"
-                dangerouslySetInnerHTML={{
-                  __html: work.highlightParagraph2.childMarkdownRemark.html,
-                }}
-              />{' '}
-            </Column>
-            <Column>
-              <Image src={leafEstimates} />
-              <HeaderText as="h6" size="30" weight="700" color="#434343">
-                {work.highlightTitle3}
-              </HeaderText>
-              <P
-                color="#293536"
-                dangerouslySetInnerHTML={{
-                  __html: work.highlightParagraph3.childMarkdownRemark.html,
-                }}
-              />{' '}
-            </Column>
-          </WorkRow>
-        </Block>
-      </Fade>
-      <Fade duration={2000}>
-        <TestimonialSlider data={testimonials} />
-      </Fade>
-      <Fade duration={2000}>
-        <FeaturedBlock bgColor="#394343">
-          <HeaderText
-            padding="5vw 0 5vw 0"
-            align="center"
-            as="h2"
-            size="72"
-            weight="700"
-            color="#FFFFFF"
-          >
-            Featured Projects
-          </HeaderText>
-          <FeaturedRow>
-            {work.workImages.map(({ node: image }, index) => {
-              return (
-                <img key={index + ''} src={work.workImages[index].ogimg.src} />
-              )
-            })}
-          </FeaturedRow>
-          <RightLeaf src={pine} />
-          <LeftLeaf src={pine2} />
-        </FeaturedBlock>
-      </Fade>
-      <Fade duration={2000}>
-        <Summary
-          bgColor="#9F4300"
-          subhead={summary.subHeaderText}
-          header={summary.headerText}
-          text={summary.paragraphText.childMarkdownRemark.html}
-          bText={summary.buttonText}
-          dest={'/' + summary.buttonDestination}
+      <HeaderBlock bgColor="#9F4300">
+        <HeaderText as="h3" size="38" color="#FFFFFF">
+          {work.subHeaderText}
+        </HeaderText>
+        <HeaderText
+          as="h1"
+          padding="1vw 0 0 0"
+          size="100"
+          weight="700"
+          color="#FFFFFF"
+        >
+          {work.headerText}
+        </HeaderText>
+        <HeaderRow>
+          {work.qualifications.map(({ node: qualification }, index) => {
+            return (
+              <P key={index + ''} color="#FFFFFF">
+                {work.qualifications[index]}
+              </P>
+            )
+          })}
+        </HeaderRow>
+      </HeaderBlock>
+      <TwoColRow bias="left">
+        <Block
+          bgColor="transparent"
+          padding="0"
+          bgImage={work.firstImage.ogimg.src}
         />
-      </Fade>
+        <TextBlock
+          bgColor="#FFFFFF"
+          hideButton
+          dest="/"
+          theme="dark"
+          header={work.secondaryHeader1}
+          inlineText={work.paragraphText1.childMarkdownRemark.html}
+        />
+      </TwoColRow>
+      <TwoColRow bias="right" smallReverse>
+        <TextBlock
+          pushUp
+          bgColor="#FFFFFF"
+          bText={work.buttonText}
+          dest={
+            '/' +
+            work.buttonDestination.replace(/[^a-z0-9]/gi, '-').toLowerCase()
+          }
+          theme="dark"
+          header={work.secondaryHeader2}
+          inlineText={work.paragraphText2.childMarkdownRemark.html}
+        />
+        <Block
+          bgColor="transparent"
+          padding="0"
+          bgImage={work.secondImage.ogimg.src}
+        />
+      </TwoColRow>
+      <Block bgColor="#C9EAEB" padding="0">
+        <WorkRow>
+          <Column className="work">
+            <Image src={leafService} />
+            <HeaderText as="h6" size="30" weight="700" color="#434343">
+              {work.highlightTitle1}
+            </HeaderText>
+            <P
+              color="#293536"
+              dangerouslySetInnerHTML={{
+                __html: work.highlightParagraph1.childMarkdownRemark.html,
+              }}
+            />
+          </Column>
+          <Column>
+            <Image src={leafCare} />
+            <HeaderText as="h6" size="30" weight="700" color="#434343">
+              {work.highlightTitle2}
+            </HeaderText>
+            <P
+              color="#293536"
+              dangerouslySetInnerHTML={{
+                __html: work.highlightParagraph2.childMarkdownRemark.html,
+              }}
+            />{' '}
+          </Column>
+          <Column>
+            <Image src={leafEstimates} />
+            <HeaderText as="h6" size="30" weight="700" color="#434343">
+              {work.highlightTitle3}
+            </HeaderText>
+            <P
+              color="#293536"
+              dangerouslySetInnerHTML={{
+                __html: work.highlightParagraph3.childMarkdownRemark.html,
+              }}
+            />{' '}
+          </Column>
+        </WorkRow>
+      </Block>
+      <TestimonialSlider data={testimonials} />
+      <FeaturedBlock bgColor="#394343">
+        <HeaderText
+          padding="5vw 0 5vw 0"
+          align="center"
+          as="h2"
+          size="72"
+          weight="700"
+          color="#FFFFFF"
+        >
+          Featured Projects
+        </HeaderText>
+        <FeaturedRow>
+          {work.workImages.map(({ node: image }, index) => {
+            return (
+              <img key={index + ''} src={work.workImages[index].ogimg.src} />
+            )
+          })}
+        </FeaturedRow>
+        <RightLeaf src={pine} />
+        <LeftLeaf src={pine2} />
+      </FeaturedBlock>
+      <Summary
+        bgColor="#9F4300"
+        subhead={summary.subHeaderText}
+        header={summary.headerText}
+        text={summary.paragraphText.childMarkdownRemark.html}
+        bText={summary.buttonText}
+        dest={'/' + summary.buttonDestination}
+      />
       <Footer />
     </ScrollWrapper>
   )

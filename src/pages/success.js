@@ -5,7 +5,6 @@ import config from '../utils/siteConfig'
 import SEO from '../components/SEO'
 import Footer from '../components/Footer'
 import { HeaderText } from '../components/Headings'
-import Fade from 'react-reveal/Fade'
 import { Wrapper } from '../components/Block'
 import TestimonialSlider from '../components/TestimonialSlider'
 import Summary from '../components/Summary'
@@ -42,10 +41,7 @@ const Success = ({ data }) => {
           Got it, thanks!
         </HeaderText>
       </Block>
-      <Fade duration={2000}>
         <TestimonialSlider data={testimonials} />
-      </Fade>
-      <Fade duration={2000}>
         <Summary
           noLeaf
           bgColor="#394343"
@@ -54,8 +50,6 @@ const Success = ({ data }) => {
           bText={identity.buttonText}
           dest={'/' + identity.buttonDestination}
         />
-      </Fade>
-      <Fade duration={2000}>
         <Summary
           hideButton
           bgColor="#9F4300"
@@ -65,7 +59,6 @@ const Success = ({ data }) => {
           bText={summary.buttonText}
           dest={'/' + summary.buttonDestination}
         />
-      </Fade>
       <Footer />
     </ScrollWrapper>
   )

@@ -4,7 +4,6 @@ import { Wrapper } from '../components/Block'
 import { TextBlock } from '../components/TextBlocks'
 import Column from '../components/Column'
 import styled from 'styled-components'
-import Fade from 'react-reveal/Fade'
 
 const Block = styled(Wrapper)``
 
@@ -12,7 +11,7 @@ const IntroBlocks = props => {
   const data = props.data.edges[0].node
   return (
     <div>
-      <Fade duration={2000}>
+      <>
         <TwoColRow bias="right">
           <Block padding="0" bgImage={data.mainImage.ogimg.src} />
           <Column>
@@ -36,7 +35,7 @@ const IntroBlocks = props => {
             />
           </Column>
         </TwoColRow>
-      </Fade>
+      </>
     </div>
   )
 }

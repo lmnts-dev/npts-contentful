@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Button } from '../components/Button'
-import Fade from 'react-reveal/Fade'
 import { Wrapper } from '../components/Block'
 
 /*
@@ -280,7 +279,7 @@ class CareersForm extends React.Component {
 
   render() {
     return (
-      <Fade cascade duration={2000}>
+      <>
         <Form
           name="application"
           onSubmit={this.handleSubmit}
@@ -367,7 +366,7 @@ class CareersForm extends React.Component {
             </Inner>
           </FormBlock>
         </Form>
-      </Fade>
+      </>
     )
   }
 }

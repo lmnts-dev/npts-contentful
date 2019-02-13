@@ -4,7 +4,6 @@ import { ColumnWrapper } from '../components/Column'
 import { TwoColRowWrapper } from '../components/TwoColRow'
 import { Wrapper, Block } from '../components/Block'
 import {  HeaderText, PLarge } from '../components/Headings'
-import Fade from 'react-reveal/Fade'
 
 const TwoColRow = styled(TwoColRowWrapper)`
     @media (max-width: 750px){
@@ -43,7 +42,7 @@ const ImageBlock = styled(Wrapper)`
 
 const GuidanceBlock = ( props ) => {
   return (
-      <Fade duration={2000}>
+      <>
         <TwoColRow bias="right">
             <ImageBlock padding="0" bgImage={props.guidance.image.ogimg.src} />
               <Block padding="0" bgColor="#394343">
@@ -61,7 +60,7 @@ const GuidanceBlock = ( props ) => {
               </Column>
             </Block>
         </TwoColRow>
-      </Fade>
+      </>
   )
 }
 

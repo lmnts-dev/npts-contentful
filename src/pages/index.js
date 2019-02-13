@@ -10,7 +10,6 @@ import TestimonialSlider from '../components/TestimonialSlider'
 import SEO from '../components/SEO'
 import Video from '../components/Video'
 import { graphql } from 'gatsby'
-import Fade from 'react-reveal/Fade'
 import Footer from '../components/Footer'
 import ScrollWrapper from '../components/ScrollWrapper'
 
@@ -33,27 +32,19 @@ const Index = ({ data, location }) => {
       <SEO postNode={postNode} pagePath="contact" customTitle />
       <Container>
         <HeroSlider data={slider} />
-        <Fade duration={2000}>
-          <IntroBlocks data={introBlocks} />
-        </Fade>
-        <Fade duration={2000}>
-          <Video data={video} />
-        </Fade>
-        <Fade duration={2000}>
-          <TestimonialSlider data={testimonials} />
-        </Fade>
+        <IntroBlocks data={introBlocks} />
+        <Video data={video} />
+        <TestimonialSlider data={testimonials} />
         <Services data={services} />
-        <Fade duration={2000}>
-          <Summary
-            hideButton
-            bgColor="#9F4300"
-            subhead={summary.subHeaderText}
-            header={summary.headerText}
-            text={summary.paragraphText.childMarkdownRemark.html}
-            bText={summary.buttonText}
-            dest={'/' + summary.buttonDestination}
-          />
-        </Fade>
+        <Summary
+          hideButton
+          bgColor="#9F4300"
+          subhead={summary.subHeaderText}
+          header={summary.headerText}
+          text={summary.paragraphText.childMarkdownRemark.html}
+          bText={summary.buttonText}
+          dest={'/' + summary.buttonDestination}
+        />
       </Container>
       <Footer />
     </ScrollWrapper>

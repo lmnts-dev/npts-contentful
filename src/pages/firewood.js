@@ -5,7 +5,6 @@ import SEO from '../components/SEO'
 import Footer from '../components/Footer'
 import { HeaderText } from '../components/Headings'
 import { graphql } from 'gatsby'
-import Fade from 'react-reveal/Fade'
 import { HeaderBlock } from '../components/Block'
 import ApplyForm from '../components/ApplyForm'
 import ScrollWrapper from '../components/ScrollWrapper'
@@ -24,25 +23,21 @@ const Firewood = ({ data }) => {
       </Helmet>
       <SEO postNode={postNode} pagePath="contact" customTitle />
 
-      <Fade duration={2000}>
-        <HeaderBlock bgColor="#65321F">
-          <HeaderText as="h3" size="38" weight="700" color="#FFFFFF">
-            Contact us
-          </HeaderText>
-          <HeaderText
-            as="h1"
-            padding="1vw 0 0 0"
-            size="100"
-            weight="700"
-            color="#FFFFFF"
-          >
-            Apply for free firewood
-          </HeaderText>
-        </HeaderBlock>
-      </Fade>
-      <Fade duration={2000}>
-        <ApplyForm type="Firewood" disclaimer={disclaimer} />
-      </Fade>
+      <HeaderBlock bgColor="#65321F">
+        <HeaderText as="h3" size="38" weight="700" color="#FFFFFF">
+          Contact us
+        </HeaderText>
+        <HeaderText
+          as="h1"
+          padding="1vw 0 0 0"
+          size="100"
+          weight="700"
+          color="#FFFFFF"
+        >
+          Apply for free firewood
+        </HeaderText>
+      </HeaderBlock>
+      <ApplyForm type="Firewood" disclaimer={disclaimer} />
       <Footer />
     </ScrollWrapper>
   )

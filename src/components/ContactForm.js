@@ -6,7 +6,6 @@ import { HeaderText, Text } from '../components/Headings'
 import { RowWrapper } from '../components/Row'
 import phone from '!svg-react-loader!../images/svg-icons/phone.svg?name=phone'
 import email from '!svg-react-loader!../images/svg-icons/email.svg?name=email'
-import Fade from 'react-reveal/Fade'
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
@@ -251,7 +250,7 @@ class ContactForm extends React.Component {
 
   render() {
     return (
-      <Fade cascade duration={2000}>
+      <>
         <Form
           name="contact"
           onSubmit={this.handleSubmit}
@@ -328,7 +327,7 @@ class ContactForm extends React.Component {
             </Button>
           </Modal>
         </Form>
-      </Fade>
+      </>
     )
   }
 }

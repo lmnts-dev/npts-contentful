@@ -12,7 +12,6 @@ import { Block, Wrapper, HeaderBlock } from '../components/Block'
 import styled from 'styled-components'
 import { PLarge, HeaderText } from '../components/Headings'
 import DropsBlock from '../components/DropsBlock'
-import Fade from 'react-reveal/Fade'
 import ScrollWrapper from '../components/ScrollWrapper'
 import { TwoColRowWrapper } from '../components/TwoColRow'
 
@@ -82,7 +81,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
         <article itemScope itemType="http://schema.org/LiveBlogPosting">
           <time itemProp="datePublished" content="2018-02-011T11:30:00-07:00" />
           <div itemProp="author" content="Chubb-Silverman" />
-          <Fade duration={2000}>
+          <>
             <Header
               // make upt to 5 different colors for each services header up to 15
               bgColor={
@@ -117,8 +116,8 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
                 {name}
               </HeaderText>
             </Header>
-          </Fade>
-          <Fade duration={2000}>
+          </>
+          <>
             <Block bgColor="#FFFFFF" padding="0">
               <Button to="/contact">Get a free quote</Button>
               <TwoColRow bias="left">
@@ -137,8 +136,8 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
                 <ImageBlock padding="0" bgImage={firstAspectImage.ogimg.src} />
               </TwoColRow>
             </Block>
-          </Fade>
-          <Fade duration={2000}>
+          </>
+          <>
             <Block bgColor="#FFFFFF" padding="0">
               <TwoColRow reverse bias="right">
                 <ImageBlock padding="0" bgImage={secondAspectImage.ogimg.src} />
@@ -156,9 +155,9 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
                 </Column>
               </TwoColRow>
             </Block>
-          </Fade>
+          </>
           {thirdAspectHeader && thirdAspectText && thirdAspectImage &&
-            <Fade duration={2000}>
+            <>
             <Block bgColor="#FFFFFF" padding="0">
               <TwoColRow bias="left">
                   <Column>
@@ -176,17 +175,17 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
                   <ImageBlock padding="0" bgImage={thirdAspectImage.ogimg.src} />
                 </TwoColRow>
               </Block>
-            </Fade>
+            </>
           }
         </article>
         <GuidanceBlock guidance={guidance}/>
-        <Fade duration={2000}>
+        <>
           <DropsBlock
             header={drops.headerText}
             text={drops.paragraphText.childMarkdownRemark.html}
           />
-        </Fade>
-        <Fade duration={2000}>
+        </>
+        <>
           <Summary
             bgColor="#9F4300"
             subhead={summary.subHeaderText}
@@ -195,7 +194,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
             bText={summary.buttonText}
             dest={'/' + summary.buttonDestination}
           />
-        </Fade>
+        </>
       </Container>
       <Footer />
     </ScrollWrapper>

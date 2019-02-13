@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Button } from '../components/Button'
 import { P } from '../components/Headings'
-import Fade from 'react-reveal/Fade'
 import { Wrapper } from '../components/Block'
 import { Border } from '../components/Lines'
 
@@ -333,7 +332,7 @@ class DropForm extends React.Component {
 
   render() {
     return (
-      <Fade cascade duration={2000}>
+      <>
         <Form
           name="drop"
           onSubmit={this.handleSubmit}
@@ -469,7 +468,7 @@ class DropForm extends React.Component {
             </Inner>
           </FormBlock>
         </Form>
-      </Fade>
+      </>
     )
   }
 }
