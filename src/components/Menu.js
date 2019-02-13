@@ -117,7 +117,7 @@ const NavWrapper = styled.nav`
       bottom: 35px;
       right:0;
       left: 0;
-      background-image: ${props => (!(props.homePage) ? 'linear-gradient(transparent, transparent)' : props.pageTop ? 'linear-gradient(transparent, transparent)' : 'linear-gradient(black, transparent)' )};
+      background-image: ${props => (!(props.homePage) ? 'linear-gradient(transparent, transparent)' : props.pageTop ? 'linear-gradient(transparent, transparent)' : 'linear-gradient(rgba(0,0,0,.45), transparent)' )};
     }
   
   ul {
