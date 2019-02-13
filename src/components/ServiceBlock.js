@@ -21,8 +21,13 @@ const Header = styled(HeaderText)`
   }
 `
 
+const Image = styled(Wrapper)`
+  height: 500px;
+  @media (max-width: 2000px) {
+    height: 25vw;
+  }
+`
 const Link = styled.a`
-  height: auto;
   width: 100%;
   text-decoration-line: none !important;
 `
@@ -45,7 +50,7 @@ const ServiceBlock = props => (
       </Header>
     </Link>
     <Link href={props.dest}>
-      <Wrapper padding="0" bgImage={props.src} />
+      <Image padding="0" bgImage={props.src} />
     </Link>
     <Text
       color="#293536"
