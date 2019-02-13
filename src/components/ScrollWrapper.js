@@ -8,7 +8,8 @@ export const ScrollArea = styled.main`
   margin: 0 auto;
   width: 100vw;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   position: relative;
   padding: 36px;
   @media (max-width: 600px) {
