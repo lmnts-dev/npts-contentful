@@ -11,19 +11,13 @@ import favicon16 from '../images/favicon-16x16.png'
 import faviconSafari from '../images/safari-pinned-tab.svg'
 import favicon from '../images/favicon.ico'
 import opengraph from '../images/opengraph.jpg'
+import ReactGA from 'react-ga';
+ReactGA.initialize('UA-30283853-1'); { /* Unique Google Analytics tracking number */ }
+ReactGA.pageview('/homepage');
 
 const Layout = ({ children, location }) => (
   <>
     <Helmet>
-      {/*<!-- Global site tag (gtag.js) - Google Analytics -->*/}
-      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-30283853-1"></script>
-            <script>
-              window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments); }
-              gtag('js', new Date());
-            
-              gtag('config', 'UA-30283853-1');
-      </script>
 
       <title>{config.siteTitle}</title>
       <meta charSet="utf-8" />
