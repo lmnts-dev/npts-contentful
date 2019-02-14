@@ -15,6 +15,16 @@ import opengraph from '../images/opengraph.jpg'
 const Layout = ({ children, location }) => (
   <>
     <Helmet>
+      {/*<!-- Global site tag (gtag.js) - Google Analytics -->*/}
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-30283853-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments); }
+              gtag('js', new Date());
+            
+              gtag('config', 'UA-30283853-1');
+      </script>
+
       <title>{config.siteTitle}</title>
       <meta charSet="utf-8" />
       <meta name='description' content='Dedicated to handling all your tree care needs, our experienced and knowledgeable team of arborists are committed to ensure the longevity of all your trees and shrubs.'/>
