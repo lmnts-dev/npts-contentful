@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import exit from '../images/exit.png'
 import { Wrapper } from '../components/Block'
 import Transition from '../components/Transition'
+import { StaticQuery, graphql } from 'gatsby'
 import Hamburger from '!svg-react-loader!../images/svg-icons/navburger.svg?name=navburger'
 import Column from '../components/Column'
 
@@ -109,6 +110,67 @@ const SecondaryLinks = styled.div`
   }
 `
 
+const Links = () => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          allContentfulNav {
+            edges {
+              node {
+                overlayMenu
+              }
+            }
+          }
+        }
+      `}
+      render={data => {
+        const primaryLinks = data.allContentfulNav.edges[0].node.overlayMenu.slice(0, 4)
+        const secondaryLinks = data.allContentfulNav.edges[0].node.overlayMenu.slice(4)
+        return (
+          <>
+            {
+              primaryLinks.map(({ node: nav }, index) => {
+                var link = primaryLinks[index].replace(/[^a-z0-9]/gi, '-').toLowerCase()
+                if (link === "let-s-talk") {
+                  link = "contact"
+                }
+                if (link === "home") {
+                  link = ""
+                }
+                return (
+                  <Item key={index} href={ "/" + link } >
+                      { primaryLinks[index] }
+                  </Item>
+                )
+              })
+            }
+            <SecondaryLinks>
+              {
+                secondaryLinks.map(({ node: nav }, index) => {
+                  var link = secondaryLinks[index].replace(/[^a-z0-9]/gi, '-').toLowerCase()
+                  if (link === "let-s-talk") {
+                    link = "contact"
+                  }
+                  if (link === "home") {
+                    link = ""
+                  }
+                  return (
+                    <Item key={index} href={"/" + link} >
+                      {secondaryLinks[index]}
+                    </Item>
+                  )
+                })
+              }
+            </SecondaryLinks>
+          </>
+        )
+      }}
+    />
+  )
+}
+
+
 class MenuModal extends Component {
   // constructor to set state and bind "this"
   constructor(props) {
@@ -122,12 +184,14 @@ class MenuModal extends Component {
 
   // function to handle the click
   handleClick() {
+    console.log("help")
     this.setState(prevState => ({
       showModal: !prevState.showModal,
     }))
     this.setState(prevState => ({
       showHamburger: !prevState.showHamburger,
     }))
+    console.log("meow")
   }
 
   // the render() method to put stuff into the DOM
@@ -141,32 +205,7 @@ class MenuModal extends Component {
           </Exit>
           <Center>
             <Column align="center" justify="center">
-              <Item href="/" onClick={this.handleClick}>
-                Home
-              </Item>
-              <Item href="/services" onClick={this.handleClick}>
-                Services
-              </Item>
-              <Item href="/about" onClick={this.handleClick}>
-                About
-              </Item>
-              <Item href="/contact" onClick={this.handleClick}>
-                Contact
-              </Item>
-              <SecondaryLinks>
-                <Item href="/our-work" onClick={this.handleClick}>
-                  Our Work
-                </Item>
-                <Item href="/firewood" onClick={this.handleClick}>
-                  Firewood
-                </Item>
-                <Item href="/woodchips" onClick={this.handleClick}>
-                  Woodchips
-                </Item>
-                <Item href="/careers" onClick={this.handleClick}>
-                  Careers
-                </Item>
-              </SecondaryLinks>
+              <Links/>
             </Column>
           </Center>
         </Block>
