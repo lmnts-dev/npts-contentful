@@ -162,7 +162,6 @@ const NavLinks = () => {
             edges {
               node {
                 mainMenu
-                overlayMenu
                 showPhoneNumber
               }
             }
@@ -170,20 +169,39 @@ const NavLinks = () => {
         }
       `}
       render={data => (
-        <li>
-          <NavLink to="/services">
-            {/* Add query results here  */}
-          </NavLink>
-        </li>
+        <>
+          {data.allContentfulNav.edges[0].node.mainMenu.map(({ node: nav }, index) => {
+            const name = data.allContentfulNav.edges[0].node.mainMenu[index]
+            var link = data.allContentfulNav.edges[0].node.mainMenu[index].replace(/[^a-z0-9]/gi, '-').toLowerCase()
+            if ( link === "let-s-talk"){
+              link = "contact"
+            }
+            return (
+              <li key={index}>
+                <NavLink to={link}>
+                  {name}
+                </NavLink>
+              </li>
+            )
+          }
+          )}
+          {data.allContentfulNav.edges[0].node.showPhoneNumber &&
+            <li>
+              <NavButton
+                divider
+                href="tel:7753760917"
+              >
+                775.376.0917
+              </NavButton>
+            </li>
+          }
+        </>
       )}
     />
   )
 }
 
 class Menu extends React.Component {
-  // Optional link style for when you are on a specific page.
-  activeLinkStyle = {}
-
   // For the transition of fading the navigation items in incrementally.
   fadeInDuration = 0.5
   fadeInIncrement = 0.2
@@ -227,15 +245,6 @@ class Menu extends React.Component {
           </LogoLink>
           <ul>
             <NavLinks />
-            <li>
-              <NavButton
-                divider
-                href="tel:7753760917"
-                activeStyle={this.activeLinkStyle}
-              >
-                775.376.0917
-              </NavButton>
-            </li>
           </ul>
           <HamburgerMenu
             pagetop={this.props.pagetop} // Prop result passed from ScrollWrapper component.
