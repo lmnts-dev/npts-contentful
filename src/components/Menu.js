@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { Link, StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Logo from '!svg-react-loader!../images/svg-icons/logo.svg?name=logo'
 import HamburgerMenu from '../components/MenuOverlay'
@@ -76,7 +76,8 @@ const NavWrapper = styled.nav`
   width: ${props => (props.pagetop ? 'auto' : '100%')};
   transform: ${props =>
     props.pagetop ? 'translateY(36px)' : 'translateX(-50%)'};
-  padding: ${props => (props.pagetop ? '0px 0px 0px 0px' : '0px 36px 0px 36px')};
+  padding: ${props =>
+    props.pagetop ? '0px 0px 0px 0px' : '0px 36px 0px 36px'};
   z-index: 500;
   max-width: 2000px;
   @media (max-width: 600px) {
@@ -109,17 +110,22 @@ const NavWrapper = styled.nav`
     background: #000000;
     height: ${props => props.height};
   }
-  
-    &:after {
-      content: '';
-      position: absolute;
-      top:0;
-      bottom: 35px;
-      right:0;
-      left: 0;
-      background-image: ${props => (!(props.homePage) ? 'linear-gradient(transparent, transparent)' : props.pageTop ? 'linear-gradient(transparent, transparent)' : 'linear-gradient(rgba(0,0,0,.45), transparent)' )};
-    }
-  
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 35px;
+    right: 0;
+    left: 0;
+    background-image: ${props =>
+      !props.homePage
+        ? 'linear-gradient(transparent, transparent)'
+        : props.pageTop
+        ? 'linear-gradient(transparent, transparent)'
+        : 'linear-gradient(rgba(0,0,0,.45), transparent)'};
+  }
+
   ul {
     width: 100%;
     display: flex;
@@ -147,8 +153,37 @@ const NavWrapper = styled.nav`
   }
 `
 
-class Menu extends React.Component {
+const NavLinks = () => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          allContentfulNav {
+            edges {
+              node {
+                mainMenu
+                footerMenu
+                overlayMenu
+                showPhoneNumber
+                showFacebookLink
+                showInstagramLink
+              }
+            }
+          }
+        }
+      `}
+      render={data => (
+        <li>
+          <NavLink to="/services">
+            {/* Add query results here  */}
+          </NavLink>
+        </li>
+      )}
+    />
+  )
+}
 
+class Menu extends React.Component {
   // Optional link style for when you are on a specific page.
   activeLinkStyle = {}
 
@@ -174,11 +209,8 @@ class Menu extends React.Component {
   navScrollHeight = '60px'
 
   render() {
-    const { data } = this.props
-    console.log( data);
     return (
       // The line below this is where you can use the shorthand logic to change the Nav's styles on scroll. I'm passing these props into the styled component above.
-
       <NavWrapper
         homePage={this.props.homePage} // Prop result passed from ScrollWrapper component.
         pagetop={this.props.pagetop} // Prop result passed from ScrollWrapper component.
@@ -187,7 +219,6 @@ class Menu extends React.Component {
         navPosition={this.props.pagetop ? 'absolute' : 'fixed'}
         darknav={this.props.darknav} // Prop result passed from ScrollWrapper component.
       >
-
         <NavInner>
           <LogoLink
             pagetop={this.props.pagetop} // Prop result passed from ScrollWrapper component.
@@ -198,26 +229,7 @@ class Menu extends React.Component {
             <Logo />
           </LogoLink>
           <ul>
-            <li>
-              <NavLink to="/services" activeStyle={this.activeLinkStyle}>
-                Services
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/our-work" activeStyle={this.activeLinkStyle}>
-                Our Work
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/about" activeStyle={this.activeLinkStyle}>
-                About
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/contact" activeStyle={this.activeLinkStyle}>
-                Let's Talk
-              </NavLink>
-            </li>
+            <NavLinks />
             <li>
               <NavButton
                 divider
@@ -237,23 +249,5 @@ class Menu extends React.Component {
     )
   }
 }
-
-
-export const query = graphql`
-  query {
-    allContentfulNav {
-      edges {
-        node {
-          mainMenu
-          footerMenu
-          overlayMenu
-          showPhoneNumber
-          showFacebookLink
-          showInstagramLink
-        }
-      }
-    }
-  }
-`
 
 export default Menu
