@@ -23,6 +23,12 @@ const Index = ({ data, location }) => {
   const introBlocks = data.allContentfulIntroduction
   const slider = data.allContentfulSlider.edges[0].node
   const video = data.allContentfulVideo.edges[0].node
+  const mainMenu = data.allContentfulNav.edges[0].node.mainMenu
+  const footerMenu = data.allContentfulNav.edges[0].node.footerMenu
+  const overlayMenu = data.allContentfulNav.edges[0].node.overlayMenu
+  const numberBool = data.allContentfulNav.edges[0].node.showPhoneNumber
+  const fbBool = data.allContentfulNav.edges[0].node.showFacebookLink
+  const instaBool = data.allContentfulNav.edges[0].node.showInstagramLink
 
   return (
     <ScrollWrapper homePage>
@@ -46,14 +52,25 @@ const Index = ({ data, location }) => {
           dest={'/' + summary.buttonDestination}
         />
       </Container>
-      <Footer />
+      <Footer data={footerMenu} fb={fbBool} insta={instaBool}/>
     </ScrollWrapper>
   )
 }
 
-// GATSBY BUILD ERROR BELOW
 export const query = graphql`
   query {
+    allContentfulNav {
+      edges {
+        node {
+          mainMenu
+          footerMenu
+          overlayMenu
+          showPhoneNumber
+          showFacebookLink
+          showInstagramLink
+        }
+      }
+    }
     allContentfulService {
       edges {
         node {

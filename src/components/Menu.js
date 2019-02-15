@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 import Logo from '!svg-react-loader!../images/svg-icons/logo.svg?name=logo'
 import HamburgerMenu from '../components/MenuOverlay'
@@ -148,6 +148,7 @@ const NavWrapper = styled.nav`
 `
 
 class Menu extends React.Component {
+
   // Optional link style for when you are on a specific page.
   activeLinkStyle = {}
 
@@ -173,6 +174,8 @@ class Menu extends React.Component {
   navScrollHeight = '60px'
 
   render() {
+    const { data } = this.props
+    console.log( data);
     return (
       // The line below this is where you can use the shorthand logic to change the Nav's styles on scroll. I'm passing these props into the styled component above.
 
@@ -184,6 +187,7 @@ class Menu extends React.Component {
         navPosition={this.props.pagetop ? 'absolute' : 'fixed'}
         darknav={this.props.darknav} // Prop result passed from ScrollWrapper component.
       >
+
         <NavInner>
           <LogoLink
             pagetop={this.props.pagetop} // Prop result passed from ScrollWrapper component.
@@ -233,5 +237,23 @@ class Menu extends React.Component {
     )
   }
 }
+
+
+export const query = graphql`
+  query {
+    allContentfulNav {
+      edges {
+        node {
+          mainMenu
+          footerMenu
+          overlayMenu
+          showPhoneNumber
+          showFacebookLink
+          showInstagramLink
+        }
+      }
+    }
+  }
+`
 
 export default Menu
