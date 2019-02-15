@@ -162,11 +162,8 @@ const NavLinks = () => {
             edges {
               node {
                 mainMenu
-                footerMenu
                 overlayMenu
                 showPhoneNumber
-                showFacebookLink
-                showInstagramLink
               }
             }
           }
