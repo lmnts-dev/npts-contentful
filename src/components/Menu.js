@@ -176,6 +176,9 @@ const NavLinks = () => {
             if ( link === "let-s-talk"){
               link = "contact"
             }
+            if (link === "home") {
+              link = ""
+            }
             return (
               <li key={index}>
                 <NavLink to={link}>

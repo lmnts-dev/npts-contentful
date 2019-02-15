@@ -8,7 +8,7 @@ import { ColumnWrapper } from '../components/Column'
 import { Wrapper } from '../components/Block'
 import { Text } from '../components/Headings'
 import { LargeTextBlock } from './TextBlocks'
-import { Link } from 'gatsby'
+import { Link, StaticQuery, graphql } from 'gatsby'
 import insta from '../images/instagram.png'
 import fb from '../images/facebook.png'
 
@@ -137,37 +137,94 @@ const Item = styled(Link)`
   }
 `
 
-const Footer = props => (
+const Links = () => {
+  return (
+    <StaticQuery
+      query={graphql`
+        query {
+          allContentfulNav {
+            edges {
+              node {
+                footerMenu
+                showFacebookLink
+                showInstagramLink
+              }
+            }
+          }
+        }
+      `}
+      render={data => {
+        const primaryLinks = data.allContentfulNav.edges[0].node.footerMenu.slice(0, 3);
+        const secondaryLinks = data.allContentfulNav.edges[0].node.footerMenu.slice(3);
+        const showFb = data.allContentfulNav.edges[0].node.showFacebookLink
+        const showInsta = data.allContentfulNav.edges[0].node.showInstagramLink
+        return (
+          <>
+            <div>
+              {
+                primaryLinks.map(({ node: nav }, index) => {
+                  var link = primaryLinks[index].replace(/[^a-z0-9]/gi, '-').toLowerCase()
+                  if (link === "let-s-talk") {
+                    link = "contact"
+                  }
+                  if (link === "home") {
+                    link = ""
+                  }
+                  return (
+                    <Item key={index} to={"/" + link}>{primaryLinks[index]}</Item>
+                  )
+                })
+              }
+            </div>
+            <div>
+              {
+                secondaryLinks.map(({ node: nav }, index) => {
+                  var link = secondaryLinks[index].replace(/[^a-z0-9]/gi, '-').toLowerCase()
+                  if (link === "let-s-talk") {
+                    link = "contact"
+                  }
+                  if (link === "home") {
+                    link = ""
+                  }
+                  return (
+                    <Item key={index} last="true" to={"/" + link}>
+                      {secondaryLinks[index]}
+                    </Item>
+                  )
+                })
+              }            
+              { showFb &&
+                <Social href="https://www.facebook.com/NoahsParkTreeCare/">
+                  <img src={fb} />
+                </Social>
+              }
+              {showInsta &&
+                <Social href="https://www.instagram.com/noahsparktreecare/">
+                  <img src={insta} />
+                </Social>
+              }
+            </div> 
+          </>
+        )
+      }}
+    />
+  )
+}
+
+
+
+
+
+const Footer = props => {
+
+
+  return (
   <TwoColRow as="footer">
     <Column justify="flex-start">
         <MainInfo>
           <Logo />
           <FooterLinks>
-            <div>
-              <Item to="/">Home</Item>
-              <Item to="/services">Services</Item>
-              <Item to="/about">About</Item>
-            </div>
-            <div>
-              <Item last="true" to="/our-work">
-                Our Work
-              </Item>
-              <Item last="true" to="/firewood">
-                Firewood
-              </Item>
-              <Item last="true" to="/woodchips">
-                Woodchips
-              </Item>
-              <Item last="true" to="/careers">
-                Careers
-              </Item>
-              <Social href="https://www.facebook.com/NoahsParkTreeCare/">
-                <img src={fb} />
-              </Social>
-              <Social href="https://www.instagram.com/noahsparktreecare/">
-                <img src={insta}/>
-              </Social>
-            </div>
+              <Links />
           </FooterLinks>
         </MainInfo>
         <CopyWright color="#343434">
@@ -192,5 +249,6 @@ const Footer = props => (
       )}
     </>
   </TwoColRow>
-)
+  )
+}
 export default Footer

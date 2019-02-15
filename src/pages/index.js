@@ -52,7 +52,7 @@ const Index = ({ data, location }) => {
           dest={'/' + summary.buttonDestination}
         />
       </Container>
-      <Footer data={footerMenu} fb={fbBool} insta={instaBool}/>
+      <Footer/>
     </ScrollWrapper>
   )
 }
