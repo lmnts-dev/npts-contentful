@@ -35,11 +35,41 @@ const Block = styled(Wrapper)`
 
 const Services = props => {
   const services = props.data
-  const firstService = services.edges[0].node
-  const secondService = services.edges[1].node
-  const thirdService = services.edges[2].node
-  const fourthService = services.edges[3].node
-  const fifthService = services.edges[4].node
+  if ( services.edges[0] != null ){
+    var firstService = services.edges[0].node
+  }
+  else {
+    var firstService = false;
+  }
+  
+  if ( services.edges[1] != null ){
+    var secondService = services.edges[1].node
+  }
+  else {
+    var secondService = false;
+  }
+  
+  if ( services.edges[2] != null ){
+    var thirdService = services.edges[2].node
+  }
+  else {
+    var thirdService = false;
+  }
+  
+  if ( services.edges[3] != null ){
+    var fourthService = services.edges[3].node
+  }
+  else {
+    var fourthService = false;
+  }
+  
+  if ( services.edges[4] != null ){
+    var fifthService = services.edges[4].node
+  }
+  else {
+    var fifthService = false;
+  }
+  
 
   return (
     <div>
