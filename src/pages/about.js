@@ -8,7 +8,7 @@ import Container from '../components/Container'
 import SEO from '../components/SEO'
 import { Wrapper, HeaderBlock, Block } from '../components/Block'
 import TwoColRow from '../components/TwoColRow'
-import { LargeTextBlock } from '../components/TextBlocks'
+import { TextBlock } from '../components/TextBlocks'
 import { H2, P, HeaderText } from '../components/Headings'
 import Leaf from '../images/leafTestimonial.png'
 import { RightLeaf } from '../components/Leaves'
@@ -76,8 +76,8 @@ const About = ({ data, location }) => {
               />
             </MainBlock>
           </TwoColRow>
-          <TwoColRow smallReverse bias="left">
-            <LargeTextBlock
+          <TwoColRow smallReverse bias="right">
+            <TextBlock
               header={about.blockHeaderText}
               inlineText={about.blockParagraphText.childMarkdownRemark.html}
               bText={about.blockButtonText}
