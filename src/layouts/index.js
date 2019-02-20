@@ -23,7 +23,7 @@ const Layout = ({ children, location }) => (
       <meta charSet="utf-8" />
       <meta name='description' content='Dedicated to handling all your tree care needs, our experienced and knowledgeable team of arborists are committed to ensure the longevity of all your trees and shrubs.'/>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel='canonical' href='https://www.enoahsparktreecare.com' />
+      <link rel='canonical' href='https://www.noahsparktreecare.com' />
       <link rel='alternate' href='noahsparktreecare.com' hrefLang='en' />
       <link rel="apple-touch-icon" sizes="180x180" href={faviconApple} />
       <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
