@@ -50,6 +50,7 @@ const Summary = props => (
         {props.header}
       </HeaderText>
       <PLarge
+        as="div"
         color="#FFFFFF"
         align="center"
         dangerouslySetInnerHTML={{ __html: props.text }}

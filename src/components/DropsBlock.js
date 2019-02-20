@@ -53,6 +53,7 @@ const DropsBlock = props => {
           {props.header}
         </HeaderText>
         <PLarge
+          as="div"
           color="#293536"
           align="center"
           dangerouslySetInnerHTML={{ __html: props.text }}

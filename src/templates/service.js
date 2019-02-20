@@ -126,6 +126,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
                     {firstAspectHeader}
                   </HeaderText>
                   <PLarge
+                    as="div"
                     itemProp="articleBody"
                     color="#293536"
                     dangerouslySetInnerHTML={{
@@ -146,6 +147,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
                     {secondAspectHeader}
                   </HeaderText>
                   <PLarge
+                    as="div"
                     itemProp="articleBody"
                     color="#293536"
                     dangerouslySetInnerHTML={{
@@ -165,6 +167,7 @@ const ServiceTemplate = ({ data, pageContext, location }) => {
                       {thirdAspectHeader}
                     </HeaderText>
                     <PLarge
+                      as="div"
                       itemProp="articleBody"
                       color="#293536"
                       dangerouslySetInnerHTML={{

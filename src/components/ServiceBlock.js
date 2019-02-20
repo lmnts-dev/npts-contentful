@@ -53,6 +53,7 @@ const ServiceBlock = props => (
       <Image padding="0" bgImage={props.src} />
     </Link>
     <Text
+      as="div"
       color="#293536"
       dangerouslySetInnerHTML={{
         __html: props.text.childMarkdownRemark.html,

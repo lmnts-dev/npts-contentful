@@ -100,6 +100,7 @@ export default class App extends Component {
             <Holder>
               <H2 color="#FFFFFF">{this.props.data.headerText}</H2>
               <P
+                as="div"
                 color="#FFFFFF"
                 dangerouslySetInnerHTML={{
                   __html: this.props.data.paragraphText.childMarkdownRemark

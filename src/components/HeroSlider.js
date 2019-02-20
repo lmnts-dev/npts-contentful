@@ -251,6 +251,7 @@ export default class HomeSlider extends React.Component {
                 <H1Text color="#FFFFFF">{this.props.data.header}</H1Text>
                 <HeroBorder color="white" width="90%" margin="40px 0" />
                 <Text
+                  as="div"
                   size="38"
                   lHeight="2"
                   color="white"
@@ -269,6 +270,7 @@ export default class HomeSlider extends React.Component {
                 <Row justify="flex-start" align="center">
                   <Badge />
                   <Disclaimer
+                    as="div"
                     size="12"
                     lHeight="1.8"
                     color="#FFFFFF"

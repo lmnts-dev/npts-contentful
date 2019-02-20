@@ -203,6 +203,7 @@ const Work = ({ data }) => {
               {work.highlightTitle1}
             </HeaderText>
             <P
+              as="div"
               color="#293536"
               dangerouslySetInnerHTML={{
                 __html: work.highlightParagraph1.childMarkdownRemark.html,
@@ -215,6 +216,7 @@ const Work = ({ data }) => {
               {work.highlightTitle2}
             </HeaderText>
             <P
+              as="div"
               color="#293536"
               dangerouslySetInnerHTML={{
                 __html: work.highlightParagraph2.childMarkdownRemark.html,
@@ -227,6 +229,7 @@ const Work = ({ data }) => {
               {work.highlightTitle3}
             </HeaderText>
             <P
+              as="div"
               color="#293536"
               dangerouslySetInnerHTML={{
                 __html: work.highlightParagraph3.childMarkdownRemark.html,

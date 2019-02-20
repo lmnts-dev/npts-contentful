@@ -63,6 +63,7 @@ const Card = ({ slug, heroImage, title, publishDate, body, ...props }) => {
         <Title>{title}</Title>
         <Date>{publishDate}</Date>
         <Excerpt
+          as="div"
           dangerouslySetInnerHTML={{
             __html: body.childMarkdownRemark.excerpt,
           }}

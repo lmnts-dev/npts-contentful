@@ -426,6 +426,7 @@ class DropForm extends React.Component {
           <FormBlock bgColor="#293536" paddingBottom>
             <Inner>
               <List
+                as="div"
                 color="#FFFFFF"
                 dangerouslySetInnerHTML={{
                   __html: this.props.disclaimer,

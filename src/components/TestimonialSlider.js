@@ -156,6 +156,7 @@ export default class SimpleSlider extends React.Component {
                 <TwoColRow bias="left">
                   <Column>
                     <Quote
+                      as="div"
                       lHeight="1.3"
                       size="30"
                       dangerouslySetInnerHTML={{

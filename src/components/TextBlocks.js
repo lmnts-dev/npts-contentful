@@ -105,6 +105,7 @@ export const TextBlock = props => {
           <H2 color="#FFFFFF">{props.header}</H2>
         </Line>
         <P
+          as="div"
           color="#FFFFFF"
           dangerouslySetInnerHTML={{ __html: props.inlineText }}
         >
@@ -127,6 +128,7 @@ export const TextBlock = props => {
           <H2 color="#293536">{props.header}</H2>
         </Line>
         <P
+          as="div"
           color="#293536"
           dangerouslySetInnerHTML={{ __html: props.inlineText }}
         >
@@ -153,6 +155,7 @@ export const LargeTextBlock = props => {
           <H3 color="#FFFFFF">{props.header}</H3>
         </Line>
         <PLarge
+          as="div"
           color="#FFFFFF"
           dangerouslySetInnerHTML={{ __html: props.inlineText }}
         >
@@ -175,6 +178,7 @@ export const LargeTextBlock = props => {
           <H3 color="#293536">{props.header}</H3>
         </Line>
         <PLarge
+          as="div"
           color="#293536"
           dangerouslySetInnerHTML={{ __html: props.inlineText }}
         >

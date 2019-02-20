@@ -69,6 +69,7 @@ const About = ({ data, location }) => {
             <MainBlock bgColor="#FFFFFF">
               <H2 color="#434343">{about.headerText}</H2>
               <P
+                as="div"
                 color="#434343"
                 dangerouslySetInnerHTML={{
                   __html: about.paragraphText.childMarkdownRemark.html,

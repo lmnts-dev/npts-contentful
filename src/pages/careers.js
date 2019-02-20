@@ -97,6 +97,7 @@ const Careers = ({ data }) => {
                     Overview
                   </P>
                   <P
+                    as="div"
                     color="#434343"
                     dangerouslySetInnerHTML={{
                       __html: position.overview.childMarkdownRemark.html,
@@ -108,6 +109,7 @@ const Careers = ({ data }) => {
                         Requirements
                       </P>
                       <P
+                        as="div"
                         color="#434343"
                         dangerouslySetInnerHTML={{
                           __html:
