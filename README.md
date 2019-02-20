@@ -1,6 +1,6 @@
 # Noah's Park Tree Care Website
 By [Laxalt & McIver](https://www.laxaltandmciver.co/)
-[Deployed with Netlify](https://app.netlify.com/sites/fervent-clarke-5ad7c7/overview)
+[Deployed with Netlify](https://app.netlify.com/sites/eloquent-nobel-cbff4a/overview)
 
 Keeping your trees healthy and beautiful. Based off of by [gatsby-contentful-starter](https://github.com/contentful-userland/gatsby-contentful-starter).
 
@@ -49,13 +49,21 @@ git commit -m "Sample Commit"
 git push origin master --set-upstream
 ```
 
-### Setup Contentful
+### Using Contentful
 
-1.  [Sign up](https://www.contentful.com/sign-up/) for Contentful and create a new empty space
+1.  [Login](https://www.contentful.com/) u: renotrash@gmail.com p: noahsparktreecare
 
-2.  `npm run setup`
+2.  Use these videos as guides to make content changes (https://www.dropbox.com/sh/4qwgh8z384yimi0/AADg4SFrvUZZZtfF08_FlhDsa?dl=0)
 
-3.  Enter in the requested info for your Contentful space found here: **app.contentful.com** → **Space Settings** → **API keys**. You will need to provide both a standard API key (first tab) and a management key (second tab).
+3.  The webhooks will watch for any published changes and automatically update them to the live site.
+
+### Using Netlify
+
+1.  [Login](https://app.netlify.com/) u: alisha@laxaltandmciver.co p: noahsparktreecare
+
+2. Look at Production deploys or recent form submissions
+
+3. If you want to add another form submission recipient go to forms -> Settings and Usage -> Add Notification -> Email Notification
 
 ## Customization
 

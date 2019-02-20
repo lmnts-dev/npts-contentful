@@ -25,7 +25,7 @@ const RightLeaf = styled(RightToMidLeaf)`
 
 const Row = styled(RowWrapper)`
   position: relative;
-  div:first-of-type {
+  .video-player {
     height: 675px !important;
     width: 1200px !important;
     @media (max-width: 2000px) {
@@ -35,9 +35,15 @@ const Row = styled(RowWrapper)`
   }
   @media (max-width: 1000px) {
     flex-direction: column-reverse;
-    div:first-of-type {
-      width: 96.4vw !important;
-      height: 54.225vw !important;
+    .video-player {
+      width: calc(100vw - 72px) !important;
+      height: calc( calc(100vw - 72px) * .5625 ) !important;
+    }
+  }
+  @media (max-width: 600px) {
+    .video-player {
+      width: calc(100vw - 30px) !important;
+      height: calc( calc(100vw - 30px) * .5625 ) !important;
     }
   }
 `
@@ -48,15 +54,16 @@ const Holder = styled.span`
 
 const Block = styled.div`
   background-color: #9f4300;
-
   padding: 0 120px;
   height: 675px;
   width: 728px;
+  div {
+    width: 100%;
+  }
   @media (max-width: 2000px) {
-    width: 36.4vw;
-
+    width: calc( 40vw - 72px);
     height: 33.75vw;
-    padding: 0 6vw;
+    padding: 0 5vw;
   }
   display: flex;
   flex-direction: column;
@@ -69,7 +76,7 @@ const Block = styled.div`
   }
   @media (max-width: 1000px) {
     width: 100%;
-    height: auto;
+    height: 300px;
     padding: 10vw 10vw;
     span {
       margin: 0;
@@ -90,6 +97,7 @@ export default class App extends Component {
         <Divider />
         <Row>
           <ReactPlayer
+            className="video-player"
             url={this.props.data.videoLink}
             loop
             height="33.75vw"
