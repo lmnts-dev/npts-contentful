@@ -256,7 +256,6 @@ export default class HomeSlider extends React.Component {
                   lHeight="2"
                   color="white"
                   padding="0 0 2vw 0"
-                  as="p"
                   dangerouslySetInnerHTML={{
                     __html: this.props.data.paragraphText.childMarkdownRemark
                       .html,
