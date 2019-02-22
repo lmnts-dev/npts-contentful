@@ -78,7 +78,7 @@ module.exports = {
   publisher: "Noah's Park", // Organization name used for SEO schema
   siteDescription:
     'Keeping your trees healthy and beautiful',
-  siteUrl: 'https://fervent-clarke-5ad7c7.netlify.com', // Site domain. Do not include a trailing slash! If you wish to use a path prefix you can read more about that here: https://www.gatsbyjs.org/docs/path-prefix/
+  siteUrl: 'https://noahsparktreecare.com/', // Site domain. Do not include a trailing slash! If you wish to use a path prefix you can read more about that here: https://www.gatsbyjs.org/docs/path-prefix/
   postsPerHomePage: 7, // Number of posts shown on the 1st page of of the index.js template (home page)
   postsPerPage: 6, // Number of posts shown on paginated pages
   author: 'Laxalt & McIver', // Author for RSS author segment and SEO schema
