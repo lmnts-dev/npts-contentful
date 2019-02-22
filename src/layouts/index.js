@@ -12,8 +12,6 @@ import faviconSafari from '../images/safari-pinned-tab.svg'
 import favicon from '../images/favicon.ico'
 import opengraph from '../images/opengraph.jpg'
 import ReactGA from 'react-ga';
-ReactGA.initialize('UA-30283853-1'); { /* Unique Google Analytics tracking number */ }
-ReactGA.pageview('/homepage');
 
 const Layout = ({ children, location }) => (
   <>
