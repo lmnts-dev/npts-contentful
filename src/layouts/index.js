@@ -38,6 +38,7 @@ const Layout = ({ children, location }) => (
       <meta property="business:contact_data:region" content="Nevada" />
       <meta property="business:contact_data:postal_code" content="89509" />
       <meta property="business:contact_data:country_name" content="United States" />
+      <meta name="google-site-verification" content="cF_jFvHTL4hKRsCijexqN6fKe3MJ4lSuFWhck5kEtWQ" />
       <link
         href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,700|Tinos:400,700"
         rel="stylesheet"
