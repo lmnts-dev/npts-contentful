@@ -43,7 +43,9 @@ const Column = styled(ColumnWrapper)`
 `
 
 const ServiceBlock = props => (
+  
   <Column>
+  {props.src}
     <Link href={props.dest}>
       <Header as="h2" weight="700" size="42">
         {props.header}
