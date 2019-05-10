@@ -77,6 +77,12 @@ const TextBlock = styled.div `
           height: auto;
           width: auto;
         }
+        @media (max-width: 800px){
+          padding: 150px 50px;
+        }
+        @media (max-width: 600px){
+          padding: 150px 25px;
+        }
     `
     else
       return `
@@ -108,7 +114,7 @@ const Date = styled(Text)`
 const Card = ({ slug, heroImage, title, publishDate, author, ...props }) => {
   console.log( slug );
   console.log( heroImage );
-  
+
   var date = {publishDate};
   date = date.publishDate.replace("January", "Jan.").replace("February", "Feb.").replace("March", "Mar.").replace("April", "Apr.").replace("August", "Aug.").replace("September", "Sept.").replace("October", "Oct.").replace("November", "Nov.").replace("December", "Dec.");
   var imgSrc = heroImage.fluid.src;

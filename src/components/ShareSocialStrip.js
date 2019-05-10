@@ -19,6 +19,22 @@ export const SocialStripStyle = styled.div`
   position: absolute;
   left: -60px;
   top: calc( 20vh + 15px );
+  @media( max-width: 800px){
+    left: -5%;
+    top: 50px;
+  }
+  @media (max-width: 600px){
+    left: -6%
+  }
+  @media (max-width: 450px){
+    display: flex;
+    flex-direction: row;
+    top: 25px;
+    left: 0;
+    a {
+      margin-left: 2px;
+    }
+  }
 
   a {
       display: block;
@@ -36,6 +52,10 @@ export const SocialStripStyle = styled.div`
         &:hover {
            opacity: .8;      
         }
+        @media( max-width: 800px){
+          height: 30px;
+          width: 30px;
+      }
     }
   }
 `;

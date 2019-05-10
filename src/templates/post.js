@@ -27,6 +27,15 @@ position: relative;
   margin: -20vh auto 0 auto;
   background-color: #FFFFFF;
   padding: 100px;
+  @media (max-width: 800px){
+      margin: 0 auto;
+      padding: 50px 25px;
+      width: 90%;
+  }
+  @media (max-width: 450px ){
+      width: 100%;
+      padding: 75px 0;
+  }
 `
 
 const PostTemplate = ({ data, pageContext }) => {
@@ -72,7 +81,7 @@ const PostTemplate = ({ data, pageContext }) => {
                 <SocialStrip/>
             </BodyContainer>
 
-            <HeaderText size="80" weight="700" color="#5C5C5C" align="center">
+            <HeaderText size="80" weight="700" color="#5C5C5C" align="center" padding="0 0 50px 0">
                 More Articles
             </HeaderText>
             <Container>
