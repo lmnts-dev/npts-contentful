@@ -106,9 +106,13 @@ const Date = styled(Text)`
 
 
 const Card = ({ slug, heroImage, title, publishDate, author, ...props }) => {
+  console.log( slug );
+  console.log( heroImage );
+  
   var date = {publishDate};
   date = date.publishDate.replace("January", "Jan.").replace("February", "Feb.").replace("March", "Mar.").replace("April", "Apr.").replace("August", "Aug.").replace("September", "Sept.").replace("October", "Oct.").replace("November", "Nov.").replace("December", "Dec.");
   var imgSrc = heroImage.fluid.src;
+  console.log( slug );
   if ( !props.featured ){
     imgSrc = false;
   }

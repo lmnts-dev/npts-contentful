@@ -1,8 +1,10 @@
 const path = require(`path`)
+const config = require('./src/utils/siteConfig')
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
+  /// /// crete blog page ////////////////////////////
   const loadPosts = new Promise((resolve, reject) => {
     graphql(`
       {
@@ -20,15 +22,15 @@ exports.createPages = ({ graphql, actions }) => {
       }
     `).then(result => {
       const posts = result.data.allContentfulPost.edges
-      const postsPerFirstPage = 4
-      const postsPerPage = 4
+      const postsPerFirstPage = config.postsPerHomePage
+      const postsPerPage = config.postsPerPage
       const numPages = Math.ceil(
         posts.slice(postsPerFirstPage).length / postsPerPage
       )
 
-      // Create main home page
+      // Create blog
       createPage({
-        path: `/`,
+        path: `/education/`,
         component: path.resolve(`./src/pages/education.js`),
         context: {
           limit: postsPerFirstPage,
@@ -38,7 +40,7 @@ exports.createPages = ({ graphql, actions }) => {
         },
       })
 
-      // Create additional pagination on home page if needed
+      // Create additional pagination on blog page if needed
       Array.from({ length: numPages }).forEach((_, i) => {
         createPage({
           path: `/${i + 2}/`,
@@ -52,13 +54,13 @@ exports.createPages = ({ graphql, actions }) => {
         })
       })
 
-      // Create each individual post
+      // Create each individual post page
       posts.forEach((edge, i) => {
         const prev = i === 0 ? null : posts[i - 1].node
         const next = i === posts.length - 1 ? null : posts[i + 1].node
         createPage({
           path: `${edge.node.slug}/`,
-          component: path.resolve(`./src/pages/education.js`),
+          component: path.resolve(`./src/templates/post.js`),
           context: {
             slug: edge.node.slug,
             prev,
@@ -69,6 +71,8 @@ exports.createPages = ({ graphql, actions }) => {
       resolve()
     })
   })
+  /// ////////////////////end create blog page //////////////
+
 
   const loadTags = new Promise((resolve, reject) => {
     graphql(`
