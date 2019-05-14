@@ -25,16 +25,6 @@ class SEO extends Component {
       pageUrl = config.siteUrl + '/' + pagePath + '/'
     }
 
-    // Replace with Page Parameters if post or page
-    if (postSEO || pageSEO) {
-      title = postNode.title
-      description =
-        postNode.metaDescription === null
-          ? postNode.body.childMarkdownRemark.excerpt
-          : postNode.metaDescription.internal.content
-
-      pageUrl = config.siteUrl + '/' + pagePath + '/'
-    }
     // Use Hero Image for OpenGraph
     if (postSEO) {
       image = 'https:' + postNode.heroImage.ogimg.src

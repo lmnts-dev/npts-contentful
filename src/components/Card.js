@@ -125,7 +125,7 @@ const Card = ({ slug, heroImage, title, publishDate, author, ...props }) => {
   console.log( imgSrc );
   return (
     <Post featured={props.featured}>
-      <Link to={`/${slug}/`}>
+      <Link to={`education/${slug}/`}>
         <Image featured={props.featured} fluid={heroImage.fluid} backgroundColor={'#eeeeee'} />
           <TextBlock featured={props.featured} bgImage={imgSrc}>
           <Date size="18" weight="600">{date} <span> • {author}</span></Date>
@@ -135,7 +135,7 @@ const Card = ({ slug, heroImage, title, publishDate, author, ...props }) => {
               <Title size="42" weight="600">{title}</Title>
           )}
             {props.featured && (
-              <Button dark to={'/' + slug}>
+              <Button dark to={'education/' + slug}>
                 Read Article
               </Button>
             )}

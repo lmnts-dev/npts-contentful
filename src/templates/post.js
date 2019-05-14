@@ -15,6 +15,7 @@ import Summary from '../components/Summary'
 import Footer from '../components/Footer'
 import styled from 'styled-components'
 import SocialStrip from '../components/ShareSocialStrip'
+import schemaGenerator from '../helpers/schemaGenerator';
 
 
 const Author = styled(Text)`
@@ -50,11 +51,27 @@ const PostTemplate = ({ data, pageContext }) => {
     const postNode = data.contentfulPost
     const posts = data.allContentfulPost.edges
     const identity = data.allContentfulIdentity.edges[0].node
+    const location = "Reno, NV"
+    const pageTitle = title
+    const siteTitle = config.siteTitle + "- " + title 
+    const siteUrl = config.siteUrl
+    const canonical = config.siteUrl + "education/" + slug
 
     return (
         <ScrollWrapper darknav>
             <Helmet>
                 <title>{`${title} - ${config.siteTitle}`}</title>
+                <script type="application/ld+json">
+                  {JSON.stringify(
+                    schemaGenerator({
+                      location,
+                      canonical,
+                      siteUrl,
+                      pageTitle,
+                      siteTitle,
+                    })
+                  )}
+                </script>
             </Helmet>
             <SEO pagePath={slug} postNode={postNode} postSEO />
             <HeaderBlock bgColor="#FFFFFF">
@@ -86,7 +103,7 @@ const PostTemplate = ({ data, pageContext }) => {
             </HeaderText>
             <Container>
                 <CardList>
-                    {posts.slice(1).map(({ node: post }) => (
+                    {posts.map(({ node: post }) => (
                         <Card key={post.id} {...post} />
                     ))}
                 </CardList>
@@ -149,18 +166,8 @@ export const query = graphql`
       title
       slug
       author
-      metaDescription {
-        internal {
-          content
-        }
-      }
       publishDate(formatString: "MMMM DD, YYYY")
       publishDateISO: publishDate(formatString: "YYYY-MM-DD")
-      tags {
-        title
-        id
-        slug
-      }
       heroImage {
         title
         fluid(maxWidth: 1800) {

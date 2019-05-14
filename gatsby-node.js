@@ -59,7 +59,7 @@ exports.createPages = ({ graphql, actions }) => {
         const prev = i === 0 ? null : posts[i - 1].node
         const next = i === posts.length - 1 ? null : posts[i + 1].node
         createPage({
-          path: `${edge.node.slug}/`,
+          path: `education/${edge.node.slug}/`,
           component: path.resolve(`./src/templates/post.js`),
           context: {
             slug: edge.node.slug,
@@ -72,48 +72,6 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
   /// ////////////////////end create blog page //////////////
-
-
-  const loadTags = new Promise((resolve, reject) => {
-    graphql(`
-      {
-        allContentfulTag {
-          edges {
-            node {
-              slug
-              post {
-                id
-              }
-            }
-          }
-        }
-      }
-    `).then(result => {
-      const tags = result.data.allContentfulTag.edges
-      const postsPerPage = 4
-
-      // Create tag pages with pagination if needed
-      tags.map(({ node }) => {
-        const totalPosts = node.post !== null ? node.post.length : 0
-        const numPages = Math.ceil(totalPosts / postsPerPage)
-        Array.from({ length: numPages }).forEach((_, i) => {
-          createPage({
-            path:
-              i === 0 ? `/tag/${node.slug}/` : `/tag/${node.slug}/${i + 1}/`,
-            component: path.resolve(`./src/templates/tag.js`),
-            context: {
-              slug: node.slug,
-              limit: postsPerPage,
-              skip: i * postsPerPage,
-              numPages: numPages,
-              currentPage: i + 1,
-            },
-          })
-        })
-      })
-      resolve()
-    })
-  })
 
   /// /// create service pages ///////////////////////
   const loadServices = new Promise((resolve, reject) => {
@@ -143,5 +101,5 @@ exports.createPages = ({ graphql, actions }) => {
     })
   })
 
-  return Promise.all([ loadPosts, loadTags, loadServices])
+  return Promise.all([ loadPosts, loadServices])
 }
