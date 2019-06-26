@@ -385,10 +385,9 @@ class ContactForm extends React.Component {
           <Address2
             name="address2"
             type="text"
-            placeholder="Address Line 2*"
-            value={this.state.address1}
+            placeholder="Address Line 2"
+            value={this.state.address2}
             onChange={this.handleInputChange}
-            required
           />
           <City
             name="city"
