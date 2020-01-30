@@ -127,6 +127,17 @@ const Email = styled.input`
   width: 100%;
 `
 
+const HonClass = styled.p`
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+  pointer-events: none;
+`
+
 const PhoneNumber = styled.input`
   margin-bottom: 10px;
   width: 100%;
@@ -314,9 +325,9 @@ class ContactForm extends React.Component {
           name="contact"
           onSubmit={this.handleSubmit}
           data-netlify="true"
-          data-netlify-honeypot="bot"
           overlay={this.state.showModal}
           onClick={this.closeModal}
+          netlify-honeypot="details"
         >
           <TextBlock>
             <HeaderText as="h3" lHeight="2" size="72" color="#FFFFFF">
@@ -421,6 +432,9 @@ class ContactForm extends React.Component {
             onChange={this.handleInputChange}
             required
           />
+          <HonClass>
+            <label>HonClass <input type="text" name="details" /></label>
+          </HonClass>
           <Required>* Required</Required>
           <Submit name="submit" type="submit" value="Send" />
 
