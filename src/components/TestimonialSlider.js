@@ -177,7 +177,7 @@ export default class SimpleSlider extends React.Component {
                   </Column>
                   <Block bgColor="transparent" padding="0">
                     <Info color="white" size="100">
-                      {
+                      { this.props.data[index].node.customerReview.childMarkdownRemark.html &&
                         this.props.data[
                           index
                         ].node.customerReview.childMarkdownRemark.html
