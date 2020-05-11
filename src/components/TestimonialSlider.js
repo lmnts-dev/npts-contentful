@@ -179,11 +179,8 @@ export default class SimpleSlider extends React.Component {
                   <Block bgColor="transparent" padding="0">
                     <Info color="white" size="100">
                       { this.props.data[index].node.customerReview.childMarkdownRemark.html &&
-                        this.props.data[
-                          index
-                        ].node.customerReview.childMarkdownRemark.html
-                          .split('<strong>')[1]
-                          .split('</strong>')[0]
+                        this.props.data[index].node.customerReview.childMarkdownRemark.html.split('<strong>')[1] &&
+                        this.props.data[index].node.customerReview.childMarkdownRemark.html.split('<strong>')[1].split('</strong>')[0]
                       }
                     </Info>
                     <Icon />
