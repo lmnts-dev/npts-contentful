@@ -127,6 +127,76 @@ const Email = styled.input`
   width: 100%;
 `
 
+const HonClass = styled.p`
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 0;
+  width: 0;
+  z-index: -1;
+  pointer-events: none;
+`
+
+const PhoneNumber = styled.input`
+  margin-bottom: 10px;
+  width: 100%;
+`
+
+const Address1 = styled.input`
+  margin-bottom: 10px;
+  width: calc(50% - 5px);
+  margin-right: 10px;
+  @media (max-width: 750px) {
+    width: 100%;
+    margin-right: 0;
+  }
+`
+
+const Address2 = styled.input`
+  margin-bottom: 10px;
+  width: calc(50% - 5px);
+  @media (max-width: 750px) {
+    width: 100%;
+    margin-right: 0;
+  }
+`
+
+const City = styled.input`
+  margin-bottom: 10px;
+  width: calc( (100%/3) - (20px / 3) );
+  margin-right: 10px;
+  @media (max-width: 750px) {
+    width: 100%;
+    margin-right: 0;
+  }
+`
+
+const State = styled.input`
+  margin-bottom: 10px;
+  width: calc( (100%/3) - (20px / 3) );
+  margin-right: 10px;
+  @media (max-width: 750px) {
+    width: calc(50% - 5px);
+  }
+`
+
+const Zip = styled.input`
+  margin-bottom: 10px;
+  width: calc( (100%/3) - (20px / 3) );
+  @media (max-width: 750px) {
+    width: calc(50% - 5px);
+  }
+`
+const Required = styled.p`
+  margin-bottom: 20px;
+  width: 100%;
+  color: grey;
+  @media (max-width: 600px) {
+    font-size: 12px;
+  }
+`
+
 const Message = styled.textarea`
   width: 100%;
   margin: 0 0 1em 0;
@@ -255,9 +325,9 @@ class ContactForm extends React.Component {
           name="contact"
           onSubmit={this.handleSubmit}
           data-netlify="true"
-          data-netlify-honeypot="bot"
           overlay={this.state.showModal}
           onClick={this.closeModal}
+          netlify-honeypot="details"
         >
           <TextBlock>
             <HeaderText as="h3" lHeight="2" size="72" color="#FFFFFF">
@@ -294,7 +364,7 @@ class ContactForm extends React.Component {
           <Name
             name="name"
             type="text"
-            placeholder="Name (required)"
+            placeholder="Name*"
             value={this.state.name}
             onChange={this.handleInputChange}
             required
@@ -302,8 +372,55 @@ class ContactForm extends React.Component {
           <Email
             name="email"
             type="email"
-            placeholder="Email (required)"
+            placeholder="Email*"
             value={this.state.email}
+            onChange={this.handleInputChange}
+            required
+          />
+          <PhoneNumber
+            name="phone"
+            type="tel"
+            placeholder="Phone Number*"
+            value={this.state.phone}
+            onChange={this.handleInputChange}
+            required
+          />
+          <Address1
+            name="address1"
+            type="text"
+            placeholder="Address Line 1*"
+            value={this.state.address1}
+            onChange={this.handleInputChange}
+            required
+          />
+          <Address2
+            name="address2"
+            type="text"
+            placeholder="Address Line 2"
+            value={this.state.address2}
+            onChange={this.handleInputChange}
+          />
+          <City
+            name="city"
+            type="text"
+            placeholder="City*"
+            value={this.state.city}
+            onChange={this.handleInputChange}
+            required
+          />
+          <State
+            name="state"
+            type="text"
+            placeholder="State*"
+            value={this.state.state}
+            onChange={this.handleInputChange}
+            required
+          />
+          <Zip
+            name="zip"
+            type="text"
+            placeholder="Zip Code*"
+            value={this.state.zip}
             onChange={this.handleInputChange}
             required
           />
@@ -315,6 +432,10 @@ class ContactForm extends React.Component {
             onChange={this.handleInputChange}
             required
           />
+          <HonClass>
+            <label>HonClass <input type="text" name="details" /></label>
+          </HonClass>
+          <Required>* Required</Required>
           <Submit name="submit" type="submit" value="Send" />
 
           <Modal visible={this.state.showModal}>

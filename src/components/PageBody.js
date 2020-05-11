@@ -59,15 +59,33 @@ const Body = styled.div`
   ul,
   ol {
     margin: 0 0 2em 0;
+    li {
+      font-size: 22px;
+      @media (max-width: 1440px) {
+        font-size: 1.53vw;
+      }
+      @media (max-width: 1047px) {
+        font-size: 16px;
+      }
+        line-height: 1.8;
+      }
+    }
   }
 
   ul {
     li {
-      list-style: disc;
-      list-style-position: inside;
-      line-height: 1.25;
+      list-style: none;
+      line-height: 2;
+      margin-right: 30px;
       &:last-child {
         margin: 0;
+      }
+      &:before {
+        content: "•";  
+        color: #9F4300;
+        font-weight: bold; 
+        display: inline-block;  
+        margin: 0 5px 0 30px; 
       }
     }
   }
@@ -76,9 +94,13 @@ const Body = styled.div`
     li {
       list-style: decimal;
       list-style-position: inside;
-      line-height: 1.25;
+      line-height: 2;
+      margin-left: 30px;
+      margin-right: 30px;
       &:last-child {
         margin: 0;
+        margin-left: 30px;
+        margin-right: 30px;
       }
     }
   }
@@ -90,9 +112,23 @@ const Body = styled.div`
   }
 
   blockquote {
-    font-style: italic;
-    border-left: 4px solid ${props => props.theme.colors.secondary};
+    margin: 0 30px;
     padding: 0 0 0 0.5em;
+    font-size: 34px;
+    @media ( max-width: 1440px ){
+      font-size: 2.36vw;
+    }
+    @media ( max-width: 600px ){
+      font-size: 14.16px;
+    }
+    p {
+      @media ( max-width: 1440px ){
+        font-size: 2.36vw;
+      }
+      @media ( max-width: 600px ){
+        font-size: 14.16px;
+      }      
+    }
   }
 
   pre {

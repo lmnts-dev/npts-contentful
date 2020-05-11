@@ -43,6 +43,7 @@ const Column = styled(ColumnWrapper)`
 `
 
 const ServiceBlock = props => (
+  
   <Column>
     <Link href={props.dest}>
       <Header as="h2" weight="700" size="42">
@@ -53,6 +54,7 @@ const ServiceBlock = props => (
       <Image padding="0" bgImage={props.src} />
     </Link>
     <Text
+      as="div"
       color="#293536"
       dangerouslySetInnerHTML={{
         __html: props.text.childMarkdownRemark.html,

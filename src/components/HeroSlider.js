@@ -251,11 +251,11 @@ export default class HomeSlider extends React.Component {
                 <H1Text color="#FFFFFF">{this.props.data.header}</H1Text>
                 <HeroBorder color="white" width="90%" margin="40px 0" />
                 <Text
+                  as="div"
                   size="38"
                   lHeight="2"
                   color="white"
                   padding="0 0 2vw 0"
-                  as="p"
                   dangerouslySetInnerHTML={{
                     __html: this.props.data.paragraphText.childMarkdownRemark
                       .html,
@@ -269,6 +269,7 @@ export default class HomeSlider extends React.Component {
                 <Row justify="flex-start" align="center">
                   <Badge />
                   <Disclaimer
+                    as="div"
                     size="12"
                     lHeight="1.8"
                     color="#FFFFFF"
@@ -297,13 +298,15 @@ export default class HomeSlider extends React.Component {
           </TwoColRow>
           <Slider ref={c => (this.slider = c)} {...settings}>
             {this.props.data.sliderImages.map(({ node: image }, index) => {
-              return (
-                <SliderImage
-                  key={index + ''}
-                  bgImage={this.props.data.sliderImages[index].ogimg.src}
-                  padding="0"
-                />
-              )
+              if ( this.props.data.sliderImages[index].ogimg ) {
+                return (
+                  <SliderImage
+                    key={index + ''}
+                    bgImage={this.props.data.sliderImages[index].ogimg.src}
+                    padding="0"
+                  />
+                )
+              }
             })}
           </Slider>
         </Container>

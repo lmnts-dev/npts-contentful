@@ -7,9 +7,9 @@ import Summary from '../components/Summary'
 import Container from '../components/Container'
 import SEO from '../components/SEO'
 import { Wrapper, HeaderBlock } from '../components/Block'
+import { HeaderText } from '../components/Headings'
 import { TwoColRowWrapper } from '../components/TwoColRow'
 import ServiceBlock from '../components/ServiceBlock'
-import { HeaderText } from '../components/Headings'
 import DropsBlock from '../components/DropsBlock'
 import Footer from '../components/Footer'
 import ScrollWrapper from '../components/ScrollWrapper'
@@ -29,6 +29,7 @@ const ServiceList = styled(Wrapper)`
     padding: 0 0 10vw 0;
   }
 `
+
 
 const Services = ({ data, location }) => {
   const services = data.allContentfulService.edges

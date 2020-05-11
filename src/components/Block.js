@@ -96,7 +96,7 @@ export const Block = ({
   absolute,
   children,
 }) => {
-  return (
+    return (
     <Wrapper
       bgImage={bgImage}
       padding={padding}

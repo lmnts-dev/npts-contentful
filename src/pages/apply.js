@@ -14,7 +14,7 @@ class Apply extends React.Component {
       title: `Apply - ${config.siteTitle}`,
     }
     return (
-      <ScrollWrapper darknav>
+      <ScrollWrapper>
         <Helmet>
           <title>{`Apply - ${config.siteTitle}`}</title>
         </Helmet>

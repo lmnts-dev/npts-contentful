@@ -1,32 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
+import { HeaderText, Text } from '../components/Headings'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
+import Button from './Button'
 
 const Post = styled.li`
   position: relative;
-  border: 1px solid white;
-  border-radius: 2px;
-  margin: 0 0 1em 0;
+  overflow: hidden;
   width: 100%;
   transition: background 0.2s;
+  box-shadow: 0px 3px 36px rgba( 0, 0, 0, 5%);
+  margin: ${props => (props.featured ? '0 0 2% 0' : '1%')};
   @media screen and (min-width: ${props => props.theme.responsive.small}) {
     flex: ${props => (props.featured ? '0 0 100%' : '0 0 49%')};
-    margin: 0 0 2vw 0;
   }
   @media screen and (min-width: ${props => props.theme.responsive.medium}) {
-    flex: ${props => (props.featured ? '0 0 100%' : '0 0 32%')};
+    flex: ${props => (props.featured ? '0 0 100%' : '0 0 31%')};
     ${props => props.theme}
   }
   &:hover {
-    background: ${props => props.theme.colors.tertiary};
+    box-shadow: 0px 3px 36px rgba( 0, 0, 0, 10%);
   }
   a {
     display: flex;
     flex-flow: column;
     height: 100%;
     width: 100%;
-    color: ${props => props.theme.colors.base};
     text-decoration: none;
     .gatsby-image-wrapper {
       height: 0;
@@ -38,35 +38,108 @@ const Post = styled.li`
   }
 `
 
-const Title = styled.h2`
-  font-size: 1.5em;
-  font-weight: 600;
+const Image = styled(Img)`
+  ${props => {
+    /* absolute positioned block */
+    if (props.featured )
+      return `
+        position: absolute !important;
+        width: 100%;
+        height: 100%;
+        div {
+          position: absolute;
+
+        }
+    `
+  }};
+`
+
+const TextBlock = styled.div `
+  ${props => {
+    /* absolute positioned block */
+    if (props.featured )
+      return `
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-image: linear-gradient( rgba( 0, 0, 0, .7) 50%, transparent), url(` + props.bgImage + `);
+        padding: 150px 150px;
+        min-height: 50vh;
+        div {
+          color: white;
+        }
+        a {
+          height: auto;
+          width: auto;
+        }
+        @media (max-width: 800px){
+          padding: 150px 50px;
+        }
+        @media (max-width: 600px){
+          padding: 150px 25px;
+        }
+    `
+    else
+      return `
+        position: relative;
+    `
+  }};
+  
+`
+
+const Title = styled(HeaderText)`
+  color: #293536;
   text-transform: capitalize;
-  margin: 1rem 1rem 0.5rem 1rem;
+  text-align: center;
+  padding: 0 20px;
+  margin-bottom: 30px;
 `
 
-const Date = styled.h3`
-  margin: 0 1rem 1.5rem 1rem;
-  color: gray;
+const Date = styled(Text)`
+  text-align: center;
+  margin: 30px 0 10px 0;
+  color: #A0A0A0;
+  padding: 0 20px;
+  span {
+    font-weight: 400;
+  }
 `
 
-const Excerpt = styled.p`
-  margin: 0 1rem 1rem 1rem;
-  line-height: 1.6;
-`
 
-const Card = ({ slug, heroImage, title, publishDate, body, ...props }) => {
+const Card = ({ slug, heroImage, title, publishDate, author, ...props }) => {
+  console.log( slug );
+  console.log( heroImage );
+
+  var date = {publishDate};
+  date = date.publishDate.replace("January", "Jan.").replace("February", "Feb.").replace("March", "Mar.").replace("April", "Apr.").replace("August", "Aug.").replace("September", "Sept.").replace("October", "Oct.").replace("November", "Nov.").replace("December", "Dec.");
+  var imgSrc = heroImage.fluid.src;
+  console.log( slug );
+  if ( !props.featured ){
+    imgSrc = false;
+  }
+  console.log( imgSrc );
   return (
     <Post featured={props.featured}>
-      <Link to={`/${slug}/`}>
-        <Img fluid={heroImage.fluid} backgroundColor={'#eeeeee'} />
-        <Title>{title}</Title>
-        <Date>{publishDate}</Date>
-        <Excerpt
-          dangerouslySetInnerHTML={{
-            __html: body.childMarkdownRemark.excerpt,
-          }}
-        />
+      <Link to={`education/${slug}/`}>
+        <Image featured={props.featured} fluid={heroImage.fluid} backgroundColor={'#eeeeee'} />
+          <TextBlock featured={props.featured} bgImage={imgSrc}>
+          <Date size="18" weight="600">{date} <span> • {author}</span></Date>
+          {props.featured ? (
+            <Title size="100" weight="600">{title}</Title>
+          ) : (
+              <Title size="42" weight="600">{title}</Title>
+          )}
+            {props.featured && (
+              <Button dark to={'education/' + slug}>
+                Read Article
+              </Button>
+            )}
+        </TextBlock>
       </Link>
     </Post>
   )
