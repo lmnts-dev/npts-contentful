@@ -239,7 +239,7 @@ const Modal = styled.div`
   min-width: 75%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 50%);
   margin: 0 auto;
   z-index: 99;
   display: flex;
@@ -443,7 +443,7 @@ class ContactForm extends React.Component {
               Thank you for reaching out. We will get back to you as soon as
               possible.
             </p>
-            <Button dark to="#" onClick={this.closeModal}>
+            <Button dark to="/contact-success" onClick={this.closeModal}>
               Okay
             </Button>
           </Modal>
