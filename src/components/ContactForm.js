@@ -232,31 +232,6 @@ const Submit = styled.input`
   box-shadow: 0 3px 36px rgba(0, 0, 0, 0.16);
 `
 
-const Modal = styled.div`
-  background: white;
-  padding: 2em;
-  position: fixed;
-  min-width: 75%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  margin: 0 auto;
-  z-index: 99;
-  display: flex;
-  flex-flow: column;
-  align-items: flex-start;
-  transition: 0.2s all;
-  opacity: ${props => (props.visible ? '1' : '0')};
-  visibility: ${props => (props.visible ? 'visible' : 'hidden')};
-  @media screen and (min-width: ${props => props.theme.responsive.small}) {
-    min-width: inherit;
-    max-width: 400px;
-  }
-  p {
-    line-height: 1.6;
-    margin: 0 0 2em 0;
-  }
-`
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
@@ -276,8 +251,6 @@ class ContactForm extends React.Component {
     this.state = {
       name: '',
       email: '',
-      message: '',
-      showModal: false,
     }
   }
 
@@ -298,22 +271,14 @@ class ContactForm extends React.Component {
     })
       .then(this.handleSuccess)
       .catch(error => alert(error))
-    event.preventDefault()
   }
 
   handleSuccess = () => {
-    document.body.classList.add('modal-open');
     this.setState({
       name: '',
       email: '',
       message: '',
-      showModal: true,
     })
-  }
-
-  closeModal = () => {
-    document.body.classList.remove('modal-open');
-    this.setState({ showModal: false })
   }
 
   // Render our form
@@ -325,9 +290,8 @@ class ContactForm extends React.Component {
           name="contact"
           onSubmit={this.handleSubmit}
           data-netlify="true"
-          overlay={this.state.showModal}
-          onClick={this.closeModal}
           netlify-honeypot="details"
+          action="/contact-success"
         >
           <TextBlock>
             <HeaderText as="h3" lHeight="2" size="72" color="#FFFFFF">
@@ -438,15 +402,6 @@ class ContactForm extends React.Component {
           <Required>* Required</Required>
           <Submit name="submit" type="submit" value="Send" />
 
-          <Modal visible={this.state.showModal}>
-            <p>
-              Thank you for reaching out. We will get back to you as soon as
-              possible.
-            </p>
-            <Button dark to="/contact-success" onClick={this.closeModal}>
-              Okay
-            </Button>
-          </Modal>
         </Form>
       </>
     )
